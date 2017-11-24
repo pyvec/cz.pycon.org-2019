@@ -1,0 +1,8 @@
+<h1>Next up in {{ slot.get_room_display }}</h1>
+<div class="ann">
+    <div class="ann-content next-up">{{ slot.content_object.title }}</div>
+    <p>
+      {{ slot.content_object.talks.all|join:', ' }}
+      <img class="ann-speaker-photo" src="{{ slot.content_object.speakers.0.photo.url }}" alt="">
+    </p>
+</div>

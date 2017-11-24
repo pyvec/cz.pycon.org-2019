@@ -1,0 +1,36 @@
+{
+  "name": "cz.pycon.org-2017",
+  "version": "0.0.2",
+  "description": "Frontend of PyCon CZ 2017 website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyvec/cz.pycon.org-2017.git"
+  },
+  "author": "Pyvec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pyvec/cz.pycon.org-2017/issues"
+  },
+  "homepage": "https://github.com/pyvec/cz.pycon.org-2017#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.8.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-watch": "^4.3.11",
+    "normalize.css": "^7.0.0",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "voidcss-vertical-rhythm": "^1.2.0"
+  }
+}

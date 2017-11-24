@@ -1,0 +1,17 @@
+<h1>Our {{ sponsors.0.get_level_display }} sponsors</h1>
+<div class="sponsors-yeah">
+{% for sponsor in sponsors %}
+    <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+    <!-- <small>{{ sponsor.name }}</small> -->
+
+
+        <!-- <div class="sponsor sponsor--level-{{ level.grouper|lower }}"> -->
+          <!-- <a class="sponsor__link" href="{{ sponsor.link_url }}">
+            {{ sponsor.link_url }}
+          </a> -->
+
+          <!-- <p class="sponsor__description">
+            {{ sponsor.description }}
+          </p> -->
+{% endfor %}
+</div>

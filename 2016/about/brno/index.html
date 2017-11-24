@@ -1,0 +1,424 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJUAwDVgMMT08IUk9HSFMDDF0WCgIXA1ZLUVxgAw9ICAIVXDdeXUNIUwMW","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":10,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Brno</title>
+  
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+  
+  <link type="text/css" href="../../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+      
+        <i class="fa fa-home"></i>
+      
+    </a>
+
+    
+  </li>
+
+  <li class="nav__item   ">
+    <a href=/2016/ class="nav__item__link ">
+      
+        Event
+      
+    </a>
+
+    
+      <div class="nav">
+        <ul class="nav__items --level-2">
+          
+            <li class="nav__item  ">
+              <a href=/2016/ class="nav__item__link ">
+                About
+              </a>
+            </li>
+          
+            <li class="nav__item  ">
+              <a href="../team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+          
+            <li class="nav__item  ">
+              <a href="../../sponsors/" class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item --selected  ">
+    <a href="./" class="nav__item__link --selected">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item --selected ">
+              <a href="./" class="nav__item__link --selected">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../speakers/schedule/" class="nav__item__link ">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../speakers/schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../speakers/talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../speakers/workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+<div class="code">
+  <div class="container text-block">
+    <h1 id="brno" class="anchor">Brno</h1>
+    <p><strong>Learn more about Brno!</strong> To make your stay as comfortable as possible, we even hired a local journalist and blogger to write a nice, dedicated guide for you:</p>
+    <ul>
+      <li><a href="#guide">A short guide to Brno</a> <small>by Michal Kašpárek</small></li>
+      <li><a href="#map">Map for young travellers</a> <small>by USE-IT</small></li>
+      <li><a href="#how-to-get-to-brno">How to get to Brno?</a></li>
+      <li><a href="#accommodation-tips">Accommodation tips</a></li>
+      <li><a href="#the-czech-republic">The Czech Republic</a></li>
+    </ul>
+    <p>ProTip™: In the early morning of Sunday 30th Oct, <strong>3am will become 2am</strong>! The Czech Republic will transition from <a href="https://en.wikipedia.org/wiki/Central_European_Summer_Time">CEST</a> to <a href="https://en.wikipedia.org/wiki/Central_European_Time">CET</a>.</p>
+
+    <div class="gallery">
+      <p class="figure">
+        <img src="../../static/img/brno_25821436212_da9fbe39a7_k.jpg">
+        <small>Statue of Jošt of Moravia. Photo by <a href="https://flic.kr/p/FkKBo5">Carolien Coenen</a></small>
+      </p>
+      <p class="figure">
+        <img src="../../static/img/brno_25821782382_ea9bae695a_k.jpg">
+        <small>Historical downtown. Photo by <a href="https://flic.kr/p/FkMohw">Carolien Coenen</a></small>
+      </p>
+    </div>
+
+    <h2 id="guide" class="anchor">
+      A short guide to Brno
+      <small>by <a href="http://brnonow.com/">Michal Kašpárek</a>, local journalist and blogger</small>
+    </h2>
+    <p>Listed among the <a href="https://www.theguardian.com/travel/2016/mar/21/10-best-alternative-city-breaks-europe-marseille-dubrovnik-bologna">top 10 of the best alternative city breaks in Europe</a> by The Guardian and <a href="http://www.nytimes.com/interactive/2016/01/07/travel/places-to-visit.html?_r=0">52 Places to Go in 2016</a> by The New York Times, Brno is having its sweet moment right now: offering many great things to see and do, yet still not spoiled by tourism and commerce. You won't regret spending an extra day or two in the city.</p>
+    <p>Since the 1920s, Brno has been internationally recognized for its modernist architecture. In the 2010s, local cafés, restaurants and bars have attracted a country-wide attention and several exceptional works of art have been installed in the streets.</p>
+
+    <h3 id="faq">Frequently asked questions</h3>
+    <p><strong>Is Brno safe?</strong> Just like a city in any other middle-sized central European country. Don't leave your camera or computer on the back seat of a street-parked car and you'll be fine.</p>
+    <p>However, if anything goes wrong, call the emergency number 112.</p>
+    <p><strong>Is Brno friendly?</strong> It is, just remember that many people are not used to speaking foreign languages. Saying "nerozumeem" is the simplest way of telling them you don't understand Czech.</p>
+    <p><strong>How should I move around the town?</strong> Brno has an excellent <a href="http://jizdnirady.idnes.cz/brno/spojeni?lng=e">system of public transport</a>. To travel between <a href="https://www.google.com/maps/place/Fakulta+informa%C4%8Dn%C3%ADch+technologi%C3%AD+VUT+v+Brn%C4%9B,+Bo%C5%BEet%C4%9Bchova+1%2F2,+612+00+Brno-Kr%C3%A1lovo+Pole,+Czech+Republic/">FIT VUT</a> (the venue where PyCon takes place) and the center of the town, tram line #1 is the best option. Fast bus lines #90 and #91 go that way from 10:30 p.m. to 4:30 a.m.</p>
+    <p>One hour tickets can be purchased for CZK 25 in yellow vending machines throughout the town; some of the machines located nearby the train station accept credit cards. The tickets are also available in most newspaper stands. A 24 hour ticket for CZK 90 may be useful, too. Owners of Czech SIM cards may also pay by sending a text message to 90206; its content can be "BRNO20" (20 minutes, CZK 20), "BRNO" (75 minutes, CZK 29) or "BRNOD" (24 hours, CZK 99).</p>
+    <p><a href="http://www.taxi-brno.eu/">Lidotaxi</a> is one — not the only one — of well-established taxi companies: call (+420) 542 214 221. While Uber is not yet available in Brno, <a href="https://www.liftago.com/">Liftago</a> app provides a very similar experience.</p>
+
+    <h3 id="around-venue">Things to do just around the PyCon CZ venue</h3>
+    <p>Although there will be enough food and coffee for every participant, you may fancy a short walk and some quiet time spent alone. PyCon CZ takes place at the <a href="http://www.fit.vutbr.cz/.en">Faculty of Information Technology</a> (<a href="https://www.google.com/maps/place/Fakulta+informa%C4%8Dn%C3%ADch+technologi%C3%AD+VUT+v+Brn%C4%9B,+Bo%C5%BEet%C4%9Bchova+1%2F2,+612+00+Brno-Kr%C3%A1lovo+Pole,+Czech+Republic/">1&nbsp;Božetěchova&nbsp;St</a>) located in a former Carthusian monastery in Královo Pole quarter. Recommendable places within a 10-minute walk are:</p>
+    <ul>
+      <li><p><strong>Slovanské náměstí</strong>: this square is one of the city’s most beautiful parks.</p></li>
+      <li><p>Probably the best meals in the neighborhood are served in <strong>Velorex Restaurant</strong>, a nice new place with a legendary three-wheeled <a href="https://en.wikipedia.org/wiki/Velorex">Velorex car</a> on display. <a href="https://www.google.com/maps/place/Restaurace+Velorex/@49.2318863,16.5881361,17z/">162&nbsp;Palackého&nbsp;St</a>, <a href="http://restauracevelorex.cz">restauracevelorex.cz</a></p></li>
+      <li><p><strong>Pad Thai</strong>: the name says it all. <a href="https://www.google.com/maps/place/Restaurace+Padthai/@49.2272321,16.5912921,17z/">124&nbsp;Palackého st.</a>, <a href="http://padthairestaurace.cz">padthairestaurace.cz</a></p></li>
+      <li><p><strong>Pivní lokál U Bomby</strong> is a small pub serving craft beer from local breweries. <a href="https://www.google.com/maps/place/Pivní+lokál+U+Bomby/@49.22348,16.5910649,17z/">11&nbsp;Husitská&nbsp;St</a></p></li>
+    </ul>
+    <p>In further 10 minutes (or in a 5-minute ride with tram #1 total) you may reach:</p>
+    <ul>
+      <li><p><strong>Golden Nepal</strong>, probably the best Nepali/Indian restaurant in the town. <a href="https://www.google.com/maps/place/Nepálská+restaurace+a+bar+Golden+Nepal/@49.208243,16.600564,17z/">51a&nbsp;Kotlářská&nbsp;St</a></p></li>
+      <li><p>A less known, yet excellent small café <strong>Bílý králík</strong>, roasting their own coffee and making their own caffeine soda. <a href="https://www.google.com/maps/place/Kavárna+Bílý+Králík/@49.2109689,16.6017579,17z/">29&nbsp;Staňkova&nbsp;St</a></p></li>
+    </ul>
+
+    <h3 id="downtown">Some of the best restaurants, cafés and bars in downtown Brno</h3>
+    <ul>
+      <li><p>Located right across the main train station, <strong>Quick</strong> bistro is a revival of the "milk bars" popular in the socialist era. The casual spot offers many Czech classics, such as trippe soup or beef in creamy sauce with dumplings, for very affordable prizes. <br><a href="https://www.google.com/maps/place/Quick+Bistro/@49.1915094,16.6097705,17z/">4&nbsp;Nádražní&nbsp;St</a>, <a href="http://quickbistro.cz">quickbistro.cz</a></p></li>
+      <li><p>Set in a copy of the oldest modernist café in Brno (built in 1926, demolished in 1964, rebuilt in 1994) and led by a young wonder chef Jan Kaplan, <strong>Pavilon</strong> restaurant promises and delivers the most exclusive dining experience in Brno. <br><a href="https://www.google.com/maps/place/Restaurant+Pavillon/@49.1976096,16.6112289,17z/">6&nbsp;Jezuitská&nbsp;St</a>, <a href="http://restaurant-pavillon.cz">restaurant-pavillon.cz</a></p></li>
+      <li><p>Members of large Vietnamese community run several restaurants serving authentic meals in downtown Brno. <strong>Gỗ</strong> is the most beautiful one, designed by architect Martin Hrdina. The meals level up the interior. <br><a href="https://www.google.com/maps/place/Gỗ+Brno+-+Pravá+vietnamská+kuchyně/@49.1958673,16.6068297,17z/">4&nbsp;Běhounská&nbsp;St</a>, <a href="http://brnogo.cz">brnogo.cz</a></p></li>
+      <li><p>Beloved by local coffee afficionados, <strong>SKØG</strong> café serves top quality beverages (including wine and beer) in a loft space at one of the main squares. <br><a href="https://www.google.com/maps/place/SKØG+Urban+Hub/@49.1938205,16.6051148,17z/">5 Dominikánské Náměstí Sq</a>, <a href="http://skog.cz">skog.cz</a></p></li>
+      <li><p><strong>Na stojáka</strong> is probably the most popular pub in the town, although (or maybe because) it has no chairs to sit on. People drink their beers standing both inside the pub and outside it at a lively small square. <br><a href="https://www.google.com/maps/place/Výčep+Na+Stojáka/@49.196804,16.6070249,17z/">16&nbsp;Běhounská&nbsp;St</a>, <a href="http://vycepnastojaka.cz">vycepnastojaka.cz</a></p></li>
+      <li><p><strong>Bar, který neexistuje</strong> ("The Bar that Does not Exist") occupying three floors of a former bank became an overnight hit in 2013 and is still enormously popular. Great atmosphere and drinks. <br><a href="https://www.google.com/maps/place/Bar,+který+neexistuje/@49.195883,16.6075073,17z/">1&nbsp;Dvořákova&nbsp;St</a>, <a href="http://barkteryneexistuje.cz">barkteryneexistuje.cz</a></p></li>
+      <li><p>Secret bar <strong>Super Panda Circus</strong> deserves every award it has received, just like the favorable mention it has got in New York Times. Hidden behind unmarked door, Panda takes people to whole other worlds, where drinks are served in glass slippers and everything seems like a weird, yet highly enjoyble dream. Hosting only small groups and just for two hours maximum. <br><a href="https://www.google.com/maps/place/Super+Panda+Circus/@49.1926809,16.6029667,17z/">3&nbsp;Šilingrovo Náměstí&nbsp;Sq</a>, <a href="http://superpandacircus.cz">superpandacircus.cz</a></p></li>
+    </ul>
+
+    <div class="gallery">
+      <p class="figure">
+        <img src="../../static/img/brno_14834083423_2bc176e489_k.jpg">
+        <small>Lively Bar Na Stojáka. Photo by <a href="https://flic.kr/p/oAQyc2">Dion Hinchcliffe</a></small>
+      </p>
+      <p class="figure">
+        <img src="../../static/img/brno_9596330111_db788bcdc0_k.jpg">
+        <small>Cathedral of St. Peter and Paul. Photo by <a href="https://flic.kr/p/fBZGBr">Daniel Kakiuthi</a></small>
+      </p>
+    </div>
+
+    <h3 id="cool-stuff">Cool stuff to see</h3>
+    <ul>
+      <li><p>Contrary to the more famous astronomical clocks in Prague and Olomouc, <strong>Brno astronomical clock</strong> is a very modern piece of art, completed in 2010. For some, even too modern. Black and bullet-shaped, it is supposed to commemorate the battle of Brno of 1645, in which the local army defeated Swedish forces near the end of the Thirty Years' War. Yet many consider it to be purely just a phallic symbol. Every day at 11 a.m., a ball falls through the sculpture, free to take away for anyone who catches it. A funny thing about the clock is that almost no one, including its authors, is able to read its symbols to tell the time. <a href="https://www.google.com/maps/place/Brněnský+orloj/@49.1947929,16.6064058,17z/">Náměstí Svobody Sq</a></p></li>
+      <li><p>Just when people of Brno got used to the phallic astronomical clock, an equestrian <strong>statue of Jošt of Moravia</strong> (a Margrave of Moravia from 1375 to 1411) was erected nearby. Several days after, someone revealed that if a person stands between the horse’s legs and looks upwards, the horse's head looks just like a fully erected penis. Since that moment, you may have seen whole queues waiting to take that look. The statue soon got listed among the <a href="https://www.theguardian.com/travel/2016/jun/22/10-of-europe-oddest-attractions-and-events">10 of Europe's oddest attractions and events</a> in The Guardian. Its author, Jaroslav Róna, claims that he hadn't intended to create such illusion. <a href="https://www.google.com/maps/place/Statue+of+Margrave+Jobst+of+Luxembourg,+Moravské+nám.,+602+00+Brno-střed,+Czech+Republic/@49.1976357,16.6053569,17z/">Moravské náměstí Sq</a></p></li>
+      <li><p>A <strong>fountain</strong> built in 2014 in front of Janáček's Opera is quite unlike any other fountain, as it displays various messages and ornaments, created just by a play of water and light. The show goes on every evening, unless the weather gets too cold. <a href="https://www.google.com/maps/place/Národní+divadlo+Brno+-+Janáčkovo+divadlo/@49.198229,16.608866,544m/">Between Moravské Náměstí Sq and Koliště&nbsp;St</a></p></li>
+      <li><p>In the 1920s and the 1930s, Brno was an important cultural hub of Czechoslovakia, and one of the world's centers of <strong>modernist – especially functionalist – architecture</strong>. For a great and deep guide to all the important works, check out <a href="http://www.bam.brno.cz/en">Brno Architecture Manual</a>. In the historical center, the most notable constructions are: Avion hotel by Bohuslav Fuschs, one of the narrowest hotels in Europe, just eight meters wide (<a href="https://www.google.com/maps/place/Hotel+Avion/@49.19669,16.6053412,19z/">20&nbsp;Česká&nbsp;St</a>); Moravian bank by Bohuslav Fuchs and Ernst Wiesner (<a href="https://www.google.com/maps/place/Moravska+Banka/@49.1950814,16.6071911,19z/">21&nbsp;Náměstí Svobody&nbsp;Sq</a>); Baťa department store "Centrum" by Vladimír Karfík, originally planned as the tallest skyscraper of Europe (100+&nbsp;meters), but finally only the bottom 6&nbsp;floors were built due to unsuitable subsoil (<a href="https://www.google.com/maps/place/Od+Centrum,+A.+S./@49.1949464,16.6113325,19z/">24&nbsp;Kobližná&nbsp;St</a>).</p></li>
+      <li><p><strong>Villa Tugendhat</strong> got listed as a UNESCO World Heritage Site in 2000. Designed by Mies van der Rohe as a residence of the young family of Fritz and Greta Tugendhat, it was completed in 1930 for a price of 20 or more luxurious villas. A guided tour of the simple modernist interiors is highly recommended, however it has to be booked several weeks in advance, due to the enormous popularity of the sight and its limited capacity. A tour through the gardens is possible without a reservation, however it is somehow pointless as the idea of the villa was to look as modest as possible from the outside while being extra luxurious inside. <a href="https://www.google.com/maps/place/Villa+Tugendhat/@49.2071377,16.6138526,17z/">45&nbsp;Černopolní&nbsp;St</a></p></li>
+      <li><p>Moravian Gallery hosts the <strong>27th International Bienall of Graphic Design</strong> until October 30. If you miss it, the permanent display of applied design is still recommendable. <a href="https://27.bienalebrno.org/en/Visitor-Info">27.bienalebrno.org</a></p></p></li>
+      <li><p>Fait Galery displays a valuable selection of works of <strong>contemporary Czech visual artists</strong> in a beautiful old factory hall near by the city center. <a href="https://www.google.com/maps/place/Fait+Gallery/@49.1872161,16.6140036,17z/">2&nbsp;Ve&nbsp;Vaňkovce&nbsp;St</a></li>
+    </ul>
+
+    <div class="gallery">
+      <p class="figure">
+        <img src="../../static/img/brno_15778378112_a79544ff4d_k.jpg">
+        <small>Fountain in front of Janáček's Opera. Photo by <a href="https://flic.kr/p/q3hj6W">Janovlk</a></small>
+      </p>
+      <p class="figure">
+        <img src="../../static/img/brno_3049514881_73229e4fc5_b.jpg">
+        <small>Villa Tugendhat. Photo by <a href="https://flic.kr/p/5DtywM">Timothy Brown</a></small>
+      </p>
+    </div>
+
+    <h2 id="map" class="anchor">
+      Map for Young Travellers
+      <small>by <a href="https://www.use-it.travel/">USE-IT</a></small>
+    </h2>
+    <p>USE-IT maps are paper tourist guides for young people, from young people. Made by locals, no-nonsense, non-commercial, free, and up-to-date. <strong>USE-IT map of Brno</strong> is very well maintained and PyCon CZ highly recommends you to <a href="https://www.use-it.travel/cities/detail/brno/">get one</a>!</p>
+    <p class="figure">
+      <a href="https://www.use-it.travel/cities/detail/brno/"><img src="../../static/img/use_it_brno.png" alt="USE-IT map Brno"></a>
+    </p>
+    <p>You can get this map for free at <a href="https://www.google.com/maps/d/u/0/viewer?mid=1dffCb4yGqFCNp7u3BMpVlkuYR3k">various places in Brno</a>.</p>
+
+    <h2 id="how-to-get-to-brno" class="anchor">How to get to Brno?</h2>
+
+    <h3>Flight</h3>
+    <p>Unless you're from <strong>London, Munich, or Eindhoven</strong>, do not fly to Brno (BRQ). It's not convenient and usually very expensive. However, if you by any chance end up at this small airport, enjoy its modern architecture and take bus #76 to the city center.</p>
+    <p>Accessing Brno through Vienna or Prague is fast, comfortable and cheap:</p>
+    <ul>
+      <li><strong>Vienna (VIE, Schwechat)</strong> is the best option. Take a <a href="http://www.viennaairport.com/en/passengers/arrival__parking/bus_connections">direct bus from the airport to Brno city center</a>. There are multiple bus companies: <a href="https://bustickets.regiojet.com/">RegioJet</a>, <a href="http://www.le.cz/">LeoExpress</a>, <a href="http://www.tourbus.cz/port/schedule/">Tourbus</a>. Look for connections between "Vienna Schwechat Flughafen (Airport)" and "Brno Hotel Grand". The journey is around 2.5 hrs. If you miss the bus, take a <a href="http://www.viennaairport.com/en/passengers/arrival__parking/city_airport_train_cat">train to Vienna city center</a> (16 mins) and then any <a href="https://www.cd.cz/azak/setlang?lang=en&sourceapp=https%3a%2f%2fwww.cd.cz%2feshop%2fdefault.aspx">direct train to Brno</a> (1.5 hrs).</li>
+
+      <li><strong>Prague (PRG, Vaclav Havel Airport)</strong> is the alternative. You can take a <a href="https://bustickets.regiojet.com/">RegioJet connection from the airport to Brno city center</a>, but it requires you to change buses at Prague bus station (Florenc) with quite a break, which makes the journey around 4 hrs long. Other option would be to take <a href="http://www.cd.cz/en/vnitrostatni-cestovani/specialni-nabidky/airport-express-na-letiste-praha/-8899/">Airport Express bus to Prague railway station</a> (30 mins) and to continue by a <a href="https://www.cd.cz/azak/setlang?lang=en&sourceapp=https%3a%2f%2fwww.cd.cz%2feshop%2fdefault.aspx">wide variety of direct, comfortable trains towards Brno</a> (2.5 hrs).</li>
+    </ul>
+    <p>Small <a href="https://www.bts.aero/en/">Bratislava</a> airport is <a href="https://www.ryanair.com/cz/en/">RyanAir</a> hub, so it might be useful when hunting cheap flight tickets within Europe. There are also tiny international airports in <a href="http://www.airport-ostrava.cz/en">Ostrava</a> (Paris, London) and <a href="http://www.airport-pardubice.cz/en">Pardubice</a> (Saint Petersburg, Moscow). Both have an excellent connection to Brno either via bus or train.</p>
+
+    <h3>Train</h3>
+    <ul>
+      <li>There are <strong>direct trains</strong> to Brno from Hamburg (10 hrs), Berlin (7.5 hrs), Bratislava (1.5 hrs), Budapest (4 hrs), Dresden (5.5 hrs), Prague (2.5 hrs), Vienna (1.5 hrs), and many more. Trains from Warsaw take just one change (Břeclav or Bohumín).</li>
+      <li>There are three main carriers: <a href="https://www.cd.cz/azak/setlang?lang=en&sourceapp=https%3a%2f%2fwww.cd.cz%2feshop%2fdefault.aspx">ČD</a> (national), <a href="https://bustickets.regiojet.com/">RegioJet</a>, and <a href="http://www.le.cz/">LeoExpress</a>. If you struggle to find connection from a more distant place, try the <a href="http://reiseauskunft.bahn.de/bin/query2.exe/en?ld=15049&seqnr=1&ident=jp.02561349.1476542837&rt=1&newrequest=yes&&country=USA">DB search engine</a>.</li>
+      <li>Train station is called "Brno hlavní nádraží" or "Brno hl. n.".</li>
+    </ul>
+
+    <h3>Bus</h3>
+    <ul>
+      <li>There are <strong>direct buses</strong> to Brno from Bratislava (1.5 hrs), Krakow (5 hrs), Prague (2.5 hrs), Vienna (2.5 hrs), Warszaw (10 hrs), and many more.</li>
+      <li>Main carriers: <a href="https://bustickets.regiojet.com/">RegioJet</a>, <a href="http://www.le.cz/">LeoExpress</a>, <a href="http://www.tourbus.cz/port/schedule/">Tourbus</a>, <a href="https://www.elines.cz/en/">EuroLines</a>.</li>
+      <li>Bus stops are either "Brno Hotel Grand" or "Brno Zvonařka".</li>
+    </ul>
+
+    <h3>Car</h3>
+    <ul>
+      <li>Check out <a href="http://www.czechtourism.com/a/transport/">Czech driving regulations</a>.</li>
+      <li>Highway sticker costs 350 CZK (10 days) and can be bought at any gas station.</li>
+      <li>D1 highway segments Prague&ndash;Brno and Brno&ndash;Vyškov are under complete reconstruction. Expect detours and traffic jams. (Bus companies constantly monitor the situation and have strategies to avoid delays.)</li>
+    </ul>
+
+    <p class="figure">
+      <img src="../../static/img/brno_6009296353_6c35a6a3ae_b.jpg">
+      <small>Náměstí Svobody Sq. and its phallic astronomical clock. Photo by <a href="https://flic.kr/p/aa2drP">VnGrijl</a></small>
+    </p>
+
+    <h2 id="accommodation-tips" class="anchor">Accommodation tips</h2>
+    <p><a href="http://www.hotelavanti.cz/en/">Hotel Avanti <sup>****</sup></a> is offering a <strong>discount for all attendees of PyCon CZ 2016</strong>. Just let the receptionist know you attended PyCon CZ 2016 and they'll give you a reduced price offering for your stay. For classic, single room it will be CZK 1300 per night.</p>
+    <p>Otherwise, both <a href="https://www.airbnb.cz/s/Brno--Czech-Republic">Airbnb</a> and <a href="http://www.booking.com/city/cz/brno.html">Booking.com</a> are at your service in Brno. For adventurous minds, there's always also <a href="https://www.couchsurfing.com/places/europe/czech-republic/brno">CouchSurfing</a>. Other options nearby the venue:</p>
+    <ul>
+      <li><a href="http://www.vista-hotel.cz/homepage/">Vista <sup>****</sup></a> &ndash; within walkable distance (15–20 mins) and just two tram stops away from conference venue.</li>
+      <li><a href="http://www.a-sporthotel.cz/en/">A-SPORT <sup>***</sup></a> &ndash; within walkable distance (15–20 mins), not far by public transport from the venue.</li>
+      <li><a href="http://www.hotel-palacky.cz/en/index.aspx">Hotel Palacký <sup>***</sup></a> &ndash; student dormitory in student campus within comfortable public transport reach.</li>
+      <li><a href="http://www.hostelfleda.com/">Hostel Fléda</a> &ndash; in the same building as <a href="http://fleda.cz/">Fléda</a>, the most famous and largest club in Brno, halfway between downtown and the venue.</li>
+    </ul>
+    <p><small>Except for <a href="http://www.hotelavanti.cz/en/">Hotel Avanti <sup>****</sup></a>, PyCon CZ 2016 has no agreements with and is not associated with any of the hotels above. They're sorted by perceived budget requirements and distance from conference venue.</small></p>
+
+    <h2 id="the-czech-republic" class="anchor">The Czech Republic</h2>
+    <p>Never been to the Czech Republic? Here's some <strong>practical info</strong>:</p>
+    <ul>
+      <li>We pay with <strong>CZK</strong> (abbr. Kč, "koruna"). ATMs are omnipresent. There are many money exchange booths in the city center, which offer better deals than banks and no fees. The exchange rate is approx. 1 EUR = 27 CZK. Cards are accepted in chains and larger places, but not so often in smaller shops, coffee places, pubs. It's useful to carry around some cash.</li>
+      <li>We speak Czech and understand Slovak perfectly. <strong>English</strong> should be well understood, especially among younger generations. <strong>German</strong> can work as a fallback, as well as any other Slavic language.</li>
+      <li>Set your time right! In the early morning of Sunday 30th Oct, <strong>3am will become 2am</strong>. The Czech Republic will transition from <a href="https://en.wikipedia.org/wiki/Central_European_Summer_Time">CEST</a> to <a href="https://en.wikipedia.org/wiki/Central_European_Time">CET</a>.</li>
+      <li>While October can also bring sunny days to Brno, it will still be pretty chilly and <a href="https://weatherspark.com/averages/32336/10/Brno-South-Moravia-Czech-Republic">statistics</a> say you shouldn't expect much warmth anyway. Count with just 10 hours of daylight (sunset around 4:30pm) and prepare for <strong>clouds, fresh breeze, and moderate or light rain</strong>. Also, it can be 5°C as well as 15°C.</li>
+      <li>We use 230 V electric plugs, <a href="http://www.power-plugs-sockets.com/czech-republic/">type E power sockets</a>.</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href=/2016/ class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="../../sponsors/offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="./">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="#brno">Hitchhiker's guide</a></li>
+            <li><a href="#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="../../speakers/schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="../../speakers/talks/">Speakers</a></li>
+            <li><a href="../../speakers/workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+
+
+
+{% block meta_title %}PyCon CZ Team{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <h1>PyCon CZ Team</h1>
+
+    <p>
+      PyCon is a community event. There are more than 30 people on our Slack
+      channel and even more volunteers helped us by sending PR on GitHub. If you
+      drew the organization structure of the PyCon CZ team,
+      <strong>you — the attendee</strong> would be at the top. The incredible
+      amount of volunteers would follow. There's little or no difference between
+      organizers and volunteers, because we all do it in our free time without
+      any claim for wage. Below is a list of our core team members.
+    </p>
+
+    <p class="team__claim">We are here for <strong>you</strong></p>
+
+    <p class="team__main_contact">
+      Main contact <a href="mailto:info@pycon.cz" class="team__main_contact__link">info@pycon.cz</a>
+    </p>
+
+    <div class="team__list">
+      {% for organizer in organizers %}
+        <div class="team__person">
+          <img src="{{ organizer.photo.url }}" alt="{{ organizer.full_name }}" class="team__person__photo">
+
+          <h5 class="team__person__name">{{ organizer.full_name }}</h5>
+
+          <ul class="team__person__social_links">
+            {% if organizer.github %}
+              <li>
+                <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i>
+                <a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a>
+              </li>
+            {% endif %}
+
+            {% if organizer.twitter %}
+              <li>
+                <i class="fa fa-fw fa-twitter" aria-hidden="true"></i>
+                <a href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

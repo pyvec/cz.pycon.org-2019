@@ -1,0 +1,45 @@
+$vr-font-size: 16px;
+$vr-line-height: 1.5;
+
+$font-small: 12px;
+$font-normal: $vr-font-size;
+$font-big: 20px;
+
+$main-font: "Roboto", sans-serif;
+$secondary-font: "Roboto Mono", monospace;
+
+$container-lg: 1170px;
+$container-md: 970px;
+$container-sm: 750px;
+$container-xs: auto;
+
+$mobile-break: 768px;
+
+
+/*
+* Colors
+*/
+
+/*
+$color-logo-2016: hsl(232, 100%, 85%);
+$color-logo: hsl(179, 61%, 70%);
+*/
+
+/*
+$color-grid-2016:   hsl(349, 100%, 44%);
+$color-grid: hsl(294, 100%, 40%);
+*/
+
+//$color-main-2016: hsl(239, 36%, 48%);
+$color-main: hsl(180, 80%, 30%);
+//$color-accent-2016: hsl(348, 68%, 52%);
+$color-accent: hsl(290, 60%, 50%);
+
+//$color-light-2016: hsl(238, 88%, 94%);
+$color-light: hsl(180, 88%, 94%);
+
+$color-text-base: #333;
+
+$color-neutral-light: #eee;
+
+$color-muted: #bbb;

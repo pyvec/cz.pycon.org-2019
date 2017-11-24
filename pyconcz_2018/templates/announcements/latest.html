@@ -1,0 +1,9 @@
+{% if item %}
+  <div class="announcement text-block">
+    <span class="announcement__date">{{ item.date_created|date }}</span>
+    <p class="announcement__message">{{ item.message }}</p>
+    {% if item.link %}
+      <a class="announcement__link" href="{{ item.link }}">{{ item.link }}</a>
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,0 +1,133 @@
+{% extends "_base.html" %}
+
+
+{% block content %}
+  <main class="pc_container" role="main">
+
+    <div class="nav nav--programme">
+      {% include '_menu_programme.html' %}
+    </div>
+
+    <h1>Schedule</h1>
+
+    {% comment %}
+    {# Temporary schedule #}
+    <section class="pc_schedule__list pc_schedule__list--temporary">
+      <div class="pc_schedule__day">
+        <h2 class="pc_schedule__date">Thursday,<br> 08 June</h2>
+        <p class="pc_schedule__place">MeetFactory</p>
+        <p class="pc_schedule__item">
+          Registration
+          <span class="pc_schedule__time">9&nbsp;am–10&nbsp;am</span>
+        </p>
+        <p class="pc_schedule__item">
+          Talks
+          <span class="pc_schedule__time">10&nbsp;am–6&nbsp;pm</span>
+        </p>
+      </div>
+
+      <div class="pc_schedule__day">
+
+        <h2 class="pc_schedule__date">Friday,<br> 09 June</h2>
+        <p class="pc_schedule__place">MeetFactory</p>
+        <p class="pc_schedule__item">
+          Registration
+          <span class="pc_schedule__time">9&nbsp;am–10&nbsp;am</span>
+        </p>
+        <p class="pc_schedule__item">
+          Talks
+          <span class="pc_schedule__time">10&nbsp;am–6&nbsp;pm</span>
+        </p>
+        <p class="pc_schedule__item">
+          Afterparty
+          <span class="pc_schedule__time">
+            6&nbsp;pm <strong>till you drop<sup>*</sup></strong>
+            <br><small><sup>*</sup>or&nbsp;3&nbsp;am (whichever comes first)</small>
+          </span>
+        </p>
+      </div>
+
+      <div class="pc_schedule__day">
+        <h2 class="pc_schedule__date">Saturday,<br> 10 June</h2>
+        <p class="pc_schedule__place">
+          <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
+        </p>
+        <p class="pc_schedule__item">
+          Sprints and Workshops
+          <span class="pc_schedule__time">10&nbsp;am–4&nbsp;pm</span>
+        </p>
+      </div>
+    </section>
+    {% endcomment %}
+
+    {# Full schedule #}
+
+    {% regroup slots by date|date:'l, d F' as slots_by_date %}
+
+    <section class="pc_schedule__list">
+
+      {% for day in slots_by_date %}
+        <div class="pc_schedule__day">
+
+          <h2 class="pc_schedule__date">{{ day.grouper }}</h2>
+          <p class="pc_schedule__place">
+            {% if day.grouper == 'Saturday, 10 June' %}
+              Sprints and Workshops<br>
+              <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
+            {% else %}
+              Talks<br>
+              MeetFactory
+            {% endif %}
+          </p>
+
+          {% regroup day.list by date as slots_by_time %}
+
+          {% for slot in slots_by_time %}
+            {% if slot.list.0.description != 'Break' %}
+              <div class="pc_schedule__item {% if slot.list.0.description %}pc_schedule__item--break{% endif %}">
+                <span class="pc_schedule__time">{{ slot.grouper|time }}</span>
+                {{ slot.list.0.description }}
+
+                <div class="pc_schedule__slot">
+                  {% for slot_item in slot.list %}
+                    {% if slot_item.content_type or slot_item.description == 'Sprints' %}
+                      <div class="pc_schedule__room">
+
+                        <p class="pc_schedule__room__id">
+                          {% for key, value in ALL_ROOMS %}
+                            {% if slot_item.room == key %} {{ value }} {% endif %}
+                          {% endfor %}
+                        </p>
+
+                        {% if slot_item.content_type.model == 'talk' %}
+                          <a class="pc_schedule__details" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}#main">
+                            <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
+                          </a>
+                          <span class="pc_schedule__speakers">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
+                        {% elif slot_item.content_type.model == 'workshop' %}
+                          <a class="pc_schedule__details" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}#main">
+                            <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
+                          </a>
+                          <span class="pc_schedule__speakers">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
+                        {% elif slot_item.description == 'Sprints' %}
+                          <span class="pc_schedule__details">
+                            <span class="pc_schedule__title">{{ slot_item.description }}</span>
+                          </span>
+                          <span class="pc_schedule__speakers">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
+                        {% endif %}
+
+                      </div>
+                    {% endif %} {% endfor %}
+                </div>
+
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      {% endfor %}
+
+    </section>
+  </main>
+
+{% endblock %}

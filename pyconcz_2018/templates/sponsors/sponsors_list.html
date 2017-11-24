@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+
+
+
+{% block content %}
+  {% regroup sponsors_list by get_level_display as sponsor_levels %}
+
+  <div class="container">
+    <h1 class="sponsor__text">Sponsors and partners</h1>
+
+    <p class="sponsor__text">
+      Companies listed below supports our effort in organizing PyCon CZ
+      conference and helping us keeping the prices of tickets low as possible.
+    </p>
+
+    <p class="sponsor__text">
+      Do you want to support us too? <a href="mailto:info@pycon.cz">Contact us.</a>
+    </p>
+
+    {% for level in sponsor_levels %}
+      <h2 class="sponsor__level">{{ level.grouper }}</h2>
+
+      {% for sponsor in level.list %}
+        <div class="sponsor sponsor--level-{{ level.grouper|lower }}">
+          <img class="sponsor__logo" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+
+          <h3 class="sponsor__title">{{ sponsor.name }}</h3>
+          <a class="sponsor__link" href="{{ sponsor.link_url }}">
+            {{ sponsor.link_url }}
+          </a>
+
+          <p class="sponsor__description">
+            {{ sponsor.description }}
+          </p>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+{% endblock %}

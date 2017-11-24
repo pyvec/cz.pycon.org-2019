@@ -1,0 +1,529 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJRB8BVwoAG2ZTBwkCSEcWDVYXDBNKT0FRURFHXBFICw0SVhNEZ1gPRxI=","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":30,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PyCon CZ 2016</title>
+  
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+  
+  <link type="text/css" href="../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+      
+        <i class="fa fa-home"></i>
+      
+    </a>
+
+    
+  </li>
+
+  <li class="nav__item --selected  ">
+    <a href="../about/" class="nav__item__link --selected">
+
+        Event
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../about/" class="nav__item__link ">
+                About
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../about/team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+
+            <li class="nav__item --selected ">
+              <a href="./" class="nav__item__link --selected">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../about/code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../about/brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../about/brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../about/brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../about/brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../speakers/schedule/" class="nav__item__link ">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../speakers/schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../speakers/talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../speakers/workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+
+
+  <div class="container">
+    <h1 class="sponsor__text">Sponsors and partners</h1>
+
+    <p class="sponsor__text">
+      Companies listed below supports our effort in organizing PyCon CZ
+      conference and helping us keeping the prices of tickets low as possible.
+    </p>
+
+    <p class="sponsor__text">
+      Do you want to support us too? Checkout our
+      <a href="offer/">sponsorship</a> prospectus.
+    </p>
+
+
+      <h2 class="sponsor__level">Platinum</h2>
+
+
+        <div class="sponsor sponsor--level-platinum">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/Kiwicom.png" alt="Kiwi.com" />
+
+          <h3 class="sponsor__title">Kiwi.com</h3>
+          <a class="sponsor__link" href="https://www.kiwi.com">
+            https://www.kiwi.com
+          </a>
+
+          <p class="sponsor__description">
+            Kiwi.com, formerly known as Skypicker, is an online travel agency with groundbreaking Virtual Interlining technology and a focus on exceptional customer service. Our unique flight search algorithm allows our customers to combine flights from airlines who do not normally collaborate onto a single itinerary, often resulting in significant savings.
+          </p>
+        </div>
+
+
+      <h2 class="sponsor__level">Gold</h2>
+
+
+        <div class="sponsor sponsor--level-gold">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/psf-logo-narrow-256x84-alpha.png" alt="Python Software Foundation (PSF)" />
+
+          <h3 class="sponsor__title">Python Software Foundation (PSF)</h3>
+          <a class="sponsor__link" href="https://www.python.org/psf/membership">
+            https://www.python.org/psf/membership
+          </a>
+
+          <p class="sponsor__description">
+            The mission of the Python Software Foundation is to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. The majority of the PSF&#39;s work is focused on empowering and supporting people within the Python community. The PSF has active grant programs that support sprints, conferences, meetups, user groups, and Python development efforts all over the world. In addition, the PSF underwrites and runs PyCon US, the primary Python community conference. Being part of the PSF means being part of the Python community. Recently we changed the PSF to an open membership organization, so that everyone who uses and supports Python can join. To learn more, visit https://www.python.org/psf/membership.
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-gold">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/logo_redhat_rgb_default.png" alt="Red Hat" />
+
+          <h3 class="sponsor__title">Red Hat</h3>
+          <a class="sponsor__link" href="http://jobs.redhat.com/">
+            http://jobs.redhat.com/
+          </a>
+
+          <p class="sponsor__description">
+            Red Hat is the world&#39;s leading provider of open source, enterprise IT solutions. More than 2 decades ago, Red Hat had a spark of an idea—a vision for developing software differently. We believed that collaboration with an ecosystem of IT leaders, open source advocates, developers, and partners could create a better foundation for the future of IT—Red Hat® Enterprise Linux®. But that was just the beginning. Today, we deliver a comprehensive portfolio of secure products and services using the same open, collaborative business model and an affordable, predictable subscription model.
+
+And Red Hat is HIRING! Visit http://jobs.redhat.com/ for more details.
+          </p>
+        </div>
+
+
+      <h2 class="sponsor__level">Silver</h2>
+
+
+        <div class="sponsor sponsor--level-silver">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/growbots.png" alt="Growbots" />
+
+          <h3 class="sponsor__title">Growbots</h3>
+          <a class="sponsor__link" href="https://www.growbots.com">
+            https://www.growbots.com
+          </a>
+
+          <p class="sponsor__description">
+            Growbots is a San Francisco and Warsaw startup made with enthusiasm. We&#39;re backed by leading investors, including 500 Startups. We believe in our automation and the infinite power of machine learning, which has to change the world of sales, and we are eager to speed this up!
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-silver">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/mergado-white-420-140.png" alt="Mergado" />
+
+          <h3 class="sponsor__title">Mergado</h3>
+          <a class="sponsor__link" href="http://www.mergado.cz/">
+            http://www.mergado.cz/
+          </a>
+
+          <p class="sponsor__description">
+            Pomáhám e-shopům získat více z Heureky, Zboží.cz a dalších vyhledávačů zboží. Denně vylepšuji jejich inzerci tak, abychom navyšovali tržby e-shopu, při rozumných nákladech. Vyzkoušejte si mne. 30 dní vám budu pomáhat zdarma!
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-silver">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/Azure_logo.png" alt="Microsoft" />
+
+          <h3 class="sponsor__title">Microsoft</h3>
+          <a class="sponsor__link" href="http://azure.microsoft.com">
+            http://azure.microsoft.com
+          </a>
+
+          <p class="sponsor__description">
+            Microsoft Azure is a growing collection of integrated cloud services—analytics, computing, database, mobile, networking, storage, and web. Azure supports the broadest selection of operating systems, programming languages, frameworks, tools, databases and devices. Run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java and Node.js; build back-ends for iOS, Android and Windows devices.
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-silver">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/msd_3282.png" alt="MSD IT" />
+
+          <h3 class="sponsor__title">MSD IT</h3>
+          <a class="sponsor__link" href="http://www.msdit.cz">
+            http://www.msdit.cz
+          </a>
+
+          <p class="sponsor__description">
+            We want to redefine healthcare. Our technologists will lead the way.
+
+For 125 years, MSD has been a global health care leader working to help the world be well. MSD is a trade name of Merck &amp;amp; Co., Inc., a global company with headquarters in Kenilworth, N.J., U.S.A. Through our prescription medicines, vaccines, biologic therapies and animal health products, we work with customers and operate in more than 140 countries to deliver innovative health solutions. We also demonstrate our commitment to increasing access to health care through far-reaching policies, programs and partnerships. 
+
+Our IT Hub focuses on developing and applying advanced capabilities in information sciences, information security, mobility, digital marketing and big data. The MSD IT helps determine our direction for the digital health revolution by dealing with the biggest opportunities and challenges at the intersection of healthcare, information and technology.  
+
+We support collaboration and opportunities to learn from others around the world, we challenge ourselves, and we enjoy a meaningful reward that technology careers don’t often bring: the satisfaction of helping save lives. 
+
+For more information, visit www.msdit.cz
+          </p>
+        </div>
+
+
+      <h2 class="sponsor__level">Bronze</h2>
+
+
+        <div class="sponsor sponsor--level-bronze">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/Fedora_vertical.png" alt="Fedora" />
+
+          <h3 class="sponsor__title">Fedora</h3>
+          <a class="sponsor__link" href="https://getfedora.org/">
+            https://getfedora.org/
+          </a>
+
+          <p class="sponsor__description">
+            The Fedora Project is a partnership of Free software community members from around the globe. The Fedora Project builds open source software communities and produces a Linux distribution called &quot;Fedora.&quot;
+
+The Fedora Project&#39;s mission is to lead the advancement of Free and open source software and content as a collaborative community.
+
+We strongly believe in the bedrock principles that created all the components of our operating system, and because of this we guarantee that Fedora will always be Free for everyone, everywhere, to use, modify and distribute.
+
+Fedora is more than just software, though. It is a community of contributors from around the world, including volunteers and Red Hat employees, who work with each other to advance the interests of the free culture movement. Everyone is invited to join and, no matter what your skills are, we have a place for you in our community! The Fedora community includes software engineers, artists, system administrators, web designers, writers, speakers, and translators -- all of whom will be happy to help you get started.
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-bronze">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/logo_Imper.png" alt="Imper" />
+
+          <h3 class="sponsor__title">Imper</h3>
+          <a class="sponsor__link" href="https://imper.cz">
+            https://imper.cz
+          </a>
+
+          <p class="sponsor__description">
+            Imper dodává firemní informace prostřednictvím databáze firem Merk.cz a leadgen aplikace Leady.cz.
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-bronze">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/logo_JetBrains_2.png" alt="JetBrains" />
+
+          <h3 class="sponsor__title">JetBrains</h3>
+          <a class="sponsor__link" href="https://www.jetbrains.com">
+            https://www.jetbrains.com
+          </a>
+
+          <p class="sponsor__description">
+            At JetBrains, code is our passion. For over 15 years we have strived to make the strongest, most effective developer tools on earth. By automating routine checks and corrections, our tools speed up production, freeing developers to grow, discover and create. Our Mission: We make professional software development a more productive and enjoyable experience.
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-bronze">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/SEMTEX_Label_CMYK_HXd9OhK.svg" alt="SEMTEX Energy" />
+
+          <h3 class="sponsor__title">SEMTEX Energy</h3>
+          <a class="sponsor__link" href="http://www.semtex-energy.cz/">
+            http://www.semtex-energy.cz/
+          </a>
+
+          <p class="sponsor__description">
+            Semtex byl uvedený na trh v roce 1995 jako první český energetický nápoj. Obsahuje povzbuzující látky jako je taurin nebo kofein a řadu vitamínů, které vám dodají potřebnou dávku výbušné energie. Základní řada zahrnuje sycenou a nesycenou variantu (ORIGINAL a FORTE). K dostání je ve formátech balení 250ml a 500ml.Vedle toho značka pravidelně přichází s originálními limitovanými edicemi (CACTUS, CHAMPAGNE, GRANÁT…).
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-bronze">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/sli.do_logo_square.jpg" alt="Slido" />
+
+          <h3 class="sponsor__title">Slido</h3>
+          <a class="sponsor__link" href="https://www.sli.do/home">
+            https://www.sli.do/home
+          </a>
+
+          <p class="sponsor__description">
+            Slido is an audience interaction platform for meetings and events. It allows event organizers to crowd-source the best questions for Q&amp;A sessions, get instant feedback via live polls and share presentations with audiences in real-time.
+
+Since its foundation in 2012, Slido has helped to transform over 20.000 events, working with clients such as SXSWedu, LeWeb, BBC, Adobe, Uber or Cisco.
+          </p>
+        </div>
+
+
+      <h2 class="sponsor__level">Diversity</h2>
+
+
+        <div class="sponsor sponsor--level-diversity">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/GitHub_Logo.png" alt="GitHub" />
+
+          <h3 class="sponsor__title">GitHub</h3>
+          <a class="sponsor__link" href="https://github.com">
+            https://github.com
+          </a>
+
+          <p class="sponsor__description">
+            GitHub is a web-based Git repository hosting service. It offers all of the distributed version control and source code management (SCM) functionality of Git as well as adding its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.
+          </p>
+        </div>
+
+
+      <h2 class="sponsor__level">Partners</h2>
+
+
+        <div class="sponsor sponsor--level-partners">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/avanti-4hvězdy.png" alt="Hotel Avanti" />
+
+          <h3 class="sponsor__title">Hotel Avanti</h3>
+          <a class="sponsor__link" href="http://www.hotelavanti.cz/">
+            http://www.hotelavanti.cz/
+          </a>
+
+          <p class="sponsor__description">
+            HOTEL AVANTI OFFERS accommodation close to the centre. Close to the main roads, peaceful surroundings. Perfect for conferences, meetings, presentations or just relaxing and enjoying your stay in Brno!
+
+Hotel Avanti Offers:
+ * Air-conditioned rooms
+ * Daily free entrance to our relax zone
+ * 10% discount at the Avanti restaurant
+ * Monitored car park, free Internet
+ * Various discounts and hotel packages available
+ * Conference rooms
+ * Maximum adaptability to your requirements
+ * Spacious foyer, two restaurants, spa and bowling bar all at your disposal
+ * Presentation technology, accompanying programme and leisure activities provided
+ * Comfort and services
+ * Fully-equipped rooms (TV, Internet, air-conditioning, minibar…) and above-standard suites
+ * Room service, washing and ironing, storage of valuables, organisation of leisure activities
+ * Spa centre and bowling in the hotel itself and other leisure options in the area
+ * Excellent location, accessibility and helpful staff
+          </p>
+        </div>
+
+        <div class="sponsor sponsor--level-partners">
+          <img class="sponsor__logo" src="../media/sponsors/pyconcz_2016/logo_jpeg.jpg" alt="RebelBean" />
+
+          <h3 class="sponsor__title">RebelBean</h3>
+          <a class="sponsor__link" href="http://www.rebelbean.cz">
+            http://www.rebelbean.cz
+          </a>
+
+          <p class="sponsor__description">
+            We live for coffee. We like to do things our way. We don&#39;t follow a crowd. We are Rebels.
+
+Rebelbean is a specialty coffee roastery based in Brno. We do seasonal freshly roasted coffee wich we suply to cafés, restaurants or your home. We also provide coffee lectures and catering. If you like our coffee you can visit our coffee store at Local Barber Shop (Brno, Smetanova 5) or our website (www.rebelbean.cz). Drink great coffee and Be a Rebel! #budrebel #rebelbeancz
+          </p>
+        </div>
+
+
+  </div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href="../about/" class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../about/team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../about/code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="../about/brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="../about/brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="../about/brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="../about/brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="../speakers/schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="../speakers/talks/">Speakers</a></li>
+            <li><a href="../speakers/workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>                                                  

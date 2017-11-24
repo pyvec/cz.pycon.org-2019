@@ -1,0 +1,1998 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJRB8BVwoAG2ZTBwkCSEcWB1kPBhNKT0FRURFHXBFbDAYFTA1S","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":1126,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PyCon CZ 2016</title>
+  
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+  
+  <link type="text/css" href="../../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+      
+        <i class="fa fa-home"></i>
+      
+    </a>
+
+    
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/" class="nav__item__link ">
+
+        Event
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/" class="nav__item__link ">
+                About
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../sponsors/" class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item --selected  ">
+    <a href="./" class="nav__item__link --selected">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item --selected ">
+              <a href="./" class="nav__item__link --selected">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+
+
+  <div class="container timeline">
+
+
+        <h2 class="timeline__day">Friday, 28 October</h2>
+
+
+
+          <div class="timeline__header">
+
+              <h3 class="timeline__time timeline--header">Time</h3>
+
+              <ul class="timeline__tracks timeline--header">
+                <li class="timeline__talk">Room Main (D105)</li>
+                <li class="timeline__talk">Room Right (D0206)</li>
+                <li class="timeline__talk">Room Left (D0207)</li>
+              </ul>
+
+          </div>
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">08:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Registration / Breakfast
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">09:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Welcome to PyCon CZ
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">09:15</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk timeline__talk--keynote">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+                      Keynote:
+                      User-centered software projects
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jacqueline-kazil">Jacqueline Kazil</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">09:55</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">10:05</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Python embedded in your daily life
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#andrej-mosat">Andrej Mosat</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      API first and forgotten
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#szymon-matejczyk">Szymon Matejczyk</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                    Talk canceled
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">10:40</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">10:45</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      MicroPython
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#pavol-rusnak">Pavol Rusnak</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Because Web API Testing Should Be Easy
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#vilibald-wanca">Vilibald Wanča</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                    Talk canceled
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">11:20</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">11:30</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Running Python in production
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#petr-joachim">Petr Joachim</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      C:\keep/calm/and\use\pathlib
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#tomas-bedrich">Tomáš Bedřich</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      If it Moves, Test it Anyway
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#miro-hroncok">Miro Hrončok</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">12:05</h3>
+
+
+
+          <div class="timeline__shared">
+            Lunch
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">13:00</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk timeline__talk--keynote">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+                      Keynote:
+                      She codes - story of accelerated community growth
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#lea-polachek">Lea Polachek</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">13:40</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">13:50</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Porting embedded projects
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#petr-hodina">Petr Hodina</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      GIL: What&#39;s the hassle and why should I care?
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jacek-koodziej">Jacek Kołodziej</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      DOS yourself a.k.a. Load Testing
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#dariusz-aniszewski">Dariusz Aniszewski</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">14:25</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">14:30</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Django app migration to Docker - lessons learnt
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#veros-kaplan">Věroš Kaplan</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Python GUI programming for command-line geeks (and others as well)
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#stanislav-kontar">Stanislav Kontár</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Automated Testing Framework
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#amador-pahim">Amador Pahim</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">15:05</h3>
+
+
+
+          <div class="timeline__shared">
+            Coffee Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">15:35</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      ChatOps, have you ever heard about it?
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#richard-kellner">Richard Kellner</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Similarities and standards between modern web frameworks
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#goga-patarkatsishvili">Goga Patarkatsishvili</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Testing of Web Applications Using Python
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#magdalena-kabatova">Magdalena Kabatova</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">16:10</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">16:20</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Peewee: A Simple Yet Powerful ORM
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#viliam-krizan">Viliam Križan</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Compute and optimize!
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#milon-krejca">Miloň Krejča</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Feed your code to coala
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#robert-kuska">Robert Kuska</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">16:55</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">17:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Lightning Talks
+          </div>
+
+      </div>
+
+
+        <h2 class="timeline__day">Saturday, 29 October</h2>
+
+
+
+          <div class="timeline__header">
+
+              <h3 class="timeline__time timeline--header">Time</h3>
+
+              <ul class="timeline__tracks timeline--header">
+                <li class="timeline__talk">Room Main (D105)</li>
+                <li class="timeline__talk">Room Right (D0206)</li>
+                <li class="timeline__talk">Room Left (D0207)</li>
+              </ul>
+
+          </div>
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">08:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Registration / Breakfast
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">09:00</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk timeline__talk--keynote">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+                      Keynote:
+                      The Great Fork
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#benny-daon">Benny Daon</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">09:40</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">09:50</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      AsyncIO Connections: Coroutines (Streams) vs Callbacks (Protocols)
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jan-skrle">Jan Škrle</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      From (Python) zero to hero: How beginner university students learn programming
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#valdemar-svabensky">Valdemar Švábenský</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Jak začít programovat v Pythonu tvorbou jednoduchých her
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#ingrid-nagyova">Ingrid Nagyová</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">10:25</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">10:35</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Algorithmic trading with asyncio
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#vita-smid">Vita Smid</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      What is the price of open source?
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jachym-cepicky">Jachym Cepicky</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Jak na chov Pythonů, aby nám nevyhynuli
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#veronika-gabrielova">Veronika Gabrielová</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">11:10</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">11:20</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Do You Want to Retry? Handling Network Failures
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#anton-marchukov">Anton Marchukov</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Tom&#39;s super easy way to make basic user interfaces in Python
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#thomas-levine">Thomas Levine</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Doksit - Generování dokumentace z kódu
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#nait-aul">Nait Aul</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">12:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Lunch
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">13:00</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk timeline__talk--keynote">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+                      Keynote:
+                      Humanizing among coders
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#ana-balica">Ana Balica</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">13:40</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">13:50</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      DAGs &amp; Dask: How &amp; When to Accelerate Your Data Analysis
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#katharine-jarmul">Katharine Jarmul</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      How Fedora uses Python data analytics to understand and help the community.
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#bhagyashree-padalkar">Bhagyashree Padalkar</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      TMOU, puzzlehunts &amp; cracking (im)possible problems with Python
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#honza-klusacek">Honza Klusáček</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">14:25</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">14:30</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Python and LHC Computing
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jarka-schovancova">Jarka Schovancova</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Our journey from developers to real software engineers
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jozef-kepesi">Jozef Kepesi</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      PyIoT
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#jan-pospisil">Jan Pospíšil</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">15:05</h3>
+
+
+
+          <div class="timeline__shared">
+            Coffee Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">15:35</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Introduction to Data Wrangling with Python
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#katharine-jarmul">Katharine Jarmul</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      How to build up a Python community and empower women
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#kristi-progri">Kristi Progri</a>
+                           and
+
+                          <a href="../talks/#jona-azizaj">Jona Azizaj</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Instagram and text-based machine learning
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#josef-rousek">Josef Rousek</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">16:10</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+          <h3 class="timeline__time">16:20</h3>
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Main (D105)</span>
+                    <span class="timeline__talk__title">
+
+                      Streamparse - introduction to real-time data processing with Python (and some Java)
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#pavel-grochal">Pavel Grochal</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Right (D0206)</span>
+                    <span class="timeline__talk__title">
+
+                      Agile used to be really cool
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#wojtek-erbetowski">Wojtek Erbetowski</a>
+
+
+                    </span>
+                  </li>
+
+
+
+
+
+                  <li class="timeline__talk ">
+                    <span class="timeline__talk__room">Room Left (D0207)</span>
+                    <span class="timeline__talk__title">
+
+                      Turn off the computer
+                    </span>
+                    <span class="timeline__talk__speaker">
+                      by
+
+                          <a href="../talks/#marek-grac">Marek Grac</a>
+
+
+                    </span>
+                  </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">16:55</h3>
+
+
+
+          <div class="timeline__shared">
+            Break
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">17:00</h3>
+
+
+
+          <div class="timeline__shared">
+            Lightning Talks
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+          <h3 class="timeline__time">17:30</h3>
+
+
+
+          <div class="timeline__shared">
+            CONCLUSION
+          </div>
+
+      </div>
+
+
+        <h2 class="timeline__day">Sunday, 30 October</h2>
+
+
+            <p>
+              Sprints are open whole day along with workshops. All sprints
+              will be announced during Saturday.
+            </p>
+
+
+          <div class="timeline__header">
+
+              <ul class="timeline__tracks timeline--header">
+                <li class="timeline__workshop">Room A112</li>
+                <li class="timeline__workshop">Room A113</li>
+              </ul>
+
+          </div>
+
+
+      <div class="timeline__slot ">
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                    <li class="timeline__workshop">
+                    09:00 - 12:00
+                    <span class="timeline__workshop__room">Room A112</span>
+                    <span class="timeline__workshop__title">Turn On the Lights with MicroPython</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#petr-viktorin">Petr Viktorin</a>
+
+
+                    </span>
+                    </li>
+
+
+
+
+
+                    <li class="timeline__workshop">
+                    09:00 - 12:00
+                    <span class="timeline__workshop__room">Room A113</span>
+                    <span class="timeline__workshop__title">PySpark on Google Cloud Dataproc: MapReduce job in Python on 20 machines in 20 minutes</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#szymon-matejczyk">Szymon Matejczyk</a>
+
+
+                    </span>
+                    </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+
+
+          <div class="timeline__shared">
+            Lunch
+          </div>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                    <li class="timeline__workshop">
+                    13:00 - 15:00
+                    <span class="timeline__workshop__room">Room A112</span>
+                    <span class="timeline__workshop__title">rosalind.info - introduction to bioinformatics for programmers</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#peter-hozak">Peter Hozak</a>
+
+
+                    </span>
+                    </li>
+
+
+
+
+
+                    <li class="timeline__workshop">
+                    13:00 - 14:00
+                    <span class="timeline__workshop__room">Room A113</span>
+                    <span class="timeline__workshop__title">Writing my first Ansible module</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#jan-hutar">Jan Hutař</a>
+
+
+                    </span>
+                    </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+
+
+          <ul class="timeline__tracks">
+
+              <li class="timeline__workshop"></li>
+
+
+
+
+                    <li class="timeline__workshop">
+                    14:00 - 15:00
+                    <span class="timeline__workshop__room">Room A113</span>
+                    <span class="timeline__workshop__title">Type hinting hands-on</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#ilya-etingof">Ilya Etingof</a>
+
+
+                    </span>
+                    </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+
+
+          <ul class="timeline__tracks">
+
+
+
+
+                    <li class="timeline__workshop">
+                    15:00 - 18:00
+                    <span class="timeline__workshop__room">Room A112</span>
+                    <span class="timeline__workshop__title">Geospatial data and GIS with Python</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#jachym-cepicky">Jachym Cepicky</a>
+
+
+                    </span>
+                    </li>
+
+
+
+
+
+                    <li class="timeline__workshop">
+                    15:00 - 16:00
+                    <span class="timeline__workshop__room">Room A113</span>
+                    <span class="timeline__workshop__title">Introduction to game developement with SDL/PySide/OpenGL</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#ladislav-dobrovsky">Ladislav Dobrovsky</a>
+
+
+                    </span>
+                    </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot ">
+
+
+
+          <ul class="timeline__tracks">
+
+              <li class="timeline__workshop"></li>
+
+
+
+
+                    <li class="timeline__workshop">
+                    16:00 - 18:00
+                    <span class="timeline__workshop__room">Room A113</span>
+                    <span class="timeline__workshop__title">New insights into data with Python</span>
+                    <span class="timeline__workshop__speaker">
+                      by
+
+                          <a href="../workshops/#sveta-margetova">Sveťa Margetová</a>
+
+
+                    </span>
+                    </li>
+
+
+
+          </ul>
+
+      </div>
+
+
+
+      <div class="timeline__slot timeline__slot--shared">
+
+
+
+          <div class="timeline__shared">
+            End
+          </div>
+
+      </div>
+
+  </div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href="../../about/" class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../../about/team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="../../sponsors/offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../../about/code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="../../about/brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="../../about/brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="../../about/brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="../../about/brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="./">Schedule</a>
+
+          <ul>
+            <li><a href="../talks/">Speakers</a></li>
+            <li><a href="../workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block meta_title %}PyCon CZ 2017{% endblock %}</title>
+  {% block meta_head %}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PyCon CZ 2017">
+    <meta name="twitter:site" content="@pyconcz">
+    <meta property="og:url" content="https://{{ request.get_host }}{{ request.path }}">
+    {% block meta_social_customizable %}
+      <meta property="og:title" content="PyCon CZ 2017">
+      <meta property="og:description" content="PyCon CZ 2017 aims to be the largest annual gathering for the Python community in the Czech Republic.">
+      <meta property="og:image" content="https://{{ request.get_host }}{% static "img/social-media-image.png" %}">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:image:alt" content="PyCon CZ">
+    {% endblock %}
+  {% endblock %}
+
+  <link type="text/css" href="{% static "css/pyconcz.css" %}" rel="stylesheet" />
+
+  {# favicons #}
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicon/apple-touch-icon.png" %}">
+  <link rel="icon" type="image/png" href="{% static "img/favicon/favicon-32x32.png" %}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{% static "img/favicon/favicon-16x16.png" %}" sizes="16x16">
+  <link rel="manifest" href="{% static "img/favicon/manifest.json" %}">
+  <link rel="mask-icon" href="{% static "img/favicon/safari-pinned-tab.svg" %}" color="#82e1e0">
+  <link rel="shortcut icon" href="{% static "img/favicon/favicon.ico" %}">
+  <meta name="msapplication-config" content="{% static "img/favicon/browserconfig.xml" %}">
+  <meta name="theme-color" content="#ffffff">
+  {# endfavicons #}
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+
+  <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function() {
+
+	urls = [
+	'{% url 'intermission:annoucements' %}',
+  '{% url 'intermission:workshop_sinners' %}',
+
+	'{% url 'intermission:up_next' track=1 %}',
+	'{% url 'intermission:up_next' track=2 %}',
+
+  '{% url 'intermission:workshop_sinners' %}',
+
+	'{% url 'intermission:sponsors' level=1 %}',
+	'{% url 'intermission:sponsors' level=2 %}',
+	'{% url 'intermission:sponsors' level=3 %}',
+
+	'{% url 'intermission:annoucements' %}',
+  '{% url 'intermission:workshop_sinners' %}',
+
+	'{% url 'intermission:up_next' track=1 %}',
+	'{% url 'intermission:up_next' track=2 %}',
+
+  '{% url 'intermission:workshop_sinners' %}',
+
+	'{% url 'intermission:sponsors' level=4 %}',
+	'{% url 'intermission:sponsors' level=5 %}',
+	'{% url 'intermission:sponsors' level=6 %}',
+	'{% url 'intermission:sponsors' level=7 %}',
+	];
+
+	function cycle(delay, f, xs) {
+	    var run = function(i) {
+            setTimeout(function() {
+                f(xs[i])
+                i += 1
+                if (i >= xs.length) { i = 0 }
+         run(i)
+        }, delay)
+	}
+
+	f(xs[0])
+	run(1)
+	}
+
+	function fetch_content(url) {
+	    $.get(url, function(data) {
+	        $("#content").html(data)});
+	}
+
+	cycle(5000, fetch_content, urls);
+});
+
+</script>
+<style>
+  body { text-align: center; }
+
+  .ann { margin: 30px 0; }
+
+  .ann-content { font-size: 30px; }
+
+  .next-up { color: #b333cc; font-weight: bolder; }
+
+  .ann small { font-size: 12px; }
+
+  .ann-speaker-photo {
+    display: block;
+    max-height: 30vh;
+    margin: 1em auto 0;
+    border-radius: 50%;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+  }
+
+  .sponsors-yeah { display: flex; justify-content: center; flex-wrap: wrap; }
+
+  .sponsors-yeah img { width: 25%; margin: 20px; }
+
+  /*.sponsors-yeah img { display: block; width: 300px; float: left; margin: 10px; }*/
+  /*.sponsor-yeah small { display: block; margin: 0 auto; }*/
+
+  .sinners {
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+
+  .sinners span {
+    display: block;
+    margin: 0.5em 1em;
+    color: #0f8a8a;
+    font-size: 150%;
+    font-weight: bolder;
+  }
+</style>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script async defer src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+</body>
+</html>

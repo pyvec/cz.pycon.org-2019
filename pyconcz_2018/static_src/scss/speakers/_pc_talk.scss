@@ -1,0 +1,136 @@
+.pc_talk {
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 30em) { max-width: 30em; }
+
+  @media screen and (min-width: 48em) {
+    max-width: 48em;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__title {
+    margin: 0.2em 0 0;
+    line-height: 1.4;
+    font-size: 1.6rem;
+
+    span {
+      font-weight: normal;
+      font-size: 1rem;
+    }
+
+    & + & { margin-top: -0.4em; }
+
+    a {
+      text-decoration: underline;
+      font-size: 1.2rem;
+      display: block;
+      padding-top: 0.2em;
+      padding-bottom: 1em;
+    }
+
+  }
+
+  & .pc_talk__title {
+    text-align: left;
+  }
+
+  &__info {
+    margin-bottom: 2em;
+    flex: 0 1 60%;
+  }
+
+  .pc_talk__speakers {
+    flex: 0 1 40%;
+
+    @media screen and (min-width: 48em) {
+      background-color: $color-neutral-light;
+      padding-top: 1.5em;
+      margin-left: 2em;
+    }
+  }
+
+  .pc_speaker__photo {
+    @media screen and (min-width: 48em) {
+      width: 90%;
+      padding-bottom: 90%;
+    }
+  }
+
+  &__difficulty {
+    margin: 3em 0 3em;
+    line-height: 1.3;
+
+    @media screen and (min-width: 48em) {
+      margin-bottom: 0;
+    }
+
+    strong { display: block; }
+  }
+
+  &__description {
+    padding-top: 1em;
+
+    h1,
+    h2,
+    h3 {
+      text-align: left;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    ol,
+    ul { padding-left: 1.5em; }
+
+    ol,
+    ul,
+    p { margin: 0 0 1em; }
+
+    img { max-width: 100%; }
+
+    a { text-decoration: underline; }
+  }
+
+  &__video {
+    position: relative;
+    height: 0;
+    padding-bottom: (9/16*100%);
+    margin-top: 1.5em;
+
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+
+.pc_more {
+  &__heading,
+  &__title {
+    margin: 0;
+    text-align: left;
+    font-size: 1.3rem;
+  }
+
+  &__heading {
+    margin-top: 3em;
+  }
+
+  &__title {
+    line-height: 1.3;
+    margin-top: 0.5em;
+
+    a { text-decoration: underline; }
+  }
+}
+
+.pc_nav {
+  text-align: center;
+  font-size: 1.3rem;
+
+  a { text-decoration: underline; }
+}

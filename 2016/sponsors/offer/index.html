@@ -1,0 +1,489 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJUAwDVgMMT08IUk9HSFMDDF0WCgIXA1ZLUVxgAw9ICAIVXDdeXUNIUwMW","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":10,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sponsorship</title>
+
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+
+  <link type="text/css" href="../../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+
+        <i class="fa fa-home"></i>
+
+    </a>
+
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/" class="nav__item__link ">
+
+        Event
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/" class="nav__item__link ">
+                About
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href=/2016/ class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../speakers/schedule/" class="nav__item__link ">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../speakers/schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../speakers/talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../speakers/workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+<div class="sponsors-offer">
+  <div class="container text-block">
+    <h1 id="sponsors-prospectus">Sponsors Prospectus</h1>
+
+    <a href="https://github.com/pyvec/cz.pycon.org-2016/files/438766/PyConCZ-PartnerPackagesOverview.2.pdf">Download sponsorship prospectus (PDF)</a>
+
+    <p>
+	The PyCon CZ 2016 Community Organizing Committee is pleased to invite
+	your sponsorship and support of the second annual, 3 day PyCon event
+	in Brno, Czech Republic on October 28–30th, 2016. Sponsorship and
+	recruitment booths present opportunities to connect directly with the
+	attending talents!
+    </p>
+
+    <h2 id="the-short-version">What is PyCon CZ?</h2>
+    <p>
+    	This year we expect to host 300+ attendees across 3 days of presentations
+	in 3 tracks, lightning talk sessions, sprints, workshops and many amazing
+	keynote speakers and event sponsors!
+    </p>
+
+    <p>
+    To get a better idea of last year's event, check out our
+    <a href="https://www.youtube.com/watch?v=venjk_cL-Gk">short promotional video</a>
+    and watch our keynotes from
+    <a href="https://www.superlectures.com/pycon2015/the-secret-sauce-behind-open-source">Django core developer Russell-Keith Magee</a>
+    and
+    <a href="https://www.superlectures.com/pycon2015/the-future-of-twisted">Twisted core developer Amber Brown</a>.
+    </p>
+
+    <h2 id="the-short-version">Basic Information About PyCon CZ</h2>
+    <p>
+    PyCon CZ is the Czech Republic edition of the well known and valued PyCon
+    conference devoted to the Python language. It is organized by a handful of
+    passionate members of Czech Python community, with cooperation of the <a href="http://pyvec.org/">Pyvec</a>,
+    a local non-profit organization that focuses on supporting the Python Community
+    in Czech Republic.
+    </p>
+
+    <h2 id="the-short-version">Time and Venue</h2>
+    <p>
+    PyCon CZ 2016 will be held from 28th to 30th of October in Brno, Czech
+    Republic (~1h drive from Prague; ~2h drive from Vienna or Bratislava;
+    ~3h drive from Budapest; ~6h drive from Berlin or Warsaw) at
+    <a href="http://www.fit.vutbr.cz/">Fakulta Informačních Technologií VUT v Brně (FIT)</a>
+    (<a href="https://www.google.cz/maps/place/Fakulta+informa%C4%8Dn%C3%ADch+technologi%C3%AD+VUT+v+Brn%C4%9B/@49.226616,16.59664,15z">map</a>).
+
+    The primary track will be English only and presented in the largest lecture hall
+    in section D of FIT, suitable for an audience size up to 300. The second track
+    will be presented in the second largest lecture hall in section D, with room
+    for up to 150. The third track, which depends on the number of Czech language
+    submissions to the CfP, might be dedicated to Czech language presentation and
+    has room for up to 100.
+    </p>
+
+    <h2 id="the-short-version">Objective and Mission</h2>
+    <p>
+    The objective of the conference is to raise participants' qualifications,
+    and overall integration of the Python Programmers' Community in Czech Republic
+    and surrounding area, popularisation of new applications of the language as
+    well as to spread good programming practices and exchange of experiences
+    between professionals, novices, students and hobbyist Python programmers.
+    PyCon CZ events are also fantastic networking opportunities and a great
+    place to find interesting Python jobs or community projects to work on.
+    </p>
+
+    <h2 id="the-short-version">Target Audience</h2>
+    <p>
+    The conference is addressed to all Python programmers, experienced and novices
+    alike. Presentations will cover a wide range of topics relevant to students,
+    professionals, and hobbyists. Women who are interested to learn more about
+    Python can also participate in DjangoGirls. Altogether, we are expecting more than
+    400 participants this year. The majority are likely to be Czech locals. With Brno and Czech
+    Republic so centrally located in EU though, and the fact that the Czech organizer
+    team is so diverse and well connected, you can expect many visitors from Slovakia,
+    Austria, Poland, Germany, Hungary, UK and more as well.
+    </p>
+
+
+    <h1 id="sponsors-prospectus">Sponsorship Options</h1>
+    <h3 id="platinum-sponsor">PLATINUM Sponsor</h3>
+    <ul>
+    <li><strong>Exclusive</strong> right to PyCon CZ 2016 PLATINUM Sponsor Title</li>
+    <li>Sponsor booth in the Sponsors' booth area</li>
+    <li>Right to place ONE Sponsor roll­up screen at the conference venue</li>
+    <li>Right to place ONE Sponsor roll­up screen at the workshop venue</li>
+    <li>Top placement of Sponsor logo on <a href=/2016/>cz.pycon.org</a></li>
+    <li>Top placement of Sponsor logo on all recorded sessions at playback</li>
+    <li>ONE relevant, full-length technical or community oriented presentation slot of Sponsor's choice</li>
+    <li>ONE Lightning Talk slot on topics of Sponsor's choice (recruiting/product marketing: OK)</li>
+    <li>Option to include up to TWO item(s) in attendee welcome bags (e.g., advertising leaflets, vouchers)
+    <li>Option to include up to ONE Sponsor slides between presentations</li>
+    <li>ONE public post about Sponsorship in all official PyCon CZ social media channels</li>
+    <li>THREE "Promotion" (i.e., job opportunities or event details) posts to all official PyCon CZ social media channels</li>
+    <li>TWO "Promotion" (i.e., job opportunities or event details) posts directly
+            to all registered ticket holders; one per day</li>
+    <li><strong>FIVE free conference tickets</strong></li>
+    <li><strong><i>Net price: 4 000 EUR</i></strong></li>
+    </ul>
+
+    <h3 id="gold-sponsor">GOLD Sponsor</h3>
+    <ul>
+    <li>Sponsor booth in the Sponsors' booth area</li>
+    <li>Right to place ONE Sponsor roll­up screen at the conference venue</li>
+    <li>Right to place ONE Sponsor roll­up screen at the workshop venue</li>
+    <li>Middle placement of Sponsor logo on <a href=/2016/>cz.pycon.org</a></li>
+    <li>Middle placement of Sponsor logo on all recorded sessions at playback</li>
+    <li>ONE Lightning Talk slots on topics of Sponsor's choice (recruiting/product marketing: OK)</li>
+    <li>Option to include TWO items in attendee welcome bags (e.g., advertising leaflets, vouchers)
+    <li>Option to include up to ONE Sponsor slides between presentations</li>
+    <li>ONE public post about Sponsorship in all official PyCon CZ social media channels</li>
+    <li>TWO "Promotion" (i.e., job opportunities or event details) posts to all
+            all official PyCon CZ social media channels</li>
+    <li>ONE "Promotion" (i.e., job opportunities or event details) post directly
+            to all registered ticket holders; one per day</li>
+    <li><strong>FOUR free conference tickets</strong></li>
+    <li><strong><i>Net price: 3 000 EUR</i></strong></li>
+    </ul>
+
+    <h3 id="silver-sponsor">SILVER Sponsor</h3>
+    <ul>
+    <li>Sponsor booth in the Sponsors' booth area</li>
+    <li>Right to place ONE Sponsor roll­up screen at the conference venue</li>
+    <li>Bottom placement of Sponsor logo on <a href=/2016/>cz.pycon.org</a></li>
+    <li>Option to include ONE item in attendee welcome bags (e.g., advertising leaflets, vouchers)
+    <li>Option to include up to ONE Sponsor slides between presentations</li>
+    <li>ONE public post about Sponsorship in all official PyCon CZ social media channels</li>
+    <li><strong>THREE free conference tickets</strong></li>
+    <li><strong><i>Net price: 1 500 EUR</i></strong></li>
+    </ul>
+
+    <h3 id="bronze-sponsor">BRONZE Sponsor</h3>
+    <ul>
+    <li>Sponsor name and link listed on <a href=/2016/>cz.pycon.org</a></li>
+    <li>Option to include ONE item in attendee welcome bags (e.g., advertising leaflets, vouchers)
+    <li>ONE public post about Sponsorship in all official PyCon CZ social media channels</li>
+    <li><strong>TWO free conference tickets</strong></li>
+    <li><strong><i>Net price: 500 EUR</i></strong></li>
+    </ul>
+
+    <h3 id="djangogirls-sponsor">DjangoGirls Sponsor</h3>
+    <ul>
+    <li><strong>Exclusive</strong> right to PyCon CZ 2016 DjangoGirls Sponsor Title</li>
+    <li>Otherwise, equivalent to <a href="#gold-sponsor">GOLD Sponsor</a></li>
+    <li><strong>FOUR free conference tickets</strong></li>
+    <li><strong><i>Net price: 3 000 EUR</i></strong></li>
+    </ul>
+
+    <h3 id="coffee-sponsor">Coffee Sponsor (1 day)</h3>
+    <ul>
+    <li><strong>Exclusive</strong> right to brand coffee cups (e.g., stickers or stamps)</li>
+    <li>Otherwise, equivalent to <a href="#bronze-sponsor">BRONZE Sponsor</a></li>
+    <li><strong>TWO free conference tickets</strong></li>
+    <li><strong><i>Conference Day 1: 1 000 EUR</i></strong></li>
+    <li><strong><i>Conference Day 2: 1 000 EUR</i></strong></li>
+    <li><strong><i>Workshop Day 1: 600 EUR</i></strong></li>
+    </ul>
+
+    <p> Other sponsorship opportunities exist as well, such as the priviledge and exclusive right to:</p>
+    <ul>
+	    <li>provide branded lanyards to all attendees </li>
+	    <li>host and welcome speakers at the pre-conf Pyvec PyCon CZ Preview event </li>
+	    <li>sponsor and name Track rooms and Cloakroom</li>
+	    <li>host or contribute prizes for quiz or other interactive hiring or marketing
+	        oriented competitions and games</li>
+    </ul>
+
+    <h2 id="the-short-version">How to Apply</h2>
+    <p>
+    <strong>
+	Reach out to <a href="mailto:info@pycon.cz">info@pycon.cz</a> when you're ready to discuss
+	your options to sponsor the incredible PyCon CZ event in more detail!
+    </strong>
+    </p>
+
+    <h2 id="the-short-version">Terms and Conditions</h2>
+    <p>
+    Sponsorship application is handled on a "ﬁrst-come, ﬁrst-served" basis.
+    </p>
+    <p>
+    Sponsors should be committed to the use of the Python language and supportive of Python CZ's mission
+    to honor and support awesome people teaching, learning and innovating with Python.
+    </p>
+
+    <p>
+    The organisation of PyCon CZ 2016 is being carried out by Pyvec and volunteering members of the Python
+    CZ community. All contracts and ﬁnancial matters are handled by Pyvec.
+    </p>
+
+    <p>
+    Pyvec and the PyCon CZ Committee retain the right to reject any sponsor that they deem to be inappropriate.
+    </p>
+
+    <p>
+    After written acceptance by the PyCon CZ Committee, the sponsor should provide the sponsorship funds,
+    logo image in an appropriate format, and other details required within three weeks of receipt of the
+    acceptance, and in any case one week before the start of the Conference.
+    </p>
+
+    <p>
+    <strong>Sponsorship pledges cannot be processed without payment.</strong> All pledges must be made in
+    Czech Koruna or Euros by electronic transfer. Bank details for electronic transfer will be sent on request.
+    </p>
+
+    <p>
+    Sponsors may not sublet, assign or apportion any part of the item(s) sponsored nor represent, advertise
+    or distribute literature or materials for the products or services of any other ﬁrm or organisation.
+    </p>
+
+    <p>
+    Pyvec and the PyCon CZ Committee will not be liable for damage or loss to sponsors' properties by ﬁre,
+    theft, accident or any other cause whether the result of negligence or otherwise or case of force majeure.
+    </p>
+
+    <p>
+    For sponsorship packages that include the use of signage, please note that signage space may be limited.
+    The conference organisers will inform each sponsor about the maximum size and number of signs that they
+    can use. Banners must be self-supporting.
+    </p>
+
+    <h3 id="the-short-version">Refund Policy</h3>
+    <ul>
+    <li>50% Refund up to 30 days before the conference.</li>
+    <li>No Refunds within 15 days before the conference.</li>
+    </ul>
+
+    <p>
+    <strong>Sorry, full refunds are NOT possible! Thanks for your understanding.</strong>
+    </p>
+
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href="../../about/" class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../../about/team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="./">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../../about/code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="../../about/brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="../../about/brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="../../about/brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="../../about/brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="../../speakers/schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="../../speakers/talks/">Speakers</a></li>
+            <li><a href="../../speakers/workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

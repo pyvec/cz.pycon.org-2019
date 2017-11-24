@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+
+
+
+{% block meta_title %}Call for Papers{% endblock %}
+
+
+{% block content %}
+  <div class="container text-block">
+    <div class="form form--cfp">
+      <h1>{{ proposal_config.cfp_title|default:"Call for Papers" }}</h1>
+      <form action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+        {% for field in form.visible_fields %}
+          <div class="form__row">
+            <div class="form__label">{{ field.label_tag }}</div>
+            <div class="form__widget">{{ field }}</div>
+            {% if field.errors %}
+              <div class="form__errors">{{ field.errors }}</div>
+            {% endif %}
+            {% if field.help_text %}
+              <div class="form__help">{{ field.help_text|safe|linebreaksbr }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <div class="form__actions">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

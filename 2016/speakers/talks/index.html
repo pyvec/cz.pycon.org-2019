@@ -1,0 +1,2367 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJRB8BVwoAG2ZTBwkCSEcWB1kPBhNKT0FRURFHXBFIAQIKXBNEZ1gPRxI=","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":84,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PyCon CZ Speakers</title>
+  
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+  
+  <link type="text/css" href="../../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+      
+        <i class="fa fa-home"></i>
+      
+    </a>
+
+    
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/" class="nav__item__link ">
+
+        Event
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/" class="nav__item__link ">
+                About
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../sponsors/" class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../about/brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../about/brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../about/brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item --selected  ">
+    <a href="../schedule/" class="nav__item__link --selected">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item --selected ">
+              <a href="./" class="nav__item__link --selected">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <h1>Speakers</h1>
+
+    <ul class="speaker-dir__index">
+      <li class="speaker-dir__index__item">Index by first name</li>
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#A">A</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#B">B</a>
+            </li>
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#D">D</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#G">G</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#H">H</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#I">I</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#J">J</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#K">K</a>
+            </li>
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#L">L</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#M">M</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#N">N</a>
+            </li>
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#P">P</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#R">R</a>
+            </li>
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#S">S</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#T">T</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#V">V</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="speaker-dir__index__item">
+              <a href="#W">W</a>
+            </li>
+
+
+
+    </ul>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="A">
+            <a href="#amador-pahim"
+               name="amador-pahim"
+               class="speaker__name__link">
+              Amador Pahim
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/4717757.jpg" alt="Amador Pahim" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/apahim">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> apahim
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Software Engineer in Virtualization Team at Red Hat, working in Avocado Project to design and implement new features, integrate multiple automation tools in a Continuous Integration (CI) system for KVM and assist the Quality Assurance team in developing complex tests involving virtualization technologies.</p>
+
+
+    <span class="talk-title">
+      Automated Testing Framework
+    </span>
+    <p class="talk-description">Avocado is a next generation testing framework inspired by Autotest and modern development tools such as git. One can call it a test framework with benefits. Native tests are written in Python and they follow the unit test pattern, but any executable can serve as a test.<br />In this presentation we will cover the Avocado architecture, main features, demonstrations and we will also compare Avocado with some known test runners.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#ana-balica"
+               name="ana-balica"
+               class="speaker__name__link">
+              Ana Balica
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/keynoter02.jpg" alt="Ana Balica" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/anabalica">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> anabalica
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Software developer, working at Potato, Ana spends most of her days writing Django powered web apps at Potato London. She really enjoys poking into legacy code and perpetually strives for clean code designs. She’s learned many valuable things both as a mentee and a mentor in programs like Google Summer of Code, Learn IT Girl!, Django Girls, Rails Girls. And she likes Python, books and cats and is known to occasionally give talks.</p>
+
+
+    <span class="talk-title">
+      Humanizing among coders
+    </span>
+    <p class="talk-description">What makes a good developer? Certainly technical expertise, insightfulness, creativity, thoughtfulness. What about daily social interactions with other developers inside the company and community? Those are never easy. Even though we all try to be nice to each other, sometimes unintentionally we can be a bit off. I&#39;d like to share with you some stories that helped me rationalize some of my own communication and human interaction mistakes and how I&#39;m trying to correct them.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#andrej-mosat"
+               name="andrej-mosat"
+               class="speaker__name__link">
+              Andrej Mosat
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/avatar_andrej.png" alt="Andrej Mosat" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/@amosat">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @amosat
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Andrej is searching for the ultimate tricorder, a device which can see and tell your health, discover dangers in your environment and enhance your senses to cyborg levels. His first professional project was to build a chromatographic column to extract elements from human blood plasma. He created the first open source spectrometer, which was then distributed to all corners of Earth and above, launching from ISS station onboard two microsatellites. Andrej advocates micropython, Python for small microcontrollers which allows for prototyping of electronic devices at unprecedented speeds. His dream is to create the tricorder for the first man on Mars.</p>
+
+
+    <span class="talk-title">
+      Python embedded in your daily life
+    </span>
+    <p class="talk-description">Have you always wondered where the batteries from Python: batteries included are? Despair no more! We come with battery-powered Python devices for your daily life.<br />We will focus on showcasing and live demonstration of Python running on very small microprocessors. <br />First, an overview of existing platforms which can run Python on batteries. Then we will showcase in a live demo what Python can do for you. Finally a “how to” workflow for successful Python coding on low power ARM Cortex microprocessors will be revealed to get you started.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#anton-marchukov"
+               name="anton-marchukov"
+               class="speaker__name__link">
+              Anton Marchukov
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/d47753f1744960fce32fe80f15d360ee.jpeg" alt="Anton Marchukov" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I am a Software Engineer at Red Hat, part of RHV DevOps and oVirt Community Infra teams. We are in charge of running the CI and build operations and most of related infrastructure for the projects. We write a lot of automation and Python is our primary language.<br /><br />Previously I enjoyed more than 10 years of IT experience ranging from System Administration and up to Engineering Management. I really enjoy combining all this knowledge together and thus I have become a strong DevOps advocate.</p>
+
+
+    <span class="talk-title">
+      Do You Want to Retry? Handling Network Failures
+    </span>
+    <p class="talk-description">The world is not perfect and network failures do happen. Complaining about instability might not always be enough. Especially when your system depends on multiple networked services and each of them is on a critical path to the final result.<br /><br />In this talk we will recall why network failures happen. Reason what we can and cannot handle in the code. And see what Python standard libraries and a few popular ones such as urllib3 and requests can offer. <br /><br />And that&#39;s not all. Network Emulation (netem) module of Linux Traffic Control (tc) can even help with poor network simulation.<br /><br />Now there is no excuse.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="B">
+            <a href="#benny-daon"
+               name="benny-daon"
+               class="speaker__name__link">
+              Benny Daon
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/keynoter01.jpg" alt="Benny Daon" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/daonb">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> daonb
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Benny Daon has been coding for 33 years now, starting at his Bar-Mitzvah with an 8-bit Atari. After a successful gig as co-founder and CEO of Shunra Software (here&#39;s the 1998 web page of our first product The Cloud), he’s spent most of the last 8 years coding for sites using Python, Django and Flask. and weaving a network of developers. He’s one of the founders of PyWeb-IL from which the Open Knesset project grew, later giving birth to its mother org - The Public Knowledge Workshop. In the last year Benny has been freelancing for the Museum of the Jewish People in Tel Aviv, bringing their datasets to the web i.e. here&#39;s what they have on Brno.</p>
+
+
+    <span class="talk-title">
+      The Great Fork
+    </span>
+    <p class="talk-description">Python is more than a language, it&#39;s also a knowledge base of PEPs and meta-PEPs driving Python&#39;s growth. Join me as I dive into PEP purpose and guidelines, explore notable proposals and try to make sense of it all.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#bhagyashree-padalkar"
+               name="bhagyashree-padalkar"
+               class="speaker__name__link">
+              Bhagyashree Padalkar
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/photo532582336071755089.jpg" alt="Bhagyashree Padalkar" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/BeePadalkar">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> BeePadalkar
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Bhagyashree (or Bee) is a recent graduate of the Indian Institute of Technology, Guwahati, India.She currently works as a researcher in decision making at Max Planck Institute, Berlin. Her primary research interests lie in understanding human behaviour in information-rich online social environments. Her research draws heavily from Machine Learning and Natural Language Processing techniques.<br /><br />At Fedora, she works closely with the Community Operations team mostly contributing on metrics-related tasks. She is also a Google Summer of Code 2016 Mentor for Fedora, actively involved with the Fedora Women and Diversity Team. <br /><br />Since she started taking baby steps towards analyzing data, Python has been a constant in her life. It has been a 3-year-long journey with loads of number crunching, machine learning, interesting insights and sometimes even all-night hackathons.</p>
+
+
+    <span class="talk-title">
+      How Fedora uses Python data analytics to understand and help the community.
+    </span>
+    <p class="talk-description">I have been involved with Fedora Community Operations Team from its conception one year ago. Amongst other things we at CommOps are trying to build tools to understand the community and make it more contributor-friendly. While newcomer onboarding is important for any FOSS community, retaining them is critical. We have been working on improving the contributor retention rates in Fedora Community for a while now. In this direction, we have built some Python-based scripts to understand the activity of Fedora contributors and their life cycles. We have also tried to analyze contribution activity of some successful contributors and find common patterns in their behavior and have tried to measure the impact of attending FOSS events on the activity of a contributor and on the Fedora community as a whole. All this work has been done using Python and during this talk, I want to share details about the tools we have built, how we built them and the insights we have generated from them.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="D">
+            <a href="#dariusz-aniszewski"
+               name="dariusz-aniszewski"
+               class="speaker__name__link">
+              Dariusz Aniszewski
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/gravatar.jpeg" alt="Dariusz Aniszewski" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/DariuszAniszewski">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> DariuszAniszewski
+                </a>
+
+
+                <a href="https://twitter.com/@aniszewski_eu">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @aniszewski_eu
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Hi! My name is Dariusz and I&#39;m Senior Software Engineer at Polidea, a mobile software-house based in Warsaw, Poland. I&#39;m backend developer with six years of experience, most of which in Python, but I also had a year-long adventure in Android.<br /><br />After work I&#39;m home-brewer so whenever I&#39;m not coding it&#39;s great probability that I&#39;m discovering new, awesome flavour of fresh homemade beer.</p>
+
+
+    <span class="talk-title">
+      DOS yourself a.k.a. Load Testing
+    </span>
+    <p class="talk-description">In my talk I&#39;d like to tell you about testing performance of your backend applications. I&#39;ll explain what load testing is in theory and how to do it in practise. I&#39;d like to focus on why load testing is important step in software development and what will most likely happen when it&#39;s forgotten. I&#39;ll walk through different tools that can be used, starting with very basic AB, via jMeter up to the Locust and cloud-based services.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="G">
+            <a href="#goga-patarkatsishvili"
+               name="goga-patarkatsishvili"
+               class="speaker__name__link">
+              Goga Patarkatsishvili
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/IMAG1238.jpg" alt="Goga Patarkatsishvili" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/ent1c3d">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> ent1c3d
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I am a software engineer from Georgia (country), and currently I am working in one of the biggest internet provider company &quot;Silknet&quot; as an oracle developer, buy I also have experience with Python. I finished Coursera course &quot;Python with databases&quot;, I worked with mongodb using Python and I can say that Python is one of my favourite languages :)</p>
+
+
+    <span class="talk-title">
+      Similarities and standards between modern web frameworks
+    </span>
+    <p class="talk-description">In the past years there have appeared a lot of new frameworks and libraries in the modern web world, but behind the scenes there are a lot of similarities and standards in any language and I will talk about these standards. <br /><br />I also have a post about it: <br />https://medium.com/@ent1c3d/similarities-between-django-and-laravel-eb5e2b344ecb</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="H">
+            <a href="#honza-klusacek"
+               name="honza-klusacek"
+               class="speaker__name__link">
+              Honza Klusáček
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/profile_squared.jpg" alt="Honza Klusáček" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/@jan_klusacek">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @jan_klusacek
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Keen player and organizer of puzzlehunts, proud member of team Bazinga. After encounter with artificial neural networks at FIT VUT, he moved on to research the biological ones. Currently student of cognitive science at the University of Vienna.</p>
+
+
+    <span class="talk-title">
+      TMOU, puzzlehunts &amp; cracking (im)possible problems with Python
+    </span>
+    <p class="talk-description">Do you like codes, riddles and ciphers? Some people have turned cracking puzzles into a hobby and gave rise to events dedicated to solving such problems – puzzlehunts. TMOU is the oldest and biggest one among them. During these games, players regularly feel the frustration from endless unsuccessful efforts, often quickly followed by extraordinary joy after finally figuring out the peculiar problem. This joy can only be surpassed by creating a perfect puzzle for others to solve.<br /><br />I will share a few lessons learnt while organizing TMOU, namely:<br /> - What makes a problem seemingly impossible<br /> - How to turn impossible into possible and hard into not-so-hard<br /> - How to crack tough problems and hammer down their complexity<br /> - Why Python might be a good hammer for that<br /><br />Follow the creation of a specific puzzle from an initial idea to the final design (puzzle #4 &quot;the Dice&quot;, TMOU 17 http://www.tmou.cz/2015/sifry/reseni#kostka). Where else would you need to solve a bunch of problems just to create a new one?</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="I">
+            <a href="#ingrid-nagyova"
+               name="ingrid-nagyova"
+               class="speaker__name__link">
+              Ingrid Nagyová
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/Nagyova_OxPanGR.jpg" alt="Ingrid Nagyová" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I’m working as assistant professor in ICT at Ostrava University, Czech Republic. I focus on programming and development of algorithmic thinking. I take interest in constructivism and creative programming, in didactic programming and tools for teaching programming to primary and secondary school.</p>
+
+
+    <span class="talk-title">
+      Jak začít programovat v Pythonu tvorbou jednoduchých her
+    </span>
+    <p class="talk-description">Mnoho, zejména mladých lidí, přivádí k programování touha vytvořit hru. Tato touha může být zmařena při nahlédnutí do učebnic programování, které poznatky budují systematicky a pro začátečníka mnohdy nepochopitelně.<br />Přednáška ukazuje, jak lze začít tvořit a hrát si s jednoduchými grafickými objekty bez znalostí programování. Společně definujeme několik grafických objektů, které rozpohybujeme po grafickém plátně a jednoduchým zachycením událostí z klávesnice zabezpečíme možnost interaktivního ovládání hry.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="J">
+            <a href="#jacek-koodziej"
+               name="jacek-koodziej"
+               class="speaker__name__link">
+              Jacek Kołodziej
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/DSC_0164_1280x1280.jpg" alt="Jacek Kołodziej" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/Unit03">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> Unit03
+                </a>
+
+
+                <a href="https://twitter.com/Unit03">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> Unit03
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Python backend developer at Growbots. Aspires to be the Programmer. Reads code often and tries to remember that while writing it. Appreciates the convenience of TTD and having useful documentation. Fan of async, both in code and the process.<br />In spare time: photography, wanders from one concert to another, sometimes hill walks too and plays drums occasionally.</p>
+
+
+    <span class="talk-title">
+      GIL: What&#39;s the hassle and why should I care?
+    </span>
+    <p class="talk-description">Demistifying GIL - what&#39;s that, how it really affects performance, what changed in the last few years and what can we do about GIL in everyday programming.<br /><br />There is still a lot of misunderstanding regarding GIL, coming from not-so-perfect documentation - not explaining the implications thoroughly and in a simple way; it&#39;s also often outdated.<br /><br />Also, GIL&#39;s implementation changed a little in CPython 3.x that may affect programmers&#39; choices.<br /><br />This misinformation may, in some cases, drive them away from CPython where it&#39;s not really the worst choice. By providing comprehensive guide to today&#39;s GIL in CPython, this presentation aims to help make better design choices - be it choosing a concurrency/parallelism model, Python implementation to use or even whether or not to drop Python entirely.<br /><br />There have been (and still are), of course, attempts to get rid of GIL and find another solution for the problem it solves - newest of which is Larry Hasting&#39;s project called GILectomy, which I hope to shed some light on.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jachym-cepicky"
+               name="jachym-cepicky"
+               class="speaker__name__link">
+              Jachym Cepicky
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/jaja5_905u18f.png" alt="Jachym Cepicky" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/jachym">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> jachym
+                </a>
+
+
+                <a href="https://twitter.com/jachymc">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> jachymc
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Open people&#39;s minds and open technologies for better geospatial world.<br /><br />Open source, open data, open standards, open minded people.</p>
+
+
+    <span class="talk-title">
+      What is the price of open source?
+    </span>
+    <p class="talk-description">We keep hearing, that &quot;open source if for free, so why don&#39;t you use it?&quot; But is that really true? What are the real costs of open source software? Where does the money come from?  How do the developers make their living? Is it really as free as a beer? How to bring money to open source software development? Is open source the one and only greatest and only good and best possible development model?</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jacqueline-kazil"
+               name="jacqueline-kazil"
+               class="speaker__name__link">
+              Jacqueline Kazil
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/keynoter04_xnUG7L3.jpg" alt="Jacqueline Kazil" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/JackieKazil">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> JackieKazil
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Jackie is a Czech-American engineering and technology consultant with a focus in data science, teaching, and organizational change. She has worked with various major companies and The United States government including The White House and The Washington Post. She is a leader in PyLadies and sits on the Board of Directors for the Python Software Foundation. She is also the author of O’Reilly book, Data Wrangling with Python, and Mesa, a agent-based modeling library in Python. In her spare time, she is working on her Ph.D in Computational Social Science at George Mason University. She lives in Washington, DC with her husband and three dogs.</p>
+
+
+    <span class="talk-title">
+      User-centered software projects
+    </span>
+    <p class="talk-description">Open-sourced and inner-sourced projects often struggle to get engagement. Communities, such as Github and PyPi, are host to redundant projects and libraries. In the development space, how do you distinguish your project from others, get people excited to contribute to it, and ultimately create a successful open source project? The answer is to apply user-centered design techniques to the development of your project. User-centered design is usually applied to web applications and products on the front-end of a website, but these techniques can be applied to open source libraries. In user-centered open source projects, your users are those who type `pip install $your_library`. In this talk, Jackie will illustrate some user-centered techniques that have been used on her own project - Mesa (https://github.com/projectmesa/mesa), along with other successful open source projects.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jan-pospisil"
+               name="jan-pospisil"
+               class="speaker__name__link">
+              Jan Pospíšil
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/Pospa_UAW7Bez.jpg" alt="Jan Pospíšil" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/pospanet">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> pospanet
+                </a>
+
+
+                <a href="https://twitter.com/@pospanet">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @pospanet
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Sr. Technology Evangelist @ Microsoft, SW a solution Architect, Developer, IoT &amp; DIY Geek, Father, Husband, technocrat, …<br />My passions are IoT gadgets, IoT solutions, Big Data, Machine Learning, Cognitive Services, New Technologies (even bleeding edge), e-commerce, robotics, automation, coding, …</p>
+
+
+    <span class="talk-title">
+      PyIoT
+    </span>
+    <p class="talk-description">Python + ESP8266 + Cloud = automate anything.<br />Introduction of Python friendly IoT HW + Cloud (Azure) services</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jan-skrle"
+               name="jan-skrle"
+               class="speaker__name__link">
+              Jan Škrle
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/1410919_733617923322478_2126187564_o.jpg" alt="Jan Škrle" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Python freelancer and enthusiast, go player, occasional computer science student. Based in Prague. Python-addicted roughly for 3 years, still trying to make living out of it.</p>
+
+
+    <span class="talk-title">
+      AsyncIO Connections: Coroutines (Streams) vs Callbacks (Protocols)
+    </span>
+    <p class="talk-description">Standard Python library Asyncio offers both, coroutines and callbacks, APIs for setting up client or server connections. Let&#39;s briefly present both APIs with examples and go through ups and downs of each solution.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jarka-schovancova"
+               name="jarka-schovancova"
+               class="speaker__name__link">
+              Jarka Schovancova
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/jarka.jpg.160x160_q85_crop-smart.jpg" alt="Jarka Schovancova" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/@jschovan">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @jschovan
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Computing Engineer in CERN IT with a Ph.D. in Subnuclear Physics. I am enthusiastic about integration of components of distributed computing systems, passionate about monitoring, commissioning and testing of the LHC computing infrastructure, and strive for efficient operation of available resources while contributing to the operations automation.</p>
+
+
+    <span class="talk-title">
+      Python and LHC Computing
+    </span>
+    <p class="talk-description">Have you ever wondered how Python helps the Large Hadron Collider physicists study the composition of matter on a sub-atomic scale? Interested in testing world-wide distributed computing infrastructure? Take part!</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jona-azizaj"
+               name="jona-azizaj"
+               class="speaker__name__link">
+              Jona Azizaj
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/index.jpeg" alt="Jona Azizaj" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/jonatoni">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> jonatoni
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I am Jona, a third-year student of Business Informatics at University of Tirana, Albania. I am a member of Open Labs Hackerspace where I am involved in many open source projects that we promote, such as GNU/Linux, LibreOffice, Mozilla, Wikipedia, OpenStreetMap etc. I am also a co-organiser of Open Source Conference Albania (OSCAL). I am also part of the Fedora Project and I am a Fedora Ambassador in Albania.<br />I have organized different events at my university regarding Python and worked on different Python programming projects like event analytics to understand the impact of events on the community.</p>
+
+
+    <span class="talk-title">
+      How to build up a Python community and empower women
+    </span>
+    <p class="talk-description">In 2012 not a lot of people were interested in Python in the relatively small city of Tirana, the capital of Albania. Even fewer girls were interested in Python. During our talk we will share the story of how we, a small but dedicated group of people, jump started the community in a small country like Albania and what other small cities and countries should avoid during their first steps in developing a Python community in similar conditions.<br />Most important we will share tips and tricks on how to keep the Python spirit alive for a long time after the first enthusiastic steps, with the goal that our shared experience will help other communities to make the first steps or grow even further. Also nowadays we are witnessing that the number of girls involved in technical fields, especially development, is really low and we are going to present what as the influence on low participation of girls and the steps we should take to fix it.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#josef-rousek"
+               name="josef-rousek"
+               class="speaker__name__link">
+              Josef Rousek
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/11263511_1631270813753303_1044950018_n.jpg" alt="Josef Rousek" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/stlk">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> stlk
+                </a>
+
+
+                <a href="https://twitter.com/josefrousek">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> josefrousek
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Polyglot web developer building meaningful and usable products. I love photography. Once I started to be interested in Machine Learning I decided to combine these two and make something useful out of it.</p>
+
+
+    <span class="talk-title">
+      Instagram and text-based machine learning
+    </span>
+    <p class="talk-description">Simple Machine Learning technique based on document-term matrix can work pretty well even for photos when you have at least some content. I will show you how I got from zero to a decent recommendation engine and learned some Jupyter tricks on the way.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#jozef-kepesi"
+               name="jozef-kepesi"
+               class="speaker__name__link">
+              Jozef Kepesi
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/abc.jpg" alt="Jozef Kepesi" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">CTO at Kiwi.com, one of the fastest growing companies on this planet, aiming to become the nr. 1 in the travel industry.</p>
+
+
+    <span class="talk-title">
+      Our journey from developers to real software engineers
+    </span>
+    <p class="talk-description">Few years ago, we were a bunch of cowboys trying to create the fastest flight ticket search engine. We did a lot of mistakes... But we did it with passion. I will talk about how we knew how to avoid all the stupid issues, but why were we not able to do it at the same time.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="K">
+            <a href="#katharine-jarmul"
+               name="katharine-jarmul"
+               class="speaker__name__link">
+              Katharine Jarmul
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/katharine_jarmul_headshot.jpg" alt="Katharine Jarmul" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/kjam">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> kjam
+                </a>
+
+
+                <a href="https://twitter.com/kjam">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> kjam
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Katharine Jarmul is a Pythonista based in Berlin, Germany focused on data analysis. She&#39;s been writing Python for 8 years, and has worked with many start ups and media organizations in her career. She&#39;s one of the founding members of PyLadies (in Los Angeles in 2011). She co-authored a book for O&#39;Reilly on Data Wrangling with Python. She enjoys learning new things, cooking delicious food and drinking great wine.</p>
+
+
+    <span class="talk-title">
+      Introduction to Data Wrangling with Python
+    </span>
+    <p class="talk-description">Become a data wrangler with Python! This talk will introduce you to the core concepts of data analysis with Python. We’ll cover libraries that allow you to easily clean and set up your initial dataset, importing data from all different file types and standards. We’ll introduce some basic libraries to help with statistics and analysis and then cover how to document and explore your findings.<br /><br />It’s assumed you have a working understanding of Python and its data types and structures, and that you’ve used and understand Python for basic scripting. It’s also assumed you haven’t done much in terms of data analysis, and you’d like to learn more. If this is you, welcome!</p>
+
+    <span class="talk-title">
+      DAGs &amp; Dask: How &amp; When to Accelerate Your Data Analysis
+    </span>
+    <p class="talk-description">This talk will introduce the audience to the Dask library for data analysis, focusing on when Dask is useful (and when you might be better off simply using SQL or Pandas). We will cover how to build and analyze directed acyclic graphs using Dask and how to easily set up a cluster running Dask for your data wrangling needs.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#kristi-progri"
+               name="kristi-progri"
+               class="speaker__name__link">
+              Kristi Progri
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/photo.jpeg" alt="Kristi Progri" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/kristiprogri">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> kristiprogri
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I have been involved in FLOSS communities since 2013. I finished my studies of International Affairs and Diplomacy.<br />I became a Mozilla Rep in late 2015. I have had the chance to co-organize Mozilla Weekend events in Berlin and Tirana, intensive 2 day events focused on onboarding new contributors at Mozilla.<br />Furthermore, I have been part of the organizer committee of Open Source Conference Albania aka OSCAL, since the very first edition in 2014. I am also a member of Womoz which is a programme for involving more girls in Floss communities.<br />I have co-organized Python events in our local hackerspace Open Labs, and have recently started working in Python programming projects like event analytics.</p>
+
+
+    <span class="talk-title">
+      How to build up a Python community and empower women
+    </span>
+    <p class="talk-description">In 2012 not a lot of people were interested in Python in the relatively small city of Tirana, the capital of Albania. Even fewer girls were interested in Python. During our talk we will share the story of how we, a small but dedicated group of people, jump started the community in a small country like Albania and what other small cities and countries should avoid during their first steps in developing a Python community in similar conditions.<br />Most important we will share tips and tricks on how to keep the Python spirit alive for a long time after the first enthusiastic steps, with the goal that our shared experience will help other communities to make the first steps or grow even further. Also nowadays we are witnessing that the number of girls involved in technical fields, especially development, is really low and we are going to present what as the influence on low participation of girls and the steps we should take to fix it.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="L">
+            <a href="#lea-polachek"
+               name="lea-polachek"
+               class="speaker__name__link">
+              Lea Polachek
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/keynoter03.jpg" alt="Lea Polachek" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/leadol">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> leadol
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Lea Polachek is the CTO of she-codes.org organization, she has ten years of experience in Image Processing and algorithm development and a Masters Degree in Physics from Weizmann Institute of Science. She codes is an organization in Israel aimed at promoting women in technology, the organization grew in three years to have over 10,000 members in 25 locations all around Israel including universities and hi-tech companies.</p>
+
+
+    <span class="talk-title">
+      She codes - story of accelerated community growth
+    </span>
+    <p class="talk-description">She codes; is the community of female software developers in Israel.  This community started three years ago and has since grown to over the size of 10,000 members hosting more than a hundred events per month. What is behind the success and what are the key decisions that were made that helped the rapid growth.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="M">
+            <a href="#magdalena-kabatova"
+               name="magdalena-kabatova"
+               class="speaker__name__link">
+              Magdalena Kabatova
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/madlenkk_tester.png" alt="Magdalena Kabatova" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/madlenkk">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> madlenkk
+                </a>
+
+
+                <a href="https://twitter.com/@madlenkk">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @madlenkk
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Magdalena lives in Písek and Prague.<br /><br />She studied Landscape Engineering at CULS Prague (2004-10) and Geo-information Science at WUR Wageningen, Netherlands (2008-9).<br /><br />She has worked at Cleerio (former Geosense) since 2011 and grew up with the company. She started as a GIS and Data Specialist, then she became a Product Development Manager, after which her bosses discovered her extreme talent of communicating with developers and later on became a Scrum Master while introducing Scrum to the dev team.<br /><br />In 2015, terribly bored of management roles, she started to learn Python - with the help of colleagues and courses such as Django Girls workshop (11/2015) and PyLadies Prague (spring 2016).<br /><br />Now a happy software tester, she uses Python for testing Cleerio web mapping application.</p>
+
+
+    <span class="talk-title">
+      Testing of Web Applications Using Python
+    </span>
+    <p class="talk-description">In the continuous integration development process, automatic testing is critical. The application must be delivered properly to customers and users. And with frequent releases, manual testing is exhausting.<br />Therefore developers need integration and system tests, aside from basic unit tests - to make sure their commits are integrated properly and did not break anything. No more: one hotfix creates two new bugs!<br /><br />For beginners: I will give a brief introduction to software testing and its types and talk about how easy is to start with writing automatic tests in Python.<br /><br />For advanced: I will present integration testing of Cleerio web mapping application (originally written in JavaScript and PHP) using Python together with Selenium project.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#marek-grac"
+               name="marek-grac"
+               class="speaker__name__link">
+              Marek Grac
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/horse.jpg" alt="Marek Grac" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/marxsk">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> marxsk
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">The man who was hired as bash/perl/C developer and after years was forced to rewrite open-source project to Python.</p>
+
+
+    <span class="talk-title">
+      Turn off the computer
+    </span>
+    <p class="talk-description">Fence agents are drivers written in Python that help you to remove a misbehaving computer node from cluster or cloud. This project started in 2006 and it was written in bash/perl/C. And after 5000+ commits we have a Python/C project. What happened in the last ten years? And how maintainable is such project?</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#milon-krejca"
+               name="milon-krejca"
+               class="speaker__name__link">
+              Miloň Krejča
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/Untitled.png" alt="Miloň Krejča" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Started with Python in 2004 as a move from wordy Java. Then mixing programming, administration, integration to get results within deadlines. Now freelancer using Numpy/Pandas/Cython to get things fast, messaging to get it distributed or bridge languages. Still Django helps with the stuff too.</p>
+
+
+    <span class="talk-title">
+      Compute and optimize!
+    </span>
+    <p class="talk-description">Time, it&#39;s function in life and computing and what might be possible to build in the near future. Lazy solutions to computation and beyond, how to get nearly maximum from your computer without too much work. Use of Numpy, Pandas, Cython, multiprocessing, deap, Ta-Lib libraries and genetic programming in a quest to solve some financial markets.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#miro-hroncok"
+               name="miro-hroncok"
+               class="speaker__name__link">
+              Miro Hrončok
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/DSC_0775__Dcynl0R.JPG" alt="Miro Hrončok" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/hroncok">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> hroncok
+                </a>
+
+
+                <a href="https://twitter.com/hroncok">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> hroncok
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Miro is a Fedora ambassador and packager, working at Red Hat Czech mostly focusing on 3D printing and the Python stack in Fedora. He also teaches at the Faculty of Information Technology - Czech Technical University in Prague, where he&#39;s mostly involved in the 3D printing lab. Current mission: Make Fedora better for Pythonistas.</p>
+
+
+    <span class="talk-title">
+      If it Moves, Test it Anyway
+    </span>
+    <p class="talk-description">So you have written a nice piece of code that does something on the Internetz: communicates with a web API, or gets a webpage and parses some important information from it.<br /><br />Now you write tests and you want them to be part of the project, run on your CI etc., but:<br /><br /> * the API is secured by a secret token/password/cookie...<br /> * the information on the webpage changes<br /> * it&#39;s not even accessible from the wild web<br /><br />So how do you test it? You can mock the server part (that&#39;s messy), you can spin off your own testing server (that&#39;s hard) or you can record the HTTP communication with betamax (that&#39;s super simple). I&#39;ll show you all the methods and their good, bad and ugly parts.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="N">
+            <a href="#nait-aul"
+               name="nait-aul"
+               class="speaker__name__link">
+              Nait Aul
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/nait-aul.png" alt="Nait Aul" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/nait-aul">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> nait-aul
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Samouckým způsobem naučený Python programátor. Od září student prvního ročníku informatiky na Vysoké škole báňské v Ostravě.</p>
+
+
+    <span class="talk-title">
+      Doksit - Generování dokumentace z kódu
+    </span>
+    <p class="talk-description">V dnešní době je, dá se říci, zavedeným standardem psát dokumentaci pro Pythoní projekty v ReStructured Textu (ReST) s použitím balíčku Sphinx. Na obou nástrojích je ale vidět jejich zastaralost. <br /><br />Místo ReSTu je daleko snažší používat Markdown a co se týče Sphinxu, tak psát pro něj rozšíření není zrovna procházka růžovým sadem. Jednodušší alternativou ke Sphinxu je MkDocs, jenže ten se zaměřuje jen na psanou prózu (mimo kódy) a chybí mu API generátor dokumentace. Tento problém by se dal vyřešit přes modul Pydoc, ale to není taky žádná sláva. <br /><br />Můj projekt, doksit, spojuje tyto dva přístupy: <br />1. vytáhne dokumentační řetězce z kódu, sestaví z nich Markdown soubor a <br />2. pokud existují k tomu i psané prózy (tutoriály aj.), vytvoří uvnitř repozitáře na GitHubu triviální &quot;readthedocs&quot; portál (do budoucna integrace s MkDocs). <br /><br />Na přednášce představím existujících knihovny a jejich problémy, ukážu, co vše zatím doksit umí, jak ho použít a kam bude směřovat jeho další vývoj, do kterého se můžeš zapojit i ty.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="P">
+            <a href="#pavel-grochal"
+               name="pavel-grochal"
+               class="speaker__name__link">
+              Pavel Grochal
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/test.jpg" alt="Pavel Grochal" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Detail freak, <br />lazy programmer,<br />long-term Python lover.</p>
+
+
+    <span class="talk-title">
+      Streamparse - introduction to real-time data processing with Python (and some Java)
+    </span>
+    <p class="talk-description">This talk will be about getting started with Streamparse, which is the Python &quot;connection&quot; to Apache Storm, a real-time processing framework.<br /><br />Besides the basic introduction, the talk will also include some practical examples and major gotchas what we&#39;ve encountered while developing in streamparse.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#pavol-rusnak"
+               name="pavol-rusnak"
+               class="speaker__name__link">
+              Pavol Rusnak
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/photo.jpg" alt="Pavol Rusnak" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/prusnak">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> prusnak
+                </a>
+
+
+                <a href="https://twitter.com/pavolrusnak">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> pavolrusnak
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Otherwise known as “Stick”, Pavol Rusnák is Co-Founder, Alchemist and Senior VP of SatoshiLabs. Pavol is deeply involved in the development of sophisticated software and hardware projects such as TREZOR, where he is the core developer and cryptographer. Pavol is a highly regarded security expert and privacy activist and has been invited to speak at the biggest technology oriented events such as Chaos Communication Congress, FOSDEM or LinuxTag.<br /><br />Pavol graduated from Charles University in Prague, Faculty of Mathematics and Physics, majoring in Database Systems, with special emphasis on distributed systems. Along with his work, Pavol is Wizard for pebe/lab, where he works on hi-tech experimental, new media interactive installations. Pavol has also served as a board member of openSUSE Project and as a three-time mentor/administrator for the Google Summer of Code.</p>
+
+
+    <span class="talk-title">
+      MicroPython
+    </span>
+    <p class="talk-description">MicroPython je moderní implementace Pythonu pro mikrokontrolery a embedded systémy. Pojďme se spolu podívat, čím se liší od &quot;velkého&quot; Pythonu a co všechno se dá použitím MicroPythonu ovládat. Součastí přednášky budou praktické ukázky na různých zařízeních.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#petr-hodina"
+               name="petr-hodina"
+               class="speaker__name__link">
+              Petr Hodina
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/image.jpg" alt="Petr Hodina" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I use Python here and there to make things easier. Mostly to automate boring tasks like preparing some report or scraping data off some website. However I also like to run micropython on some STM32 or ESP8266.</p>
+
+
+    <span class="talk-title">
+      Porting embedded projects
+    </span>
+    <p class="talk-description">Have you ever worked on embedded project? Chances are that you had to use some proprietary IDE for development. Wouldn&#39;t it be better to use some open source IDE like Eclipse or QtCreator? What should I do when I&#39;m working a project and can&#39;t start from the scratch? <br /><br />In this presentation I&#39;ll show you how Python can help you with porting projects. I&#39;ll give examples of projects developed in IAR Embedded Workbench and Keil uVision. At the end we&#39;ll have CMake build file which can be imported to many IDEs.<br /><br />Python modules like Objectify and Jinja will be a great help to us!</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#petr-joachim"
+               name="petr-joachim"
+               class="speaker__name__link">
+              Petr Joachim
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/IMG_0279.jpg" alt="Petr Joachim" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/petrjoachim">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> petrjoachim
+                </a>
+
+
+                <a href="https://twitter.com/petrjoachim">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> petrjoachim
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Wow. Much developer. So full-beard.<br />Did Seznam.cz. Codes kiwi.com.<br /><br />When my code is sick I rewrite it to be awesome instead.<br /><br />Minimalist, father, developer.</p>
+
+
+    <span class="talk-title">
+      Running Python in production
+    </span>
+    <p class="talk-description">Exploring many ways of running Python in different production environments. <br /><br />Starting from ordinary self-hosted old-school etc. scripts, through supervisor, ending with docker. All of this with great examples.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="R">
+            <a href="#richard-kellner"
+               name="richard-kellner"
+               class="speaker__name__link">
+              Richard Kellner
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/2a8c69d.jpg" alt="Richard Kellner" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/ricco386">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> ricco386
+                </a>
+
+
+                <a href="https://twitter.com/ricco386">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> ricco386
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Since my early age I have been interested in computers, started playing games, then programmed simple ones in Pascal. I have tried several languages, but Python is my favorite. I am lucky that it also makes up most of my day-to-day job at Erigones. Apart from the language, I like the community around it, so I am trying to be an active member of the community and I am part of the organizational team of PyCon SK.</p>
+
+
+    <span class="talk-title">
+      ChatOps, have you ever heard about it?
+    </span>
+    <p class="talk-description">ChatOps is a term for a collaborative way of running DevOps, including operating aspects of systems and infrastructure through an online chat. It combines a powerful way to get things done with a more human way of working.<br /><br />But it doesn’t happen overnight. In this talk I would like to explain various stages of adoption. I also want to inspire you to implement ChatOps into your workflow and to suggest ideas how to do that. I will show  you why Python is the ideal language for building a ChatOps stack. It is quick and fun to build new chat commands and even a person who doesn’t know Python can easily start learning and see the results immediately.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#robert-kuska"
+               name="robert-kuska"
+               class="speaker__name__link">
+              Robert Kuska
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/1097008_10201154230190931_438717067_o.jpg" alt="Robert Kuska" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/rkuska">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> rkuska
+                </a>
+
+
+                <a href="https://twitter.com/@DasIstHerrKuska">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @DasIstHerrKuska
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I am here because of Jozo.</p>
+
+
+    <span class="talk-title">
+      Feed your code to coala
+    </span>
+    <p class="talk-description">So you already use linters for your codebase but it still feels like it&#39;s not enough. You want to check for more things, and better, use your own checkers but you want it to be as easy as possible! Meet coala.io, it feeds on your code and makes it better at the same time. With (almost*) no cost.<br /><br />* CPU consumption not included</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="S">
+            <a href="#slavek-kabrda"
+               name="slavek-kabrda"
+               class="speaker__name__link">
+              Slavek Kabrda
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/avatar.jpg" alt="Slavek Kabrda" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/bkabrda">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> bkabrda
+                </a>
+
+
+                <a href="https://twitter.com/slavek_k">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> slavek_k
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I&#39;m from a small town in Bohemian-Moravian highlands, where &quot;skiing&quot; means &quot;cross-country skiing&quot; and where foxes wish you good night. I like good food, sometimes with good beer or wine. I now live in Southern Moravia, where &quot;skiing&quot; means &quot;downhill skiing&quot;, which is honestly weird. My only current hobbies are calisthenics and building my house. Also, I do skiing (the real one).<br /><br />I&#39;ve been working for Red Hat for more than 5 years on all kinds of projects. Most notably, I&#39;d maintained Python 2 and 3 in Fedora and Red Hat Enterprise Linux for several years. I also started the effort of moving Fedora to Python 3 as default, which is now taking off very nicely.</p>
+
+
+    <span class="talk-title">
+      Don&#39;t use mock. Use flexmock!
+    </span>
+    <p class="talk-description">Almost a year ago, I became the upstream maintainer of flexmock, a mocking library for Python that makes creating mocks, stubs and fakes super-easy and super-readable.<br /><br />In this talk, I&#39;ll try to convince you that using flexmock is better than using Python&#39;s built-in mock. I&#39;ll demonstrate how you can utilize flexmock to do all kinds of useful stuff in your testsuite, like mocking the famous &#39;requests&#39; library or creating mocks that you can read aloud as a sentence and understood quickly. I&#39;ll also mention how to use flexmock for some advanced mocking techniques like spying or mocking chained method calls.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#stanislav-kontar"
+               name="stanislav-kontar"
+               class="speaker__name__link">
+              Stanislav Kontár
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/SK.jpg" alt="Stanislav Kontár" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/skontar">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> skontar
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I started my Python endeavours about 10 years ago. I have become a big Python fan and used it for everything ranging from simple throwaway scripts up to test generators for flight controls software. I like pragmatic and uncomplicated design as well as I fancy new technologies - provided that they work... mostly. I did quite a bit of GUI programming in Python on Windows platform for years and tried to continue when I moved to Linux world. Right now I spend most of my free time with my family, as my two young daughters are quickly becoming fans of Open Source and sharing (at least when it comes to MY chocolate).</p>
+
+
+    <span class="talk-title">
+      Python GUI programming for command-line geeks (and others as well)
+    </span>
+    <p class="talk-description">GUI programming in Python for beginners. We will discuss basic GUI building blocks and some traditional choices of GUI libraries along with their advantages, disadvantages, and portability. We will look at some code examples and discuss related topics ranging from basics, such as handling long running tasks, to more advanced, OpenGL integration and deploying.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#szymon-matejczyk"
+               name="szymon-matejczyk"
+               class="speaker__name__link">
+              Szymon Matejczyk
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/CROPPED-passportPhoto.jpg" alt="Szymon Matejczyk" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/szymonm">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> szymonm
+                </a>
+
+
+                <a href="https://twitter.com/@szymonmatejczyk">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @szymonmatejczyk
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">PhD student in network analysis and fan of... Scala. He still enjoys programming independently of language (but Perl). Active member of WarszawScala and OS contributor in various projects: nebulostore (Java), twitter/cassovary (Scala), palantir/typedjsonrpc (Python). Proud to be working @Growbots.</p>
+
+
+    <span class="talk-title">
+      API first and forgotten
+    </span>
+    <p class="talk-description">&quot;API first&quot; principle seems convincing. Anyone who tried implementing it realizes that often the problem is not to design or formally specify the API (with Swagger or other tool). The problem is to keep the specification, servers and clients consistent and easy to maintain for longer. I will talk about what practices you need to remember and which tools are worth to check.<br /><br />The talk will start with the basics of microservices architecture. I will describe some mistakes we have made that turned our microservices architecture fragile and unmanageable. <br />I will show how we redesigned our API using Swagger and what principles you should have in mind when doing so. I will also cover technical problems we encountered:<br />* how to test that a service implements an API;<br />* how to avoid writing validation that is already specified in the swagger file;<br />* how to create clients and stub and who should maintain them.<br /><br />As theory is not enough here, I will also show some tools that help, describe in detail connexion library and show how we used it to implement microservices integration tests @Growbots.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="T">
+            <a href="#thomas-levine"
+               name="thomas-levine"
+               class="speaker__name__link">
+              Thomas Levine
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/2016-03-hamtramck.jpg" alt="Thomas Levine" />
+            </div>
+
+            <section class="icons">
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Thomas Levine (thomaslevine.com) is a dada artist interested in sleep.</p>
+
+
+    <span class="talk-title">
+      Tom&#39;s super easy way to make basic user interfaces in Python
+    </span>
+    <p class="talk-description">Horetu (https://pythonhosted.org/horetu) exposes Python functions as command-line interfaces, web interfaces, and configuration files. In addition to being a very practical tool, horetu is interesting because its implementation demonstrates the capabilities of function objects. Finally, horetu can construct powerful interfaces and detailed documentation from functions that were written with no intent of being used with horetu; it is, consequently, a clear demonstration of the merits of following conventions.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#tomas-bedrich"
+               name="tomas-bedrich"
+               class="speaker__name__link">
+              Tomáš Bedřich
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/selfie.jpg" alt="Tomáš Bedřich" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/tomasbedrich">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> tomasbedrich
+                </a>
+
+
+                <a href="https://twitter.com/@tbedrich">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @tbedrich
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Web developer (mainly responsive frontend), CTU student, good beer lover, geocacher. Perfectionist.</p>
+
+
+    <span class="talk-title">
+      C:\keep/calm/and\use\pathlib
+    </span>
+    <p class="talk-description">How do you handle filesystem paths? Strings and os.path.join()? Seriously? Come to learn something shiny for everyday use!</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#tomas-votruba"
+               name="tomas-votruba"
+               class="speaker__name__link">
+              Tomáš Votruba
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/talking-big.jpg" alt="Tomáš Votruba" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/TomasVotruba">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> TomasVotruba
+                </a>
+
+
+                <a href="https://twitter.com/votrubaT">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> votrubaT
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Tomáš is a lecturer and community builder. He loves people, educating, and old-school live face-to-face chats.</p>
+
+
+    <span class="talk-title">
+      Start a community, get mental
+    </span>
+    <p class="talk-description">&quot;If there is no PHP group in your town, you are the leader of it&quot; is easy to say.<br /><br />How to start a community? What are the benefits of leading a community? Where to go and what needs to be done to not burn out and keep it going?<br /><br />I can tell you all this based on my experience with starting the Symfony community in the Czech Republic. From 0 to 300 members in 1 year, with over 30 meetups in 7 cities. With the right people and approach, this is more than easy. Try me :)</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="V">
+            <a href="#valdemar-svabensky"
+               name="valdemar-svabensky"
+               class="speaker__name__link">
+              Valdemar Švábenský
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/me_5RrYaIG.jpg" alt="Valdemar Švábenský" />
+            </div>
+
+            <section class="icons">
+
+
+                <a href="https://twitter.com/@svabenskyv">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> @svabenskyv
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Mathematician, guitarist, and a young teacher; studying IT security at FI MU in Brno and starting my 3rd year of teaching Python there. I&#39;ve been working with computers since the age of 4 and won the Dean&#39;s award for my Bachelor&#39;s thesis: a software emulating human solutions of certain math problems. I also create math educational videos. In my free time, I like travelling, boxing, and getting better at everything I do.</p>
+
+
+    <span class="talk-title">
+      From (Python) zero to hero: How beginner university students learn programming
+    </span>
+    <p class="talk-description">Are you curious about how to teach programming effectively? Are you a Python fan interested in everything Python-related? Or would you simply like to see a non-standard presentation? If you answered yes at least once, then this funny and inspiring talk is right for you! In less than 20 minutes, you&#39;ll hear from a young student-teacher about:<br />- What coding skills are taught to beginners and how<br />- Experience with teaching<br />- A few surprises<br />No technical knowledge is needed (some code samples will be shown, but they&#39;re not essential). Discussion at the end is welcome. Looking forward to seeing you!</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#veronika-gabrielova"
+               name="veronika-gabrielova"
+               class="speaker__name__link">
+              Veronika Gabrielová
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/11259841_10152850366163176_713517343280981188_n.jpg" alt="Veronika Gabrielová" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/lspdv">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> lspdv
+                </a>
+
+
+                <a href="https://twitter.com/lspdv">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> lspdv
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Původně Veronika vystudovala zdravotní školu a rýsovalo se životní poslání sloužit lidu. Poté ale zjistila, že programování je mnohem větší zábava a moc lidí při tom obvykle neumírá, a tak otočila o 180°, směrem do IT. S pythonisty se poprvé střetla v roce 2015 na DjangoGirls a dál se učila hadí jazyk na intenzivním kurzu PyLadies v Praze. Aktuálně pracuje v MSD IT Prague, kde v cloudovém teamu krotí AWSko za pomoci Pythonu. Pomáhá organizovat akce v rámci Pyvce, především PyLadies v Praze. Jejím novým životním posláním se stalo šířit lásku k Pythonu a pomáhat dalším lidem, nováčkům, se jej také učit a začlenit se do jeho komunity.</p>
+
+
+    <span class="talk-title">
+      Jak na chov Pythonů, aby nám nevyhynuli
+    </span>
+    <p class="talk-description">Pohovořím o aktuálním tématu a přiblížím pohled začátečnice a organizátorky kurzů pro jiné začátečníky. Každý jednou začínal a možnosti pomoci začít i dalším se díky PyLadies a naucse.python.cz velmi posunuly. Předvedu, jak lze jednoduchou aplikací již vytvořených materiálů a bohatého know-how organizátorů různých měst učit Python zase další lidi. Jaký přínos z toho koučové mají a co to přináší celé komunitě a hlavně začátečníkům. Nastíním základní know-how v několika bodech a znázorním, proč není vůbec životně důležité nejprve 3 roky programovat Fibonacciho a faktorial!, ale je lepší zajistit dostatek reálných projektů. Ukážu, co jsem zvládla za jeden rok (jakožto bývalá PyLady, která si procesem prošla a nyní programuje v MSD IT), kam obvykle směřují mé otázky a co mě jako začátečníka naopak vůbec neláká a neposouvá v práci dál.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#veros-kaplan"
+               name="veros-kaplan"
+               class="speaker__name__link">
+              Věroš Kaplan
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/P5165072-rotated.JPG" alt="Věroš Kaplan" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/verosk">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> verosk
+                </a>
+
+
+                <a href="https://twitter.com/verosk">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> verosk
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Věroš was a Python developer, but after some time he found himself to be a sysadmin.<br /><br />He is constantly seeking for DevOps enlightenment - whatever it means.</p>
+
+
+    <span class="talk-title">
+      Django app migration to Docker - lessons learnt
+    </span>
+    <p class="talk-description">I was told Docker is the new shiny way of deploying and upgrading applications so I tried to migrate  some standalone apps to Docker.<br /><br />What issues did I run into?</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#viliam-krizan"
+               name="viliam-krizan"
+               class="speaker__name__link">
+              Viliam Križan
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/7695766.jpg" alt="Viliam Križan" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/vkrizan">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> vkrizan
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">My first encounter with Python was when I opened up scripts that extended a game&#39;s behaviour. I started looking at tutorials that explained the basics of Python. It amazed me how elegant and easy-to-read the code was. After several years, I used my Python knowledge at the university to write my thesis on Natural Language Processing. Today, I develop web applications and backends in Python, combined with JavaScript and AngularJS.</p>
+
+
+    <span class="talk-title">
+      Peewee: A Simple Yet Powerful ORM
+    </span>
+    <p class="talk-description">Peewee is a small, expressive ORM, written as a single Python module. In my talk, I will present usage examples including advanced queries, transactions, and backend switching. We will look at differences between Peewee and SQLAlchemy, see how Peewee takes advantage of operators to build SELECT queries, learn how to integrate Peewee into a Flask-based application, and cover the most common difficulties when trying to extend Peewee.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#vilibald-wanca"
+               name="vilibald-wanca"
+               class="speaker__name__link">
+              Vilibald Wanča
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/foto.jpg" alt="Vilibald Wanča" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/w-vi">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> w-vi
+                </a>
+
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">He started with Pascal and x86 assembler and went up through the levels of abstraction to Lisp within more than 15+ years. Interested in bridging the gap between the low-level to the high-level between the server and client, between human and computer. He has worked on web apps since late 1990’s using C/C++ and Python, went to high performance world of games and finance to come back to web community again while always keeping Python close at hand.</p>
+
+
+    <span class="talk-title">
+      Because Web API Testing Should Be Easy
+    </span>
+    <p class="talk-description">Web APIs are often called REST APIs, which recently became a part of the everyday life of many Python developers. Sure, it can be a blast to build an API with frameworks like Django or Flask, but writing tests for it can be a tedious drag: asserting every single HTTP code, set of headers, JSON responses, error states… you know the drill. Despite all that you do, you still need to assure your API clients won’t be exposed to any unexpected surprises. At Apiary, we&#39;ve developed an Open Source testing framework called Dredd, which has baked in first-class Python support. It does all the heavy lifting and boring stuff<br />for you while allowing you to alter the test cases with arbitrary Python code.<br /><br />Let Judge Dredd do your API justice.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" ">
+            <a href="#vita-smid"
+               name="vita-smid"
+               class="speaker__name__link">
+              Vita Smid
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/speakers/pyconcz2016/Portrait1.jpg" alt="Vita Smid" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/ze-phyr-us">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> ze-phyr-us
+                </a>
+
+
+                <a href="https://twitter.com/ze_phyr_us">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> ze_phyr_us
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">I travel the world, write software, and ponder on philosophy. I like to solve hard problems, preferably involving mathematics, finance, and lots of data. Python has been my language of choice for many years and I&#39;m very much into the latest developments like asyncio and type hints. Oh, and I love Scotch whisky.</p>
+
+
+    <span class="talk-title">
+      Algorithmic trading with asyncio
+    </span>
+    <p class="talk-description">My team and I have been building a Python 3 stock trading platform for the past 2.5 years. We are powering a trading fund that runs a range of manual and automated strategies. This is a story of what we have learned about Asyncio, profiling, optimization, debugging, and operations... in a fast-moving environment where bugs actually cost money.</p>
+
+
+          </section>
+        </section>
+
+
+
+        <section class="speaker">
+          <h2 class="speaker__name anchor" id="W">
+            <a href="#wojtek-erbetowski"
+               name="wojtek-erbetowski"
+               class="speaker__name__link">
+              Wojtek Erbetowski
+            </a>
+          </h2>
+
+          <section class="sidebox">
+            <div class="portrait">
+              <img src="../../media/proposals/pyconcz2016/talks/b4058c5282dfb43ab3542e0f0db3d5ae.jpeg" alt="Wojtek Erbetowski" />
+            </div>
+
+            <section class="icons">
+
+                <a href="https://github.com/wojtekerbetowski">
+                  <i class="fa fa-fw fa-github-alt" aria-hidden="true"></i> wojtekerbetowski
+                </a>
+
+
+                <a href="https://twitter.com/erbetowski">
+                  <i class="fa fa-fw fa-twitter" aria-hidden="true"></i> erbetowski
+                </a>
+
+            </section>
+          </section>
+
+          <section class="details">
+            <p class="bio">Wojtek leads people to achieve great goals. He contributes to the tech community, influences its direction, and engages talented people. He has a hands-on approach, which means organizing, volunteering and speaking at quite a few events. On daily basis, he works as a CTO at Growbots - one of the fastest growing Polish startups. He engages engineers, encourages best practices, and builds an ecosystem that supports effective, collaborative work. His favorite weapons are Kanban, Lean, XP, Python, Node.js, JVM, TDD, and REST APIs.</p>
+
+
+    <span class="talk-title">
+      Agile used to be really cool
+    </span>
+    <p class="talk-description">Agile software development used to be really cool back in the 00&#39;s. The vision of old school waterfall projects, with months of work before integrating and releasing software to users gives me the creeps. But let&#39;s return to the present. I can hardly even recall working in a non-agile project. I feel that most of the Agile manifesto principles are in my DNA more than a thing to follow. If you want to keep growing in this industry you might want to start building on top of that. This presentation contains my experience about aligning people, sharing a direction, and how servant leadership works.</p>
+
+
+          </section>
+        </section>
+
+
+  </div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href="../../about/" class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../../about/team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="../../sponsors/offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../../about/code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="../../about/brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="../../about/brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="../../about/brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="../../about/brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="../schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="./">Speakers</a></li>
+            <li><a href="../workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+{% extends "_base.html" %}
+
+{% load static %}
+{% load sponsors_tags %}
+
+
+
+{% block meta_title %}PyCon CZ 2017{% endblock %}
+
+
+{% block meta_head %}
+  {{ block.super }}
+  <!-- place this in your head tag -->
+  <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>
+  <script src='https://js.tito.io/v1' async></script>
+{% endblock %}
+
+
+{% block body %}
+  <div class="homepage">
+    <div class="container">
+      <nav class="nav">
+        {% include '_menu_top_homepage.html' %}
+      </nav>
+    </div>
+    <div class="container">
+      <div class="flex-row">
+        <div class="main-column-1">
+          <a class="logo-lg" href="https://cz.pycon.org/2017/">
+            {# inlined static/img/pyconlogo.min.svg todo: read it from file #}
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 284" width="612" height="284">
+              <style>/*<![CDATA[ */
+              path { stroke-linecap: butt; stroke-linejoin: round; stroke-miterlimit: 4; stroke-opacity: 1 }
+
+              .border { stroke: #1a171b; stroke-width: 1.5; }
+
+              .frame { fill: transparent; }
+
+              .side { fill: #fff; }
+
+              .top { fill: #82e1e0; }
+
+              svg:hover .top { fill: white; }
+
+              .grid { stroke: #b800cc; stroke-width: 0.5; display: none; }
+
+              svg:hover .grid { display: block; }
+
+              /* ]]>*/</style>
+              <symbol id="ltr" viewBox="0 0 612 284">
+                <path d="M3 93l52-30h34.6L107 73v20l-17.4 10 34.6 20-34.6 20zm86.6-50l34.6 20H159l34.5 20 34.7-20-34.7-20V23L159 3l-17.4 10v20H107zm156 110L228 143h-34.7L159 163v20l51.8 30h34.7l34.6-20v-20L263 163l-34.6 20-17.4-10zM280 93l-34.5 20v20l52 30H332l34.7-20v-20l-52-30h-34.6zm0 20H315l17.3 10v20h-34.6L280 133v-20zm156-10l34.7-20L384 33l-17.3 10L384 53h-34.6l-34.6 20 86.6 50 17.3-10-17.3-10zm-52 90v20l52 30h34.7l34.6-20v-20L488 193l-34.7 20-17.3-10 34.7-20-17.4-10h-34.6L384 193m138.6-80l34.7 20v20l17.3-10 34.6 20-69.3 40-34.7-20v-20L488 173l-34.7-20z" />
+              </symbol>
+              <g class="border side">
+                <path d="M3 93v40l86.6 50v-40zm86.6-50v40l34.6 20V63zm69.3 60l34.5 20V83L159 63v40m51.8 150l-52-30v-40l52 30zm34.7-120l52 30v40l-52-30zm121.2-90L384 53v40l-17.3-10zM384 213l52 30v40l-52-30zm17.4-50l-86.6-50V73l86.6 50v40m52-10l34.6 20v40l-34.7-20zm52 30l34.5 20v40l-34.7-20zM124 103H159V63H124v40m86.6 110h34.7v40h-34.7zm86.6-50H332v40h-34.6z" class="left" />
+                <path d="M314.8 113v40H280v-40zM436 103h-34.6v40H436zm0 140h34.7v40H436zM89.6 183l34.6-20v-40l-34.6 20z" class="front" />
+                <path d="M107 93v40l-17.4 10v-40zm86.5-10l34.7-20v40l-34.7 20V83m52 70v40l-34.7 20v-40zm34.6 40v40l-34.5 20v-40zm52-70L315 113v40l17.3 10v-40m34.7 20v40L332 203v-40l34.7-20m52-30v40l-17.3 10v-40zm52-30v40L436 143v-40zm0 100L436 203v40l34.7-20zm0 60l34.6-20v40l-34.6 20zm34.6-40v-40L488 173v40zm104-40v40l-69.4 40v-40l69.2-40" class="right" />
+              </g>
+              <use class="top" xlink:href="#ltr" />
+              <path class="grid" d="M20.3 83l86.6 50M37.5 73l52 30M55 63l52 30m-86.7 10l69.3-40m-52 50L107 73m-52 50l34.6-20m-17.3 30l34.6-20m0-60L176 13m-52 50l69.3-40M159 63l34.5-20m-17.3 30l34.6-20m0 20l-69.3-40m0-20l52 30M107 33l52 30m0 120l69.2-40m-52 50l34.7-20m-17.5 30l34.7-20M211 213l69-40m-103.8-20l34.6 20m17.4 10l34.6 20m-104-40l86.7 50m-52-70l34.7 20m17.3 10l34.6 20m-34.5-60l69.3-40m-52 50l17.3-10m52-30L315 113m34.6 0L332 123m-34.6 20L280 153m17.4 10l69.3-40M280 93l34.8 20m17.3 10l34.7 20m-34.6 0l17.4 10m-86.6-50l17.3 10m-34.5 0l34.6 20m17.4 10l34.7 20m0-80l69.4-40m17.3 10l-69.3 40m17.3 10L436 63m17.3 10L384 113m-52-50l69.4 40m-52-50l86.6 50m-52-50l69.3 40M384 213l69.3-40m-52 50l34.7-20m-17.3 30l34.6-20M436 243l69.3-40m-104-20l34.7 20m17.3 10l34.7 20m-104-40l86.6 50m-52-70l34.7 20m17.3 10l34.7 20m0-60l52-30m0 20l-52 30m17.3 10l69.3-40m-121.4 10l69.3-40m-34.7 0l86.6 50m-104-40l86.6 50m-104-40l86.6 50" />
+              <use class="border frame" xlink:href="#ltr" />
+            </svg>
+          </a>
+        </div>
+        <div class="main-column-2">
+          <h1 class="header-title">
+            PyCon&nbsp;CZ 2018 Prague
+            1&#8209;3&nbsp;June
+            {% comment %}
+            <span class="changed changed--small">
+              PyCon CZ starts a day earlier than initially announced. <a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">read&nbsp;more</a>
+            </span>
+            {% endcomment %}
+          </h1>
+          <nav class="nav-main">
+            <ul>
+              {% comment %}<li><a href="/2018/about">About</a></li>{% endcomment %}
+              {% comment %}<li><a href="#tickets">Workshop tickets</a></li>{% endcomment %}
+              <li><a href="{% url 'programme_schedule' %}">Schedule</a></li>
+              <li><a href="{% url 'speakers_list' type='talks' %}">Talks and Videos</a></li>
+              <li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>
+              {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>{% endcomment %}
+              {% comment %}<li><a href="/2018/proposals/talks">Call for Papers</a></li>{% endcomment %}
+              <li><a href="{% url "about_city" %}">About Prague</a></li>
+              <li><a href="/2018/about/code">Code of Conduct</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="homepage-claim">
+        <strong>PyCon CZ</strong> aims to be the largest annual gathering for the <strong>Python community</strong>
+        in the <strong>Czech Republic</strong>.
+        <br>It's focused on honoring and supporting <strong>awesome people</strong>
+        teaching, learning and innovating with Python in Czech Republic
+        and <strong>surrounding EU</strong>.
+      </div>
+
+      {% comment %}
+      <h2 class="text-center">We're on! Watch on-line stream!</h2>
+      <div class="homepage-row">
+        <div class="homepage-column homepage-column-stream">
+            <h3>
+              <a href="https://www.youtube.com/watch?v=motIB96FI48">
+                <i class="fa fa-3x fa-play-circle" aria-hidden="true"></i>
+                <span>Main</span>
+              </a>
+            </h3>
+        </div>
+        <div class="homepage-column homepage-column-stream">
+          <a href="https://www.youtube.com/watch?v=2Azpwf2LRK0">
+            <h3>
+              <i class="fa fa-3x fa-play-circle" aria-hidden="true"></i>
+              <span>Theatre</span>
+            </h3>
+          </a>
+        </div>
+      </div>
+      {% endcomment %}
+
+      <h2 class="text-center">Prague, mother of all cities</h2>
+      <div class="homepage-claim">
+        <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely
+          have a great time, whether you are only staying for the conference or you will take
+          a couple of days to look around.</p>
+
+        <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on
+          every corner, dozens of parks, 4th best ZOO in the world, a river and much more.
+          And of course, what better time to visit than <strong>summertime</strong>!</p>
+
+        <p><strong><a href="{% url "about_city" %}">Read more about Prague</a></strong></p>
+      </div>
+
+      <div class="homepage-row">
+        <div class="homepage-column homepage-column-venue">
+          <h3>
+            <i class="fa fa-3x fa-map-marker" aria-hidden="true"></i>
+            Venue
+            <small class="homepage-day-date">
+              <a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a>
+            </small>
+          </h3>
+
+          <div class="homepage-day-venue">
+            <address>
+              <strong>Meet Factory</strong><br>
+              Ke Sklárně 3213/15<br>
+              Praha 5 – Smíchov
+            </address>
+          </div>
+        </div>
+
+        <div class="homepage-column">
+          <h3>
+            <i class="fa fa-3x fa-commenting-o" aria-hidden="true"></i>
+            <a href="{% url 'speakers_list' type='talks' %}">
+              Talks
+              <small class="homepage-day-date">8-9 June</small>
+            </a>
+          </h3>
+          <p class="homepage-day-venue">
+            <strong>Two days</strong>, <strong>two</strong> parallel tracks,
+            <strong>four</strong> keynotes and <strong>27</strong>
+            <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
+          </p>
+        </div>
+
+        <div class="homepage-column">
+          <h3>
+            <i class="fa fa-3x fa-cogs" aria-hidden="true"></i>
+            <a href="{% url 'speakers_list' type='workshops' %}">
+              Workshops
+              <small class="homepage-day-date">10 June</small>
+            </a>
+          </h3>
+          <p class="homepage-day-venue">
+            <strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a>
+            in two blocks and sprinting <strong>all day long</strong>.
+            Hack on open-source projects together with other Python community members.
+          </p>
+        </div>
+      </div>
+
+      <h1 class="text-center">Keynote speakers</h1>
+      <div class="keynoters">
+        {% for keynoter in keynoters %}
+          <div class="keynoters__keynoter">
+            <div class="keynoters__photo" style="background-image: url({{ keynoter.photo.url }});"></div>
+            <h4 class="keynoters__name">{{ keynoter.full_name }}</h4>
+            <a class="keynoters__twitter" href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a>
+            <p class="keynoters__bio">{{ keynoter.bio }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% comment %}
+      <h1 class="text-center" id="tickets">Workshop tickets</h1>
+      <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>
+      {% endcomment %}
+
+      {% comment %}
+      <div class="homepage-row">
+        <div class="homepage-column">
+          <p>
+            Please note that <strong>the conference starts and ends a day earlier than initially announced</strong>. Also, the venue had to change.
+            <br>
+            We are sorry for any inconvenience caused. <br>
+            If you have any problems please <a href="mailto:info@pycon.cz">let us know</a> and we’ll try to find a way to help you.
+
+            <br><a href="http://blog.python.cz/pycon-cz-2017-changes-date-and-venue">Want to know more about the change?</a></p>
+        </div>
+      </div>
+      {% endcomment %}
+
+      {% comment %}<tito-widget event="pyvec/pycon-cz-2017"></tito-widget>{% endcomment %}
+
+      <div class="homepage-social">
+        {% comment %}
+        <div class="teaser-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        {% endcomment %}
+
+        <h2 class="text-center">Our partners</h2>
+        {% sponsors %}
+
+        <h2 class="text-center">What attendees said about PyCon CZ 2016?</h2>
+
+        <div class="tweets">
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="cs" dir="ltr"><a href="https://twitter.com/hashtag/pyconcz?src=hash">#pyconcz</a> skoncil 😔 super ukoncenie datovymi workshopmi...obdivujem ludi co tu cely cas az… <a href="https://t.co/M7zOwAhiSp">https://t.co/M7zOwAhiSp</a></p>&mdash; Sveta Margetova (@Mandragora258) <a href="https://twitter.com/Mandragora258/status/792776593299079168">30th october 2016</a></blockquote>
+
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="en" dir="ltr">.<a href="https://twitter.com/pyconcz">@pyconcz</a> thank you for great event. You did amazing job. <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a> <a href="https://twitter.com/hashtag/Brno?src=hash">#Brno</a></p>&mdash; SPy - Slovak Python (@pyconsk) <a href="https://twitter.com/pyconsk/status/792755641425203201">30th october 2016</a></blockquote>
+
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="en" dir="ltr">Nice to be here on <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a> but it&#39;s time to go home. See you next year! :)</p>&mdash; Goran Vrbaški (@goranvrbaski) <a href="https://twitter.com/goranvrbaski/status/792695685137231872">30th october 2016</a></blockquote>
+
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="en" dir="ltr">Huge thanks to <a href="https://twitter.com/pyconcz">@pyconcz</a> organizers for giving me a chance to give my first talk ever! <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a></p>&mdash; Josef Rousek (@josefrousek) <a href="https://twitter.com/josefrousek/status/792619642338611200">30th october 2016</a></blockquote>
+
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="en" dir="ltr">Cool talk about using <a href="https://twitter.com/hashtag/python?src=hash">#python</a> in <a href="https://twitter.com/hashtag/cern?src=hash">#cern</a> by <a href="https://twitter.com/jschovan">@jschovan</a> -- the video simulations are great! <a href="https://twitter.com/hashtag/pyconcz?src=hash">#pyconcz</a></p>&mdash; Valdemar Švábenský (@svabenskyv) <a href="https://twitter.com/svabenskyv/status/792352353450090497">29th
+            october 2016</a></blockquote>
+
+          <blockquote class="twitter-tweet" data-lang="cs"><p lang="en" dir="ltr">Three programmers playing ukulele for hundreds of people. Only <a href="https://twitter.com/hashtag/pyconcz?src=hash">#pyconcz</a></p>&mdash; Mikuláš Poul (@miki_cz) <a href="https://twitter.com/miki_cz/status/792025420619218944">28th october 2016</a></blockquote>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

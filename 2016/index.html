@@ -1,0 +1,533 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJRB8BVwoAG2ZTBwkCSFcJD1ULDU9PCFJPR1xcCQ9dFAIGXA==","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":52,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PyCon CZ 2016</title>
+
+
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+
+  <!-- place this in your head tag -->
+  <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1' />
+  <script src='https://js.tito.io/v1' async></script>
+
+  <link type="text/css" href="static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+<div class="homepage">
+  <div class="nav-fixed --half">
+    <div class="container">
+      <nav class="nav">
+        <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+
+        <i class="fa fa-home"></i>
+
+    </a>
+
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="about/" class="nav__item__link ">
+
+        Event
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="about/" class="nav__item__link ">
+                About
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="about/team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="sponsors/" class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="about/code.1.html" class="nav__item__link ">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="about/brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="about/brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="about/brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="about/brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="speakers/schedule/" class="nav__item__link ">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="speakers/schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="speakers/talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="speakers/workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <div class="main-column-1">
+      <a href=/2016/><div class="logo-lg"></div></a>
+    </div>
+    <div class="main-column-2">
+      <h1 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h1>
+      <!-- <nav class="nav-main">
+        <ul>
+          <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+          <li><a href="/2016/about">About</a></li>
+          <li><a href="/2016/about/team">Team</a></li>
+          <li><a href="/2016/proposals/talks">Call for Papers</a></li>
+          <li><a href="/2016/proposals/financial-aid/">Financial Aid</a></li>
+          <li><a href="/2016/sponsors/offer/">Sponsorship</a></li>
+          <li><a href="/2016/about/code">Code of Conduct</a></li>
+        </ul>
+      </nav> -->
+    </div>
+
+    <div class="homepage-claim">
+        <strong>PyCon CZ</strong> aims to be the largest annual gathering for the <strong>Python community</strong>
+        in the <strong>Czech Republic</strong>.<br>
+        It's focused on honoring and supporting <strong>awesome people</strong>
+        teaching, learning and innovating with Python in Czech Republic
+        and <strong>surrounding EU</strong>.
+    </div>
+
+
+    <div class="homepage-basic">
+      <div class="homepage-column">
+        <h3>
+          <i class="fa fa-3x fa-map-marker" aria-hidden="true"></i>
+          Venue
+          <small class="homepage-day-date">
+            <a href="https://goo.gl/maps/m2BhaURP3572">Map</a>
+          </small>
+        </h3>
+
+        <div class="homepage-day-venue">
+          <address>
+            <strong>Faculty of informatics</strong><br />
+            Brno University of Technology<br />
+            Božetěchova 1/2, Brno<br />
+          </address>
+        </div>
+      </div>
+
+      <div class="homepage-column">
+        <h3>
+          <i class="fa fa-3x fa-commenting-o" aria-hidden="true"></i>
+          Talks
+          <small class="homepage-day-date">28-29 October</small>
+        </h3>
+        <p class="homepage-day-venue">
+          <strong>Two days</strong>, <strong>three</strong> parallel tracks,
+          <strong>four</strong> keynotes and <strong>30+</strong> awesome talks.
+        </p>
+      </div>
+
+      <div class="homepage-column">
+        <h3>
+          <i class="fa fa-3x fa-cogs" aria-hidden="true"></i>
+          Sprints &amp; workshops
+          <small class="homepage-day-date">30 October</small>
+        </h3>
+        <p class="homepage-day-venue">
+          <strong>Six</strong> workshops in two blocks and sprinting <strong>all day
+          long</strong>. Hack on open-source projects together with other Python
+          community members.
+        </p>
+      </div>
+    </div>
+
+    <div class="keynoters">
+      <h1 class="text-center">Keynote speakers</h1>
+
+
+        <div class="keynoter">
+          <img src="media/speakers/pyconcz2016/keynoter02.jpg" alt="Ana Balica" />
+          <h4>Ana Balica</h4>
+          <a href="http://twitter.com/anabalica">@anabalica</a>
+          <p class="bio">
+            Software developer, working at Potato, Ana spends most of her days writing Django powered web apps at Potato London. She really enjoys poking into legacy code and perpetually strives for clean code designs. She’s learned many valuable things both as a mentee and a mentor in programs like Google Summer of Code, Learn IT Girl!, Django Girls, Rails Girls. And she likes Python, books and cats and is known to occasionally give talks.
+          </p>
+        </div>
+
+        <div class="keynoter">
+          <img src="media/speakers/pyconcz2016/keynoter03.jpg" alt="Lea Polachek" />
+          <h4>Lea Polachek</h4>
+          <a href="http://twitter.com/leadol">@leadol</a>
+          <p class="bio">
+            Lea Polachek is the CTO of she-codes.org organization, she has ten years of experience in Image Processing and algorithm development and a Masters Degree in Physics from Weizmann Institute of Science. She codes is an organization in Israel aimed at promoting women in technology, the organization grew in three years to have over 10,000 members in 25 locations all around Israel including universities and hi-tech companies.
+          </p>
+        </div>
+
+        <div class="keynoter">
+          <img src="media/speakers/pyconcz2016/keynoter04_xnUG7L3.jpg" alt="Jacqueline Kazil" />
+          <h4>Jacqueline Kazil</h4>
+          <a href="http://twitter.com/JackieKazil">@JackieKazil</a>
+          <p class="bio">
+            Jackie is a Czech-American engineering and technology consultant with a focus in data science, teaching, and organizational change. She has worked with various major companies and The United States government including The White House and The Washington Post. She is a leader in PyLadies and sits on the Board of Directors for the Python Software Foundation. She is also the author of O’Reilly book, Data Wrangling with Python, and Mesa, a agent-based modeling library in Python. In her spare time, she is working on her Ph.D in Computational Social Science at George Mason University. She lives in Washington, DC with her husband and three dogs.
+          </p>
+        </div>
+
+        <div class="keynoter">
+          <img src="media/speakers/pyconcz2016/keynoter01.jpg" alt="Benny Daon" />
+          <h4>Benny Daon</h4>
+          <a href="http://twitter.com/daonb">@daonb</a>
+          <p class="bio">
+            Benny Daon has been coding for 33 years now, starting at his Bar-Mitzvah with an 8-bit Atari. After a successful gig as co-founder and CEO of Shunra Software (here&#39;s the 1998 web page of our first product The Cloud), he’s spent most of the last 8 years coding for sites using Python, Django and Flask. and weaving a network of developers. He’s one of the founders of PyWeb-IL from which the Open Knesset project grew, later giving birth to its mother org - The Public Knowledge Workshop. In the last year Benny has been freelancing for the Museum of the Jewish People in Tel Aviv, bringing their datasets to the web i.e. here&#39;s what they have on Brno.
+          </p>
+        </div>
+
+    </div>
+
+    <!-- Place this where you want the widget to appear -->
+    <a name="tickets"></a>
+    <h1 class="text-center">Tickets are available!</h1>
+    <tito-widget event="pyvec/pycon-cz-2016"></tito-widget>
+
+
+    <div class="homepage-social">
+      <div class="teaser-video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <h2 class="text-center">Our partners</h2>
+
+
+
+<ul class="sponsors">
+
+    <li class="sponsors__level-group sponsors--platinum">
+      <span class="sponsors__level">Platinum</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="https://www.kiwi.com">
+                <img src="media/sponsors/pyconcz_2016/Kiwicom.png" alt="Kiwi.com"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+    <li class="sponsors__level-group sponsors--gold">
+      <span class="sponsors__level">Gold</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="https://www.python.org/psf/membership">
+                <img src="media/sponsors/pyconcz_2016/psf-logo-narrow-256x84-alpha.png" alt="Python Software Foundation (PSF)"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://jobs.redhat.com/">
+                <img src="media/sponsors/pyconcz_2016/logo_redhat_rgb_default.png" alt="Red Hat"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+    <li class="sponsors__level-group sponsors--silver">
+      <span class="sponsors__level">Silver</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="https://www.growbots.com">
+                <img src="media/sponsors/pyconcz_2016/growbots.png" alt="Growbots"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://www.mergado.cz/">
+                <img src="media/sponsors/pyconcz_2016/mergado-white-420-140.png" alt="Mergado"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://azure.microsoft.com">
+                <img src="media/sponsors/pyconcz_2016/Azure_logo.png" alt="Microsoft"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://www.msdit.cz">
+                <img src="media/sponsors/pyconcz_2016/msd_3282.png" alt="MSD IT"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+    <li class="sponsors__level-group sponsors--bronze">
+      <span class="sponsors__level">Bronze</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="https://getfedora.org/">
+                <img src="media/sponsors/pyconcz_2016/Fedora_vertical.png" alt="Fedora"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="https://imper.cz">
+                <img src="media/sponsors/pyconcz_2016/logo_Imper.png" alt="Imper"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="https://www.jetbrains.com">
+                <img src="media/sponsors/pyconcz_2016/logo_JetBrains_2.png" alt="JetBrains"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://www.semtex-energy.cz/">
+                <img src="media/sponsors/pyconcz_2016/SEMTEX_Label_CMYK_HXd9OhK.svg" alt="SEMTEX Energy"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="https://www.sli.do/home">
+                <img src="media/sponsors/pyconcz_2016/sli.do_logo_square.jpg" alt="Slido"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+    <li class="sponsors__level-group sponsors--diversity">
+      <span class="sponsors__level">Diversity</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="https://github.com">
+                <img src="media/sponsors/pyconcz_2016/GitHub_Logo.png" alt="GitHub"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+    <li class="sponsors__level-group sponsors--partners">
+      <span class="sponsors__level">Partners</span>
+      <ul class="sponsors__list">
+
+            <li class="sponsors__item">
+              <a href="http://www.hotelavanti.cz/">
+                <img src="media/sponsors/pyconcz_2016/avanti-4hvezdy.png" alt="Hotel Avanti"/>
+              </a>
+            </li>
+
+            <li class="sponsors__item">
+              <a href="http://www.rebelbean.cz">
+                <img src="media/sponsors/pyconcz_2016/logo_jpeg.jpg" alt="RebelBean"/>
+              </a>
+            </li>
+
+      </ul>
+    </li>
+
+</ul>
+
+
+      <h2 class="text-center">What attendees said about PyCon CZ 2015?</h2>
+
+      <div class="tweets">
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Thanks <a href="https://twitter.com/pyconcz">@pyconcz</a> for the amazing conference. I&#39;m really glad to be part of this! <a href="https://twitter.com/hashtag/pyconcz?src=hash">#pyconcz</a></p>&mdash; Elyézer Rezende (@elyezer) <a href="https://twitter.com/elyezer/status/665589724841648131">November 14, 2015</a></blockquote>
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The first ever Czech pycon has ended and it was awesome! I will definitely come next year, too! 😻<br><br>Goodbye <a href="https://twitter.com/pyconcz">@pyconcz</a>, bye Brno! <a href="https://twitter.com/hashtag/pyconcz?src=hash">#pyconcz</a></p>&mdash; Zabriskie Point (@mishunika) <a href="https://twitter.com/mishunika/status/665948638963724288">November 15, 2015</a></blockquote>
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Many thanks again to the <a href="https://twitter.com/pyconcz">@pyconcz</a> team, volunteers and attendees for a wonderful weekend. Such a great community 💖</p>&mdash; Jessica Rose (@jesslynnrose) <a href="https://twitter.com/jesslynnrose/status/666210393195454464">November 16, 2015</a></blockquote>
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Hey <a href="https://twitter.com/pyconcz">@pyconcz</a> the very first <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a> was AWESOME! 👏 I had a wonderful time! Looking forward to <a href="https://twitter.com/hashtag/PyConCZ2016?src=hash">#PyConCZ2016</a> 🐍</p>&mdash; Jarka Schovancova (@jschovan) <a href="https://twitter.com/jschovan/status/665892968151257088">November 15, 2015</a></blockquote>
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Yes, <a href="https://twitter.com/pyconcz">@pyconcz</a> was very nice event. Nice people, nice community - very same as my origin <a href="https://twitter.com/hashtag/opensource?src=hash">#opensource</a> <a href="https://twitter.com/hashtag/gis?src=hash">#gis</a>. Looking forward to next time.</p>&mdash; Jachym Cepicky (@jachymc) <a href="https://twitter.com/jachymc/status/665670997517946880">November 14, 2015</a></blockquote>
+        <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Great atmosphere, awesome speakers = can&#39;t wait for Sunday workshops! Thank you, <a href="https://twitter.com/pyconcz">@pyconcz</a> guys.</p>&mdash; JsemDroidik (@JsemDroidik) <a href="https://twitter.com/JsemDroidik/status/665587734996762624">November 14, 2015</a></blockquote>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href="about/" class="nav-title">About</a>
+
+          <ul>
+            <li><a href="about/team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="sponsors/offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="about/code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="about/brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="about/brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="about/brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="about/brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="speakers/schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="speakers/talks/">Speakers</a></li>
+            <li><a href="speakers/workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

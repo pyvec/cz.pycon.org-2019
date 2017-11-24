@@ -1,0 +1,14 @@
+{% load formatting %}
+
+<h1>Attention!</h1>
+{% for one in announcements %}
+<div class="ann">
+	<div class="ann-content">{{ one.message|markdown }}</div>
+    <!-- <p><small>{{ one.date_created }}</small></p> -->
+</div>
+{% endfor %}
+<div class="ann">
+    <div class="ann-content">
+        Ask speakers at <strong>slido.com</strong> with hashtag <strong>#pyconcz</strong> 💬
+    </div>
+</div>

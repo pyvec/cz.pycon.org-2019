@@ -1,0 +1,1 @@
+TIME_FORMAT = 'H:i'

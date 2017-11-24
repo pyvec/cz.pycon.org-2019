@@ -1,0 +1,457 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"transactionName":"NV0GNxNYD0RZVxJdCQwXIhYPWhVeV1pJUAwDVgMMT08IUk9HSFMDDF0WCgIXA1ZLUVxgAw9ICAIVXDdeXUNIUwMW","errorBeacon":"bam.nr-data.net","agent":"","queueTime":0,"applicationTime":9,"applicationID":"20363468","beacon":"bam.nr-data.net","licenseKey":"125cbbfdf1"}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Code of Conduct</title>
+  
+      <meta property="og:image" content="/2016/static/img/pyconlogo.png">
+  
+  <link type="text/css" href="../../static/css/styles-2682f411ab136e3c9cb0.css" rel="stylesheet" />
+  <link rel="icon" type="image/ico" href="../../static/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="nav-fixed">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__items --level-1">
+
+  <li class="nav__item   --icon">
+    <a href=/2016/ class="nav__item__link ">
+      
+        <i class="fa fa-home"></i>
+      
+    </a>
+
+    
+  </li>
+
+  <li class="nav__item --selected  ">
+    <a href=/2016/ class="nav__item__link --selected">
+      
+        Event
+      
+    </a>
+
+    
+      <div class="nav">
+        <ul class="nav__items --level-2">
+          
+            <li class="nav__item  ">
+              <a href=/2016/ class="nav__item__link ">
+                About
+              </a>
+            </li>
+          
+            <li class="nav__item  ">
+              <a href="../team.1.html" class="nav__item__link ">
+                Team
+              </a>
+            </li>
+          
+            <li class="nav__item  ">
+              <a href="../../sponsors/" class="nav__item__link ">
+                Sponsors
+              </a>
+            </li>
+
+            <li class="nav__item --selected --last">
+              <a href="../code.1.html" class="nav__item__link --selected">
+                Code of Conduct
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../brno/" class="nav__item__link ">
+
+        Brno
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../brno/" class="nav__item__link ">
+                Guide
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../brno/#how-to-get-to-brno" class="nav__item__link ">
+                Travelling
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../brno/#accommodation-tips" class="nav__item__link ">
+                Accommodation
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item   ">
+    <a href="../../speakers/schedule/" class="nav__item__link ">
+
+        Program
+
+    </a>
+
+
+      <div class="nav">
+        <ul class="nav__items --level-2">
+
+            <li class="nav__item  ">
+              <a href="../../speakers/schedule/" class="nav__item__link ">
+                Schedule
+              </a>
+            </li>
+
+            <li class="nav__item  ">
+              <a href="../../speakers/talks/" class="nav__item__link ">
+                Speakers
+              </a>
+            </li>
+
+            <li class="nav__item  --last">
+              <a href="../../speakers/workshops/" class="nav__item__link ">
+                Workshops
+              </a>
+            </li>
+
+        </ul>
+      </div>
+
+  </li>
+
+  <li class="nav__item  --highlighted ">
+    <a href="https://ti.to/pyvec/pycon-cz-2016" class="nav__item__link ">
+
+        Tickets
+
+    </a>
+
+
+  </li>
+
+</ul>
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <a href=/2016/ class="pyconlogo"><img src="../../static/img/pyconlogo.svg" alt="PyCon CZ"></a>
+      <h2 class="header-title">PyCon CZ 2016 Brno <br>28-30 October</h2>
+    </div>
+  </header>
+
+
+<div class="code">
+  <div class="container text-block">
+    <h1 id="code-of-conduct">Code of Conduct</h1>
+    <p>
+      <strong>PyCon CZ</strong> is a community conference intended for networking and
+      collaboration in the developer community.
+    </p>
+
+    <p>
+      We value the participation of <strong>each member</strong> of the
+      <strong>Python community</strong> and want all attendees to have
+      an enjoyable and fulfilling experience.
+      Accordingly, all attendees are expected to show
+      <strong>respect</strong> and <strong>courtesy</strong> to other
+      attendees throughout the conference and at all official conference
+      events sponsored by PyCon CZ.
+    </p>
+
+    <p>
+      To make clear what is expected, all attendees, speakers, organizers,
+      volunteers or other persons at any official PyCon CZ event are required
+      to conform to the following Code of Conduct. Organizers will enforce
+      this code throughout the event.
+    </p>
+
+    <h2 id="the-short-version">The Short Version</h2>
+    <p>
+      <strong>PyCon CZ</strong> is dedicated to providing a harassment-free conference
+      experience for everyone, regardless of gender, sexual orientation,
+      physical appearance, body size, disability, race, ethnicity, religion,
+      or otherwise. We do not tolerate harassment of conference participants
+      in any form, on-line or off-line.
+    </p>
+
+    <p>
+      All communication should be appropriate for a professional audience
+      including people of many different backgrounds. Sexual language and
+      imagery is not appropriate for any conference venue, including talks.
+    </p>
+
+    <p>
+      Be kind to others. Do not insult or put down other attendees. Behave
+      professionally. Remember that harassment and sexist, racist, or
+      exclusionary jokes are not appropriate for PyCon CZ.
+    </p>
+
+    <blockquote>
+      <p>
+        If a person engages in harassing behaviour, the organizers will take
+        prompt action, including expulsion from PyCon CZ event without a refund.
+        Thank you for helping make this a welcoming, friendly event for all.
+      </p>
+    </blockquote>
+
+    <h2 id="the-longer-version">The Longer Version</h2>
+    <p>
+      Harassment includes offensive verbal comments related to gender, sexual
+      orientation, disability, physical appearance, body size, race, religion,
+      sexual images in public spaces, deliberate intimidation, stalking,
+      following, harassing photography or recording, offensive verbal
+      comments, sustained disruption of talks or other events, inappropriate
+      physical contact, and unwelcome sexual attention.
+    </p>
+
+    <blockquote>
+      <p>
+        Participants asked to stop any harassing behaviour are expected to
+        comply immediately.
+      </p>
+    </blockquote>
+
+    <p>
+      Sponsor and vendor booths or similar activities are also subject to the
+      anti-harassment policy. In particular, sponsors and vendors should not
+      use sexualized images, activities, or other offensive material. Booth
+      staff (including volunteers) should not wear sexualized
+      clothing/uniforms/costumes, or otherwise create a sexualized
+      environment. No alcoholic beverages may be served at the booths.
+    </p>
+
+    <p>
+      Be careful with the words that you choose. Remember that sexist, racist,
+      and other exclusionary jokes may be offensive to those around you.
+      Excessive swearing and offensive jokes, excessive alcohol consumption,
+      and use of illegal drugs are not appropriate for PyCon CZ.
+    </p>
+
+    <blockquote>
+      <p>
+        If a participant engages in behaviour that violates this Code of
+        Conduct, the conference organizers will take an appropriate action,
+        including warning the offender or expulsion from the conference with no
+        refund.
+      </p>
+    </blockquote>
+
+    <h2 id="contact-information">Contact Information</h2>
+    <p>
+      If you are being harassed, notice that someone else is being harassed,
+      or have any other concerns, please contact a member of the conference
+      staff. Conference staff will be visibly marked.
+    </p>
+
+    <p>
+      If the matter is especially urgent, please call/contact any of these
+      organizers:
+
+      <ul>
+        <li>Max Kovykov - <a href="tel:+420773601623">+420 773 601 623</a></li>
+        <li>Veronika Kabatova - <a href="https://cz.pycon.org/2016/about/code/+420735846810">+420 735 846 810</a></li>
+      </ul>
+    </p>
+
+    <p>
+      Conference staff will be happy to help participants provide escorts,
+      contact local law enforcement, or otherwise assist those experiencing
+      harassment to feel safe for the duration of the conference. We value
+      your attendance.
+    </p>
+
+    <h2 id="incident-handling">Attendee Incident Handling Procedure</h2>
+    <p>
+      1. Keep in mind that all conference staff will be wearing a conference
+      t-shirt/button with the word “STAFF” on it (or otherwise clearly marked
+      as staff). The staff will also be prepared to handle the incidents. All
+      our staff are informed about the code of conduct policy and guide for
+      handling harassment at the conference.
+    </p>
+
+    <p>
+      2. Report the harassment incident (preferably in writing) to a
+      conference staff member PRIVATELY. All reports are confidential. Please
+      do not disclose public information about the incident until the staff
+      have had sufficient time in which to address the situation. This is as
+      much for your safety and protection as it is for other attendees.
+    </p>
+
+    <p>
+      When reporting the incident to the staff, try to gather as much
+      information as available but do not interview people about the incident.
+      Staff will assist you in writing the report/collecting information.
+    </p>
+
+    <p>
+      The important information consists of:
+
+      <ul>
+        <li>Identifying information (name) of the participant doing the harassing.</li>
+        <li>The behaviour that was in violation.</li>
+        <li>The approximate time of the behaviour.</li>
+        <li>The circumstances surrounding the incident.</li>
+        <li>Other people involved in the incident.</li>
+      </ul>
+    </p>
+
+    <p>
+      The staff is well informed on how to deal with the incident and how to
+      further proceed with the situation.
+    </p>
+
+    <p>
+      3. If everyone is presently physically safe, involve law enforcement or
+      security only at the victim's request. If you do feel your safety is in
+      jeopardy please do not hesitate to contact local law enforcement by
+      dialing 112 (international emergency number) or 158 (czech number for
+      police). Both numbers are free of charge. If you do not have a cell
+      phone, you can ask a staff member.
+    </p>
+
+    <p>
+      Note: Incidents that violate the Code of Conduct are extremely damaging
+      to the community, and they will not be tolerated. The silver lining is
+      that, in many cases, these incidents present a chance for the offenders,
+      and the community at large, to grow, learn, and become better. PyCon CZ
+      staff request that they be your first resource when reporting a
+      PyCon-related incident, so that they may enforce the Code of Conduct and
+      take quick action towards a solution.
+    </p>
+
+    <p>
+      If at all possible, all reports should be made directly to Max Kovykov.
+    </p>
+
+    <h2 id="license">License</h2>
+
+    <p>
+      This Code of Conduct was forked from the example policy from the
+      <a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy">
+        Geek Feminism wiki, created by the Ada Initiative and other volunteers
+      </a> which is under a
+      <a rel="licence" href="http://creativecommons.org/licenses/by/3.0/">
+        Creative Commons Zero license.
+      </a>
+    </p>
+	<p>
+	The Attendee Incident Handling Procedure was adopted from the guide titled
+	<a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Responding_to_reports">Conference anti-harassment/Responding to reports</a>.
+	</p>
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="container text-block">
+    <nav>
+      <ul class="nav-footer">
+        <li class="nav-section">
+          <a href=/2016/ class="nav-title">About</a>
+
+          <ul>
+            <li><a href="../team.1.html">Team</a></li>
+            <li><a href="https://ti.to/pyvec/pycon-cz-2016">Tickets</a></li>
+            <li><a href="../../sponsors/offer/">Sponsorship</a></li>
+            <li class="nav-highlight">
+              <a href="../code.1.html">Code of Conduct</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-section">
+          <a href="../brno/">Brno, the city we love</a>
+
+          <ul>
+            <li><a href="../brno/#brno">Hitchhiker's guide</a></li>
+            <li><a href="../brno/#how-to-get-to-brno">Travelling</a></li>
+            <li><a href="../brno/#accommodation-tips">Accommodation</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-section">
+          <a href="../../speakers/schedule/">Schedule</a>
+
+          <ul>
+            <li><a href="../../speakers/talks/">Speakers</a></li>
+            <li><a href="../../speakers/workshops/">Workshops</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+
+
+
+      </ul>
+    </nav>
+
+    <div class="social-links">Spread the word about <strong>PyCon CZ!</strong>
+      <ul>
+        <li><a href="https://twitter.com/pyconcz"><i class="fa fa-fw fa-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/events/845895085510493/"><i class="fa fa-fw fa-facebook"></i></a></li>
+        <li><a href="http://lanyrd.com/2016/pyconcz/"><i class="fa fa-fw fa-calendar-check-o"></i></a></li>
+        <li><a href="https://github.com/pyvec/cz.pycon.org-2016"><i class="fa fa-fw fa-github"></i></a></li>
+        <li><a href="https://pyvec.slack.com"><i class="fa fa-fw fa-slack"></i></a></li>
+        <li><a href="mailto:info@pycon.cz"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="psf-trademark">
+      <p>
+        <a href="https://www.python.org/psf/trademarks/pycon/">PyCon™</a>
+        is a trademark for worldwide conference activities claimed by
+        <a href="https://www.python.org/psf-landing/">Python Software
+          Foundation</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-81705668-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+<script type="text/javascript" src="../../static/js/main-2682f411ab136e3c9cb0.js" ></script>
+
+<script async src="https://use.fontawesome.com/c0f5df5d14.js"></script>
+
+</body>
+</html>

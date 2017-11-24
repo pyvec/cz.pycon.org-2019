@@ -1,0 +1,67 @@
+.team__claim {
+  font-size: 1.5em;
+
+  @media (min-width: $mobile-break) {
+    text-align: center;
+  }
+}
+
+.team__main_contact {
+  padding-top: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-top: 1px solid $color-main;
+  font-size: 1.5em;
+
+  @media (min-width: $mobile-break) {
+    text-align: center;
+  }
+}
+
+.team__list {
+  @include clearfix;
+}
+
+.team__person {
+  width: 100%;
+  float: left;
+  margin-bottom: 2em;
+
+  @media (min-width: $mobile-break) {
+    width: 49%;
+  }
+
+  @media (min-width: 991px) {
+    width: 32%;
+  }
+
+  &__name {
+    margin-top: 0;
+    margin-bottom: vr(.2);
+  }
+
+  &__photo {
+    float: left;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    vertical-align: bottom;
+
+    @media (max-width: 670px) {
+      display: block;
+    }
+  }
+
+  &__social_links {
+    list-style: none;
+  }
+
+  &__name,
+  &__social_links {
+    padding-left: 100px;
+    text-align: left;
+  }
+}
+
+
+

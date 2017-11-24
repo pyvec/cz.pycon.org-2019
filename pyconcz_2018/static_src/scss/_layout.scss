@@ -1,0 +1,185 @@
+body {
+  color: $color-text-base;
+  font-family: $main-font;
+}
+
+.anchor::before {
+  content: " ";
+  display: block;
+  position: relative;
+  width: 0;
+  /*  height: $top-offset;
+    margin-top: -$top-offset;*/
+}
+
+.homepage {
+  header {
+    display: none;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  background: rgba(255, 255, 255, 0.7);
+
+  @media (max-width: 767px) {
+    width: $container-xs;
+  }
+  @media (min-width: 768px) {
+    width: $container-sm;
+  }
+  @media (min-width: 992px) {
+    width: $container-md;
+  }
+  @media (min-width: 1200px) {
+    width: $container-lg;
+  }
+}
+
+.pc_container {
+  //background-color: rgba(100, 150, 240, 0.2);
+  padding: 1em;
+  max-width: calc(1920px - 2em);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin heading($size, $top: 2, $bottom: 0.5) {
+  $baseline: vr-scale($size);
+  font-size: $size;
+  font-family: $secondary-font;
+  line-height: $baseline;
+  margin-top: vr($top, $baseline);
+  margin-bottom: vr($bottom, $baseline)
+}
+
+h1 {
+  @include heading(38px, 1);
+
+  @media (max-width: 768px) {
+    @include heading(30px, 0);
+    margin-top: 1.26316em;
+    margin-bottom: 0.5em;
+  }
+  text-align: center;
+}
+
+h2 {
+  @include heading(29px);
+  @media (max-width: 768px) {
+    @include heading(22px);
+  }
+  text-align: center;
+}
+
+h3 {
+  @include heading(24px);
+  text-align: center;
+}
+
+h4 {
+  @include heading(21px);
+  text-align: center;
+}
+
+h5 {
+  @include heading(18px);
+  text-align: center;
+}
+
+h6 {
+  @include heading(16px);
+  text-align: center;
+}
+
+.fa-fw {
+  width: 30px;
+}
+
+strong {
+  color: $color-accent;
+}
+
+a {
+  color: $color-main;
+  font-family: $main-font;
+  text-decoration: none;
+
+  &:active {
+    color: darken($color-main, 10%);
+  }
+
+  &:hover {
+    color: darken($color-main, 15%);
+    text-decoration: underline;
+  }
+}
+
+h2 > small {
+  display: block;
+}
+
+.text-block {
+  margin: vr(1) auto;
+  max-width: 46em;
+
+  a { text-decoration: underline; }
+}
+
+// hanging bullets
+li li {
+  margin-right: 1em;
+}
+
+ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.lead {
+  font-size: 12px;
+}
+
+blockquote {
+  -webkit-margin-before: 20px;
+  -webkit-margin-after: 10px;
+  -webkit-margin-start: 20px;
+  -webkit-margin-end: 10px;
+  font-family: $secondary-font;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.figure {
+  text-align: center;
+  padding: 1.5em 0;
+
+  img {
+    width: 100%;
+  }
+
+  small {
+    display: block;
+  }
+}
+
+.gallery {
+  @include clearfix;
+
+  .figure {
+    width: 50%;
+    float: left;
+  }
+
+  .figure:nth-child(1) {
+    padding-right: 10px;
+  }
+
+  .figure:nth-child(2) {
+    padding-left: 10px;
+  }
+}
