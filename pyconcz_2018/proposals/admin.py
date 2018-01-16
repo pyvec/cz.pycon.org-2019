@@ -22,26 +22,6 @@ class ScoreForm(forms.ModelForm):
         fields = ('value', 'note')
 
 
-class FinancialAidListFilter(admin.SimpleListFilter):
-    YES, NO = 'yes', 'no'
-    title = 'requested financial aid?'
-
-    # Parameter for the filter that will be used in the URL query.
-    parameter_name = 'faid'
-
-    def lookups(self, request, model_admin):
-        return (
-            (self.YES, self.YES),
-            (self.NO, self.NO),
-        )
-
-    def queryset(self, request, queryset):
-        if self.value() == self.YES:
-            return queryset.filter(email__in=FinancialAid.objects.all().values_list('email'))
-        if self.value() == self.NO:
-            return queryset.exclude(email__in=FinancialAid.objects.all().values_list('email'))
-
-
 class EntryAdmin(ImportExportActionModelAdmin):
     abstract = True
 
@@ -221,7 +201,7 @@ class TalkResource(resources.ModelResource):
             'full_name', 'title',
             'email', 'github', 'twitter',
             'language', 'difficulty',
-            'accepted',
+            'needs_finaid', 'accepted',
         )
 
 
@@ -233,7 +213,7 @@ class WorkshopResource(resources.ModelResource):
             'full_name', 'title',
             'email', 'github', 'twitter',
             'language', 'difficulty',
-            'accepted',
+            'needs_finaid', 'accepted',
         )
 
 
@@ -247,12 +227,12 @@ class FinancialAidResource(resources.ModelResource):
 
 
 class TalkAdmin(EntryAdmin):
-    list_filter = ['accepted', FinancialAidListFilter, ]
+    list_filter = ['accepted', 'needs_finaid']
     resource_class = TalkResource
 
 
 class WorkshopAdmin(EntryAdmin):
-    list_filter = ['accepted', FinancialAidListFilter, ]
+    list_filter = ['accepted', 'needs_finaid']
     resource_class = WorkshopResource
 
 
