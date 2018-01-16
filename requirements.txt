@@ -1,9 +1,9 @@
 django~=1.11.7
 #apt install libpq-dev
 psycopg2~=2.7.3
-markdown==2.6.8
+markdown~=2.6.8
 #apt install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
-pillow==3.4.1
+pillow~=3.4.1
 pyt==0.7.26
-django-import-export==0.5.1
+django-import-export~=0.5.1
 
