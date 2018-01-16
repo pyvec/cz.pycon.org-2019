@@ -88,13 +88,13 @@ class Talk(EntryBase):
     )
     twitter = models.CharField(
         max_length=255, blank=True,
-        verbose_name="Twitter handle", help_text="Optional")
+        verbose_name="Twitter handle", help_text="Optional. Write it without the @.")
     github = models.CharField(
         max_length=255, blank=True,
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
         upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
-        help_text="Photo of yourself which we can publish on our website"
+        help_text=" Photo of yourself which we can publish on our website. Please use a square photo of minimum size 300 by 300 px."
     )
 
     # Public talk info
@@ -115,6 +115,15 @@ class Talk(EntryBase):
         help_text="Does you talk require a high level of Python knowledge"
                   " or is it suitable for everyone?"
     )
+
+    needs_finaid = models.BooleanField(default=False,
+                                       help_text='Do you need financial help from us? | Covering travel or accommodation costs etc.',
+                                       verbose_name='I need financial help'
+                                       )
+
+    finaid_details = models.TextField(null=True, blank=True,
+                                      verbose_name='Financial aid details',
+                                      help_text='Describe what you need from us.')
 
     def __str__(self):
         return '{s.full_name} - {s.title}'.format(s=self)
@@ -158,13 +167,13 @@ class Workshop(EntryBase):
     )
     twitter = models.CharField(
         max_length=255, blank=True,
-        verbose_name="Twitter handle", help_text="Optional")
+        verbose_name="Twitter handle", help_text="Optional. Write it without the @.")
     github = models.CharField(
         max_length=255, blank=True,
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
         upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
-        help_text="Photo of yourself which we can publish on our website"
+        help_text='Photo of yourself which we can publish on our website. Please use a square photo of minimum size 300 by 300 px.'
     )
 
     # Public talk info
@@ -207,6 +216,15 @@ class Workshop(EntryBase):
                   " break, but keep in mind that the length could discourage"
                   " attendees!"
     )
+
+    needs_finaid = models.BooleanField(default=False,
+                                       help_text='Do you need financial help from us? | Covering travel or accommodation costs etc.',
+                                       verbose_name='I need financial help'
+                                       )
+
+    finaid_details = models.TextField(null=True, blank=True,
+                                      verbose_name='Financial aid details',
+                                      help_text='Describe what you need from us.')
 
     def __str__(self):
         return '[{s.type}] {s.title}'.format(s=self)
