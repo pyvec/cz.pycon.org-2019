@@ -5,7 +5,7 @@
 
 
 
-{% block meta_title %}PyCon CZ 2017{% endblock %}
+{% block meta_title %}PyCon CZ 2018{% endblock %}
 
 
 {% block meta_head %}
@@ -26,7 +26,7 @@
     <div class="container">
       <div class="flex-row">
         <div class="main-column-1">
-          <a class="logo-lg" href="https://cz.pycon.org/2017/">
+          <a class="logo-lg" href="https://cz.pycon.org/2018/">
             {# inlined static/img/pyconlogo.min.svg todo: read it from file #}
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 612 284" width="612" height="284">
               <style>/*<![CDATA[ */
@@ -73,14 +73,14 @@
           </h1>
           <nav class="nav-main">
             <ul>
-              {% comment %}<li><a href="/2018/about">About</a></li>{% endcomment %}
+              <li><a href="/2018/about">About</a></li>
               {% comment %}<li><a href="#tickets">Workshop tickets</a></li>{% endcomment %}
-              <li><a href="{% url 'programme_schedule' %}">Schedule</a></li>
-              <li><a href="{% url 'speakers_list' type='talks' %}">Talks and Videos</a></li>
-              <li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>
-              {% comment %}<li><a href="/2017/about/team">Team</a></li>{% endcomment %}
-              {% comment %}<li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>{% endcomment %}
-              {% comment %}<li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url 'programme_schedule' %}">Schedule</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url 'speakers_list' type='talks' %}">Talks and Videos</a></li>{% endcomment %}
+              {% comment %}<li><a href="{% url 'speakers_list' type='workshops' %}">Workshops</a></li>{% endcomment %}
+              <li><a href="/2018/about/team">Team</a></li>
+              <li><a href="{% url "proposal_about" key="financial-aid" %}">Financial Aid</a></li>
+              <li><a href="{% url "sponsors_offer"%}">Sponsorship</a></li>
               {% comment %}<li><a href="/2018/proposals/talks">Call for Papers</a></li>{% endcomment %}
               <li><a href="{% url "about_city" %}">About Prague</a></li>
               <li><a href="/2018/about/code">Code of Conduct</a></li>
@@ -151,6 +151,7 @@
           </div>
         </div>
 
+		{% comment %}
         <div class="homepage-column">
           <h3>
             <i class="fa fa-3x fa-commenting-o" aria-hidden="true"></i>
@@ -193,7 +194,8 @@
           </div>
         {% endfor %}
       </div>
-
+	  {% comment %}
+	  
       {% comment %}
       <h1 class="text-center" id="tickets">Workshop tickets</h1>
       <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>

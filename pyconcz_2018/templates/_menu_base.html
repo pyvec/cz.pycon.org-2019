@@ -37,6 +37,7 @@ If you want to remove menu item globally, comment it out here.
       </li>{% endcomment %}
     {% endblock %}
 
+	{% comment %}
     {% block link_talks %}
       <li class="nav__item">
         <a href="{% url 'speakers_list' type='talks' %}" class="nav__link">
@@ -44,19 +45,24 @@ If you want to remove menu item globally, comment it out here.
         </a>
       </li>
     {% endblock %}
+    {% endcomment %}
 
+	{% comment %}
     {% block link_workshops %}
       <li class="nav__item">
         <a href="{% url 'speakers_list' type='workshops' %}" class="nav__link">Workshops</a>
       </li>
     {% endblock %}
+    {% endcomment %}
 
+	{% comment %}	
     {% block link_schedule %}
       <li class="nav__item">
         <a href="{% url 'programme_schedule' %}" class="nav__link">Schedule</a>
       </li>
     {% endblock %}
-
+    {% endcomment %}
+	
     {% block link_sponsors %}
       <li class="nav__item">
         <a href="{% url 'sponsors_list' %}" class="nav__link">Sponsors</a>
@@ -78,12 +84,9 @@ If you want to remove menu item globally, comment it out here.
     {% endblock %}
 
     {% block link_call_for_papers %}
-      {% comment %}
         <li class="nav__item">
           <a href="{% url 'proposals' %}" class="nav__link">Call for Papers</a>
         </li>
-      {% endcomment %}
     {% endblock %}
-
   {% endblock %}
 </ul>
