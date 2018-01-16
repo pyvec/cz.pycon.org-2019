@@ -63,13 +63,16 @@
       <ul class="nav-footer">
         {% include '_menu_footer.html' %}
 
+		{% comment %}
         <li class="nav-section"><a href="{% url "about" %}" class="nav-title">About</a></li>
         <li><a href="{% url "team_list" %}">Team</a></li>
+        <li><a href="{% url "proposals" %}talks">Call for Papers</a></li>
         <li><a href="{% url "proposals" %}financial-aid">Financial Aid</a></li>
-        {% comment %}<li><a href="{% url "homepage" %}#tickets">Tickets</a></li>{% endcomment %}
+        <li><a href="{% url "homepage" %}#tickets">Tickets</a></li>
         <li><a href="{% url "sponsors_offer" %}">Sponsorship</a></li>
         <li><a href="{% url "about_code" %}">Code of Conduct</a></li>
-
+		{% endcomment %}
+		
         {% comment %}
         <li class="nav-section">
           <a href="/2018/proposals/talks">Call for Papers</a>
