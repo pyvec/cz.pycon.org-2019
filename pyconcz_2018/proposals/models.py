@@ -94,7 +94,7 @@ class Talk(EntryBase):
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
         upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
-        help_text=" Photo of yourself which we can publish on our website. Please use a square photo of minimum size 300 by 300 px."
+        help_text=" Photo of yourself which we can publish on our website. Please use a square photo of minimum size 600 by 600 px."
     )
 
     # Public talk info
@@ -173,7 +173,7 @@ class Workshop(EntryBase):
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
         upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
-        help_text='Photo of yourself which we can publish on our website. Please use a square photo of minimum size 300 by 300 px.'
+        help_text='Photo of yourself which we can publish on our website. Please use a square photo of minimum size 600 by 600 px.'
     )
 
     # Public talk info
