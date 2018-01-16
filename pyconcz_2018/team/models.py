@@ -6,9 +6,9 @@ class Organizer(models.Model):
     email = models.EmailField(
         default='', blank=True,
         help_text="This is private")
-    twitter = models.CharField(max_length=255, blank=True)
-    github = models.CharField(max_length=255, blank=True)
-    photo = models.ImageField(upload_to='team/pyconcz2017/')
+    twitter = models.CharField(max_length=255, blank=True, help_text='handle without @')
+    github = models.CharField(max_length=255, blank=True, help_text='just handle')
+    photo = models.ImageField(upload_to='team/pyconcz2018/')
 
     published = models.BooleanField(default=False)
 
