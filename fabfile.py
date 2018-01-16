@@ -2,12 +2,13 @@ from fabric.api import cd, env, run, task
 
 
 PROJECT_ROOT = '/srv/app/'
-REPO = 'https://github.com/pyvec/cz.pycon.org-2017.git'
 VENV_DIR = '/srv/venv/'
 PYTHON = VENV_DIR + 'bin/python'
 PIP = VENV_DIR + 'bin/pip'
 
 env.hosts = []
+env.forward_agent = True
+env.use_ssh_config = True
 
 
 @task
@@ -21,7 +22,7 @@ def production():
 def beta():
     env.hosts = ['app@alpha-node-6.rosti.cz:13128']
     env.environment = 'beta'
-    env.branch = 'beta'
+    env.branch = 'master'
 
 
 def restart():
