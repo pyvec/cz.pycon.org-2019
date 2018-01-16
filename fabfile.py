@@ -22,7 +22,7 @@ def production():
 def beta():
     env.hosts = ['app@alpha-node-6.rosti.cz:13128']
     env.environment = 'beta'
-    env.branch = 'master'
+    env.branch = 'beta'
 
 
 def restart():
