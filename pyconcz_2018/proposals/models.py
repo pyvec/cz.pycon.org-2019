@@ -71,7 +71,7 @@ class Talk(EntryBase):
 
     LANGUAGES = (
         ('en', 'English (preferred)'),
-        ('cs', 'Czechoslovak'),
+        ('cs', 'Czech/Slovak'),
     )
 
     # Public speaker info
@@ -82,8 +82,8 @@ class Talk(EntryBase):
         help_text="We'll keep it secret, for internal use only."
     )
     bio = models.TextField(
-        help_text="Tell us a bit about yourself! Who you are, where are you"
-                  " from, what are your experiences with Python. Be wild,"
+        help_text="Tell us a bit about yourself! Who you are, where you"
+                  " are from, what your experience with Python is. Be wild,"
                   " be creative!"
     )
     twitter = models.CharField(
@@ -93,27 +93,27 @@ class Talk(EntryBase):
         max_length=255, blank=True,
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2016/talks/', verbose_name="Your picture",
+        upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
         help_text="Photo of yourself which we can publish on our website"
     )
 
     # Public talk info
     title = models.CharField(
         max_length=200, verbose_name='Talk title',
-        help_text="This is going to be public on all posters! Make up some"
-                  " catchy title which attracts audience."
+        help_text="This will be published everywhere. Make up some"
+                  " catchy title which will attract the audience!"
     )
     abstract = models.TextField(
         help_text="Full description of your talk. How would you describe your"
-                  "talk to the audience?"
+                  " talk to the audience?"
     )
     language = models.CharField(
         max_length=2, choices=LANGUAGES, default='en'
     )
     difficulty = models.CharField(
         max_length=10, choices=DIFFICULTY, default='beginner',
-        help_text="Does you audience require high level of Python knowledge"
-                  "or is it suitable for everyone?"
+        help_text="Does you talk require a high level of Python knowledge"
+                  " or is it suitable for everyone?"
     )
 
     def __str__(self):
@@ -152,8 +152,8 @@ class Workshop(EntryBase):
         help_text="We'll keep it secret, for internal use only."
     )
     bio = models.TextField(
-        help_text="Tell us a bit about yourself! Who you are, where are you"
-                  " from, what are your experiences with Python. Be wild,"
+        help_text="Tell us a bit about yourself! Who you are, where you"
+                  " are from, what your experience with Python is. Be wild,"
                   " be creative!"
     )
     twitter = models.CharField(
@@ -163,7 +163,7 @@ class Workshop(EntryBase):
         max_length=255, blank=True,
         verbose_name="GitHub username", help_text="Optional")
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2016/talks/', verbose_name="Your picture",
+        upload_to='proposals/pyconcz2018/talks/', verbose_name="Your picture",
         help_text="Photo of yourself which we can publish on our website"
     )
 
@@ -195,7 +195,7 @@ class Workshop(EntryBase):
     )
     difficulty = models.CharField(
         max_length=10, choices=DIFFICULTY, default='beginner',
-        help_text="Does you audience require high level of specialized"
+        help_text="Does you workshop require a high level of specialized"
                   " knowledge (of Python, a library, etc.),"
                   " or is it suitable for everyone?"
     )
@@ -222,18 +222,18 @@ class FinancialAid(EntryBase):
     )
     bio = models.TextField(
         help_text="Tell us a bit about yourself! Who you are, where you are"
-                  " from, and what your experiences with Python are. Also"
-                  " include how you are involved in Python community and how"
-                  " you contribute or plan to contribute to the community."
+                  " from, and what your experience with Python is. Also"
+                  " include how you are involved in the Python community and how"
+                  " you contribute or plan to contribute to it."
     )
     amount = models.CharField(
         max_length=255,
-        help_text="How much money would you like to get"
+        help_text="How much money would you like to receive"
                   " (please specify currency)."
     )
 
     purpose = models.TextField(
-        help_text="How would you like to use granted money?"
+        help_text="How would you like to use the granted money?"
     )
 
     def __str__(self):
