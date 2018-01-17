@@ -19,8 +19,11 @@ coverage.xml
 env/
 .env
 .ropeproject
-    
+
+# sqlite dbs
 db.sqlite3
+/pyconcz
+
 pyconcz_2018/settings/local.py
 
 # Node packages, tmp files
