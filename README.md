@@ -13,6 +13,8 @@ bundling frontend assets and Postgresql as a database.
 
 #### Django
 
+
+
 Inside `pyconcz_2018` directory,
 run following commands to setup project for local development:
 
@@ -30,7 +32,7 @@ run following commands to setup project for local development:
     $ createdb -Opyconcz -Eutf8 pyconcz
     ```
 
-1.  `python3 -m venv env`
+1.  `python3 -m venv env` _note: Use exactly Python 3.5.2 on Windows (otherwise Pillow won't install with pip) so you might want to `py -3.5 -m venv env`_
 1.  `pip install -r requirements-dev.txt`
 1.	copy `pyconcz_2018/settings/local_template_dev.py` to `pyconcz_2018/settings/local.py`
 1.  `./manage.py migrate`
