@@ -30,10 +30,10 @@ run following commands to setup project for local development:
     $ createdb -Opyconcz -Eutf8 pyconcz
     ```
 
-2.  `python3 -m venv env`
-3.  `pip install -r requirements-dev.txt`
-4.	copy `pyconcz_2018/settings/local_template_dev.py` to `pyconcz_2018/settings/local.py`
-5.  `./manage.py migrate`
+1.  `python3 -m venv env`
+1.  `pip install -r requirements-dev.txt`
+1.	copy `pyconcz_2018/settings/local_template_dev.py` to `pyconcz_2018/settings/local.py`
+1.  `./manage.py migrate`
 
 
 #### Static files
@@ -73,7 +73,7 @@ After each production build, you have to commit newly generated CSS and image fi
 Old files are automatically replaced.
 
 1. `npm run build`
-2. `git add pyconcz_2018/static`
+1. `git add pyconcz_2018/static`
 
 
 ### Deployment
