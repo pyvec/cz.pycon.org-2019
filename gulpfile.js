@@ -16,46 +16,48 @@ var plumber = require('gulp-plumber');
 /*
  * TASKS
  */
-
+;
 // runs django dev server
-gulp.task('runserver', function(){
+gulp.task('runserver', gulp.series(function(done){
   exec('python manage.py runserver --settings=pyconcz_2018.settings.local', function(err, stdout, stderr){
     console.log(stdout);
     console.log(stderr);
   });
-});
+  done();
+}));
 
 
 // delete all previously generated CSS
-gulp.task('clean-css', function(){
-  return gulp.src('./pyconcz_2018/static/css/', { read: false }).pipe(clean());
-});
+gulp.task('clean-css', gulp.series(function(){
+  return gulp.src('./pyconcz_2018/static/css/', { read: false, allowEmpty: true }).pipe(clean());
+}));
 
 
 // delete all previously generated images
-gulp.task('clean-img', function(){
-  return gulp.src('./pyconcz_2018/static/img/', { read: false }).pipe(clean());
-});
+gulp.task('clean-img', gulp.series(function(){
+  return gulp.src('./pyconcz_2018/static/img/', { read: false, allowEmpty: true }).pipe(clean());
+}));
+
 
 
 // delete all previously generated JavaScript
-gulp.task('clean-js', function(){
-  return gulp.src('./pyconcz_2018/static/js/', { read: false }).pipe(clean());
-});
+gulp.task('clean-js', gulp.series(function(){
+  return gulp.src('./pyconcz_2018/static/js/', { read: false, allowEmpty: true }).pipe(clean());
+}));
 
 
 
 // copy images
-gulp.task('copy-img', ['clean-img'], function(){
+gulp.task('copy-img', gulp.series('clean-img', function(){
   return gulp
     .src(['./pyconcz_2018/static_src/img/**/*'])
     .pipe(gulp.dest('./pyconcz_2018/static/img/'))
     .pipe(browserSync.stream());
-});
+}));
 
 
 // compile CSS
-gulp.task('compile-css', ['clean-css'], function(){
+gulp.task('compile-css', gulp.series('clean-css', function(){
   return gulp
     .src('./pyconcz_2018/static_src/scss/pyconcz.scss') // scss source
     .pipe(plumber())
@@ -63,7 +65,7 @@ gulp.task('compile-css', ['clean-css'], function(){
     .pipe(sourcemaps.init()) // sourcemap for developer tools
     .pipe(postcss([
       autoprefixer({
-        'browserslist': [
+        'browsers': [
           '> 0.2%',
           'last 3 versions'
         ]
@@ -71,7 +73,7 @@ gulp.task('compile-css', ['clean-css'], function(){
       flexbugs()
     ])) // add vendor prefixes, fix flexbox bugs
     .pipe(cleanCSS({
-      compatibility: 'ie9',
+      compatibility: 'ie11',
       roundingPrecision: 4,
       advanced: true,
       rebase: false,
@@ -82,25 +84,31 @@ gulp.task('compile-css', ['clean-css'], function(){
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS
     .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
-});
+}));
+
+
+gulp.task('build', gulp.parallel('compile-css', 'copy-img')); // build everything before deployment
 
 
 // Build files and proxy dev server on http://localhost:3000
 // Watch for changes in files and do what is neccessary
-gulp.task('develop', ['build', 'runserver'], function(){
-  browserSync.init({
-    proxy: {
-      target: 'http://127.0.0.1:8000' // Django is running here
-    },
-    open: false,
-    files: [
-      './pyconcz_2018/templates/**/*.html'
-    ]
-  });
-  gulp.watch('./pyconcz_2018/static_src/scss/**/*.scss', ['compile-css']); // watcher for SCSS
-  gulp.watch('./pyconcz_2018/static_src/img/**/*', ['copy-img']); // watcher for images
-});
+gulp.task(
+  'develop',
+  gulp.series('build', 'runserver', function(){
+    browserSync.init({
+      proxy: {
+        target: 'http://127.0.0.1:8000' // Django is running here
+      },
+      open: false,
+      files: [
+        './pyconcz_2018/templates/**/*.html'
+      ]
+    });
+    gulp.watch('./pyconcz_2018/static_src/scss/**/*.scss', gulp.series('compile-css')); // watcher for SCSS
+    gulp.watch('./pyconcz_2018/static_src/img/**/*', gulp.series('copy-img')); // watcher for images
+  })
+);
 
-gulp.task('build', ['compile-css', 'copy-img']); // build everything before deployment
 
-gulp.task('default', ['develop']); // just run gulp to start development
+
+gulp.task('default', gulp.series('develop')); // just run gulp to start development
