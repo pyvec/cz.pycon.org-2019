@@ -88,6 +88,10 @@
     padding-right: 5px;
   }
 
+  input[type=checkbox] {
+    height: 16px;
+  }
+
   textarea {
     vertical-align: top;
     height: vr(10);
