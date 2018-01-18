@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var autoprefixer = require('autoprefixer');
 var flexbugs = require('postcss-flexbugs-fixes');
 var browserSync = require('browser-sync').create();
-var clean = require('gulp-clean');
+var del = require('del');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -29,22 +29,20 @@ gulp.task('runserver', gulp.series(function(done){
 
 // delete all previously generated CSS
 gulp.task('clean-css', gulp.series(function(){
-  return gulp.src('./pyconcz_2018/static/css/', { read: false, allowEmpty: true }).pipe(clean());
+  return del(['./pyconcz_2018/static/css/'], { force: true });
 }));
 
 
 // delete all previously generated images
 gulp.task('clean-img', gulp.series(function(){
-  return gulp.src('./pyconcz_2018/static/img/', { read: false, allowEmpty: true }).pipe(clean());
+  return del(['./pyconcz_2018/static/img/'], { force: true });
 }));
-
 
 
 // delete all previously generated JavaScript
 gulp.task('clean-js', gulp.series(function(){
-  return gulp.src('./pyconcz_2018/static/js/', { read: false, allowEmpty: true }).pipe(clean());
+  return del(['./pyconcz_2018/static/js/'], { force: true });
 }));
-
 
 
 // copy images
