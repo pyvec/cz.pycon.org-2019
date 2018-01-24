@@ -4,7 +4,7 @@
             <path fill="white" d="M0 48L83.2 0m0 48L0 0m0 26v2.2h83.14V26H0zm0 28.9v4.3h83.14v-4.3H0zm0-5.8v4.1h83.14v-4.06H0zm0-5.8v3.6h83.14v-3.58H0zm0-5.8v3.2h83.14v-3.2H0zm0-5.7v2.7h83.14v-2.7H0zm0-11.58V22h83.14v-1.8H0zm0-5.72v1.2h83.14v-1.2H0zm0-5.8v.8h83.14v-.8H0zm0-6v.5h83.14v-.5H0z"/>
         </pattern>
         <pattern id="bottom" width="83.2" height="48" patternUnits="userSpaceOnUse">
-            <path stroke-linecap="square" stroke-width=".5" fill="none" stroke="#b800cc" d="M83.2 48L0 0m0 48L83.2 0"/>
+            <path stroke-linecap="square" stroke-width=".5" fill="none" stroke="#ddd" d="M83.2 48L0 0m0 48L83.2 0"/>
         </pattern>
         <mask id="mask"><rect width="100%" height="80" fill="url(#top)"/></mask>
         </defs>

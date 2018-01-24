@@ -11,13 +11,13 @@
     .border{stroke:#1a171b;stroke-width:1.5;}
     .frame{fill:transparent;}
     .side{fill:#fff;}
-    .top{fill:#82e1e0;}
-    svg:hover .top{fill:white;}
-    .grid{stroke:#b800cc;stroke-width:0.5;display:none;}
-    svg:hover .grid{display:block;}
+    .top{fill:#fff;}
+    /*svg:hover .top{fill:white;}*/
+    /*.grid{stroke:#b800cc;stroke-width:0.5;display:none;}*/
+    /*svg:hover .grid{display:block;}*/
     /*.left{fill:#d4d4d4;}
-    .front{fill:#e4e4e4;}
-    .right{fill:#fcfcfc;}*/
+    /*.front{fill:#e4e4e4;}*/
+    /*.right{fill:#fcfcfc;}*/
     /* ]]> */
     </style>
     <!--
