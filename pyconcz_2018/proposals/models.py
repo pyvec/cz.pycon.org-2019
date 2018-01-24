@@ -92,7 +92,7 @@ class Talk(EntryBase):
                   '\nTry keeping it between between 50 and 90 words.'
                   '\nYou can of course include anything fun or quirky about yourself.'
     )
-    referral_link = models.TextField(
+    referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
         help_text='If you already have a recording of you giving a talk,'
@@ -206,7 +206,7 @@ class Workshop(EntryBase):
                   '\nTry keeping it between between 50 and 90 words.'
                   '\nYou can of course include anything fun or quirky about yourself.'
     )
-    referral_link = models.TextField(
+    referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
         help_text='If you have a recording of you giving a talk or'
