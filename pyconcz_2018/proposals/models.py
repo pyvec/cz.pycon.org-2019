@@ -150,8 +150,8 @@ class Talk(EntryBase):
         help_text='Please state explicitly:'
                   '\n1) why you need it,'
                   '\n2) what for and'
-                  '\n3) how much in Euros.'
-                  '\nIf you require aid for more items (accomodation, travel costs etc.) '
+                  '\n3) how much in EUR or CZK.'
+                  '\nIf you require aid for more items (accommodation, travel costs etc.) '
                   'please state the amount for each item.'
     )
     final_note = models.TextField(
