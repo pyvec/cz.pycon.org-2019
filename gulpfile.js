@@ -59,8 +59,8 @@ gulp.task('compile-css', gulp.series('clean-css', function(){
   return gulp
     .src('./pyconcz_2018/static_src/scss/pyconcz.scss') // scss source
     .pipe(plumber())
-    .pipe(sass())
     .pipe(sourcemaps.init()) // sourcemap for developer tools
+    .pipe(sass())
     .pipe(postcss([
       autoprefixer({
         'browsers': [
