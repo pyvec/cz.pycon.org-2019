@@ -41,6 +41,32 @@
       content: " ";
       clear: both;
     }
+
+    &--hidden {
+      display: none;
+    }
+
+    .form &--needs_finaid {
+
+      .form__label {
+        float: right;
+        margin-right: 105px;
+        width: 360px;
+        text-align: left;
+      }
+
+      .form__widget {
+        width: 2rem;
+        float: right;
+      }
+
+      .form__help {
+        margin-left: 0;
+        margin-right: 105px;
+        float: right;
+      }
+    }
+
   }
 
   %common {
@@ -132,10 +158,10 @@
     width: $widget-width;
     font-size: $size;
     line-height: $baseline;
-
-    br {
+    margin-bottom: 0;
+    /*br {
       line-height: vr(2, $baseline);
-    }
+    }*/
   }
 
   &__actions {

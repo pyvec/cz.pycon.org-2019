@@ -9,11 +9,13 @@
   <div class="container text-block">
     <div class="form form--cfp">
       <h1>{{ proposal_config.cfp_title|default:"Call for Papers" }}</h1>
+      <p>The Call for Proposals will close on February 28, 2018.</p>
+      <p>If you are a speaker pair, just write information about both of you in one field.</p>
       <form action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
         {% csrf_token %}
         {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
         {% for field in form.visible_fields %}
-          <div class="form__row">
+          <div class="form__row form__row--{{ field.html_name }}">
             <div class="form__label">{{ field.label_tag }}</div>
             <div class="form__widget">{{ field }}</div>
             {% if field.errors %}
@@ -31,4 +33,22 @@
 
     </div>
   </div>
+  <script>
+    window.onload = function(){
+      var extra = document.querySelector('.form__row--finaid_details');
+      var controlInput = document.querySelector('#id_needs_finaid');
+
+      if (controlInput && extra){
+        function toggleInput(){
+          if (controlInput.checked){
+            extra.classList.remove('form__row--hidden');
+          } else {
+            extra.classList.add('form__row--hidden');
+          }
+        }
+        toggleInput();
+        controlInput.addEventListener('change', toggleInput, false);
+      }
+    }
+  </script>
 {% endblock %}
