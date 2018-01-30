@@ -1,5 +1,5 @@
 {% extends "_base.html" %}
-
+{% load static %}
 
 
 {% block meta_title %}Sponsorship{% endblock %}
@@ -10,7 +10,7 @@
     <div class="container text-block">
       <h1 id="sponsors-prospectus">Sponsors Prospectus</h1>
 
-      <a href="#">Download sponsorship prospectus (PDF)</a>
+      <a href="{% static "pycon2018_sponsorship_prospectus.pdf" %}">Download sponsorship prospectus (PDF)</a>
 
       <p>
         The PyCon CZ 2018 Community Organizing Committee is pleased to invite
