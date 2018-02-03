@@ -20,7 +20,7 @@
   "homepage": "https://github.com/pyvec/cz.pycon.org-2018#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
-    "browser-sync": "^2.23.5",
+    "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
@@ -28,10 +28,10 @@
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.3",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.0",
     "normalize.css": "^7.0.0",
-    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-flexbugs-fixes": "^3.3.0",
     "voidcss-vertical-rhythm": "^1.2.0"
   }
 }
