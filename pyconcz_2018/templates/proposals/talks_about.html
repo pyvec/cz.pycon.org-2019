@@ -1,172 +1,173 @@
-{% extends "_base.html" %}
+{% extends "_layout.html" %}
 
+{% load static %}
 
 
 {% block meta_title %}PyCon CZ - Call for Papers{% endblock %}
 
 
-{% block content %}
-  <div class="container text-block">
-    <h1>
-      PyCon CZ 2018 – Call for Papers
-    </h1>
+{% block main %}
+    <div class="container">
+        <h1>Call for Papers</h1>
 
-    <a href="{% url "proposal_form" key="talks" %}" class="cta-cfp">Submit your talk</a>
-    <a href="{% url "proposal_form" key="workshops" %}" class="cta-cfp">Submit your workshop</a>
+        <p class="lead text-center">
+            PyCon CZ (Czech Republic) 2018 is pleased to announce that its Call for Proposals is now open!
+            The conference will be held from Friday, June 1 to Sunday, June 3.
+            Talks will be on Friday and Saturday and Sunday will host developer sprints and workshops.
+        </p>
 
-    <p>
-      PyCon CZ (Czech Republic) 2018 is pleased to announce that its Call for
-      Proposals is now open! The conference this year will be held from Friday,
-      June 1 to Sunday, June 3. The main conference is held on Friday
-      and Saturday. Sunday will host developer sprints and workshops.
-    </p>
+        <p>
+            <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="talks" %}">Submit your talk</a>
+            <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="workshops" %}">Submit your workshop</a>
+        </p>
 
-    <h2>Important dates</h2>
 
-    <ul>
-      <li>Call for Proposals opens: Wednesday, January 17</li>
-      <li>Proposal submission deadline: Wednesday, February 28</li>
-      {% comment %}<li>Proposal acceptance: Sunday, March 11</li>{% endcomment %}
-    </ul>
+        <h2>Important dates</h2>
 
-    <p>
-      PyCon CZ attracts professional developers, test engineers and localization
-      and documentation specialists from all walks of life, including industry,
-      government and science, as well as enthusiasts and students. We’re looking
-      for proposals for presentations and workshops on any aspect of Python
-      programming, at all skill levels from novice to advanced.
-    </p>
+        <p class="text-center">
+            Call for Proposals opened: Wednesday, January 17
+            <br>
+            Proposal submission deadline: Wednesday, February 28
+        </p>
+        {% comment %}<p>Proposal acceptance: Sunday, March 11</p>{% endcomment %}
 
-    <p>
-      Presentation subjects may range from reports on open source, academic or
-      commercial projects, or even tutorials and case studies. If a presentation
-      is interesting and useful to the Python community, it will be considered for
-      inclusion in the program. We're especially interested in short presentations
-      that will teach conference-goers something new and useful. Can you show
-      attendees how to use a module? Explore a Python language feature? Package an
-      application? Do you have inspiring lessons learned to share?
-    </p>
 
-    <h2>First-time speakers</h2>
+        <h2>What we’re looking for</h2>
 
-    <p>
-      We welcome first-time speakers; we are a community conference eager to hear about your experience. 
-      If you have friends or colleagues who have something valuable to contribute, 
-      twist their arms to tell us about it!
-      Also, please forward this Call for Proposals to anyone that you feel may be
-      interested.
-    </p>
+        <p>
+            PyCon CZ attracts professional developers, test engineers and localization
+            and documentation specialists from all walks of life, including industry,
+            government and science, as well as enthusiasts and students. We’re looking
+            for proposals for presentations and workshops on any aspect of Python
+            programming, at all skill levels from novice to advanced.
+        </p>
 
-    <h2>Speaker benefits</h2>
+        <p>
+            Presentation subjects may range from reports on open source, academic or
+            commercial projects, or even tutorials and case studies. If a presentation
+            is interesting and useful to the Python community, it will be considered for
+            inclusion in the program. We're especially interested in short presentations
+            that will teach conference-goers something new and useful. Can you show
+            attendees how to use a module? Explore a Python language feature? Package an
+            application? Do you have inspiring lessons learned to share?
+        </p>
 
-    <p>
-      All speakers will receive ONE free conference ticket automatically. As a
-      speaker, if you or your organisation can afford to register and purchase a
-      ticket anyway at full price, please do! All such payments will go directly
-      towards our financial assistance pool to help people who could not otherwise
-      afford to attend the conference.
-    </p>
 
-    <p>
-      You will not be automatically registered as an attendee for the conference;
-      you will need to register yourself when ticket sales are open. Don't worry, we will let you know.
-    </p>
+        <h2>First-time speakers</h2>
 
-    <h2>Financial assistance</h2>
+        <p>
+            We welcome first-time speakers; we are a community conference eager to hear about your experience.
+            If you have friends or colleagues who have something valuable to contribute,
+            twist their arms to tell us about it!
+            Also, please forward this Call for Proposals to anyone that you feel may be
+            interested.
+        </p>
 
-    <p>
-      PyCon CZ offers a generous financial assistance programme, so that some
-      attendees and speakers have some -- or in rare cases, all -- of their
-      expenses, such as flight, hotel and admission, provided to them from the
-      conference budget.
-    </p>
+        <h2>Speaker benefits</h2>
 
-    <p>
-      PyCon CZ strongly encourages those in need to apply for
-      financial assistance -- even if we can’t cover all of your expenses,
-      we will try our best to at least give you a discounted admission! The
-      application process is simple and straightforward. It’s also very
-      liberal. {% comment %}Apply for a grant on the <a href="{% url "proposal_about" key="financial-aid" %}">
-      Financial assistance page</a>.{% comment %}
-    </p>
+        <p>
+            All speakers will receive <b>one</b> free conference ticket automatically. As a
+            speaker, if you or your organisation can afford to register and purchase a
+            ticket anyway at full price, please do! All such payments will go directly
+            towards our financial assistance pool to help people who could not otherwise
+            afford to attend the conference.
+        </p>
 
-    <h2>Suggested topics</h2>
+        <p>
+            You will not be automatically registered as an attendee for the conference;
+            you will need to register yourself when ticket sales are open. Don't worry, we will let you know.
+        </p>
 
-    <p>Suitable topics for PyCon CZ presentations include, but are not limited
-      to:</p>
 
-    <ul>
-      <li>Core Python, including Python 3 topics</li>
-      <li>Other implementations: PyPy, IronPython, Jython.</li>
-      <li>Web programming (Django, Pyramid, Flask, etc)</li>
-      <li>Python libraries and extensions</li>
-      <li>Business applications</li>
-      <li>Concurrency</li>
-      <li>Databases</li>
-      <li>Documentation</li>
-      <li>Education</li>
-      <li>Embedding and extending Python</li>
-      <li>Game programming</li>
-      <li>GUI programming</li>
-      <li>Network programming</li>
-      <li>Open source Python projects</li>
-      <li>Packaging issues</li>
-      <li>Programming tools</li>
-      <li>Project best practices</li>
-      <li>Science and maths</li>
-      <li>Social issues</li>
-      <li>System administration with Python</li>
-      <li>Testing</li>
-      <li>Internet of things</li>
-      <li>Android / Mobile development</li>
-    </ul>
+        <h2>Financial assistance</h2>
 
-    <h2>Talk format</h2>
+        <p>
+            PyCon CZ offers a generous financial assistance programme, so that some
+            attendees and speakers have some — or in rare cases, all — of their
+            expenses, such as flight, hotel and admission, provided to them from the
+            conference budget.
+        </p>
 
-    <p>
-      The preferred length for talks is 30 minutes. We also accept extended
-      proposals for tutorials and workshops of 90 minutes or three hours. However,
-      if you need something special, don’t hesitate to ask! We’ll do what we can
-      to accommodate.
-    </p>
+        <p>
+            PyCon CZ strongly encourages those in need to apply for
+            financial assistance – even if we can’t cover all of your expenses,
+            we will try our best to at least give you a discounted admission! The
+            application process is simple and straightforward. It’s also very
+            liberal.
+            {% comment %}
+            Apply for a grant on the <a href="{% url "proposal_about" key="financial-aid" %}">
+            Financial assistance page</a>.
+            {% endcomment %}
+        </p>
 
-    <p>
-      Session length include time for questions from the audience. You should keep at
-      least five minutes for questions; for example, a 30-minute talk could
-      comprise 25 minutes of presentation and 5 minutes of questions.
-    </p>
+        {% comment %}
+        <h2>Suggested topics</h2>
 
-    <h2>Presentation recording</h2>
+        <p>Suitable topics for PyCon CZ presentations include, but are not limited to:</p>
 
-    <p>
-      Every session at PyCon CZ will have professional video recordings
-      to release on our media channels.
-      If you do not wish to have your talk recorded then please note this in your
-      submission. Doing so will not influence the selection process in any way.
-      You have the option to change your mind at any time.
-    </p>
+        <ul>
+            <li>Core Python, including Python 3 topics</li>
+            <li>Other implementations: PyPy, IronPython, Jython.</li>
+            <li>Web programming (Django, Pyramid, Flask, etc)</li>
+            <li>Python libraries and extensions</li>
+            <li>Business applications</li>
+            <li>Concurrency</li>
+            <li>Databases</li>
+            <li>Documentation</li>
+            <li>Education</li>
+            <li>Embedding and extending Python</li>
+            <li>Game programming</li>
+            <li>GUI programming</li>
+            <li>Network programming</li>
+            <li>Open source Python projects</li>
+            <li>Packaging issues</li>
+            <li>Programming tools</li>
+            <li>Project best practices</li>
+            <li>Science and maths</li>
+            <li>Social issues</li>
+            <li>System administration with Python</li>
+            <li>Testing</li>
+            <li>Internet of things</li>
+            <li>Android / Mobile development</li>
+        </ul>
+        {% endcomment %}
 
-    <h2>How to submit</h2>
 
-    <p>
-      Use the <a href="{% url "proposal_form" key="talks" %}">Proposal submission</a> form to send us your proposals. You are welcome to submit multiple proposals.
-    </p>
+        <h2>Talk format</h2>
 
-    <a href="{% url "proposal_form" key="talks" %}" class="cta-cfp">Submit your talk</a>
-    <a href="{% url "proposal_form" key="workshops" %}" class="cta-cfp">Submit your workshop</a>
-    {% comment %}
-    The proposal must include the following:
-    Talk title
-    Duration/Type: choose 30 minutes for most presentations or 90 minutes / 3 hours for tutorials or workshops
-    Abstract
-    Public abstract for website and programme
-    Private notes for reviewers
-    If you have special needs / requests, let us know!
-    Target audience: indicate the intended audience and difficulty level: Beginner/Intermediate/Advanced. Add more detail in the summary and/or description, such as specific experience required
-    Project details: If applicable, provide information about the project related to your proposal
-    Further information about yourself
-    Biography to appear on the website and programme
-    Your experience: This will only appear to reviewers
-    {% endcomment %}
-  </div>
+        <p>
+            The preferred length for talks is 30 minutes. We also accept extended
+            proposals for tutorials and workshops of 90 minutes or three hours. However,
+            if you need something special, don’t hesitate to ask! We’ll do what we can
+            to accommodate.
+        </p>
+
+        <p>
+            Session length include time for questions from the audience. You should keep at
+            least five minutes for questions; for example, a 30-minute talk could
+            comprise 25 minutes of presentation and 5 minutes of questions.
+        </p>
+
+
+        <h2>Presentation recording</h2>
+
+        <p>
+            Every session at PyCon CZ will have professional video recordings
+            to release on our media channels.
+            If you do not wish to have your talk recorded then please note this in your
+            submission. Doing so will not influence the selection process in any way.
+            You have the option to change your mind at any time.
+        </p>
+
+
+        <h2>How to submit</h2>
+
+        <p>
+            Please use the following forms to
+            <a href="{% url "proposal_form" key="talks" %}">submit talk proposal</a> and separate to
+            <a href="{% url "proposal_form" key="workshops" %}">submit workshop proposal</a>.
+            Feel free to submit multiple proposals.
+        </p>
+
+    </div>
 {% endblock %}
