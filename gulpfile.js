@@ -7,7 +7,7 @@ var del = require('del');
 var postcss = require('gulp-postcss');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var cleanCSS = require('gulp-clean-css');
+var csso = require('gulp-csso');
 var watch = require('gulp-watch');
 var exec = require('child_process').exec;
 var plumber = require('gulp-plumber');
@@ -70,15 +70,7 @@ gulp.task('compile-css', gulp.series('clean-css', function(){
             }),
             flexbugs()
         ])) // add vendor prefixes, fix flexbox bugs
-        .pipe(cleanCSS({
-            compatibility: 'ie11',
-            roundingPrecision: 4,
-            advanced: true,
-            rebase: false,
-            specialComments: 0,
-            processImport: false,
-            inline: ['none']
-        }))
+        .pipe(csso()) // compresses CSS
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS
         .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
