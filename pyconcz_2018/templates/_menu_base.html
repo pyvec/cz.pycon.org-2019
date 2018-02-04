@@ -65,7 +65,8 @@ If you want to remove menu item globally, comment it out here.
 	
     {% block link_sponsors %}
       <li class="nav__item nav-item">
-        <a href="{% url 'sponsors_list' %}" class="nav__link nav-link">Sponsors</a>
+        {% comment %}<a href="{% url 'sponsors_list' %}" class="nav__link nav-link">Sponsors</a>{% endcomment %}
+        <a href="{% url 'sponsors_offer' %}" class="nav__link nav-link">Sponsorship</a>
       </li>
     {% endblock %}
 
