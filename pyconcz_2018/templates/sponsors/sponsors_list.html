@@ -1,39 +1,37 @@
-{% extends "_base.html" %}
+{% extends "_layout.html" %}
 
 
 
-{% block content %}
-  {% regroup sponsors_list by get_level_display as sponsor_levels %}
+{% block meta_title %}Sponsors and partners – {{ block.super }}{% endblock %}
 
-  <div class="container">
-    <h1 class="sponsor__text">Sponsors and partners</h1>
 
-    <p class="sponsor__text">
-      Companies listed below supports our effort in organizing PyCon CZ
-      conference and helping us keeping the prices of tickets low as possible.
-    </p>
+{% block main %}
+    {% regroup sponsors_list by get_level_display as sponsor_levels %}
 
-    <p class="sponsor__text">
-      Do you want to sponsor us too? Check out  <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact us.</a>
-    </p>
+    <div class="container">
+        <h1>Sponsors and partners</h1>
 
-    {% for level in sponsor_levels %}
-      <h2 class="sponsor__level">{{ level.grouper }}</h2>
+        <p class="lead">We’re grateful to companies that help us organize PyCon CZ and allow keeping ticket prices as low as possible.</p>
 
-      {% for sponsor in level.list %}
-        <div class="sponsor sponsor--level-{{ level.grouper|lower }}">
-          <img class="sponsor__logo" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+        <p>Do you want to sponsor us too? Check out <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact us.</a></p>
 
-          <h3 class="sponsor__title">{{ sponsor.name }}</h3>
-          <a class="sponsor__link" href="{{ sponsor.link_url }}">
-            {{ sponsor.link_url }}
-          </a>
+        {# todo: finish the design of sponsor list #}
+        {% comment %}
+        {% for level in sponsor_levels %}
+            <h2>{{ level.grouper }}</h2>
 
-          <p class="sponsor__description">
-            {{ sponsor.description }}
-          </p>
-        </div>
-      {% endfor %}
-    {% endfor %}
-  </div>
+            {% for sponsor in level.list %}
+                <div class="pc-sponsor-level-{{ level.grouper|lower }}">
+                    <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+
+                    <h3>{{ sponsor.name }}</h3>
+
+                    <a href="{{ sponsor.link_url }}">{{ sponsor.link_url }}</a>
+
+                    <p>{{ sponsor.description }}</p>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% endcomment %}
+    </div>
 {% endblock %}
