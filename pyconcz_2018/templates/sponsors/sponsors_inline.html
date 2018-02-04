@@ -7,7 +7,7 @@
         {% for level in sponsors_list %}
             <li class="pc-sponsor-level-{{ level.grouper|lower }}">
                 <span>{{ level.grouper }}</span>
-                <ul class="sponsors__list">
+                <ul>
                     {% for sponsor in level.list %}
                         <li>
                             <a href="{{ sponsor.link_url }}">
