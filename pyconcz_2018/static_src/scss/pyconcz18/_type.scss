@@ -34,3 +34,8 @@ h2 + h3,
 h3 + h4 {
     margin-top: 2.5*$headings-margin-bottom;
 }
+
+.lead {
+    font-family: $font-family-monospace;
+    text-align: center;
+}
