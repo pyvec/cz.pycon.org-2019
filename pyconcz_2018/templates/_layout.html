@@ -10,10 +10,10 @@
     </nav>
     <header>
         <div class="container">
-            <h1 class="mt-5">
+            <p class="h1 mt-5">
                 PyCon CZ 2018 Prague
                 <br>1-3 June
-            </h1>
+            </p>
 
             <div class="text-center mb-5 mx-3">
                 <a href="{% url "homepage" %}">
@@ -25,9 +25,7 @@
 
 
     <main role="main">
-        <div class="container">
-            {% block main %}{% endblock %}
-        </div>
+        {% block main %}{% endblock %}
     </main>
 
 
