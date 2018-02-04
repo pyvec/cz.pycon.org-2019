@@ -105,7 +105,7 @@ strong {
 a {
   color: $color-main;
   font-family: $main-font;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:active {
     color: darken($color-main, 10%);
