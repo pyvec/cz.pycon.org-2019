@@ -27,7 +27,7 @@ prefixed_urlpatterns = [
     url(r'^about/code/$',
         TemplateView.as_view(template_name='pages/code.html'),
         name='about_code'),
-    url(r'^about/transparency_report/$',
+    url(r'^about/transparency-report/$',
         TemplateView.as_view(template_name='pages/transparency.html'),
         name='about_transparency'),
     url(r'^about/prague/$',

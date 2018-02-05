@@ -1,18 +1,14 @@
-{% extends "_base.html" %}
+{% extends "_layout.html" %}
 
 
 
-{% block meta_title %}Call for Papers is closed{% endblock %}
+{% block meta_title %}Call for Papers is closed – {{ block.super }}{% endblock %}
 
 
-{% block content %}
-  <div class="container text-block">
+{% block main %}
+  <div class="container">
     <h1>Call for Papers is closed!</h1>
 
-    <p class="lead">
-      We're evaluating received proposals. If you missed it by chance and still
-      want to send us your proposal, try write us an email at
-      <a href="mailto:info@pycon.cz">info@pycon.cz</a>.
-    </p>
+    <p class="lead">We're evaluating received proposals. If you missed it by chance and still want to send us your proposal, try write us an email at <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
   </div>
 {% endblock %}

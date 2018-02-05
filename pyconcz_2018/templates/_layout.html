@@ -1,0 +1,92 @@
+{% extends '_base18.html' %}
+
+{% load static %}
+
+
+
+{% block body %}
+    <nav role="navigation" class="navbar navbar-expand">
+        {% include '_menu_top.html' with pc_alignment='around' %}
+    </nav>
+    <header>
+        <div class="container">
+            <p class="h1 mt-5">
+                PyCon CZ 2018 Prague
+                <br>1-3 June
+            </p>
+
+            <div class="text-center mb-5 mx-3">
+                <a href="{% url "homepage" %}">
+                    <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main role="main">
+        {% block main %}{% endblock %}
+    </main>
+
+
+    <footer class="text-center pc-footer mt-5 py-5 px-3 small">
+        <div class="container">
+            <nav class="nav mb-4">
+                {% include '_menu_footer.html' with pc_alignment='center' %}
+                {% comment %}
+                <a href="{% url "about" %}" class="nav-title">About</a>
+                <a href="{% url "team_list" %}">Team</a>
+                <a href="{% url "proposals" %}talks">Call for Papers</a>
+                <a href="{% url "proposals" %}financial-aid">Financial Aid</a>
+                <a href="{% url "homepage" %}#tickets">Tickets</a>
+                <a href="{% url "sponsors_offer" %}">Sponsorship</a>
+                <a href="{% url "about_code" %}">Code of Conduct</a>
+                <a href="/2018/proposals/talks">Call for Papers</a>
+                <a href="/2018/proposals/talks/form">Talks</a>
+                <a href="/2018/proposals/workshops/form">Workshops</a>
+                <a href="{% url "about_city" %}">Prague, the city we love too</a>
+                <a href="{% url "about_city" %}#prague">Guide to Prague</a>
+                <a href="{% url "about_city" %}#how-to-get-to-prague">Travelling</a>
+                <a href="{% url "about_city" %}#accommodation-tips">Accommodation</a>
+                <a href="{% url "programme_schedule" %}">Schedule</a>
+                <a href="{% url "speakers_list" type='talks' %}">Speakers</a>
+                <a href="{% url "speakers_list" type='workshops' %}">Workshops</a>
+                <a href="/2017/workshops/" class="nav-title">Sprints &amp; Workshops</a>
+                <a href="/2017/workshops/">Schedule</a>
+                <a href="/2017/workshops/#directions">Directions</a>
+                {% endcomment %}
+            </nav>
+
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+
+            <p>
+                We’re on <a href="https://twitter.com/pyconcz">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018">GitHub</a>
+            </p>
+
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>.
+            </p>
+
+            <p>Powered by <a href="https://rosti.cz/">Roští.cz</a></p>
+
+            <nav class="nav mt-5">
+                <ul class="nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a href="/2015" class="nav__link nav-link">PyCon&nbsp;CZ 2015</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2016" class="nav__link nav-link">PyCon&nbsp;CZ 2016</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2017" class="nav__link nav-link">PyCon&nbsp;CZ 2017</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+{% endblock %}

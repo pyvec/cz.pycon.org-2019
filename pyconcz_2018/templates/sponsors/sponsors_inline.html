@@ -1,18 +1,22 @@
 {% regroup sponsors by get_level_display as sponsors_list %}
 
-<ul class="sponsors">
-  {% for level in sponsors_list %}
-    <li class="sponsors__level-group sponsors--{{ level.grouper|lower }}">
-      <span class="sponsors__level">{{ level.grouper }}</span>
-      <ul class="sponsors__list">
-        {% for sponsor in level.list %}
-          <li class="sponsors__item">
-            <a href="{{ sponsor.link_url }}">
-              <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
-            </a>
-          </li>
+{% if sponsors %}
+    <h2>Our partners</h2>
+
+    <ul class="sponsors">
+        {% for level in sponsors_list %}
+            <li class="pc-sponsor-level-{{ level.grouper|lower }}">
+                <span>{{ level.grouper }}</span>
+                <ul>
+                    {% for sponsor in level.list %}
+                        <li>
+                            <a href="{{ sponsor.link_url }}">
+                                <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
         {% endfor %}
-      </ul>
-    </li>
-  {% endfor %}
-</ul>
+    </ul>
+{% endif %}

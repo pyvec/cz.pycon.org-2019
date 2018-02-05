@@ -1,0 +1,41 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+}
+
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 4*$headings-margin-bottom;
+}
+
+h1 {
+    margin-bottom: 3*$headings-margin-bottom;
+}
+
+h2 + h3,
+h3 + h4 {
+    margin-top: 2.5*$headings-margin-bottom;
+}
+
+.lead {
+    font-family: $font-family-monospace;
+    text-align: center;
+}

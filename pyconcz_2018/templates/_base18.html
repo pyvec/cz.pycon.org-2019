@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block meta_title %}PyCon CZ 2018{% endblock %}</title>
+
+    {% block meta_head %}
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="PyCon CZ 2018">
+        <meta name="twitter:site" content="@pyconcz">
+        <meta property="og:url" content="https://{{ request.get_host }}{{ request.path }}">
+        {% block meta_social_customizable %}
+            <meta property="og:title" content="PyCon CZ 2018">
+            <meta property="og:description" content="PyCon CZ 2018 aims to be the largest annual gathering for the Python community in the Czech Republic.">
+            <meta property="og:image" content="https://{{ request.get_host }}{% static "img/social-media-image.png" %}">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:image:alt" content="PyCon CZ">
+        {% endblock %}
+    {% endblock %}
+
+    <link type="text/css" href="{% static "css/pyconcz18.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:400,400i,500,500i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    {% comment %}
+    {# all available Roboto font-weights #}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    {% endcomment %}
+
+    {# favicons #}
+    {% comment %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" href="{% static "img/favicon/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static "img/favicon/favicon-16x16.png" %}" sizes="16x16">
+    <link rel="manifest" href="{% static "img/favicon/manifest.json" %}">
+    <link rel="mask-icon" href="{% static "img/favicon/safari-pinned-tab.svg" %}" color="#82e1e0">
+    <link rel="shortcut icon" href="{% static "img/favicon/favicon.ico" %}">
+    <meta name="msapplication-config" content="{% static "img/favicon/browserconfig.xml" %}">
+    <meta name="theme-color" content="#ffffff">
+    {% endcomment %}
+    {# endfavicons #}
+
+    {% if not debug %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag(){
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'UA-81705668-1');
+        </script>
+    {% endif %}
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>

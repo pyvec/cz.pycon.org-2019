@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'pyconcz_2018.proposals',
     'pyconcz_2018.sponsors',
     'pyconcz_2018.programme',
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
