@@ -85,7 +85,7 @@ class Talk(EntryBase):
         help_text='We’ll keep it secret, for internal use only.'
     )
     bio = models.TextField(
-        verbose_name='Why you are the right person to talk about the topic you chose?',
+        verbose_name='Why are you the right person to talk about the topic you chose?',
         help_text='Tell your audience in first person about anything relevant about you,'
                   ' whether it’s your background, education, experience,'
                   ' current or former employer, hobbies or opensource software you maintain.'
@@ -199,7 +199,7 @@ class Workshop(EntryBase):
         help_text='We’ll keep it secret, for internal use only.'
     )
     bio = models.TextField(
-        verbose_name='Why you are the right person to talk about the topic you chose?',
+        verbose_name='Why are you the right person to talk about the topic you chose?',
         help_text='Tell your audience in first person about anything relevant about you,'
                   ' whether it’s your background, education, experience,'
                   ' current or former employer, hobbies or opensource software you maintain.'
