@@ -3,20 +3,23 @@
 {% if sponsors %}
     <h2>Our partners</h2>
 
-    <ul class="sponsors">
+    <section class="pc-sponsors mb-5">
         {% for level in sponsors_list %}
-            <li class="pc-sponsor-level-{{ level.grouper|lower }}">
-                <span>{{ level.grouper }}</span>
-                <ul>
-                    {% for sponsor in level.list %}
-                        <li>
-                            <a href="{{ sponsor.link_url }}">
-                                <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <div class="pc-sponsors-level-{{ level.grouper|lower }}">
+                <h3>{{ level.grouper }}</h3>
+                {% for sponsor in level.list %}
+                    <p class="text-center my-5">
+                        <a href="{{ sponsor.link_url }}" class="d-block mx-auto">
+                            <img
+                                class="img-fluid"
+                                src="{{ sponsor.logo.url }}"
+                                alt="{{ sponsor.name }}"
+                                style="max-width: 25rem;max-height: 2.5rem;"
+                            >
+                        </a>
+                    </p>
+                {% endfor %}
+            </div>
         {% endfor %}
-    </ul>
+    </section>
 {% endif %}
