@@ -92,8 +92,8 @@
     //         "gray-dark": $gray-800
     // ); $colors: $colors !global;
 
-     $primary: $gray-700; $primary: $primary !global;
-     $secondary: $gray-400; $secondary: $secondary !global;
+    $primary: $gray-700; $primary: $primary !global;
+    $secondary: $gray-400; $secondary: $secondary !global;
     // $success: $green; $success: $success !global;
     // $info: $cyan; $info: $info !global;
     // $warning: $yellow; $warning: $warning !global;
@@ -128,7 +128,7 @@
     // Quickly modify global styling by enabling or disabling optional features.
 
     // $enable-caret: true; $enable-caret: $enable-caret !global;
-     $enable-rounded: false; $enable-rounded: $enable-rounded !global;
+    $enable-rounded: false; $enable-rounded: $enable-rounded !global;
     // $enable-shadows: false; $enable-shadows: $enable-shadows !global;
     // $enable-gradients: false; $enable-gradients: $enable-gradients !global;
     // $enable-transitions: true; $enable-transitions: $enable-transitions !global;
@@ -174,7 +174,7 @@
     // Style anchor elements.
 
     // $link-color: theme-color("primary"); $link-color: $link-color !global;
-     $link-decoration: underline; $link-decoration: $link-decoration !global;
+    $link-decoration: underline; $link-decoration: $link-decoration !global;
     // $link-hover-color: darken($link-color, 15%); $link-hover-color: $link-hover-color !global;
     // $link-hover-decoration: underline; $link-hover-decoration: $link-hover-decoration !global;
 
@@ -248,13 +248,13 @@
     // Font, line-height, and color for body text, headings, and more.
 
     // stylelint-disable value-keyword-case
-     $font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global;
-     $pc-font-family-sans-serif-condensed: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global;
-     $font-family-monospace: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; $font-family-monospace: $font-family-monospace !global;
+    $font-family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global;
+    $pc-font-family-sans-serif-condensed: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global;
+    $font-family-monospace: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; $font-family-monospace: $font-family-monospace !global;
     // $font-family-base: $font-family-sans-serif; $font-family-base: $font-family-base !global;
     // stylelint-enable value-keyword-case
 
-     $font-size-base: 1.125rem; $font-size-base: $font-size-base !global; // Assumes the browser default, typically `16px`
+    $font-size-base: 1.125rem; $font-size-base: $font-size-base !global; // Assumes the browser default, typically `16px`
     // $font-size-lg: ($font-size-base * 1.25); $font-size-lg: $font-size-lg !global;
     // $font-size-sm: ($font-size-base * .875); $font-size-sm: $font-size-sm !global;
 
@@ -265,15 +265,16 @@
     // $font-weight-base: $font-weight-normal; $font-weight-base: $font-weight-base !global;
     // $line-height-base: 1.5; $line-height-base: $line-height-base !global;
 
-    // $h1-font-size: $font-size-base * 2.5; $h1-font-size: $h1-font-size !global;
-    // $h2-font-size: $font-size-base * 2; $h2-font-size: $h2-font-size !global;
-    // $h3-font-size: $font-size-base * 1.75; $h3-font-size: $h3-font-size !global;
-    // $h4-font-size: $font-size-base * 1.5; $h4-font-size: $h4-font-size !global;
-    // $h5-font-size: $font-size-base * 1.25; $h5-font-size: $h5-font-size !global;
+    $pc-font-size-scale: 1.6; $pc-font-size-scale: $pc-font-size-scale !global;
+    $h1-font-size: $h2-font-size * $pc-font-size-scale; $h1-font-size: $h1-font-size !global; // 2.5
+    $h2-font-size: $h3-font-size * $pc-font-size-scale; $h2-font-size: $h2-font-size !global; // 2
+    $h3-font-size: $h4-font-size * $pc-font-size-scale; $h3-font-size: $h3-font-size !global; // 1.75
+    $h4-font-size: $h5-font-size * $pc-font-size-scale; $h4-font-size: $h4-font-size !global; // 1.5
+    $h5-font-size: $h6-font-size * $pc-font-size-scale; $h5-font-size: $h5-font-size !global; // 1.25
     // $h6-font-size: $font-size-base; $h6-font-size: $h6-font-size !global;
 
-     $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global;
-     $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global;
+    $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global;
+    $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global;
     // $headings-font-weight: 500; $headings-font-weight: $headings-font-weight !global;
     // $headings-line-height: 1.2; $headings-line-height: $headings-line-height !global;
     // $headings-color: inherit; $headings-color: $headings-color !global;
@@ -289,8 +290,8 @@
     // $display4-weight: 300; $display4-weight: $display4-weight !global;
     // $display-line-height: $headings-line-height; $display-line-height: $display-line-height !global;
 
-     $lead-font-size: $font-size-base; $lead-font-size: $lead-font-size !global;
-     $lead-font-weight: 400; $lead-font-weight: $lead-font-weight !global;
+    $lead-font-size: $font-size-base; $lead-font-size: $lead-font-size !global;
+    $lead-font-weight: 400; $lead-font-weight: $lead-font-weight !global;
 
     // $small-font-size: 80%; $small-font-size: $small-font-size !global;
 
@@ -453,7 +454,7 @@
     // $form-check-inline-margin-x: .75rem; $form-check-inline-margin-x: $form-check-inline-margin-x !global;
     // $form-check-inline-input-margin-x: .3125rem; $form-check-inline-input-margin-x: $form-check-inline-input-margin-x !global;
 
-     $form-group-margin-bottom: 3*$spacer; $form-group-margin-bottom: $form-group-margin-bottom !global;
+    $form-group-margin-bottom: 3*$spacer; $form-group-margin-bottom: $form-group-margin-bottom !global;
 
     // $input-group-addon-color: $input-color; $input-group-addon-color: $input-group-addon-color !global;
     // $input-group-addon-bg: $gray-200; $input-group-addon-bg: $input-group-addon-bg !global;
@@ -670,7 +671,7 @@
     // Cards
 
     // $card-spacer-y: .75rem; $card-spacer-y: $card-spacer-y !global;
-     $card-spacer-x: .75rem; $card-spacer-x: $card-spacer-x !global;
+    $card-spacer-x: .75rem; $card-spacer-x: $card-spacer-x !global;
     // $card-border-width: $border-width; $card-border-width: $card-border-width !global;
     // $card-border-radius: $border-radius; $card-border-radius: $card-border-radius !global;
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global;
