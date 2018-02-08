@@ -6,88 +6,54 @@ If you want to remove menu item globally, comment it out here.
 
 {% endcomment %}
 <ul class="nav w-100 justify-content-{{ pc_alignment }}">
-  {% block items %}
-    {% block link_home %}
-      <li class="nav-item">
-        <a href="/2018/" class="nav-link">Home</a>
-      </li>
-    {% endblock %}
+    {% block items %}
+        {% block link_home %}
+            {% include "__nav-link.html" with link="/2018/" link_text="Home" %}
+        {% endblock %}
 
-    {% block link_about %}
-      <li class="nav-item">
-        <a href="{% url 'about' %}" class="nav-link">About</a>
-      </li>
-    {% endblock %}
+        {% block link_about %}
+            {% comment %}{% include "__nav-link.html" with url="about" link_text="About" %}{% endcomment %}
+        {% endblock %}
 
-    {% block link_about_city %}
-      <li class="nav-item">
-        <a href="{% url "about_city" %}" class="nav-link">Prague</a>
-      </li>
-    {% endblock %}
+        {% block link_about_city %}
+            {% include "__nav-link.html" with url="about_city" link_text="Prague" %}
+        {% endblock %}
 
-    {% block link_team %}
-      <li class="nav-item">
-        <a href="{% url 'team_list' %}" class="nav-link">Team</a>
-      </li>
-    {% endblock %}
+        {% block link_team %}
+            {% include "__nav-link.html" with url="team_list" link_text="Team" %}
+        {% endblock %}
 
-    {% block link_tickets %}
-      {% comment %}<li class="nav-item">
-        <a href="/2017/#tickets" class="nav-link">Tickets</a>
-      </li>{% endcomment %}
-    {% endblock %}
+        {% block link_tickets %}
+            {% comment %}{% include "__nav-link.html" with link="/2018/#tickets" link_text="Tickets" %}{% endcomment %}
+        {% endblock %}
 
-	{% comment %}
-    {% block link_talks %}
-      <li class="nav-item">
-        <a href="{% url 'speakers_list' type='talks' %}" class="nav-link">
-          {% block link_talks_title %}Talks{% endblock %}
-        </a>
-      </li>
-    {% endblock %}
-    {% endcomment %}
+        {% block link_talks %}
+            {% comment %}{% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}{% endcomment %}
+        {% endblock %}
 
-	{% comment %}
-    {% block link_workshops %}
-      <li class="nav-item">
-        <a href="{% url 'speakers_list' type='workshops' %}" class="nav-link">Workshops</a>
-      </li>
-    {% endblock %}
-    {% endcomment %}
+        {% block link_workshops %}
+            {% comment %}{% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}{% endcomment %}
+        {% endblock %}
 
-	{% comment %}	
-    {% block link_schedule %}
-      <li class="nav-item">
-        <a href="{% url 'programme_schedule' %}" class="nav-link">Schedule</a>
-      </li>
-    {% endblock %}
-    {% endcomment %}
-	
-    {% block link_sponsors %}
-      <li class="nav-item">
-        {% comment %}<a href="{% url 'sponsors_list' %}" class="nav-link">Sponsors</a>{% endcomment %}
-        <a href="{% url 'sponsors_offer' %}" class="nav-link">Sponsorship</a>
-      </li>
-    {% endblock %}
+        {% block link_schedule %}
+            {% comment %}{% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}{% endcomment %}
+        {% endblock %}
 
-    {% block link_financial_aid %}
-      {% comment %}
-      <li class="nav-item">
-        <a href="{% url 'proposal_form' key='financial-aid' %}" class="nav-link">Financial Aid</a>
-      </li>
-      {% endcomment %}
-    {% endblock %}
+        {% block link_sponsors %}
+            {% comment %}{% include "__nav-link.html" with url="sponsors_list" link_text="Sponsors" %}{% endcomment %}
+            {% include "__nav-link.html" with url="sponsors_offer" link_text="Sponsorship" %}
+        {% endblock %}
 
-    {% block link_coc %}
-      <li class="nav-item">
-        <a href="{% url 'about_code' %}" class="nav-link">Code of Conduct</a>
-      </li>
-    {% endblock %}
+        {% block link_financial_aid %}
+            {% comment %}{% include "__nav-link.html" with url="proposal_form" key='financial-aid' link_text="Financial Aid" %}{% endcomment %}
+        {% endblock %}
 
-    {% block link_call_for_papers %}
-        <li class="nav-item">
-          <a href="{% url 'proposals' %}" class="nav-link">Call for Papers</a>
-        </li>
+        {% block link_coc %}
+            {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
+        {% endblock %}
+
+        {% block link_call_for_papers %}
+            {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
+        {% endblock %}
     {% endblock %}
-  {% endblock %}
 </ul>
