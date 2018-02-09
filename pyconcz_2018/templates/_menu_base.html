@@ -8,7 +8,7 @@ If you want to remove menu item globally, comment it out here.
 <ul class="nav w-100 justify-content-{{ pc_alignment }}">
     {% block items %}
         {% block link_home %}
-            {% include "__nav-link.html" with link="/2018/" link_text="Home" %}
+            {% include "__nav-link.html" with url="homepage" link_text="Home" %}
         {% endblock %}
 
         {% block link_about %}
@@ -24,7 +24,7 @@ If you want to remove menu item globally, comment it out here.
         {% endblock %}
 
         {% block link_tickets %}
-            {% comment %}{% include "__nav-link.html" with link="/2018/#tickets" link_text="Tickets" %}{% endcomment %}
+            {% comment %}{% include "__nav-link.html" with url="homepage" extra="#tickets" link_text="Tickets" %}{% endcomment %}
         {% endblock %}
 
         {% block link_talks %}
