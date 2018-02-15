@@ -7,18 +7,20 @@
         {% for level in sponsors_list %}
             <div class="pc-sponsors-level-{{ level.grouper|lower }}">
                 <h3>{{ level.grouper }}</h3>
-                {% for sponsor in level.list %}
-                    <p class="text-center my-5">
-                        <a href="{{ sponsor.link_url }}" class="d-block mx-auto">
-                            <img
-                                class="img-fluid"
-                                src="{{ sponsor.logo.url }}"
-                                alt="{{ sponsor.name }}"
-                                style="max-width: 25rem;max-height: 2.5rem;"
-                            >
-                        </a>
-                    </p>
-                {% endfor %}
+                <div class="row">
+                    {% for sponsor in level.list %}
+                        <div class="col text-center my-5">
+                            <a href="{{ sponsor.link_url }}" class="d-block mx-3">
+                                <img
+                                    class="img-fluid"
+                                    src="{{ sponsor.logo.url }}"
+                                    alt="{{ sponsor.name }}"
+                                    style="width: 100%; max-width: 25rem;max-height: 2.5rem;"
+                                >
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         {% endfor %}
     </section>

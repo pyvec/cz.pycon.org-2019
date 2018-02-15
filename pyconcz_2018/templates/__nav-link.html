@@ -1,15 +1,13 @@
-{% if not link %}
-    {% if type %}
-        {% url url type=type as link %}
-    {% elif key %}
-        {% url url key=key as link %}
-    {% else %}
-        {% url url as link %}
-    {% endif %}
+{% if type %}
+    {% url url type=type as link %}
+{% elif key %}
+    {% url url key=key as link %}
+{% else %}
+    {% url url as link %}
 {% endif %}
 
 <li class="nav-item">
-    <a href="{{ link }}" class="nav-link {% if request.path == link %}active{% endif %}">
+    <a href="{{ link }}{{ extra }}" class="nav-link {% if request.path == link %}active{% endif %}">
         {{ link_text }}
         {% if request.path == link %}
             <span class="sr-only">(current)</span>
