@@ -14,7 +14,7 @@ class TalksConfig:
     cfp_title = 'Submit your talk'
     template_about = 'proposals/talks_about.html'
     date_start = datetime(year=2018, month=1, day=17, hour=12, minute=0, tzinfo=tz)
-    date_end = datetime(year=2018, month=2, day=28, hour=23, minute=59, second=59, tzinfo=tz)
+    date_end = datetime(year=2018, month=3, day=10, hour=23, minute=59, second=59, tzinfo=tz)
 
 
 class WorkshopsConfig:
@@ -24,7 +24,7 @@ class WorkshopsConfig:
     cfp_title = 'Submit your workshop'
     template_about = 'proposals/workshops_about.html'
     date_start = datetime(year=2018, month=1, day=17, hour=12, minute=0, tzinfo=tz)
-    date_end = datetime(year=2018, month=2, day=28, hour=23, minute=59, second=59, tzinfo=tz)
+    date_end = datetime(year=2018, month=3, day=10, hour=23, minute=59, second=59, tzinfo=tz)
 
 
 class FinancialAidConfig:
