@@ -35,6 +35,7 @@
 			{% if form.github.value %}gh: <a href="https://www.github.com/{{form.github.value}}" target="_blank"> {{ form.github.value }}</a> {% endif %}
 			{% if form.twitter.value %}tw: <a href="https://www.twitter.com/{{form.twitter.value}}" target="_blank">{{ form.twitter.value }}</a> {% endif %}
 			photo: <a href="{{ MEDIA_URL }}{{ form.photo.value }}" target="_blank">show</a>
+			{% if form.referral_link.value %}video/link: <a href="{{ form.referral_link.value }}" target="_blank">show</a> {% endif %}			
 				<p>{{ form.bio.value|linebreaksbr }}</p>
 		</dd>
     </dl>
@@ -42,6 +43,11 @@
 	<dl>
 		<dt>Note</dt>
         <dd>{{ form.note.value|linebreaksbr|default:"--" }}</dd>
+    </dl>
+
+	<dl>
+		<dt>Final note</dt>
+        <dd>{{ form.final_note.value|linebreaksbr|default:"--" }}</dd>
     </dl>
 
 	<dl>
