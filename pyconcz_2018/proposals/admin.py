@@ -27,9 +27,8 @@ class EntryAdmin(ImportExportActionModelAdmin):
 
     list_display = [
         'date_short', 'full_name', 'title',
-        'average', 'stddev',
-        'accepted', 'common_note',
-        'score', 'score_link',
+        'average', 'stddev', 'score',
+        'common_note', 'accepted', 'score_link',
     ]
     list_display_links = ['full_name']
     list_editable = ['accepted']
@@ -49,7 +48,7 @@ class EntryAdmin(ImportExportActionModelAdmin):
     def score_link(self, obj):
         info = self.model._meta.app_label, self.model._meta.model_name
         url = reverse('admin:%s_%s_add_score' % info, kwargs={'object_id': obj.id})
-        return format_html('<a href="{url}">Edit</a>', url=url)
+        return format_html('<a href="{url}">Add score</a>', url=url)
     score_link.short_description = ''
 
     def average(self, obj):
