@@ -29,7 +29,9 @@ class Score(models.Model):
                                 null=True,
                                 blank=True,
                                 help_text='4 = Must have!, 3 = Interesting talk, '
-                                '2 = Meh, 1 = Definitely not!, blank value = No score (f.e. your proposal) ',
+                                '2 = Meh, 1 = Definitely not!, '
+                                'blank value = No score (f.e. your proposal); '
+                                'you can also use decimals',
                                 validators=[
                                     MinValueValidator(1),
                                     MaxValueValidator(4)
