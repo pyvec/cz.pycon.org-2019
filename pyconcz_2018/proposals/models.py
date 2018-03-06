@@ -24,16 +24,17 @@ class Score(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     ranking = models.ForeignKey(Ranking, related_name='scores')
 
-    value = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        help_text='4 = Must have!, 3 = Interesting talk, '
-                  '2 = Meh, 1 = Definitely not!, blank value = No score (f.e. your proposal) ',
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(4)
-        ]
-    )
+    value = models.DecimalField(max_digits=2,
+                                decimal_places=1,
+                                null=True,
+                                blank=True,
+                                help_text='4 = Must have!, 3 = Interesting talk, '
+                                '2 = Meh, 1 = Definitely not!, blank value = No score (f.e. your proposal) ',
+                                validators=[
+                                    MinValueValidator(1),
+                                    MaxValueValidator(4)
+                                    ]
+                                )
     note = models.TextField(
         default='', blank=True,
         help_text='Only you can see this'
