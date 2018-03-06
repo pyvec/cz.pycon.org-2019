@@ -11,6 +11,7 @@ class Sponsor(models.Model):
         (6, 'Media'),
         (7, 'Partners'),
         (8, 'Coffee sponsor'),
+        (9, 'Connectivity sponsor'),
     )
 
     level = models.PositiveSmallIntegerField(choices=LEVEL, default=3)
@@ -20,6 +21,8 @@ class Sponsor(models.Model):
 
     description = models.TextField()
     link_url = models.URLField()
+    twitter = models.URLField(null=True, help_text='full URL')
+    facebook = models.URLField(null=True, help_text='full URL')
 
     published = models.BooleanField(default=False)
 
