@@ -25,8 +25,10 @@ class Score(models.Model):
     ranking = models.ForeignKey(Ranking, related_name='scores')
 
     value = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
         help_text='4 = Must have!, 3 = Interesting talk, '
-                  '2 = Meh, 1 = Definitely not!',
+                  '2 = Meh, 1 = Definitely not!, blank value = No score (f.e. your proposal) ',
         validators=[
             MinValueValidator(1),
             MaxValueValidator(4)
