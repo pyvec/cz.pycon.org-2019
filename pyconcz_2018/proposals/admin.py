@@ -70,6 +70,7 @@ class EntryAdmin(ImportExportActionModelAdmin):
         return obj.date.strftime('%d.%m. %H:%M')
     date_short.admin_order_field = 'date_short'
     date_short.short_description = 'date'
+    date_short.admin_order_field = 'date'
 
     def get_queryset(self, request):
         scores = Prefetch(
