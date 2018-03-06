@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
 
+    'raven.contrib.django.raven_compat',
     'import_export',
 
     'pyconcz_2018.announcements',
