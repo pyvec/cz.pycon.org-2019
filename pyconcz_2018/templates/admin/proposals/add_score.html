@@ -41,11 +41,6 @@
     </dl>
 
 	<dl>
-		<dt>Note</dt>
-        <dd>{{ form.note.value|linebreaksbr|default:"--" }}</dd>
-    </dl>
-
-	<dl>
 		<dt>Final note</dt>
         <dd>{{ form.final_note.value|linebreaksbr|default:"--" }}</dd>
     </dl>
@@ -54,6 +49,11 @@
 		<dt><h2>Finaid</h2></dt>
         <dd>wants: {{ form.needs_finaid.value|yesno }}</dd>
         <dd>detail: {{ form.finaid_details.value|linebreaksbr|default:"--" }}</dd>
+    </dl>
+
+	<dl>
+		<dt><h2>Programme comitee note</h2></dt>
+        <dd>{{ form.note.value|linebreaksbr|default:"--" }}</dd>
     </dl>
 	
 	<small>accepted: {{ form.accepted.value|yesno }}, submitted: {{ form.date.value }}</small>
