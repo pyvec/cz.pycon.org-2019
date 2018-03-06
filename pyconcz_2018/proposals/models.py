@@ -56,7 +56,7 @@ class Score(models.Model):
 
 class EntryBase(models.Model):
     # Private notes (for reviewers only)
-    note = models.TextField()
+    note = models.TextField(blank=True, default='')
     date = models.DateTimeField(default=now)
     rankings = GenericRelation(Ranking)
     accepted = models.BooleanField(default=False, blank=True)
