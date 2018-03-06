@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.contrib import messages
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
-from django.db.models import Prefetch, Avg
+from django.db.models import Prefetch, Avg, Count
 from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.html import format_html
@@ -27,7 +27,7 @@ class EntryAdmin(ImportExportActionModelAdmin):
 
     list_display = [
         'date_short', 'full_name', 'title',
-        'average', 'stddev', 'score',
+        'average', 'stddev', 'scount', 'score',
         'common_note', 'accepted', 'score_link',
     ]
     list_display_links = ['full_name']
@@ -59,6 +59,10 @@ class EntryAdmin(ImportExportActionModelAdmin):
         return obj.stddev and "{:.2f}".format(obj.stddev) or None
     stddev.admin_order_field = 'stddev'
 
+    def scount(self, obj):
+        return obj.scount or 0
+    scount.admin_order_field = 'scount'
+
     def common_note(self, obj):
         if obj.note:
             return format_html('<span title="{}">{}&hellip;</span>',
@@ -81,7 +85,8 @@ class EntryAdmin(ImportExportActionModelAdmin):
             .prefetch_related(scores)
             .annotate(
                 average=Avg('rankings__scores__value'),
-                stddev=StdDev('rankings__scores__value')
+                stddev=StdDev('rankings__scores__value'),
+                scount=Count('rankings__scores__value'),
             )
         )
 
