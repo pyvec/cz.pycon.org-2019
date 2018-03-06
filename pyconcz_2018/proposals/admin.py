@@ -48,7 +48,7 @@ class EntryAdmin(ImportExportActionModelAdmin):
     def score_link(self, obj):
         info = self.model._meta.app_label, self.model._meta.model_name
         url = reverse('admin:%s_%s_add_score' % info, kwargs={'object_id': obj.id})
-        return format_html('<a href="{url}">Add score</a>', url=url)
+        return format_html('<a href="{url}">Score</a>', url=url)
     score_link.short_description = ''
 
     def average(self, obj):
