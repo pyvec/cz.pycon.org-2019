@@ -15,7 +15,6 @@ import datetime
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 TMP_DIR = os.path.join(BASE_DIR, '..', 'tmp')
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'provide in local.py'
 
@@ -78,10 +77,23 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pyconcz_2018.urls'
 
+PHASE = [
+    '00-init',  # Initial phase
+    '01-cfp-opened',  # Call for papers open
+    '02-cfp-closed',  # Call for papers is closed
+    '03-keynoters',  # Keynoters published
+    '04-earlybird',  # Early bird sales started
+]
+
+PHASE_CURRENT = 0
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates' + '/' + PHASE[PHASE_CURRENT]),
+            os.path.join(BASE_DIR, 'templates/default/'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,7 +108,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pyconcz_2018.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -124,7 +135,6 @@ else:
         }
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -143,7 +153,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -160,7 +169,6 @@ TIME_ZONE = 'Europe/Prague'
 FORMAT_MODULE_PATH = [
     'pyconcz_2018.formats'
 ]
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
