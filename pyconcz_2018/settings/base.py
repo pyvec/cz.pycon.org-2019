@@ -79,13 +79,14 @@ ROOT_URLCONF = 'pyconcz_2018.urls'
 
 PHASE = [
     '00-init',  # Initial phase
-    '01-cfp-opened',  # Call for papers open
-    '02-cfp-closed',  # Call for papers is closed
-    '03-keynoters',  # Keynoters published
-    '04-earlybird',  # Early bird sales started
+    '10-date-place',  # Date and place announced
+    '20-cfp-opened',  # Call for papers open
+    '30-cfp-closed',  # Call for papers is closed
+    '40-keynoters',  # Keynoters published
+    '50-earlybird',  # Early bird sales started
 ]
 
-PHASE_CURRENT = 0
+PHASE_CURRENT = 1
 
 TEMPLATES = [
     {
