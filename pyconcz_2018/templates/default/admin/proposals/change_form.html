@@ -8,11 +8,11 @@
 
 
 {% block object-tools-items %}
-  {{ block.super }}
-  <li>
-    {% url opts|admin_urlname:'add_score' original.pk|admin_urlquote as score_url %}
-    <a href="{% add_preserved_filters score_url %}">
-      {% trans "Add Score" %}
-    </a>
-  </li>
+    {{ block.super }}
+    <li>
+        {% url opts|admin_urlname:'add_score' original.pk|admin_urlquote as score_url %}
+        <a href="{% add_preserved_filters score_url %}">
+            {% trans "Add Score" %}
+        </a>
+    </li>
 {% endblock %}

@@ -8,11 +8,11 @@
 
 
 {% block object-tools-items %}
-  {{ block.super }}
-  <li>
-    {% url opts|admin_urlname:'generate' as generate_url %}
-    <a href="{% add_preserved_filters generate_url is_popup to_field %}">
-      {% trans "Start scoring" %}
-    </a>
-  </li>
+    {{ block.super }}
+    <li>
+        {% url opts|admin_urlname:'generate' as generate_url %}
+        <a href="{% add_preserved_filters generate_url is_popup to_field %}">
+            {% trans "Start scoring" %}
+        </a>
+    </li>
 {% endblock %}
