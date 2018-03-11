@@ -87,7 +87,7 @@ PHASE = [
     '50-earlybird',  # Early bird sales started
 ]
 
-PHASE_CURRENT = 3
+PHASE_CURRENT = 4
 
 TEMPLATES = [
     {
