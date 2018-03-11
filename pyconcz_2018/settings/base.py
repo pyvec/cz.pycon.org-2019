@@ -81,12 +81,13 @@ PHASE = [
     '00-init',  # Initial phase
     '10-date-place',  # Date and place announced
     '20-cfp-opened',  # Call for papers open
+    '25-cfp-extended',  # Call for papers extended
     '30-cfp-closed',  # Call for papers is closed
     '40-keynoters',  # Keynoters published
     '50-earlybird',  # Early bird sales started
 ]
 
-PHASE_CURRENT = 1
+PHASE_CURRENT = 3
 
 TEMPLATES = [
     {
