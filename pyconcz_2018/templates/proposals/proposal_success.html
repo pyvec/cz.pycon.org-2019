@@ -5,11 +5,11 @@
 
 
 {% block main %}
-  <div class="container">
-    <h1>Proposal sent</h1>
+    <div class="container">
+        <h1>Proposal sent</h1>
 
-    <p class="lead">Thank you! We've received your proposal. If you have any questions, don't hesitate to write us at <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
+        <p class="lead">Thank you! We’ve received your proposal. If you have any questions, don’t hesitate to write us at <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
 
-    <p><a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key=proposal_config_key %}">Send another</a></p>
-  </div>
+        <p><a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key=proposal_config_key %}">Send another</a></p>
+    </div>
 {% endblock %}
