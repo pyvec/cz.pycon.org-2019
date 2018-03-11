@@ -7,9 +7,9 @@
 {% endif %}
 
 <li class="nav-item">
-    <a href="{{ link }}{{ extra }}" class="nav-link {% if request.path == link %}active{% endif %}">
+    <a href="{{ link }}{{ extra }}" class="nav-link {% if request.path == link and not extra %}active{% endif %}">
         {{ link_text }}
-        {% if request.path == link %}
+        {% if request.path == link and not extra %}
             <span class="sr-only">(current)</span>
         {% endif %}
     </a>
