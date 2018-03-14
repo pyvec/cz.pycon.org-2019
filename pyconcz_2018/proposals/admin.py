@@ -235,7 +235,7 @@ class TalkAdmin(EntryAdmin):
     list_display = [
         'date_short', 'full_name', 'title',
         'average', 'stddev', 'scount', 'score',
-        'common_note', 'is_backup', 'accepted', 'score_link',
+        'is_backup', 'accepted', 'score_link',
     ]
     list_editable = ['accepted', 'is_backup']
     list_filter = ['accepted', 'needs_finaid', 'is_keynote', 'is_backup']
@@ -246,7 +246,7 @@ class WorkshopAdmin(EntryAdmin):
     list_display = [
         'date_short', 'full_name', 'title',
         'average', 'stddev', 'scount', 'score',
-        'common_note', 'is_backup', 'accepted', 'score_link',
+        'is_backup', 'accepted', 'score_link',
     ]
     list_editable = ['accepted', 'is_backup']
     list_filter = ['accepted', 'needs_finaid', 'is_backup']
