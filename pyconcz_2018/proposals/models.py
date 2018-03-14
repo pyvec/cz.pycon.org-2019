@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from django.conf import settings
 from django.contrib.contenttypes.fields import (
     GenericForeignKey, GenericRelation)
@@ -163,6 +165,8 @@ class Talk(EntryBase):
         null=True, blank=True,
         verbose_name='Anything else you want to tell us?'
     )
+    is_backup = models.BooleanField(default=False)
+    is_keynote = models.BooleanField(default=False)
 
     def __str__(self):
         return '{s.full_name} - {s.title}'.format(s=self)
@@ -303,6 +307,7 @@ class Workshop(EntryBase):
         null=True, blank=True,
         verbose_name='Anything else you want to tell us?'
     )
+    is_backup = models.BooleanField(default=False)
 
     def __str__(self):
         return '[{s.type}] {s.title}'.format(s=self)

@@ -206,7 +206,7 @@ class TalkResource(resources.ModelResource):
             'full_name', 'title',
             'email', 'github', 'twitter',
             'language', 'difficulty',
-            'needs_finaid', 'accepted',
+            'needs_finaid', 'is_keynote', 'is_backup', 'accepted',
         )
 
 
@@ -218,7 +218,7 @@ class WorkshopResource(resources.ModelResource):
             'full_name', 'title',
             'email', 'github', 'twitter',
             'language', 'difficulty',
-            'needs_finaid', 'accepted',
+            'needs_finaid', 'is_backup', 'accepted',
         )
 
 
@@ -232,12 +232,24 @@ class FinancialAidResource(resources.ModelResource):
 
 
 class TalkAdmin(EntryAdmin):
-    list_filter = ['accepted', 'needs_finaid']
+    list_display = [
+        'date_short', 'full_name', 'title',
+        'average', 'stddev', 'scount', 'score',
+        'common_note', 'is_backup', 'accepted', 'score_link',
+    ]
+    list_editable = ['accepted', 'is_backup']
+    list_filter = ['accepted', 'needs_finaid', 'is_keynote', 'is_backup']
     resource_class = TalkResource
 
 
 class WorkshopAdmin(EntryAdmin):
-    list_filter = ['accepted', 'needs_finaid']
+    list_display = [
+        'date_short', 'full_name', 'title',
+        'average', 'stddev', 'scount', 'score',
+        'common_note', 'is_backup', 'accepted', 'score_link',
+    ]
+    list_editable = ['accepted', 'is_backup']
+    list_filter = ['accepted', 'needs_finaid', 'is_backup']
     resource_class = WorkshopResource
 
 
