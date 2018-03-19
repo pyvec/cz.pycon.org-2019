@@ -13,14 +13,14 @@ env.use_ssh_config = True
 
 @task
 def production():
-    env.hosts = ['app@alpha-node-5.rosti.cz:12768']
+    env.hosts = ['app@node-12.rosti.cz:12768']
     env.environment = 'production'
     env.branch = 'master'
 
 
 @task
 def beta():
-    env.hosts = ['app@alpha-node-6.rosti.cz:13128']
+    env.hosts = ['app@node-13.rosti.cz:13128']
     env.environment = 'beta'
     env.branch = 'beta'
 
