@@ -6,6 +6,11 @@ from django.contrib import admin
 from .models import Speaker, Talk, Slot, Workshop
 
 
+def mk_public(modeladmin, request, queryset):
+    queryset.update(is_public=True)
+mk_public.short_description = 'Make public'
+
+
 class SlotAdmin(admin.ModelAdmin):
     list_display = ['get_description', 'date', 'room']
     list_filter = ['room', 'date', ]
@@ -24,17 +29,18 @@ class SpeakerResource(resources.ModelResource):
     class Meta:
         model = Speaker
         fields = export_order = (
-            'full_name', 'keynote',
+            'full_name',
             'email', 'github', 'twitter',
         )
 
 
 class SpeakerAdmin(ImportExportActionModelAdmin):
     list_display = ['full_name', 'get_talks', 'get_workshops',
-                    'keynote',  'is_public', 'display_position', ]
-    list_filter = ['keynote', 'is_public']
+                    'is_public', 'display_position', ]
+    list_filter = ['is_public']
     search_fields = ['full_name', 'email', 'github', 'twitter', ]
     resource_class = SpeakerResource
+    actions = [mk_public, ]
 
     def get_talks(self, obj):
         return ', '.join([t.title for t in obj.talks.all()])
@@ -52,14 +58,16 @@ class TalkResource(resources.ModelResource):
         model = Talk
         fields = export_order = (
             'title', 'speakers',
-            'language', 'difficulty',
+            'language', 'difficulty', 'is_keynote', 'is_public', 'is_backup', 'private_note',
         )
 
 
 class TalkAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'speakers', 'language', 'difficulty', ]
+    list_display = ['title', 'speakers', 'language', 'is_keynote', 'is_public', 'is_backup', ]
+    list_filter = ['is_keynote', 'is_public', 'is_backup', ]
     search_fields = ['title', ]
     resource_class = TalkResource
+    actions = [mk_public, ]
 
     def speakers(self, obj):
         return obj.speakers_display
@@ -67,8 +75,11 @@ class TalkAdmin(ImportExportActionModelAdmin):
 
 
 class WorkshopAdmin(TalkAdmin):
-    list_display = ['title', 'speakers', 'language', 'difficulty', 'type', ]
+    list_display = ['title', 'speakers', 'language', 'difficulty', 'type', 'is_public', 'is_backup', ]
+    list_filter = ['is_public', 'is_backup', ]
     list_filter = ['type', ]
+    actions = [mk_public, ]
+
 
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)

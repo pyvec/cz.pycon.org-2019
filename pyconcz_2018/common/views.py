@@ -4,7 +4,7 @@ from pyconcz_2018.programme.models import Speaker
 
 
 def homepage(request):
-    keynoters = Speaker.objects.filter(keynote=True, is_public=True)
+    keynoters = Speaker.objects.filter(is_public=True, talks__is_keynote=True,
+                                       talks__is_public=True, talks__is_backup=False)
 
-    return TemplateResponse(
-        request, 'pages/homepage.html', {'keynoters': keynoters})
+    return TemplateResponse(request, 'pages/homepage.html', {'keynoters': keynoters})

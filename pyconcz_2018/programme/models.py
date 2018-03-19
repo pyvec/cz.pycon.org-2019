@@ -8,18 +8,14 @@ class Speaker(models.Model):
     full_name = models.CharField(max_length=200)
     bio = models.TextField()
 
-    keynote = models.BooleanField(default=False, blank=True)
-
     twitter = models.CharField(max_length=255, blank=True)
     github = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
 
     photo = models.ImageField(upload_to='programme/pyconcz2018/')
 
-    talks = models.ManyToManyField(
-        'Talk', blank=True, related_name='talks')
-    workshops = models.ManyToManyField(
-        'Workshop', blank=True, related_name='workshops')
+    talks = models.ManyToManyField('Talk', blank=True, related_name='talk_speakers')
+    workshops = models.ManyToManyField('Workshop', blank=True, related_name='ws_speakers')
 
     display_position = models.PositiveSmallIntegerField(default=0, help_text='sort order on frontend displays')
     is_public = models.BooleanField(default=True)
@@ -48,6 +44,11 @@ class Talk(models.Model):
     difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner',)
     video_id = models.CharField(max_length=100, default='', blank=True, help_text='youtube')
 
+    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
+    is_backup = models.BooleanField(default=False, blank=True)
+    is_keynote = models.BooleanField(default=False, blank=True)
+    is_public = models.BooleanField(default=False, blank=True)
+
     class Meta:
         ordering = ('title',)
 
@@ -56,7 +57,7 @@ class Talk(models.Model):
 
     @property
     def speakers(self):
-        return self.talks.all()
+        return self.talk_speakers.all()
 
     @property
     def speakers_display(self):
@@ -108,12 +109,16 @@ class Workshop(models.Model):
         max_length=2, choices=LENGTH, blank=True,
     )
 
+    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
+    is_backup = models.BooleanField(default=False, blank=True)
+    is_public = models.BooleanField(default=False, blank=True)
+
     def __str__(self):
         return self.title
 
     @property
     def speakers(self):
-        return self.workshops.all()
+        return self.ws_speakers.all()
 
     @property
     def speakers_display(self):
