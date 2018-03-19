@@ -97,8 +97,7 @@ class TalkAdmin(ImportExportActionModelAdmin):
 
 class WorkshopAdmin(TalkAdmin):
     list_display = ['title', 'speakers', 'language', 'difficulty', 'type', 'is_public', 'is_backup', ]
-    list_filter = ['is_public', 'is_backup', ]
-    list_filter = ['type', ]
+    list_filter = ['is_public', 'is_backup', 'type', ]
     actions = [mk_public, mk_not_public]
 
 
