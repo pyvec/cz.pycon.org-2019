@@ -3,6 +3,9 @@ from import_export.admin import ImportExportActionModelAdmin
 from import_export import fields
 
 from django.contrib import admin
+from django.contrib.admin import SimpleListFilter
+from django.utils.translation import gettext as _
+
 from .models import Speaker, Talk, Slot, Workshop
 
 
@@ -14,6 +17,19 @@ mk_public.short_description = 'Make public'
 def mk_not_public(modeladmin, request, queryset):
     queryset.update(is_public=False)
 mk_not_public.short_description = 'Make NOT public'
+
+
+class SpeakerHasKeynoteFilter(SimpleListFilter):
+    title = 'has keynote'
+    parameter_name = 'has_keynote'
+
+    def lookups(self, request, model_admin):
+        return ((0, _('no')),
+                (1, _('yes')),
+                )
+
+    def queryset(self, request, queryset):
+        return queryset.filter(talks__is_keynote=bool(int(self.value()))) if self.value() else queryset
 
 
 class SlotAdmin(admin.ModelAdmin):
@@ -35,14 +51,14 @@ class SpeakerResource(resources.ModelResource):
         model = Speaker
         fields = export_order = (
             'full_name',
-            'email', 'github', 'twitter',
+            'email', 'github', 'twitter', 'is_public',
         )
 
 
 class SpeakerAdmin(ImportExportActionModelAdmin):
     list_display = ['full_name', 'get_talks', 'get_workshops',
                     'is_public', 'display_position', ]
-    list_filter = ['is_public']
+    list_filter = ['is_public', SpeakerHasKeynoteFilter]
     search_fields = ['full_name', 'email', 'github', 'twitter', ]
     resource_class = SpeakerResource
     actions = [mk_public, mk_not_public]
