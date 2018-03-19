@@ -11,6 +11,11 @@ def mk_public(modeladmin, request, queryset):
 mk_public.short_description = 'Make public'
 
 
+def mk_not_public(modeladmin, request, queryset):
+    queryset.update(is_public=False)
+mk_not_public.short_description = 'Make NOT public'
+
+
 class SlotAdmin(admin.ModelAdmin):
     list_display = ['get_description', 'date', 'room']
     list_filter = ['room', 'date', ]
@@ -40,7 +45,7 @@ class SpeakerAdmin(ImportExportActionModelAdmin):
     list_filter = ['is_public']
     search_fields = ['full_name', 'email', 'github', 'twitter', ]
     resource_class = SpeakerResource
-    actions = [mk_public, ]
+    actions = [mk_public, mk_not_public]
 
     def get_talks(self, obj):
         return ', '.join([t.title for t in obj.talks.all()])
@@ -67,7 +72,7 @@ class TalkAdmin(ImportExportActionModelAdmin):
     list_filter = ['is_keynote', 'is_public', 'is_backup', ]
     search_fields = ['title', ]
     resource_class = TalkResource
-    actions = [mk_public, ]
+    actions = [mk_public, mk_not_public]
 
     def speakers(self, obj):
         return obj.speakers_display
@@ -78,7 +83,7 @@ class WorkshopAdmin(TalkAdmin):
     list_display = ['title', 'speakers', 'language', 'difficulty', 'type', 'is_public', 'is_backup', ]
     list_filter = ['is_public', 'is_backup', ]
     list_filter = ['type', ]
-    actions = [mk_public, ]
+    actions = [mk_public, mk_not_public]
 
 
 admin.site.register(Speaker, SpeakerAdmin)
