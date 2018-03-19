@@ -61,7 +61,7 @@ class Talk(models.Model):
 
     @property
     def speakers_display(self):
-        return ','.join(map(str, self.speakers))
+        return '; '.join(map(str, self.speakers))
 
     @property
     def video_embed_url(self):
@@ -122,7 +122,7 @@ class Workshop(models.Model):
 
     @property
     def speakers_display(self):
-        return ','.join(map(str, self.speakers))
+        return '; '.join(map(str, self.speakers))
 
 
 class Slot(models.Model):
