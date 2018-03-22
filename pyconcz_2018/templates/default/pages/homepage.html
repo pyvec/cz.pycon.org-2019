@@ -30,55 +30,60 @@
         </p>
         {% endcomment %}
 
-        <h2>Prague, mother of all cities</h2>
-        <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
+        {% block city %}
+            <h2>Prague, mother of all cities</h2>
+            <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
 
-        <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a href="{% url "about_city" %}">More about Prague…</a></p>
+            <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a href="{% url "about_city" %}">More about Prague…</a></p>
+        {% endblock %}
 
+        {% block venue %}
+            <h3>Venue</h3>
 
-        <h3>Venue</h3>
+            <div class="text-center">
+                <address>
+                    <strong>Meet Factory</strong><br>
+                    Ke Sklárně 3213/15<br>
+                    Praha 5 – Smíchov
 
-        <div class="text-center">
-            <address>
-                <strong>Meet Factory</strong><br>
-                Ke Sklárně 3213/15<br>
-                Praha 5 – Smíchov
+                </address>
 
-            </address>
-
-            <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <h3>
-                    {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
-                    Talks<br>
-                    <small>1-2 June</small>
-                    {% comment %}</a>{% endcomment %}
-                </h3>
-
-                {% comment %}
-                <p>
-                    <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-                    <strong>four</strong> keynotes and <strong>27</strong>
-                    <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
-                </p>
-                {% endcomment %}
-
+                <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
             </div>
-            <div class="col mb-4">
-                <h3>
-                    {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
-                    Workshops<br>
-                    <small>3 June</small>
-                    {% comment %}</a>{% endcomment %}
-                </h3>
-                {% comment %}
-                <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
-                {% endcomment %}
+        {% endblock %}
+
+        {% block dates %}
+            <div class="row">
+                <div class="col">
+                    <h3>
+                        {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
+                        Talks<br>
+                        <small>1-2 June</small>
+                        {% comment %}</a>{% endcomment %}
+                    </h3>
+
+                    {% comment %}
+                    <p>
+                        <strong>Two days</strong>, <strong>two</strong> parallel tracks,
+                        <strong>four</strong> keynotes and <strong>27</strong>
+                        <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
+                    </p>
+                    {% endcomment %}
+
+                </div>
+                <div class="col mb-4">
+                    <h3>
+                        {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
+                        Workshops<br>
+                        <small>3 June</small>
+                        {% comment %}</a>{% endcomment %}
+                    </h3>
+                    {% comment %}
+                    <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
+                    {% endcomment %}
+                </div>
             </div>
-        </div>
+        {% endblock %}
 
         {% if keynoters %}
             <h1>Keynote speakers</h1>
@@ -105,7 +110,9 @@
         </div>
         {% endcomment %}
 
-        {% sponsors %}
+        {% block partners %}
+            {% sponsors %}
+        {% endblock %}
 
         <h2>What attendees said about PyCon&nbsp;CZ 2017?</h2>
 
