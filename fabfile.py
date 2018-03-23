@@ -7,8 +7,6 @@ PYTHON = VENV_DIR + 'bin/python'
 PIP = VENV_DIR + 'bin/pip'
 
 env.hosts = []
-env.forward_agent = True
-env.use_ssh_config = True
 
 
 @task
