@@ -11,7 +11,9 @@
 
         <h1>{{ proposal_config.cfp_title }}</h1>
 
-        <p class="text-center">The Call for Proposals will close on February 28, 2018.</p>
+        <p class="text-center">
+            The Call for Proposals will close on {% block deadline %}February 28, 2018{% endblock %}.
+        </p>
         <p class="text-center mb-5">If you are a speaker pair, just write information about both of you in one field.</p>
 
         <form action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>

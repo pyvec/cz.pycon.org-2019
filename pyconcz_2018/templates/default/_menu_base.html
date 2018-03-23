@@ -6,13 +6,13 @@ If you want to remove menu item globally, comment it out here.
 
 {% endcomment %}
 <ul class="nav w-100 justify-content-{{ pc_alignment }}">
-    {% block items %}
+    {% block menu_items %}
         {% block link_home %}
             {% include "__nav-link.html" with url="homepage" link_text="Home" %}
         {% endblock %}
 
         {% block link_about %}
-            {% comment %}{% include "__nav-link.html" with url="about" link_text="About" %}{% endcomment %}
+            {% include "__nav-link.html" with url="about" link_text="About" %}
         {% endblock %}
 
         {% block link_about_city %}
@@ -24,28 +24,31 @@ If you want to remove menu item globally, comment it out here.
         {% endblock %}
 
         {% block link_tickets %}
-            {% comment %}{% include "__nav-link.html" with url="homepage" extra="#tickets" link_text="Tickets" %}{% endcomment %}
+            {% include "__nav-link.html" with url="homepage" extra="#tickets" link_text="Tickets" %}
         {% endblock %}
 
         {% block link_talks %}
-            {% comment %}{% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}{% endcomment %}
+            {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
         {% endblock %}
 
         {% block link_workshops %}
-            {% comment %}{% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}{% endcomment %}
+            {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
         {% endblock %}
 
         {% block link_schedule %}
-            {% comment %}{% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}{% endcomment %}
+            {% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}
         {% endblock %}
 
         {% block link_sponsors %}
-            {% comment %}{% include "__nav-link.html" with url="sponsors_list" link_text="Sponsors" %}{% endcomment %}
+            {% include "__nav-link.html" with url="sponsors_list" link_text="Sponsors" %}
+        {% endblock %}
+
+        {% block link_sponsorship %}
             {% include "__nav-link.html" with url="sponsors_offer" link_text="Sponsorship" %}
         {% endblock %}
 
         {% block link_financial_aid %}
-            {% comment %}{% include "__nav-link.html" with url="proposal_form" key='financial-aid' link_text="Financial Aid" %}{% endcomment %}
+            {% include "__nav-link.html" with url="proposal_form" key='financial-aid' link_text="Financial Aid" %}
         {% endblock %}
 
         {% block link_coc %}
