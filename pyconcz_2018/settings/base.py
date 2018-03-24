@@ -83,9 +83,10 @@ PHASE = [
     '20-cfp-opened',  # Call for papers open
     '30-cfp-extended',  # Call for papers extended
     '40-cfp-closed',  # Call for papers is closed
+    '50-cfp-evaluated',  # Papers were evaluated
 ]
 
-PHASE_CURRENT = 4
+PHASE_CURRENT = 5
 
 TEMPLATES = [
     {
