@@ -1,27 +1,31 @@
 {% regroup sponsors by get_level_display as sponsors_list %}
 
 {% if sponsors %}
-    <h2>Our partners</h2>
+    <div class="bg-white pc-test text-dark py-1">
+        <div class="container">
+            <h2 class="text-orchid">Our partners</h2>
 
-    <section class="pc-sponsors mb-5">
-        {% for level in sponsors_list %}
-            <div class="pc-sponsors-level-{{ level.grouper|lower }}">
-                <h3>{{ level.grouper }}</h3>
-                <div class="row">
-                    {% for sponsor in level.list %}
-                        <div class="col text-center my-5">
-                            <a href="{{ sponsor.link_url }}" class="d-block mx-3">
-                                <img
-                                    class="img-fluid"
-                                    src="{{ sponsor.logo.url }}"
-                                    alt="{{ sponsor.name }}"
-                                    style="width: 100%; max-width: 15rem;max-height: 15rem;"
-                                >
-                            </a>
+            <section class="pc-sponsors mb-4">
+                {% for level in sponsors_list %}
+                    <div class="pc-sponsors-level-{{ level.grouper|lower }}">
+                        <h3 class="text-orchid">{{ level.grouper }}</h3>
+                        <div class="row">
+                            {% for sponsor in level.list %}
+                                <div class="col text-center my-4">
+                                    <a href="{{ sponsor.link_url }}" class="d-block mx-3">
+                                        <img
+                                            class="img-fluid"
+                                            src="{{ sponsor.logo.url }}"
+                                            alt="{{ sponsor.name }}"
+                                            style="width: 100%; max-width: 15rem;max-height: 15rem;"
+                                        >
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-                </div>
-            </div>
-        {% endfor %}
-    </section>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
 {% endif %}

@@ -1,0 +1,30 @@
+/* colors */
+$pc-color-navy: #035fcc;
+$pc-color-blue: #00beff;
+$pc-color-cyan: #36ffff;
+$pc-color-mint: #32d9a9;
+$pc-color-lime: #a4ff00;
+$pc-color-yellow: #ffff0e;
+$pc-color-violetred: #ff0054;
+$pc-color-ginger: #ff9a00;
+$pc-color-orange: #ff7d00;
+$pc-color-red: #ff3d00;
+$pc-color-orchidred: #e80e8b;
+$pc-color-orchid: #c848d9;
+
+
+/* gradients */
+$pc-gradient-orchid-ginger: linear-gradient(to right, $pc-color-orchid, $pc-color-ginger);
+$pc-gradient-orchid-violetred: linear-gradient(to right, $pc-color-orchid, $pc-color-violetred);
+$pc-gradient-orchid-yellow: linear-gradient(to right, $pc-color-orchid, $pc-color-yellow);
+$pc-gradient-orchidred-yellow: linear-gradient(to right, $pc-color-orchidred, $pc-color-yellow);
+$pc-gradient-orchid-lime: linear-gradient(to right, $pc-color-orchid, $pc-color-lime);
+$pc-gradient-violetred-lime: linear-gradient(to right, $pc-color-violetred, $pc-color-lime);
+$pc-gradient-yellow-lime: linear-gradient(to right, $pc-color-yellow, $pc-color-lime);
+$pc-gradient-orchid-mint: linear-gradient(to right, $pc-color-orchid, $pc-color-mint);
+$pc-gradient-orchidred-cyan: linear-gradient(to right, $pc-color-orchidred, $pc-color-cyan);
+$pc-gradient-yellow-cyan: linear-gradient(to right, $pc-color-yellow, $pc-color-cyan);
+$pc-gradient-orchid-blue: linear-gradient(to right, $pc-color-orchid, $pc-color-blue);
+$pc-gradient-yellow-blue: linear-gradient(to right, $pc-color-yellow, $pc-color-blue);
+$pc-gradient-orchidred-navy: linear-gradient(to right, $pc-color-orchidred, $pc-color-navy);
+$pc-gradient-orchid-orchidred: linear-gradient(to right, $pc-color-orchid, $pc-color-orchidred);

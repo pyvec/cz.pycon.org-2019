@@ -1,0 +1,28 @@
+{% extends "pages/homepage.html" %}
+
+{% load formatting %}
+
+
+{% block keynoters %}
+    {% if keynoters %}
+        <div class="bg-orchid pc-test text-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Keynote speakers</h2>
+                    </div>
+                    {% for keynoter in keynoters %}
+                        <div class="col mb-3" style="min-width:12em;">
+                            <h3 class="mt-3">{{ keynoter.full_name }}</h3>
+                            <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
+                            <div class="text-white">{{ keynoter.bio|markdown }}</div>
+                            {% if keynoter.twitter %}
+                                <p><a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

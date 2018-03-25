@@ -1,115 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px" width="612" height="284" viewBox="0 0 612 284" enable-background="new 0 0 841.891 595.28" xml:space="preserve" inkscape:version="0.91 r13725">
-    <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1177" id="namedview284" showgrid="true" inkscape:zoom="1.4158603" inkscape:cx="27.11633" inkscape:cy="191.26778" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:current-layer="svg2" inkscape:snap-path-clip="false" showguides="true" inkscape:guide-bbox="true" inkscape:snap-intersection-paths="true" inkscape:snap-bbox="true" inkscape:snap-center="false" inkscape:snap-object-midpoints="false" inkscape:object-nodes="true" inkscape:snap-smooth-nodes="true" inkscape:object-paths="true" inkscape:snap-bbox-midpoints="false" inkscape:snap-bbox-edge-midpoints="false" inkscape:bbox-nodes="true" inkscape:bbox-paths="false">
-        <inkscape:grid type="axonomgrid" id="grid-axo" units="px" empspacing="4" originx="3" spacingy="10" color="#0af9ff" opacity="0.12" empcolor="#5a006a" empopacity="0.2" originy="31" snapvisiblegridlinesonly="false" enabled="false" />
-        <inkscape:grid type="axonomgrid" id="grid-grid" units="px" empspacing="0" visible="true" snapvisiblegridlinesonly="false" spacingy="20" empcolor="#0073d4" empopacity="0.25098039" color="#00c803" opacity="0.25098039" originx="3" originy="31" />
-    </sodipodi:namedview>
-
-    <style>
-    /* <![CDATA[ */
-    path{stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1}
-    .border{stroke:#1a171b;stroke-width:1.5;}
-    .frame{fill:transparent;}
-    .side{fill:#fff;}
-    .top{fill:#fff;}
-    /*svg:hover .top{fill:white;}*/
-    /*.grid{stroke:#b800cc;stroke-width:0.5;display:none;}*/
-    /*svg:hover .grid{display:block;}*/
-    /*.left{fill:#d4d4d4;}
-    /*.front{fill:#e4e4e4;}*/
-    /*.right{fill:#fcfcfc;}*/
-    /* ]]> */
-    </style>
-    <!--
-    <symbol id="ltr-p" viewBox="0 0 612 284"> <path class="ltr-p" d="M3 93l51.962-30h34.64l17.32 10v20l-17.32 10 34.642 20-34.64 20z"/></symbol>
-    <symbol id="ltr-y" viewBox="0 0 612 284"> <path class="ltr-y" d="M89.603 43l34.64 20h34.642l34.64 20 34.642-20-34.64-20V23L158.884 3l-17.32 10v20h-34.642z"/></symbol>
-    <symbol id="ltr-c1" viewBox="0 0 612 284"><path class="ltr-c" d="M245.487 153l-17.32-10h-34.64l-34.642 20v20l51.96 30h34.642l34.64-20v-20l-17.32-10-34.64 20-17.32-10z"/></symbol>
-    <symbol id="ltr-o" viewBox="0 0 612 284"> <path class="ltr-o" d="M280.13 93l-34.644 20v20l51.963 30h34.64l34.64-20v-20l-51.96-30h-34.64zm0 20h34.64l17.32 10v20h-34.64l-17.32-10v-20z"/></symbol>
-    <symbol id="ltr-n" viewBox="0 0 612 284"> <path class="ltr-n" d="M436.013 103l34.64-20-86.602-50-17.32 10 17.32 10h-34.64l-34.64 20 86.602 50 17.32-10-17.32-10z"/></symbol>
-    <symbol id="ltr-c2" viewBox="0 0 612 284"><path class="ltr-c" d="M384.05 193v20l51.963 30h34.64l34.642-20v-20l-17.32-10-34.642 20-17.32-10 34.64-20-17.32-10h-34.64l-34.642 20"/></symbol>
-    <symbol id="ltr-z" viewBox="0 0 612 284"> <path class="ltr-z" d="M522.615 113l34.64 20v20l17.322-10 34.64 20-69.28 40-34.642-20v-20l-17.32 10-34.642-20z"/></symbol>
-    -->
-    <symbol id="ltr" viewBox="0 0 612 284"><path d="M3 93l51.962-30h34.64l17.32 10v20l-17.32 10 34.642 20-34.64 20zM89.603 43l34.64 20h34.642l34.64 20 34.642-20-34.64-20V23L158.884 3l-17.32 10v20h-34.642zM245.487 153l-17.32-10h-34.64l-34.642 20v20l51.96 30h34.642l34.64-20v-20l-17.32-10-34.64 20-17.32-10zM280.13 93l-34.644 20v20l51.963 30h34.64l34.64-20v-20l-51.96-30h-34.64zm0 20h34.64l17.32 10v20h-34.64l-17.32-10v-20zM436.013 103l34.64-20-86.602-50-17.32 10 17.32 10h-34.64l-34.64 20 86.603 50 17.32-10-17.32-10zM384.05 193v20l51.963 30h34.64l34.642-20v-20l-17.32-10-34.642 20-17.32-10 34.64-20-17.32-10h-34.64l-34.642 20M522.615 113l34.64 20v20l17.322-10 34.64 20-69.28 40-34.642-20v-20l-17.32 10-34.642-20z"/></symbol>
-
-    <g class="border side">
-        <path class="left" d="M3 93v40l86.603 50v-40zM89.603 43v40l34.64 20V63zM158.885 103l34.64 20V83l-34.64-20v40M210.846 253l-51.96-30v-40l51.96 30zM245.487 133l51.962 30v40l-51.964-30zM366.73 43l17.32 10v40l-17.32-10zM384.05 213l51.963 30v40l-51.962-30zM401.372 163l-86.603-50V73l86.6 50v40M453.333 153l34.64 20v40l-34.64-20zM505.295 183l34.64 20v40l-34.64-20zM124.244 103h34.64V63h-34.64v40M210.846 213h34.64v40h-34.64zM297.45 163h34.64v40h-34.64z"/>
-        <path class="front" d="M314.77 113v40h-34.642v-40zM436.013 103h-34.64v40h34.64zM436.013 243h34.64v40h-34.64zM89.603 183l34.64-20v-40l-34.64 20z"/>
-        <path class="right" d="M106.923 93v40l-17.32 10v-40zM193.526 83l34.64-20v40l-34.64 20V83M245.487 153v40l-34.64 20v-40zM280.128 193v40l-34.64 20v-40zM332.09 123l-17.32-10v40l17.32 10v-40M366.73 143v40l-34.64 20v-40l34.64-20M418.692 113v40l-17.32 10v-40zM470.654 83v40l-34.64 20v-40zM470.654 183l-34.64 20v40l34.64-20zM470.654 243l34.64-20v40l-34.64 20zM505.295 203v-40l-17.32 10v40zM609.218 163v40l-69.282 40v-40l69.282-40"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-6 -6 512 230">
+    <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="2 2" result="glow" />
+            <feComponentTransfer><feFuncA type="linear" slope="0.75" /></feComponentTransfer>
+        </filter>
+    </defs>
+    <g fill="none" vector-effect="non-scaling-stroke" stroke-width="3" stroke-linejoin="round" stroke-miterlimit="10">
+        <path filter="url(#glow)" stroke="#36ffff" d="M130 19.4l-14 8.1v16.3H87.7L73.6 52l28.2 16.3H130l28.2 16.3 28.2-16.3L158.3 52V35.7zm183.6 24.4L299.4 52l14.2 8.1h-28.3L257 76.4l70.5 40.7 14.1-8.1-14-8.1h28.1l28.3-16.3zM45.4 68.3L3 92.7l70.6 40.7 28.2-16.3L73.6 101l14-8.2V76.4l-14-8.1zm183.4 24.4L200.6 109v16.3l42.4 24.4h28.2l28.2-16.3v-16.3L257 92.7zm0 16.3h28.3l14 8.1v16.3H243l-14.2-8.1zm197.6 0l-56.5 32.6 28.3 16.3 14.1-8.2V166l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.2v-16.3zm-268 24.4L130 149.7V166l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.3 16.3-14.1-8.1 28.2-16.3-14-8.2zM341.6 158l-28.1 16.3v16.3l42.3 24.4h28.2l28.2-16.3v-16.3l-14-8.1-28.4 16.3-14-8.2L384 166 370 158z" />
+        <path stroke="#36ffff" d="M130 19.4l-14 8.1v16.3H87.7L73.6 52l28.2 16.3H130l28.2 16.3 28.2-16.3L158.3 52V35.7zm183.6 24.4L299.4 52l14.2 8.1h-28.3L257 76.4l70.5 40.7 14.1-8.1-14-8.1h28.1l28.3-16.3zM45.4 68.3L3 92.7l70.6 40.7 28.2-16.3L73.6 101l14-8.2V76.4l-14-8.1zm183.4 24.4L200.6 109v16.3l42.4 24.4h28.2l28.2-16.3v-16.3L257 92.7zm0 16.3h28.3l14 8.1v16.3H243l-14.2-8.1zm197.6 0l-56.5 32.6 28.3 16.3 14.1-8.2V166l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.2v-16.3zm-268 24.4L130 149.7V166l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.3 16.3-14.1-8.1 28.2-16.3-14-8.2zM341.6 158l-28.1 16.3v16.3l42.3 24.4h28.2l28.2-16.3v-16.3l-14-8.1-28.4 16.3-14-8.2L384 166 370 158z" />
+        <path filter="url(#glow)" stroke="#ffff0e" d="M130 11.2l-14 8.2v16.3H87.7l-14.1 8.1 28.2 16.3H130l28.2 16.3 28.2-16.3-28.2-16.3V27.5zm183.6 24.5l-14.2 8.1 14.2 8.2h-28.3L257 68.3l70.5 40.7 14.1-8.1-14-8.2h28.1l28.3-16.3zM45.4 60L3 84.6l70.6 40.7 28.2-16.3-28.2-16.3 14-8.1V68.3l-14-8.2zm183.4 24.5l-28.2 16.3V117l42.4 24.5h28.2l28.2-16.3V109L257 84.6zm0 16.3h28.3l14 8.1v16.3H243l-14.2-8.2zm197.6 0l-56.5 32.5 28.3 16.3 14.1-8.1v16.3l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.1v-16.3zm-268 24.4L130 141.6v16.3l42.3 24.4h28.2l28.2-16.3v-16.3l-14-8.1-28.3 16.3-14.1-8.2 28.2-16.3-14-8.1zm183.3 24.4L313.6 166v16.3l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.4 16.3-14-8.1 28.2-16.3-14.2-8.2z" />
+        <path stroke="#ffff0e" d="M130 11.2l-14 8.2v16.3H87.7l-14.1 8.1 28.2 16.3H130l28.2 16.3 28.2-16.3-28.2-16.3V27.5zm183.6 24.5l-14.2 8.1 14.2 8.2h-28.3L257 68.3l70.5 40.7 14.1-8.1-14-8.2h28.1l28.3-16.3zM45.4 60L3 84.6l70.6 40.7 28.2-16.3-28.2-16.3 14-8.1V68.3l-14-8.2zm183.4 24.5l-28.2 16.3V117l42.4 24.5h28.2l28.2-16.3V109L257 84.6zm0 16.3h28.3l14 8.1v16.3H243l-14.2-8.2zm197.6 0l-56.5 32.5 28.3 16.3 14.1-8.1v16.3l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.1v-16.3zm-268 24.4L130 141.6v16.3l42.3 24.4h28.2l28.2-16.3v-16.3l-14-8.1-28.3 16.3-14.1-8.2 28.2-16.3-14-8.1zm183.3 24.4L313.6 166v16.3l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.4 16.3-14-8.1 28.2-16.3-14.2-8.2z" />
+        <path filter="url(#glow)" stroke="#c848d9" d="M130 3l-14 8.2v16.3H87.7l-14.1 8.2L101.8 52H130l28.2 16.3L186.5 52l-28.2-16.3V19.4zm183.6 24.5l-14.2 8.2 14.2 8.1h-28.3L257 60.1l70.5 40.8 14.1-8.2-14-8.1h28.1l28.3-16.3zM45.4 52L3 76.4l70.6 40.7 28.2-16.2-28.2-16.3 14-8.2V60.1l-14-8.1zm183.4 24.4l-28.2 16.3V109l42.4 24.4h28.2l28.2-16.3V101L257 76.4zm0 16.3h28.3l14 8.2V117H243l-14.2-8.1zm197.6 0l-56.5 32.6 28.3 16.3 14.1-8.2v16.3l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.2V109zm-268 24.4L130 133.4v16.3l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.3 16.3-14.1-8.1 28.2-16.3-14-8.2zm183.3 24.5l-28.1 16.3v16.3l42.3 24.4h28.2l28.2-16.3V166l-14-8.1-28.4 16.3-14-8.2 28.2-16.3-14.2-8.1z" />
+        <path stroke="#c848d9" d="M130 3l-14 8.2v16.3H87.7l-14.1 8.2L101.8 52H130l28.2 16.3L186.5 52l-28.2-16.3V19.4zm183.6 24.5l-14.2 8.2 14.2 8.1h-28.3L257 60.1l70.5 40.8 14.1-8.2-14-8.1h28.1l28.3-16.3zM45.4 52L3 76.4l70.6 40.7 28.2-16.2-28.2-16.3 14-8.2V60.1l-14-8.1zm183.4 24.4l-28.2 16.3V109l42.4 24.4h28.2l28.2-16.3V101L257 76.4zm0 16.3h28.3l14 8.2V117H243l-14.2-8.1zm197.6 0l-56.5 32.6 28.3 16.3 14.1-8.2v16.3l28.2 16.3 56.5-32.6-28.2-16.3-14.1 8.2V109zm-268 24.4L130 133.4v16.3l42.3 24.5h28.2l28.2-16.3v-16.3l-14-8.2-28.3 16.3-14.1-8.1 28.2-16.3-14-8.2zm183.3 24.5l-28.1 16.3v16.3l42.3 24.4h28.2l28.2-16.3V166l-14-8.1-28.4 16.3-14-8.2 28.2-16.3-14.2-8.1z" />
     </g>
-    <!--
-    <g class="border side">
-        <g class="left">
-            <path d="M3 93v40l86.603 50v-40z"/>
-            <path d="M89.603 43v40l34.64 20V63z"/>
-            <path d="M158.885 103l34.64 20V83l-34.64-20v40"/>
-            <path d="M210.846 253l-51.96-30v-40l51.96 30z"/>
-            <path d="M245.487 133l51.962 30v40l-51.963-30z"/>
-            <path d="M366.73 43l17.32 10v40l-17.32-10z"/>
-            <path d="M384.05 213l51.963 30v40l-51.962-30z"/>
-            <path d="M401.372 163l-86.603-50V73l86.602 50v40"/>
-            <path d="M453.333 153l34.64 20v40l-34.64-20z"/>
-            <path d="M505.295 183l34.64 20v40l-34.64-20z"/>
-        </g>
-        <g class="front">
-            <path d="M124.244 103h34.64V63h-34.64v40"/>
-            <path d="M210.846 213h34.64v40h-34.64z"/>
-            <path d="M297.45 163h34.64v40h-34.64z"/>
-            <path d="M314.77 113v40h-34.642v-40z"/>
-            <path d="M436.013 103h-34.64v40h34.64z"/>
-            <path d="M436.013 243h34.64v40h-34.64z"/>
-        </g>
-        <g class="right">
-            <path d="M89.603 183l34.64-20v-40l-34.64 20z"/>
-            <path d="M106.923 93v40l-17.32 10v-40z"/>
-            <path d="M193.526 83l34.64-20v40l-34.64 20V83"/>
-            <path d="M245.487 153v40l-34.64 20v-40z"/>
-            <path d="M280.128 193v40l-34.64 20v-40z"/>
-            <path d="M332.09 123l-17.32-10v40l17.32 10v-40"/>
-            <path d="M366.73 143v40l-34.64 20v-40l34.64-20"/>
-            <path d="M418.692 113v40l-17.32 10v-40z"/>
-            <path d="M470.654 83v40l-34.64 20v-40z"/>
-            <path d="M470.654 183l-34.64 20v40l34.64-20z"/>
-            <path d="M470.654 243l34.64-20v40l-34.64 20z"/>
-            <path d="M505.295 203v-40l-17.32 10v40z"/>
-            <path d="M609.218 163v40l-69.282 40v-40l69.282-40"/>
-        </g>
-    </g>
-    -->
-
-    <use class="top" xlink:href="#ltr"/>
-    <!--
-    <g class="top">
-        <use xlink:href="#ltr-p" />
-        <use xlink:href="#ltr-y" />
-        <use xlink:href="#ltr-c1" />
-        <use xlink:href="#ltr-o" />
-        <use xlink:href="#ltr-n" />
-        <use xlink:href="#ltr-c2" />
-        <use xlink:href="#ltr-z" />
-    </g>
-    -->
-    <path class="grid" d="M20.32 83l86.6 50M37.64 73l51.96 30M54.96 63l51.96 30m-86.6 10L89.6 63m-51.96 50l69.28-40m-51.96 50l34.64-20m-17.32 30l34.64-20M106.92 53l69.3-40m-51.98 50l69.3-40m-34.66 40l34.65-20M176.2 73l34.65-20m0 20l-69.3-40m.01-20l51.97 30m-86.61-10l51.96 30M158.88 183l69.3-40m-51.98 50l34.65-20m-17.32 30l34.64-20m-17.32 30l69.28-40M176.2 153l34.65 20m17.32 10l34.64 20m-103.93-40l86.6 50m-51.95-70l34.64 20m17.33 10l34.63 20M245.5 133l69.27-40m-51.97 50l17.33-10m51.97-30l-17.33 10m34.63 0l-17.3 10m-34.65 20l-17.32 10m17.32 10l69.28-40m-86.6-30l34.64 20m17.33 10l34.63 20m-34.63 0l17.3 10m-86.6-50l17.33 10m-34.63 0l34.63 20m17.32 10l34.64 20M332.1 83l69.27-40m17.33 10l-69.3 40m17.33 10L436 63m17.33 10l-69.28 40M332.1 63l69.27 40M349.4 53l86.6 50m-51.95-50l69.28 40M384.05 213l69.28-40m-51.96 50L436 203m-17.3 30l34.63-20M436 243l69.3-40m-103.93-20L436 203m17.33 10l34.64 20m-103.92-40l86.6 50m-51.95-70l34.63 20m17.32 10l34.64 20M505.3 163l51.96-30m0 20l-51.97 30m17.33 10l69.28-40m-121.25 10l69.3-40m-34.65 0l86.6 50m-103.93-40l86.6 50m-103.92-40l86.6 50"/>
-    <!--
-    <g class="grid">
-        <path class="ltr-p" d="M20.32 83l86.6 50M37.64 73l51.96 30M54.96 63l51.96 30M20.32 103L89.6 63M37.64 113l69.28-40M54.96 123l34.64-20M72.28 133l34.64-20"/>
-        <path class="ltr-y" d="M106.92 53l69.3-40M124.24 63l69.3-40M158.88 63l34.65-20M176.2 73l34.65-20M210.85 73l-69.3-40M141.56 13l51.97 30M106.92 33l51.96 30"/>
-        <path class="ltr-c1" d="M158.88 183l69.3-40M176.2 193l34.65-20M193.53 203l34.64-20M210.85 213l69.28-40M176.2 153l34.65 20M228.17 183l34.64 20M158.88 163l86.6 50M193.53 143l34.64 20M245.5 173l34.63 20"/>
-        <path class="ltr-o" d="M245.5 133l69.27-40M262.8 143l17.33-10M332.1 103l-17.33 10M349.4 113l-17.3 10M297.45 143l-17.32 10M297.45 163l69.28-40M280.13 93l34.64 20M332.1 123l34.63 20M332.1 143l17.3 10M262.8 103l17.33 10M245.5 113l34.63 20M297.45 143l34.64 20"/>
-        <path class="ltr-n" d="M332.1 83l69.27-40M418.7 53l-69.3 40M366.73 103L436 63M453.33 73l-69.28 40M332.1 63l69.27 40M349.4 53l86.6 50M384.05 53l69.28 40"/>
-        <path class="ltr-c2" d="M384.05 213l69.28-40M401.37 223L436 203M418.7 233l34.63-20M436 243l69.3-40M401.37 183L436 203M453.33 213l34.64 20M384.05 193l86.6 50M418.7 173l34.63 20M470.65 203l34.64 20"/>
-        <path class="ltr-z" d="M505.3 163l51.96-30M557.26 153l-51.97 30M522.62 193l69.28-40M470.65 163l69.3-40M505.3 123l86.6 50M487.97 133l86.6 50M470.65 143l86.6 50"/>
-    </g>
-    -->
-    <use class="border frame" xlink:href="#ltr"/>
-    <!--
-    <g class="border frame">
-        <use xlink:href="#ltr-p" />
-        <use xlink:href="#ltr-y" />
-        <use xlink:href="#ltr-c1" />
-        <use xlink:href="#ltr-o"/>
-        <use xlink:href="#ltr-n"/>
-        <use xlink:href="#ltr-c2" />
-        <use xlink:href="#ltr-z" />
-    </g>
-    -->
 </svg>

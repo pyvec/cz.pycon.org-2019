@@ -6,20 +6,19 @@
 
 {% block body %}
     <nav role="navigation" class="navbar navbar-expand">
-        {% include '_menu_top.html' with pc_alignment='around' %}
+        {% include '_menu_top.html' with pc_alignment='center' %}
     </nav>
     <header>
         <div class="container">
-            <p class="{% block title_classes %}h5 mt-3{% endblock %}">
-                PyCon CZ 2018 Prague
-                <br>1-3 June
-            </p>
 
             <div class="text-center mb-5 mx-3">
                 <a href="{% url "homepage" %}">
                     <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
                 </a>
             </div>
+            <p class="{% block title_classes %}h5 mt-3{% endblock %}">
+                PyCon CZ 2018 Prague<br>1-3 June
+            </p>
         </div>
     </header>
 

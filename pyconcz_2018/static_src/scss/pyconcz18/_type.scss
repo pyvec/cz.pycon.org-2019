@@ -11,6 +11,7 @@ h4,
 h5,
 h6 {
     text-align: center;
+    text-shadow: 0 0 0.1em;
 }
 
 .h2,
@@ -23,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 4*$headings-margin-bottom;
+    margin-top: 2*$headings-margin-bottom;
 }
 
 h1 {

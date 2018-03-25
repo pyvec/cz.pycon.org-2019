@@ -51,7 +51,7 @@
     // $gray-700: #495057; $gray-700: $gray-700 !global;
     // $gray-800: #343a40; $gray-800: $gray-800 !global;
     // $gray-900: #212529; $gray-900: $gray-900 !global;
-    // $black: #000; $black: $black !global;
+    $black: mix($black, $pc-color-blue, 80%); $black: $black !global; // #000
 
     // $grays: (
     //         "100": $gray-100,
@@ -65,16 +65,16 @@
     //         "900": $gray-900
     // ); $grays: $grays !global;
 
-    // $blue: #007bff; $blue: $blue !global;
+    $blue: $pc-color-navy; $blue: $blue !global; // #00s7bff
     // $indigo: #6610f2; $indigo: $indigo !global;
-    // $purple: #6f42c1; $purple: $purple !global;
-    // $pink: #e83e8c; $pink: $pink !global;
-    // $red: #dc3545; $red: $red !global;
-    // $orange: #fd7e14; $orange: $orange !global;
-    // $yellow: #ffc107; $yellow: $yellow !global;
-    // $green: #28a745; $green: $green !global;
-    // $teal: #20c997; $teal: $teal !global;
-    // $cyan: #17a2b8; $cyan: $cyan !global;
+    $purple: $pc-color-orchid; $purple: $purple !global; // #6f42c1
+    $pink: $pc-color-orchidred; $pink: $pink !global; // #e83e8c
+    $red: $pc-color-red; $red: $red !global; // #dc3545
+    $orange: $pc-color-orange; $orange: $orange !global; // #fd7e14
+    $yellow: $pc-color-yellow; $yellow: $yellow !global; // #ffc107
+    $green: $pc-color-lime; $green: $green !global; // #28a745
+    $teal: $pc-color-mint; $teal: $teal !global; // #20c997
+    $cyan: $pc-color-blue; $cyan: $cyan !global; // #17a2b8
 
     // $colors: (
     //         "blue": $blue,
@@ -92,8 +92,8 @@
     //         "gray-dark": $gray-800
     // ); $colors: $colors !global;
 
-    $primary: $gray-700; $primary: $primary !global;
-    $secondary: $gray-400; $secondary: $secondary !global;
+    // $primary: $blue; $primary: $primary !global;
+    // $secondary: $gray-600; $secondary: $secondary !global;
     // $success: $green; $success: $success !global;
     // $info: $cyan; $info: $info !global;
     // $warning: $yellow; $warning: $warning !global;
@@ -101,16 +101,28 @@
     // $light: $gray-100; $light: $light !global;
     // $dark: $gray-800; $dark: $dark !global;
 
-    // $theme-colors: (
-    //         "primary": $primary,
-    //         "secondary": $secondary,
-    //         "success": $success,
-    //         "info": $info,
-    //         "warning": $warning,
-    //         "danger": $danger,
-    //         "light": $light,
-    //         "dark": $dark
-    // ) !global; $theme-colors: $theme-colors !global;
+    $theme-colors: (
+        //         "primary": $primary,
+        //         "secondary": $secondary,
+        //         "success": $success,
+        //         "info": $info,
+        //         "warning": $warning,
+        //         "danger": $danger,
+        //         "light": $light,
+        //         "dark": $dark
+        "navy": $pc-color-navy,
+        "blue": $pc-color-blue,
+        "cyan": $pc-color-cyan,
+        "mint": $pc-color-mint,
+        "lime": $pc-color-lime,
+        "yellow": $pc-color-yellow,
+        "violetred": $pc-color-violetred,
+        "ginger": $pc-color-ginger,
+        "orange": $pc-color-orange,
+        "red": $pc-color-red,
+        "orchidred": $pc-color-orchidred,
+        "orchid": $pc-color-orchid
+    ); $theme-colors: $theme-colors !global;
     // stylelint-enable
 
     // Set a specific jump point for requesting color jumps
@@ -143,7 +155,7 @@
     // You can add more entries to the $spacers map, should you need more variation.
 
     // stylelint-disable
-    // $spacer: 1rem; $spacer: $spacer !global;
+    $spacer: 2rem; $spacer: $spacer !global;
     // $spacers: (
     //         0: 0,
     //         1: ($spacer * .25),
@@ -166,14 +178,14 @@
     //
     // Settings for the `<body>` element.
 
-    // $body-bg: $white; $body-bg: $body-bg !global;
-    // $body-color: $gray-900; $body-color: $body-color !global;
+    $body-bg: $black; $body-bg: $body-bg !global; // $white
+    $body-color: mix($white, $pc-color-navy, 90%); $body-color: $body-color !global; // $black
 
     // Links
     //
     // Style anchor elements.
 
-    // $link-color: theme-color("primary"); $link-color: $link-color !global;
+    $link-color: $pc-color-yellow; $link-color: $link-color !global; // theme-color("primary")
     $link-decoration: underline; $link-decoration: $link-decoration !global;
     // $link-hover-color: darken($link-color, 15%); $link-hover-color: $link-hover-color !global;
     // $link-hover-decoration: underline; $link-hover-decoration: $link-hover-decoration !global;
@@ -218,7 +230,7 @@
     // Set the number of columns and specify the width of the gutters.
 
     // $grid-columns: 12; $grid-columns: $grid-columns !global;
-    // $grid-gutter-width: 30px; $grid-gutter-width: $grid-gutter-width !global;
+     $grid-gutter-width: 40px; $grid-gutter-width: $grid-gutter-width !global; // 30px
 
     // Components
     //
@@ -275,9 +287,9 @@
 
     $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global;
     $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global;
-    // $headings-font-weight: 500; $headings-font-weight: $headings-font-weight !global;
-    // $headings-line-height: 1.2; $headings-line-height: $headings-line-height !global;
-    // $headings-color: inherit; $headings-color: $headings-color !global;
+    $headings-font-weight: 400; $headings-font-weight: $headings-font-weight !global; // 500
+    //$headings-line-height: 1.2; $headings-line-height: $headings-line-height !global; // 1.2
+    $headings-color: $pc-color-cyan; $headings-color: $headings-color !global;
 
     // $display1-size: 6rem; $display1-size: $display1-size !global;
     // $display2-size: 5.5rem; $display2-size: $display2-size !global;
