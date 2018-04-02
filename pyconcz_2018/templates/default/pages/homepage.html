@@ -92,7 +92,7 @@
                 <img src="{{ keynoter.photo.url }}" alt="">
                 {% if keynoter.twitter %}
                     <a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a>
-                    <p>{{ keynoter.bio }}</p>
+                    <p>{{ keynoter.short_bio }}</p>
                 {% endif %}
             {% endfor %}
         {% endif %}
