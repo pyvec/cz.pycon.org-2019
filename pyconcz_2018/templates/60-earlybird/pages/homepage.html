@@ -8,19 +8,44 @@
         <div class="bg-orchid pc-test text-dark">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h2>Keynote speakers</h2>
-                    </div>
+                    <div class="col-12"><h2 class="mb-0">Keynote speakers</h2></div>
+
                     {% for keynoter in keynoters %}
-                        <div class="col mb-3" style="min-width:12em;">
-                            <h3 class="mt-3">{{ keynoter.full_name }}</h3>
-                            <img class="img-fluid mb-2" src="{{ keynoter.photo.url }}" alt="">
-                            <div class="text-white">{{ keynoter.bio|markdown }}</div>
-                            {% if keynoter.twitter %}
-                                <p><a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></p>
-                            {% endif %}
+                        <div class="row {% if forloop.first %}mt-3 mb-5{% else %}my-5{% endif %} align-items-start">
+                            <div class="col-5 {% if forloop.counter|divisibleby:2 %}order-2{% endif %}">
+                                <div class="
+                                    pc-speaker-photo
+                                    {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
+                                    {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
+                                    {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
+                                    {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
+                                    {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
+                                    {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
+                                ">
+                                    <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
+                                </div>
+                            </div>
+
+                            <div class="col-5 align-self-center {% if forloop.counter|divisibleby:2 %}offset-2 order-1{% endif %}">
+                                <h3 class="mt-0 text-warning">{{ keynoter.full_name }}</h3>
+                                {% if keynoter.twitter or keynoter.github %}
+                                    <p class="row text-info text-center">
+                                        {% if keynoter.twitter %}
+                                            <span class="col">TW:&nbsp;<a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></span>
+                                        {% endif %}
+                                        {% if keynoter.github %}
+                                            <span class="col">GH:&nbsp;<a href="https://github.com/{{ keynoter.github }}">{{ keynoter.github }}</a></span>
+                                        {% endif %}
+                                    </p>
+                                {% endif %}
+                            </div>
+
+                            <div style="margin-top: -5%;" class="col-8 pt-2 px-2 bg-warning {% if forloop.counter|divisibleby:2 %}order-3 offset-2 {% else %}offset-3{% endif %}">
+                                {{ keynoter.short_bio|markdown }}
+                            </div>
                         </div>
                     {% endfor %}
+
                 </div>
             </div>
         </div>
