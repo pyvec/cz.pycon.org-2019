@@ -29,7 +29,7 @@
                             <div class="col-5 align-self-center {% if forloop.counter|divisibleby:2 %}offset-2 order-1{% endif %}">
                                 <h3 class="mt-0 text-warning">{{ keynoter.full_name }}</h3>
                                 {% if keynoter.twitter or keynoter.github %}
-                                    <p class="row text-info text-center">
+                                    <p class="row text-info text-center small">
                                         {% if keynoter.twitter %}
                                             <span class="col">TW:&nbsp;<a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></span>
                                         {% endif %}
