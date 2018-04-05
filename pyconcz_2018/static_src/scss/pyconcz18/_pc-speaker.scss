@@ -20,7 +20,7 @@
         }
 
         &-right::before,
-        &::after {
+        &-right::after {
             left: auto;
             right: 0;
         }
@@ -33,29 +33,14 @@
 
     &::after { mix-blend-mode: color; }
 
-    &-yellow::after {
-        background-color: $pc-color-yellow;
-        background-image: $pc-gradient-orchid-yellow-reversed;
-    }
+    &-yellow::after { background-image: $pc-gradient-orchid-yellow-reversed; }
 
-    &-blue::after {
-        background-color: $pc-color-navy;
-        background-image: $pc-gradient-orchidred-navy;
-    }
+    &-blue::after { background-image: $pc-gradient-orchidred-navy; }
 
-    &-green::after {
-        background-color: $pc-color-lime;
-        background-image: $pc-gradient-yellow-lime;
-    }
+    &-green::after { background-image: $pc-gradient-yellow-lime; }
 
-    &-orchid::after {
-        background-color: $pc-color-orchid;
-        background-image: $pc-gradient-orchid-blue-reversed;
-    }
+    &-orchid::after { background-image: $pc-gradient-orchid-blue-reversed; }
 
-    &-cyan::after {
-        background-color: $pc-color-cyan;
-        background-image: $pc-gradient-yellow-cyan-reversed;
-    }
+    &-cyan::after { background-image: $pc-gradient-yellow-cyan-reversed; }
 
 }
