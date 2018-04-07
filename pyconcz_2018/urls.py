@@ -17,9 +17,9 @@ prefixed_urlpatterns = [
     #url(r'^intermission/', include('pyconcz_2018.intermission.urls', namespace='intermission')),
 
     # static pages
-    url(r'^proposals/$',
-        TemplateView.as_view(template_name='proposals/talks_about.html'),
-        name='proposals'),
+    # url(r'^proposals/$',
+    #    TemplateView.as_view(template_name='proposals/talks_about.html'),
+    #    name='proposals'),
     url(r'^about/$',
         TemplateView.as_view(template_name='pages/about.html'),
         name='about'),
