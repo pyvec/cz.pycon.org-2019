@@ -1,6 +1,9 @@
 {% extends "_layout.html" %}
 
 
+{% block meta_title %}Tickets – {{ block.super }}{% endblock %}
+
+
 {% block meta_head %}
     {{ block.super }}
     {% block tito_code %}
@@ -100,7 +103,7 @@
 
         </div>
 
-        <p class="text-center my-4">By buying a ticket you accept PyCon&nbsp;CZ’s <a href="{% url 'about_code' %}">Code of Conduct</a>.</p>
+        <p class="text-center my-4">By buying a ticket you accept PyCon&nbsp;CZ’s <a href="{% url 'about_code' %}">Code of Conduct</a> and <a href="{% url 'about_privacy' %}">Privacy Policy</a>.</p>
 
         <tito-button event="pyvec/pycon-cz-2018">Buy ticket now!</tito-button>
 
