@@ -5,16 +5,6 @@
 {% load formatting %}
 
 
-{% comment %}
-{% block meta_head %}
-    {{ block.super }}
-    {# ti.to code #}
-    <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>
-    <script src='https://js.tito.io/v1' async></script>
-{% endblock %}
-{% endcomment %}
-
-
 {% block title_classes %}h1 mt-5{% endblock %}
 
 {% block main %}
@@ -24,95 +14,105 @@
             <br>It's focused on honoring and supporting <strong>awesome people</strong> teaching, learning and innovating with Python in Czech Republic and <strong>surrounding EU</strong>.
         </p>
     </div>
+
     {% comment %}
         <h2>We're on! <br>Watch on-line stream!</h2>
         <p>
             <a class="btn btn-lg btn-primary btn-block" href="https://www.youtube.com/watch?v=motIB96FI48">Main</a>
             <a class="btn btn-lg btn-primary btn-block" href="https://www.youtube.com/watch?v=2Azpwf2LRK0">Theatre</a>
         </p>
-        {% endcomment %}
+    {% endcomment %}
 
-    {% block city %}
-        <div class="bg-yellow text-dark py-2">
+    {% block venue_dates %}
+        <div class="py-2 pc-gradient-orchid-blue">
             <div class="container">
-                <h2 class="h3 mt-3 text-orchid">Prague, mother of all cities</h2>
-                <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
 
-                <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a class="text-orchid" href="{% url "about_city" %}">More about Prague…</a></p>
+                {% block venue %}
+                    <h3 class="mt-3 text-yellow">Venue</h3>
+
+                    <div class="text-center">
+                        <address>
+                            <strong>Meet Factory</strong><br>
+                            Ke Sklárně 3213/15<br>
+                            Praha 5 – Smíchov
+                        </address>
+
+                        <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
+                    </div>
+                {% endblock %}
+
+                {% block dates %}
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mt-3 text-yellow">
+                                {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
+                                Talks<br>
+                                <small>1-2&nbsp;June</small>
+                                {% comment %}</a>{% endcomment %}
+                            </h3>
+
+                            {% comment %}
+                                <p>
+                                    <strong>Two days</strong>, <strong>two</strong> parallel tracks,
+                                    <strong>four</strong> keynotes and <strong>27</strong>
+                                    <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
+                                </p>
+                            {% endcomment %}
+                        </div>
+                        <div class="col mb-4">
+                            <h3 class="mt-3 text-yellow">
+                                {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
+                                Workshops<br>
+                                <small>3&nbsp;June</small>
+                                {% comment %}</a>{% endcomment %}
+                            </h3>
+                            {% comment %}
+                                <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                {% endblock %}
             </div>
         </div>
     {% endblock %}
 
-    <div class="py-2">
-        <div class="container">
-
-            {% block venue %}
-                <h3 class="mt-3">Venue</h3>
-
-                <div class="text-center">
-                    <address>
-                        <strong>Meet Factory</strong><br>
-                        Ke Sklárně 3213/15<br>
-                        Praha 5 – Smíchov
-                    </address>
-
-                    <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
-                </div>
-            {% endblock %}
-
-            {% block dates %}
+    {% block city %}
+        <div class="pc-gradient-yellow-cyan text-dark py-2">
+            <div class="container">
+                <h2 class="h3 mt-3 text-dark">Prague, mother of all cities</h2>
                 <div class="row">
-                    <div class="col">
-                        <h3 class="mt-3">
-                            {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
-                            Talks<br>
-                            <small>1-2&nbsp;June</small>
-                            {% comment %}</a>{% endcomment %}
-                        </h3>
-
-                        {% comment %}
-                    <p>
-                        <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-                        <strong>four</strong> keynotes and <strong>27</strong>
-                        <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
-                    </p>
-                    {% endcomment %}
+                    <div class="col-md">
+                        <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
 
                     </div>
-                    <div class="col mb-4">
-                        <h3 class="mt-3">
-                            {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
-                            Workshops<br>
-                            <small>3&nbsp;June</small>
-                            {% comment %}</a>{% endcomment %}
-                        </h3>
-                        {% comment %}
-                    <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
-                    {% endcomment %}
+                    <div class="col-md">
+                        <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a class="text-orchid" href="{% url "about_city" %}">More about Prague…</a></p>
                     </div>
                 </div>
-            {% endblock %}
+
+            </div>
         </div>
-    </div>
+    {% endblock %}
+
     {% block keynoters %}
         {% if keynoters %}
-            <div class="bg-orchid pc-test text-dark">
+            <div class="pc-gradient-orchid-orchidred-reversed pc-test text-dark">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12"><h2 class="mb-0">Keynote speakers</h2></div>
+                        <div class="col-12"><h2 class="mb-0 text-yellow">Keynote speakers</h2></div>
 
                         {% for keynoter in keynoters %}
-                            <div class="row {% if forloop.first %}mt-3 mb-5{% else %}my-5{% endif %} align-items-start">
+                            <div class="row {% if forloop.first %}mt-3 mb-4 mb-lg-5{% else %}my-4 my-lg-5{% endif %} align-items-start">
                                 <div class="col-5 {% if forloop.counter|divisibleby:2 %}order-2{% endif %}">
                                     <div class="
-                                        pc-speaker-photo
-                                        {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
-                                        {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
-                                        {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
-                                        {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
-                                        {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
-                                        {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
-                                    ">
+                                    pc-speaker-photo
+                                    {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
+                                    {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
+                                    {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
+                                    {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
+                                    {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
+                                    {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
+                                ">
                                         <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
                                     </div>
                                 </div>
@@ -131,7 +131,17 @@
                                     {% endif %}
                                 </div>
 
-                                <div style="margin-top: -5%;" class="col-8 pt-2 px-2 bg-warning {% if forloop.counter|divisibleby:2 %}order-3 offset-2 {% else %}offset-3{% endif %}">
+                                <div
+                                    style="margin-top: -5%;"
+                                    class="
+                                        col-8 pt-2 px-2
+                                        {% if forloop.counter|divisibleby:2 %}
+                                            offset-2 order-3 pc-gradient-yellow-lime
+                                        {% else %}
+                                            offset-3 pc-gradient-yellow-lime-reversed
+                                        {% endif %}
+                                    "
+                                >
                                     {{ keynoter.short_bio|markdown }}
                                 </div>
                             </div>
@@ -144,17 +154,10 @@
     {% endblock %}
 
     {% comment %}
-        <h1 id="tickets">Workshop tickets</h1>
-        <p>These are only for PyCon attendees.<br><strong>Please don’t register for more workshops at the same time.</strong></p>
-        {% endcomment %}
-
-    {% comment %}<tito-widget event="pyvec/pycon-cz-2017"></tito-widget>{% endcomment %}
-
-    {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" allowfullscreen></iframe>
         </div>
-        {% endcomment %}
+    {% endcomment %}
 
     {% block partners %}
         {% sponsors %}

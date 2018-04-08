@@ -1,0 +1,17 @@
+.pc-tickets {
+    @include media-breakpoint-down(sm) {
+        align-items: center;
+    }
+}
+
+.pc-ticket {
+    max-width: 26em;
+
+    @include media-breakpoint-up(sm) {
+        min-width: 18em;
+    }
+
+    &-sold-out {
+        text-decoration: line-through solid;
+    }
+}

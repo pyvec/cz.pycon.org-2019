@@ -28,6 +28,8 @@ $pc-gradient-orchid-blue: linear-gradient(to right, $pc-color-orchid, $pc-color-
 $pc-gradient-yellow-blue: linear-gradient(to right, $pc-color-yellow, $pc-color-blue);
 $pc-gradient-orchidred-navy: linear-gradient(to right, $pc-color-orchidred, $pc-color-navy);
 $pc-gradient-orchid-orchidred: linear-gradient(to right, $pc-color-orchid, $pc-color-orchidred);
+$pc-gradient-blue-cyan: linear-gradient(to right, $pc-color-blue, $pc-color-cyan);
+$pc-gradient-navy-cyan: linear-gradient(to right, $pc-color-navy, $pc-color-cyan);
 
 $pc-gradient-orchid-ginger-reversed: linear-gradient(to left, $pc-color-orchid, $pc-color-ginger);
 $pc-gradient-orchid-violetred-reversed: linear-gradient(to left, $pc-color-orchid, $pc-color-violetred);
@@ -43,3 +45,5 @@ $pc-gradient-orchid-blue-reversed: linear-gradient(to left, $pc-color-orchid, $p
 $pc-gradient-yellow-blue-reversed: linear-gradient(to left, $pc-color-yellow, $pc-color-blue);
 $pc-gradient-orchidred-navy-reversed: linear-gradient(to left, $pc-color-orchidred, $pc-color-navy);
 $pc-gradient-orchid-orchidred-reversed: linear-gradient(to left, $pc-color-orchid, $pc-color-orchidred);
+$pc-gradient-blue-cyan-reversed: linear-gradient(to right, $pc-color-cyan, $pc-color-blue);
+$pc-gradient-navy-cyan-reversed: linear-gradient(to right, $pc-color-cyan, $pc-color-navy);
