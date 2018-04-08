@@ -5,7 +5,9 @@
 {% load formatting %}
 
 
-{% block title_classes %}h1 mt-5{% endblock %}
+{% block header_logo_classes %} col-md-9 col-xl-10 {% endblock %}
+{% block header_text_classes %}{% endblock %}
+
 
 {% block main %}
     <div class="container pb-3">
@@ -23,14 +25,22 @@
         </p>
     {% endcomment %}
 
+    {% block tickets %}
+        <div class="container mb-4">
+            <p class="text-center">
+                <a class="btn btn-lg display-1 btn-yellow" href="{% url 'tickets' %}">Tickets are available!</a>
+            </p>
+        </div>
+    {% endblock %}
+
     {% block venue_dates %}
-        <div class="py-2 pc-gradient-orchid-blue">
+        <div class="py-2 pc-gradient-blue-cyan">
             <div class="container">
 
                 {% block venue %}
                     <h3 class="mt-3 text-yellow">Venue</h3>
 
-                    <div class="text-center">
+                    <div class="text-center text-dark">
                         <address>
                             <strong>Meet Factory</strong><br>
                             Ke Sklárně 3213/15<br>
@@ -167,47 +177,47 @@
 
         <h2>What attendees said about PyCon&nbsp;CZ 2017?</h2>
 
-        <p class="my-5">
+        <p class="my-4 my-lg-5">
             Really had a great time at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. Great talks, conversations and an awesome community 🎉😀 <a href="https://t.co/Bq58pOFjlp">pic.twitter.com/Bq58pOFjlp</a>
             <span class="d-block small text-right">Alexander CS Hendorf (@hendorf) <a href="https://twitter.com/hendorf/status/873529334916681728">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             I never thought I&#39;d attend an IT conference... Really enjoyed <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. Great people, cool venue and even a conference dog. Thanks! <a href="https://t.co/nSGxtOJfCB">https://t.co/nSGxtOJfCB</a>
             <span class="d-block small text-right">Karla Fejfarová (@karlafej) <a href="https://twitter.com/karlafej/status/873569478004617216">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             It&#39;s gonna be hard to find such a good place with as many amazing an lovely people as I did at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>, thank you guys for everything! 🐍❤🇨🇿
             <span class="d-block small text-right">Moisés Guimarães (@moisesguimaraes) <a href="https://twitter.com/moisesguimaraes/status/874214577348763648">June 12, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Best conference dog ever. <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> <a href="https://t.co/64P704ZPFs">pic.twitter.com/64P704ZPFs</a>
             <span class="d-block small text-right">Adina Foxova (@AdinaFXV) <a href="https://twitter.com/AdinaFXV/status/873204515612368896">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> 2017 is over, but you can always sing with them and look on the bright side of life until next PyCon ❤️❤️<a href="https://t.co/9bppbMXjDG">https://t.co/9bppbMXjDG</a>
             <span class="d-block small text-right">${REKLOSE_NETAGOVAT} (@lspdv) <a href="https://twitter.com/lspdv/status/873229885371822080">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> gave me a new life goal...I want to be a land astronaunt, building open source robots with big lasers fighting other OS robots :)
             <span class="d-block small text-right">Zue (@Nada_Chong) <a href="https://twitter.com/Nada_Chong/status/873296930268471297">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Fantastic venue, great talks, free beer. What can you ask more? 3 socks for everybody? My first but surely not last <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> <a href="https://t.co/8LSdZwUNbn">https://t.co/8LSdZwUNbn</a>
             <span class="d-block small text-right">Petr Simecek (@simecek) <a href="https://twitter.com/simecek/status/873508477817192448">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             &quot;Through my son <a href="https://twitter.com/kvbik">@kvbik</a> I discovered python is the language of my dreams&quot;<a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>
             <span class="d-block small text-right">Nick Lang (@fxdgear) <a href="https://twitter.com/fxdgear/status/873222756636045313">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Leaving Prague after aweeome <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a> 😢 Thaks guys, see you soin 😊 some photos of Prague for those that didn&#39;t go sightseeing 😊 <a href="https://twitter.com/pyconcz">@pyconcz</a> <a href="https://t.co/qA5pU9Qh2z">pic.twitter.com/qA5pU9Qh2z</a>
             <span class="d-block small text-right">Miroslav Bagljas (@mbagljas) <a href="https://twitter.com/mbagljas/status/873901203708678145">June 11, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Thanks <a href="https://twitter.com/pyconcz">@pyconcz</a>! We had a ball. Fantastic people, great talks and a cool venue - bravo! <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> <a href="https://t.co/MUa823bRXM">pic.twitter.com/MUa823bRXM</a>
             <span class="d-block small text-right">Jeanne Trojan (@jmtcz) <a href="https://twitter.com/jmtcz/status/873274067088019456">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> 2017 10/10 would jump again.
             <span class="d-block small text-right">フジ (@michalvalasek) <a href="https://twitter.com/michalvalasek/status/873807980206202880">June 11, 2017</a></span>
         </p>

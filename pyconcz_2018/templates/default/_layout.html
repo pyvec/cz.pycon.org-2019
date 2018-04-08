@@ -8,19 +8,30 @@
     <nav role="navigation" class="navbar navbar-expand">
         {% include '_menu_top.html' with pc_alignment='center' %}
     </nav>
-    <header>
-        <div class="container">
 
-            <div class="text-center mb-5 mx-3">
-                <a href="{% url "homepage" %}">
-                    <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
-                </a>
+    {% block header %}
+        <header>
+            <div class="container mb-3 mb-xl-4">
+
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="my-sm-2 col-12 {% block header_logo_classes %}col-md-7 col-lg-5{% endblock %}">
+                        <a href="{% url "homepage" %}">
+                            <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
+                        </a>
+                    </div>
+
+                    <div class="col-12 {% block header_text_classes %}col-md-5 col-lg-6{% endblock %}">
+                        <p class="h5 text-white my-2 my-xl-3">
+                            PyCon CZ 2018 Prague<br>1-3 June
+                        </p>
+                    </div>
+
+                </div>
+
             </div>
-            <p class="{% block title_classes %}h5 mt-3{% endblock %}">
-                PyCon CZ 2018 Prague<br>1-3 June
-            </p>
-        </div>
-    </header>
+        </header>
+    {% endblock %}
 
 
     <main role="main">
