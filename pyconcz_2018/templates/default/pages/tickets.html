@@ -1,5 +1,6 @@
 {% extends "_layout.html" %}
 
+{% load  %}
 
 {% block meta_title %}Tickets – {{ block.super }}{% endblock %}
 
@@ -26,14 +27,22 @@
     <div class="container">
         <h1>Tickets</h1>
         <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
-        <p>
+        <ul class="list-inline">
+            <li class="list-inline-item">entry for both conference days at MeetFactory (1–2&nbsp;June)</li>
+            <li class="list-inline-item">entry to the Afterparty on 2&nbsp;June</li>
+            <li class="list-inline-item">lunch on all days</li>
+            <li class="list-inline-item">water, coffee and tea</li>
+            <li class="list-inline-item">option to register for workshops and attend sprints <small>(tickets for workshops will be available later, most of them for free)</small> </li>
+        </ul>
+        {% comment %}<p>
             All tickets include:
             Entry to MeetFactory on 1&nbsp;and&nbsp;2&nbsp;June,
             Entry to the Afterparty on 2&nbsp;June,
             Lunch on all days,
-            Water, Coffee and Tea and the option to register for a&nbsp;workshop on 3&nbsp;June
-            <small>(tickets for workshops will be available later)</small>
-        </p>
+            Water, Coffee and Tea
+            and the option to register for free workshops on 3&nbsp;June
+
+        </p>{% endcomment %}
     </div>
 
     <div class="container-fluid">
@@ -110,6 +119,11 @@
 
         <tito-button event="pyvec/pycon-cz-2018">Buy your ticket now!</tito-button>
 
-        <p class="text-center mt-4">All prices include VAT.</p>
+        <p class="text-center mt-2 mb-3 small">All prices include VAT.</p>
+
+        <div class="text-center">
+            If money is the only factor stopping you from attending PyCon&nbsp;CZ you can <a href="{% url 'proposal_form' key='financial-aid' %}">apply for Financial Aid</a> to cover your expenses.
+        </div>
+
     </div>
 {% endblock %}
