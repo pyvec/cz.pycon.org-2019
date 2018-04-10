@@ -201,13 +201,13 @@
     // Define the minimum dimensions at which your layout will change,
     // adapting to different screen sizes, for use in media queries.
 
-    // $grid-breakpoints: (
-    //         xs: 0,
-    //         sm: 576px,
-    //         md: 768px,
-    //         lg: 992px,
-    //         xl: 1200px
-    // ); $grid-breakpoints: $grid-breakpoints !global;
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 460px, // 576px
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+    ); $grid-breakpoints: $grid-breakpoints !global;
 
     // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
     // @include _assert-starts-at-zero($grid-breakpoints);
@@ -230,7 +230,7 @@
     // Set the number of columns and specify the width of the gutters.
 
     // $grid-columns: 12; $grid-columns: $grid-columns !global;
-     $grid-gutter-width: 40px; $grid-gutter-width: $grid-gutter-width !global; // 30px
+    $grid-gutter-width: 40px; $grid-gutter-width: $grid-gutter-width !global; // 30px
 
     // Components
     //
@@ -689,7 +689,7 @@
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global;
     // $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}); $card-inner-border-radius: $card-inner-border-radius !global;
     // $card-cap-bg: rgba($black, .03); $card-cap-bg: $card-cap-bg !global;
-     $card-bg: transparent; $card-bg: $card-bg !global; // $white;
+    $card-bg: transparent; $card-bg: $card-bg !global; // $white;
 
     // $card-img-overlay-padding: 1.25rem; $card-img-overlay-padding: $card-img-overlay-padding !global;
 
