@@ -106,13 +106,13 @@
 
     {% block keynoters %}
         {% if keynoters %}
-            <div class="pc-gradient-orchid-orchidred-reversed pc-test text-dark">
+            <div class="pc-gradient-orchid-orchidred-reversed text-dark">
                 <div class="container">
                     <div class="row">
                         <div class="col-12"><h2 class="mb-0 text-yellow">Keynote speakers</h2></div>
 
                         {% for keynoter in keynoters %}
-                            <div class="row {% if forloop.first %}mt-3 mb-4 mb-lg-5{% else %}my-4 my-lg-5{% endif %} align-items-start">
+                            <div class="row {% if forloop.first %}mt-3 mb-4 mb-lg-5{% else %}my-4{% endif %} align-items-start">
                                 <div class="col-5 {% if forloop.counter|divisibleby:2 %}order-2{% endif %}">
                                     <div class="
                                     pc-speaker-photo
@@ -142,8 +142,8 @@
                                 </div>
 
                                 <div
-                                    style="position: relative;top:-5%;"
                                     class="
+                                        pc-speaker-short-bio
                                         col-8 pt-2 px-2
                                         {% if forloop.counter|divisibleby:2 %}
                                             offset-2 order-3 pc-gradient-yellow-lime
