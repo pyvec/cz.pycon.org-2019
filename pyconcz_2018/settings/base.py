@@ -85,6 +85,7 @@ PHASE = [
     '40-cfp-closed',  # Call for papers is closed
     '50-cfp-evaluated',  # Papers were evaluated
     '60-earlybird',  # Early bird ticket sales start
+    '70-finaid-opened',
 ]
 
 PHASE_CURRENT = 6

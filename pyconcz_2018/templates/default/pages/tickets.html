@@ -1,6 +1,6 @@
 {% extends "_layout.html" %}
 
-{% load  %}
+{% load %}
 
 {% block meta_title %}Tickets – {{ block.super }}{% endblock %}
 
@@ -32,7 +32,9 @@
             <li class="list-inline-item">entry to the Afterparty on 2&nbsp;June</li>
             <li class="list-inline-item">lunch on all days</li>
             <li class="list-inline-item">water, coffee and tea</li>
-            <li class="list-inline-item">option to register for workshops and attend sprints <small>(tickets for workshops will be available later, most of them for free)</small> </li>
+            <li class="list-inline-item">option to register for workshops and attend sprints
+                <small>(tickets for workshops will be available later, most of them for free)</small>
+            </li>
         </ul>
         {% comment %}<p>
             All tickets include:
@@ -121,9 +123,13 @@
 
         <p class="text-center mt-2 mb-3 small">All prices include VAT.</p>
 
-        <div class="text-center">
-            If money is the only factor stopping you from attending PyCon&nbsp;CZ you can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your expenses.
+    <div class="row justify-content-lg-center">
+        <div class="text-center col-5">
+            {% block finaid_info %}
+                If money is the only factor stopping you from attending PyCon&nbsp;CZ you will have an&nbsp;opportunity to apply for Financial Aid to cover your expenses in a few days.
+            {% endblock %}
         </div>
+    </div>
 
     </div>
 {% endblock %}
