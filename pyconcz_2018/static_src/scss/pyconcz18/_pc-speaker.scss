@@ -1,3 +1,7 @@
+.pc-speaker-text {
+    z-index: 10;
+}
+
 .pc-speaker-photo {
     position: relative;
 
@@ -19,10 +23,12 @@
             left: 0;
         }
 
-        &-right::before,
-        &-right::after {
-            left: auto;
-            right: 0;
+        &-right {
+            &::before,
+            &::after {
+                left: auto;
+                right: 0;
+            }
         }
     }
 
@@ -44,3 +50,4 @@
     &-cyan::after { background-image: $pc-gradient-yellow-cyan-reversed; }
 
 }
+
