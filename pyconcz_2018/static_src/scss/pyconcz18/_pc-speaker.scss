@@ -1,5 +1,12 @@
 .pc-speaker-text {
     z-index: 10;
+    position: relative;
+    top: -11%;
+
+    @include media-breakpoint-up(md) {
+        position: static;
+    }
+
 }
 
 .pc-speaker-short-bio {
@@ -21,11 +28,19 @@
         &::after {
             content: "";
             display: block;
-            width: 230%;
-            height: 47%;
             position: absolute;
-            bottom: 30%;
+            bottom: 31%;
             left: 0;
+            height: 47%;
+            width: 100%;
+
+            @include media-breakpoint-up(md) {
+                width: 200%;
+            }
+            
+            @include media-breakpoint-up(xl) {
+                width: 230%;
+            }
         }
 
         &-right {

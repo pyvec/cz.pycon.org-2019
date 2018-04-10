@@ -109,28 +109,30 @@
             <div class="pc-gradient-orchid-orchidred-reversed text-dark">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12"><h2 class="mb-0 text-yellow">Keynote speakers</h2></div>
-
+                        <div class="col-12">
+                            <h2 class="mb-0 text-yellow">Keynote speakers</h2>
+                        </div>
                         {% for keynoter in keynoters %}
-                            <div class="row {% if forloop.first %}mt-3 mb-4 mb-lg-5{% else %}my-4{% endif %} align-items-start">
-                                <div class="col-5 {% if forloop.counter|divisibleby:2 %}order-2{% endif %}">
+                            <div class="row no-gutters {% if forloop.first %}mt-3 mb-md-3{% else %}my-md-3{% endif %} align-items-start">
+                                <div class="col-12 col-md-6 col-lg-5 col-sm-9 mx-sm-auto mx-md-0 {% if forloop.counter|divisibleby:2 %}order-md-2{% endif %}">
                                     <div class="
-                                    pc-speaker-photo
-                                    {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
-                                    {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
-                                    {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
-                                    {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
-                                    {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
-                                    {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
-                                ">
+
+                                            pc-speaker-photo
+                                            {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
+                                            {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
+                                            {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
+                                            {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
+                                            {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
+                                            {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
+                                        ">
                                         <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
                                     </div>
                                 </div>
 
-                                <div class="col-5 align-self-center pc-speaker-text {% if forloop.counter|divisibleby:2 %}offset-2 order-1{% endif %}">
-                                    <h3 class="mt-0 text-warning">{{ keynoter.full_name }}</h3>
+                                <div class="pc-speaker-text col-md-6 col-lg-5 align-self-center {% if forloop.counter|divisibleby:2 %}offset-lg-2 order-md-1{% endif %}">
+                                    <h3 class="mt-0 mb-1 text-warning">{{ keynoter.full_name }}</h3>
                                     {% if keynoter.twitter or keynoter.github %}
-                                        <p class="row text-info text-center small">
+                                        <p class="row no-gutters text-yellow text-center small justify-content-center">
                                             {% if keynoter.twitter %}
                                                 <span class="col">TW:&nbsp;<a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></span>
                                             {% endif %}
@@ -144,20 +146,20 @@
                                 <div
                                     class="
                                         pc-speaker-short-bio
-                                        col-8 pt-2 px-2
+                                        col-12 col-lg-8 pt-2 px-2
                                         {% if forloop.counter|divisibleby:2 %}
-                                            offset-2 order-3 pc-gradient-yellow-lime
+                                            offset-lg-2 order-md-3 pc-gradient-yellow-lime
                                         {% else %}
-                                            offset-3 pc-gradient-yellow-lime-reversed
+                                            offset-lg-3 pc-gradient-yellow-lime-reversed
                                         {% endif %}
-                                    "
+                                        "
                                 >
                                     {{ keynoter.short_bio|markdown }}
                                 </div>
                             </div>
                         {% endfor %}
-
                     </div>
+
                 </div>
             </div>
         {% endif %}
