@@ -11,21 +11,21 @@
 
         <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
             <stop stop-color="#000" offset="0" />
-            <stop stop-color="#000" offset="5%" />
+            <stop stop-color="#000" offset="2%" />
             <stop stop-color="#fff" offset="100%" />
         </linearGradient>
 
-        <pattern id="top" width="100" height="80" patternUnits="userSpaceOnUse">
-            <rect fill="url(#gradient)" x="0" y="0" width="100" height="80" />
+        <pattern id="top" width="100" height="300" patternUnits="userSpaceOnUse">
+            <rect fill="url(#gradient)" x="0" y="0" width="100" height="300" />
         </pattern>
         <pattern id="bottom" width="83.2" height="48" patternUnits="userSpaceOnUse">
             <path stroke-linecap="square" stroke-width="1" fill="none" stroke="#c848d9" d="M83.2 48L0 0m0 48L83.2 0" />
             <path filter="url(#glow)" stroke-linecap="square" stroke-width="1" fill="none" stroke="#c848d9" d="M83.2 48L0 0m0 48L83.2 0" />
         </pattern>
         <mask id="mask">
-            <rect width="100%" height="80" fill="url(#top)" />
+            <rect width="100%" height="300" fill="url(#top)" />
         </mask>
     </defs>
-    <rect width="100%" height="100%" x="0" y="80" fill="url(#bottom)" />
+    <rect width="100%" height="100%" x="0" y="300" fill="url(#bottom)" />
     <rect width="100%" height="100%" mask="url(#mask)" fill="url(#bottom)" />
 </svg>
