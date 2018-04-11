@@ -22,3 +22,5 @@ STATICFILES_DIRS = [
 ]
 
 SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications
+
+INTERNAL_IPS = ('127.0.0.1',)
