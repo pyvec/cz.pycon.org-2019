@@ -2,185 +2,226 @@
 
 {% load static %}
 {% load sponsors_tags %}
+{% load formatting %}
 
 
-{% comment %}
-{% block meta_head %}
-    {{ block.super }}
-    {# ti.to code #}
-    <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>
-    <script src='https://js.tito.io/v1' async></script>
-{% endblock %}
-{% endcomment %}
+{% block header_logo_classes %}col-md-9 col-xl-10{% endblock %}
+{% block header_text_classes %}h1{% endblock %}
 
-
-{% block title_classes %}h1 mt-5{% endblock %}
 
 {% block main %}
-    <div class="container">
+    <div class="container pb-3">
         <p class="lead">
-            <strong>PyCon CZ</strong> aims to be the largest annual gathering for the <strong>Python community</strong> in the <strong>Czech Republic</strong>.
+            <strong>PyCon CZ</strong> aims to be the largest annual gathering for the <strong>Python community</strong> in the <strong>Czech&nbsp;Republic</strong>.
             <br>It's focused on honoring and supporting <strong>awesome people</strong> teaching, learning and innovating with Python in Czech Republic and <strong>surrounding EU</strong>.
         </p>
-        {% comment %}
+    </div>
+
+    {% comment %}
         <h2>We're on! <br>Watch on-line stream!</h2>
         <p>
             <a class="btn btn-lg btn-primary btn-block" href="https://www.youtube.com/watch?v=motIB96FI48">Main</a>
             <a class="btn btn-lg btn-primary btn-block" href="https://www.youtube.com/watch?v=2Azpwf2LRK0">Theatre</a>
         </p>
-        {% endcomment %}
+    {% endcomment %}
 
-        {% block city %}
-            <h2>Prague, mother of all cities</h2>
-            <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
+    {% block tickets %}
+        <div class="container mb-4">
+            <p class="text-center">
+                <a class="btn btn-lg display-1 btn-yellow" href="{% url 'tickets' %}">Tickets are available!</a>
+            </p>
+        </div>
+    {% endblock %}
 
-            <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a href="{% url "about_city" %}">More about Prague…</a></p>
-        {% endblock %}
+    {% block venue_dates %}
+        <div class="py-2 pc-gradient-blue-cyan">
+            <div class="container">
 
-        {% block venue %}
-            <h3>Venue</h3>
+                {% block venue %}
+                    <h3 class="mt-3 text-yellow">Venue</h3>
 
-            <div class="text-center">
-                <address>
-                    <strong>Meet Factory</strong><br>
-                    Ke Sklárně 3213/15<br>
-                    Praha 5 – Smíchov
+                    <div class="text-center text-dark">
+                        <address>
+                            <strong>Meet Factory</strong><br>
+                            Ke Sklárně 3213/15<br>
+                            Praha 5 – Smíchov
+                        </address>
 
-                </address>
+                        <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
+                    </div>
+                {% endblock %}
 
-                <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
+                {% block dates %}
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="mt-3 text-yellow">
+                                {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
+                                Talks<br>
+                                <small>1-2&nbsp;June</small>
+                                {% comment %}</a>{% endcomment %}
+                            </h3>
+
+                            {% comment %}
+                                <p>
+                                    <strong>Two days</strong>, <strong>two</strong> parallel tracks,
+                                    <strong>four</strong> keynotes and <strong>27</strong>
+                                    <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
+                                </p>
+                            {% endcomment %}
+                        </div>
+                        <div class="col mb-4">
+                            <h3 class="mt-3 text-yellow">
+                                {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
+                                Workshops<br>
+                                <small>3&nbsp;June</small>
+                                {% comment %}</a>{% endcomment %}
+                            </h3>
+                            {% comment %}
+                                <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                {% endblock %}
             </div>
-        {% endblock %}
+        </div>
+    {% endblock %}
 
-        {% block dates %}
-            <div class="row">
-                <div class="col">
-                    <h3>
-                        {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
-                        Talks<br>
-                        <small>1-2 June</small>
-                        {% comment %}</a>{% endcomment %}
-                    </h3>
+    {% block city %}
+        <div class="pc-gradient-yellow-cyan text-dark py-2">
+            <div class="container">
+                <h2 class="h3 mt-3 text-dark">Prague, mother of all cities</h2>
+                <div class="row">
+                    <div class="col-md">
+                        <p>Welcome to <strong>Prague</strong>, one of the most beautiful capitals of Europe. You will surely have a great time, whether you are only staying for the conference or you will take a couple of days to look around.</p>
 
-                    {% comment %}
-                    <p>
-                        <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-                        <strong>four</strong> keynotes and <strong>27</strong>
-                        <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
-                    </p>
-                    {% endcomment %}
-
+                    </div>
+                    <div class="col-md">
+                        <p>Endless touristy places, not one, but <strong>two castles</strong>, excellent food and drinks on every corner, dozens of parks, 4<sup>th</sup> best ZOO in the world, a river and much more. And of course, what better time to visit than <strong>summertime</strong>! <a class="text-orchid" href="{% url "about_city" %}">More about Prague…</a></p>
+                    </div>
                 </div>
-                <div class="col mb-4">
-                    <h3>
-                        {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
-                        Workshops<br>
-                        <small>3 June</small>
-                        {% comment %}</a>{% endcomment %}
-                    </h3>
-                    {% comment %}
-                    <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
-                    {% endcomment %}
-                </div>
+
             </div>
-        {% endblock %}
+        </div>
+    {% endblock %}
 
+    {% block keynoters %}
         {% if keynoters %}
-            <h1>Keynote speakers</h1>
-            {% for keynoter in keynoters %}
-                <h4>{{ keynoter.full_name }}</h4>
-                <img src="{{ keynoter.photo.url }}" alt="">
-                {% if keynoter.twitter %}
-                    <a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a>
-                    <p>{{ keynoter.short_bio }}</p>
-                {% endif %}
-            {% endfor %}
+            <div class="pc-gradient-orchid-orchidred-reversed text-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="mb-0 text-yellow">Keynote speakers</h2>
+                        </div>
+                        {% for keynoter in keynoters %}
+                            <div class="row no-gutters {% if forloop.first %}mt-3 mb-md-3{% else %}my-md-3{% endif %} align-items-start">
+                                <div class="col-12 col-md-6 col-lg-5 col-sm-9 mx-sm-auto mx-md-0 {% if forloop.counter|divisibleby:2 %}order-md-2{% endif %}">
+                                    <div class="
+
+                                            pc-speaker-photo
+                                            {% if forloop.counter|divisibleby:2 %}pc-speaker-photo-right{% endif %}
+                                            {% if forloop.counter == 1 %}pc-speaker-photo-yellow{% endif %}
+                                            {% if forloop.counter == 2 %}pc-speaker-photo-blue{% endif %}
+                                            {% if forloop.counter == 3 %}pc-speaker-photo-green{% endif %}
+                                            {% if forloop.counter == 4 %}pc-speaker-photo-orchid{% endif %}
+                                            {% if forloop.counter == 5 %}pc-speaker-photo-cyan{% endif %}
+                                        ">
+                                        <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="pc-speaker-text col-md-6 col-lg-5 align-self-center {% if forloop.counter|divisibleby:2 %}offset-lg-2 order-md-1{% endif %}">
+                                    <h3 class="mt-0 mb-1 text-warning">{{ keynoter.full_name }}</h3>
+                                    {% if keynoter.twitter or keynoter.github %}
+                                        <p class="row no-gutters text-yellow text-center small justify-content-center">
+                                            {% if keynoter.twitter %}
+                                                <span class="col">TW:&nbsp;<a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></span>
+                                            {% endif %}
+                                            {% if keynoter.github %}
+                                                <span class="col">GH:&nbsp;<a href="https://github.com/{{ keynoter.github }}">{{ keynoter.github }}</a></span>
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+                                </div>
+
+                                <div
+                                    class="
+                                        pc-speaker-short-bio
+                                        col-12 col-lg-8 pt-2 px-2
+                                        {% if forloop.counter|divisibleby:2 %}
+                                            offset-lg-2 order-md-3 pc-gradient-yellow-lime
+                                        {% else %}
+                                            offset-lg-3 pc-gradient-yellow-lime-reversed
+                                        {% endif %}
+                                        "
+                                >
+                                    {{ keynoter.short_bio|markdown }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
         {% endif %}
+    {% endblock %}
 
-        {% comment %}
-        <h1 id="tickets">Workshop tickets</h1>
-        <p>These are only for PyCon attendees.<br><strong>Please don’t register for more workshops at the same time.</strong></p>
-        {% endcomment %}
-
-        {% comment %}<tito-widget event="pyvec/pycon-cz-2017"></tito-widget>{% endcomment %}
-
-        {% comment %}
+    {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" allowfullscreen></iframe>
         </div>
-        {% endcomment %}
+    {% endcomment %}
 
-        {% block partners %}
-            {% sponsors %}
-        {% endblock %}
+    {% block partners %}
+        {% sponsors %}
+    {% endblock %}
 
-        <h2>What attendees said about PyCon&nbsp;CZ 2017?</h2>
+    <div class="container">
 
-        <p class="mb-5">
+        <h2>What attendees said about PyCon&nbsp;CZ 2017</h2>
+
+        <p class="my-4 my-lg-5">
             Really had a great time at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. Great talks, conversations and an awesome community 🎉😀 <a href="https://t.co/Bq58pOFjlp">pic.twitter.com/Bq58pOFjlp</a>
-            <span class="d-block small text-right">
-                Alexander CS Hendorf (@hendorf) <a href="https://twitter.com/hendorf/status/873529334916681728">June 10, 2017</a>
-            </span>
+            <span class="d-block small text-right">Alexander CS Hendorf (@hendorf) <a href="https://twitter.com/hendorf/status/873529334916681728">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             I never thought I&#39;d attend an IT conference... Really enjoyed <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. Great people, cool venue and even a conference dog. Thanks! <a href="https://t.co/nSGxtOJfCB">https://t.co/nSGxtOJfCB</a>
-            <span class="d-block small text-right">
-                Karla Fejfarová (@karlafej) <a href="https://twitter.com/karlafej/status/873569478004617216">June 10, 2017</a>
-            </span>
+            <span class="d-block small text-right">Karla Fejfarová (@karlafej) <a href="https://twitter.com/karlafej/status/873569478004617216">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             It&#39;s gonna be hard to find such a good place with as many amazing an lovely people as I did at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>, thank you guys for everything! 🐍❤🇨🇿
-            <span class="d-block small text-right">
-                Moisés Guimarães (@moisesguimaraes) <a href="https://twitter.com/moisesguimaraes/status/874214577348763648">June 12, 2017</a>
-            </span>
+            <span class="d-block small text-right">Moisés Guimarães (@moisesguimaraes) <a href="https://twitter.com/moisesguimaraes/status/874214577348763648">June 12, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Best conference dog ever. <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> <a href="https://t.co/64P704ZPFs">pic.twitter.com/64P704ZPFs</a>
-            <span class="d-block small text-right">
-                Adina Foxova (@AdinaFXV) <a href="https://twitter.com/AdinaFXV/status/873204515612368896">June 9, 2017</a>
-            </span>
+            <span class="d-block small text-right">Adina Foxova (@AdinaFXV) <a href="https://twitter.com/AdinaFXV/status/873204515612368896">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> 2017 is over, but you can always sing with them and look on the bright side of life until next PyCon ❤️❤️<a href="https://t.co/9bppbMXjDG">https://t.co/9bppbMXjDG</a>
-            <span class="d-block small text-right">
-                ${REKLOSE_NETAGOVAT} (@lspdv) <a href="https://twitter.com/lspdv/status/873229885371822080">June 9, 2017</a>
-            </span>
+            <span class="d-block small text-right">${REKLOSE_NETAGOVAT} (@lspdv) <a href="https://twitter.com/lspdv/status/873229885371822080">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> gave me a new life goal...I want to be a land astronaunt, building open source robots with big lasers fighting other OS robots :)
-            <span class="d-block small text-right">
-                Zue (@Nada_Chong) <a href="https://twitter.com/Nada_Chong/status/873296930268471297">June 9, 2017</a>
-            </span>
+            <span class="d-block small text-right">Zue (@Nada_Chong) <a href="https://twitter.com/Nada_Chong/status/873296930268471297">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Fantastic venue, great talks, free beer. What can you ask more? 3 socks for everybody? My first but surely not last <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> <a href="https://t.co/8LSdZwUNbn">https://t.co/8LSdZwUNbn</a>
-            <span class="d-block small text-right">
-                Petr Simecek (@simecek) <a href="https://twitter.com/simecek/status/873508477817192448">June 10, 2017</a>
-            </span>
+            <span class="d-block small text-right">Petr Simecek (@simecek) <a href="https://twitter.com/simecek/status/873508477817192448">June 10, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             &quot;Through my son <a href="https://twitter.com/kvbik">@kvbik</a> I discovered python is the language of my dreams&quot;<a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>
-            <span class="d-block small text-right">
-                Nick Lang (@fxdgear) <a href="https://twitter.com/fxdgear/status/873222756636045313">June 9, 2017</a>
-            </span>
+            <span class="d-block small text-right">Nick Lang (@fxdgear) <a href="https://twitter.com/fxdgear/status/873222756636045313">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Leaving Prague after aweeome <a href="https://twitter.com/hashtag/PyConCZ?src=hash">#PyConCZ</a> 😢 Thaks guys, see you soin 😊 some photos of Prague for those that didn&#39;t go sightseeing 😊 <a href="https://twitter.com/pyconcz">@pyconcz</a> <a href="https://t.co/qA5pU9Qh2z">pic.twitter.com/qA5pU9Qh2z</a>
-            <span class="d-block small text-right">
-                Miroslav Bagljas (@mbagljas) <a href="https://twitter.com/mbagljas/status/873901203708678145">June 11, 2017</a>
-            </span>
+            <span class="d-block small text-right">Miroslav Bagljas (@mbagljas) <a href="https://twitter.com/mbagljas/status/873901203708678145">June 11, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             Thanks <a href="https://twitter.com/pyconcz">@pyconcz</a>! We had a ball. Fantastic people, great talks and a cool venue - bravo! <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> <a href="https://t.co/MUa823bRXM">pic.twitter.com/MUa823bRXM</a>
-            <span class="d-block small text-right">
-                Jeanne Trojan (@jmtcz) <a href="https://twitter.com/jmtcz/status/873274067088019456">June 9, 2017</a>
-            </span>
+            <span class="d-block small text-right">Jeanne Trojan (@jmtcz) <a href="https://twitter.com/jmtcz/status/873274067088019456">June 9, 2017</a></span>
         </p>
-        <p class="mb-5">
+        <p class="mb-4 mb-lg-5">
             <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> 2017 10/10 would jump again.
-            <span class="d-block small text-right">
-                フジ (@michalvalasek) <a href="https://twitter.com/michalvalasek/status/873807980206202880">June 11, 2017</a>
-            </span>
+            <span class="d-block small text-right">フジ (@michalvalasek) <a href="https://twitter.com/michalvalasek/status/873807980206202880">June 11, 2017</a></span>
         </p>
 
     </div>

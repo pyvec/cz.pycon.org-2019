@@ -33,5 +33,5 @@ class FinancialAidConfig:
     title = 'Financial Aid'
     cfp_title = 'Financial Aid Programme'
     template_about = 'proposals/financial_aid_about.html'
-    date_start = datetime(year=2018, month=4, day=9, hour=0, minute=0, tzinfo=tz)
-    date_end = datetime(year=2018, month=4, day=30, hour=23, minute=59, second=59, tzinfo=tz)
+    date_start = datetime(year=2018, month=4, day=12, hour=0, minute=0, tzinfo=tz)
+    date_end = datetime(year=2018, month=4, day=26, hour=23, minute=59, second=59, tzinfo=tz)

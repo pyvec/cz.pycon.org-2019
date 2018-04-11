@@ -1,13 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <pattern id="top" width="80" height="80" patternUnits="userSpaceOnUse">
-            <path fill="white" d="M0 48L83.2 0m0 48L0 0m0 26v2.2h83.14V26H0zm0 28.9v4.3h83.14v-4.3H0zm0-5.8v4.1h83.14v-4.06H0zm0-5.8v3.6h83.14v-3.58H0zm0-5.8v3.2h83.14v-3.2H0zm0-5.7v2.7h83.14v-2.7H0zm0-11.58V22h83.14v-1.8H0zm0-5.72v1.2h83.14v-1.2H0zm0-5.8v.8h83.14v-.8H0zm0-6v.5h83.14v-.5H0z"/>
+        <defs>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="1 1" result="glow" />
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.5" />
+                </feComponentTransfer>
+            </filter>
+        </defs>
+
+        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+            <stop stop-color="#000" offset="0" />
+            <stop stop-color="#000" offset="2%" />
+            <stop stop-color="#fff" offset="100%" />
+        </linearGradient>
+
+        <pattern id="top" width="100" height="300" patternUnits="userSpaceOnUse">
+            <rect fill="url(#gradient)" x="0" y="0" width="100" height="300" />
         </pattern>
         <pattern id="bottom" width="83.2" height="48" patternUnits="userSpaceOnUse">
-            <path stroke-linecap="square" stroke-width=".5" fill="none" stroke="#ddd" d="M83.2 48L0 0m0 48L83.2 0"/>
+            <path stroke-linecap="square" stroke-width="1" fill="none" stroke="#c848d9" d="M83.2 48L0 0m0 48L83.2 0" />
+            <path filter="url(#glow)" stroke-linecap="square" stroke-width="1" fill="none" stroke="#c848d9" d="M83.2 48L0 0m0 48L83.2 0" />
         </pattern>
-        <mask id="mask"><rect width="100%" height="80" fill="url(#top)"/></mask>
-        </defs>
-    <rect width="100%" height="100%" x="0" y="61" fill="url(#bottom)"/>
+        <mask id="mask">
+            <rect width="100%" height="300" fill="url(#top)" />
+        </mask>
+    </defs>
+    <rect width="100%" height="100%" x="0" y="300" fill="url(#bottom)" />
     <rect width="100%" height="100%" mask="url(#mask)" fill="url(#bottom)" />
 </svg>

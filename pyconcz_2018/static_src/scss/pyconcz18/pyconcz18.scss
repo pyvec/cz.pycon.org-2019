@@ -1,4 +1,5 @@
-@import "custom-bootstrap-variables"; // custom variables
+@import "variables"; // own variables
+@import "custom-bootstrap-variables"; // custom Bootstrap variables
 
 @import "./node_modules/bootstrap/scss/functions";
 @import "./node_modules/bootstrap/scss/variables";
@@ -25,7 +26,7 @@
 //@import "./node_modules/bootstrap/scss/jumbotron";
 //@import "./node_modules/bootstrap/scss/alert";
 //@import "./node_modules/bootstrap/scss/progress";
-@import "./node_modules/bootstrap/scss/media";
+//@import "./node_modules/bootstrap/scss/media";
 //@import "./node_modules/bootstrap/scss/list-group";
 //@import "./node_modules/bootstrap/scss/close";
 //@import "./node_modules/bootstrap/scss/modal";
@@ -37,8 +38,13 @@
 
 
 // own styles (feel free to add more)
+@import "temp";
 @import "type";
 @import "forms";
 @import "nav";
+@import "pc-tito";
+@import "pc-tickets";
+@import "pc-gradients";
 @import "pc-footer";
 @import "pc-team";
+@import "pc-speaker";

@@ -1,0 +1,135 @@
+{% extends "_layout.html" %}
+
+{% load %}
+
+{% block meta_title %}Tickets – {{ block.super }}{% endblock %}
+
+
+{% block meta_head %}
+    {{ block.super }}
+    {% block tito_code %}
+        {# ti.to code #}
+        {% comment %}<link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>{% endcomment %}
+        <script src='https://js.tito.io/v1' async></script>
+        {% if debug %}
+            <script>TitoDevelopmentMode = true</script>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block main %}
+    {% comment %}
+        <h2>Workshop tickets</h1>
+        <p>These are only for PyCon attendees.<br><strong>Please don’t register for more workshops at the same time.</strong></div>
+    {% endcomment %}
+
+    <div class="container">
+        <h1>Tickets</h1>
+        <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
+        <ul class="list-inline">
+            <li class="list-inline-item">entry for both conference days at MeetFactory (1–2&nbsp;June)</li>
+            <li class="list-inline-item">entry to the Afterparty on 2&nbsp;June</li>
+            <li class="list-inline-item">lunch on all days</li>
+            <li class="list-inline-item">water, coffee and tea</li>
+            <li class="list-inline-item">option to register for workshops and attend sprints
+                <small>(tickets for workshops will be available later, most of them for free)</small>
+            </li>
+        </ul>
+        {% comment %}<p>
+            All tickets include:
+            Entry to MeetFactory on 1&nbsp;and&nbsp;2&nbsp;June,
+            Entry to the Afterparty on 2&nbsp;June,
+            Lunch on all days,
+            Water, Coffee and Tea
+            and the option to register for free workshops on 3&nbsp;June
+
+        </p>{% endcomment %}
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="card-deck my-3 pc-tickets justify-content-center">
+
+            <div class="card pc-ticket mb-3 bg-dark">
+                <div class="card-header">
+                    <h2 class="card-title h4 mt-2 text-orchid">Educational</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Are you a student, a teacher or have you attended PyLadies courses?</p>
+                    <div class="card-text font-italic">Students need to bring a student ID to the registration.</div>
+                </div>
+                <div class="card-footer">
+                    <div class="row my-1 font-weight-bold"><span class="col-auto">Early-bird <small>(until sold out)</small></span> <span class="col text-right">500&nbsp;CZK</span></div>
+                    {% comment %}<div class="row my-1 pc-ticket-sold-out"><span class="col-auto">Early-bird <small>(sold out)</small></span> <span class="col text-right">500&nbsp;CZK</span></div>{% endcomment %}
+                    <div class="row my-1 text-muted"><span class="col-auto">Regular <small>(until 20 May)</small></span> <span class="col text-right">800&nbsp;CZK</span></div>
+                    <div class="row my-1 text-muted"><span class="col-auto">Late bird</span> <span class="col text-right">1500&nbsp;CZK</span></div>
+                </div>
+            </div>
+
+            <div class="card pc-ticket mb-3 bg-dark">
+                <div class="card-header">
+                    <h2 class="card-title h4 mt-2 text-cyan">Individual</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
+                    <p class="card-text">Then these tickets are exactly for you. Please respect that and buy a Company ticket if this is not true.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row my-1 font-weight-bold"><span class="col-auto">Early-bird <small>(until sold out)</small></span> <span class="col text-right">800&nbsp;CZK</span></div>
+                    {% comment %}<div class="row my-1 pc-ticket-sold-out"><span class="col-auto">Early-bird <small>(sold out)</small></span> <span class="col text-right">800&nbsp;CZK</span></div>{% endcomment %}
+                    <div class="row my-1 text-muted"><span class="col-auto">Regular <small>(until 20 May)</small></span> <span class="col text-right">1900&nbsp;CZK</span></div>
+                    <div class="row my-1 text-muted"><span class="col-auto">Late bird</span> <span class="col text-right">2900&nbsp;CZK</span></div>
+                </div>
+            </div>
+
+            <div class="card pc-ticket mb-3 bg-dark">
+                <div class="card-header">
+                    <h2 class="card-title h4 mt-2 text-yellow">Company</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Is your company paying for the ticket?</p>
+                    <p class="card-text">This is the right choice to support PyCon&nbsp;CZ if a company can’t afford a&nbsp;sponsorship.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row my-1 font-weight-bold"><span class="col-auto">Early-bird <small>(until sold out)</small></span> <span class="col text-right">1500&nbsp;CZK</span></div>
+                    {% comment %}<div class="row my-1 pc-ticket-sold-out"><span class="col-auto">Early-bird <small>(sold out)</small></span> <span class="col text-right">1500&nbsp;CZK</span></div>{% endcomment %}
+                    <div class="row my-1 text-muted"><span class="col-auto">Regular <small>(until 20 May)</small></span> <span class="col text-right">2900&nbsp;CZK</span></div>
+                    <div class="row my-1 text-muted"><span class="col-auto">Late bird</span> <span class="col text-right">3800&nbsp;CZK</span></div>
+                </div>
+            </div>
+
+            <div class="card pc-ticket mb-3 border">
+                <div class="card-header bg-black">
+                    <h2 class="card-title h4 mt-2 text-white">VIP</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Do you want to have the best PyCon&nbsp;CZ experience?</p>
+                    <div class="card-text">VIP ticket will get you a seat at the speakers’ dinner on May&nbsp;31. You will meet PyCon&nbsp;CZ speakers over great food and beer which is included in the price.</div>
+                </div>
+                <div class="card-footer">
+                    <div class="row my-1 font-weight-bold"><span class="col-auto">Early-bird <small>(until sold out)</small></span> <span class="col text-right">3000&nbsp;CZK</span></div>
+                    {% comment %}<div class="row my-1 pc-ticket-sold-out"><span class="col-auto">Early-bird <small>(sold out)</small></span> <span class="col text-right">3000&nbsp;CZK</span></div>{% endcomment %}
+                    <div class="row my-1 text-muted"><span class="col-auto">Regular <small>(until 20 May)</small></span> <span class="col text-right">4000&nbsp;CZK</span></div>
+                    <div class="row my-1 text-muted"><span class="col-auto">Late bird</span> <span class="col text-right">5000&nbsp;CZK</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center my-4">By buying a ticket you accept PyCon&nbsp;CZ’s <a href="{% url 'about_code' %}">Code of Conduct</a> and <a href="{% url 'about_privacy' %}">Privacy Policy</a>.</p>
+
+        <tito-button event="pyvec/pycon-cz-2018">Buy your ticket now!</tito-button>
+
+        <p class="text-center mt-2 mb-3 small">We’re not VAT payers, all prices are final.</p>
+
+    <div class="row justify-content-lg-center">
+        <div class="text-center col-5">
+            {% block finaid_info %}
+                If money is the only factor stopping you from attending PyCon&nbsp;CZ you will have an&nbsp;opportunity to apply for Financial Aid to cover your expenses in a few days.
+            {% endblock %}
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
