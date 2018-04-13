@@ -32,12 +32,12 @@ h3 + h4 {
     margin-top: 2.5*$headings-margin-bottom;
 }
 
-h1, .h1 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h1-font-size; } }
-h2, .h2 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h2-font-size; } }
-h3, .h3 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h3-font-size; } }
-h4, .h4 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h4-font-size; } }
-h5, .h5 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h5-font-size; } }
-h6, .h6 { @include media-breakpoint-down(sm){ font-size: 0.75 * $h6-font-size; } }
+h1, .h1 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h1-font-size; } }
+h2, .h2 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h2-font-size; } }
+h3, .h3 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h3-font-size; } }
+h4, .h4 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h4-font-size; } }
+h5, .h5 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h5-font-size; } }
+h6, .h6 { @include media-breakpoint-down(sm){ font-size: 0.8 * $h6-font-size; } }
 
 .lead {
     font-family: $font-family-monospace;
