@@ -277,13 +277,13 @@
     // $font-weight-base: $font-weight-normal; $font-weight-base: $font-weight-base !global;
     // $line-height-base: 1.5; $line-height-base: $line-height-base !global;
 
-    $pc-font-size-scale: 1.6; $pc-font-size-scale: $pc-font-size-scale !global;
-    $h1-font-size: $h2-font-size * $pc-font-size-scale; $h1-font-size: $h1-font-size !global; // 2.5
-    $h2-font-size: $h3-font-size * $pc-font-size-scale; $h2-font-size: $h2-font-size !global; // 2
-    $h3-font-size: $h4-font-size * $pc-font-size-scale; $h3-font-size: $h3-font-size !global; // 1.75
-    $h4-font-size: $h5-font-size * $pc-font-size-scale; $h4-font-size: $h4-font-size !global; // 1.5
+    $pc-font-size-scale: 1.333; $pc-font-size-scale: $pc-font-size-scale !global;
+    $h6-font-size: $font-size-base / $pc-font-size-scale; $h6-font-size: $h6-font-size !global; // $font-size-base
     $h5-font-size: $h6-font-size * $pc-font-size-scale; $h5-font-size: $h5-font-size !global; // 1.25
-    // $h6-font-size: $font-size-base; $h6-font-size: $h6-font-size !global;
+    $h4-font-size: $h5-font-size * $pc-font-size-scale; $h4-font-size: $h4-font-size !global; // 1.5
+    $h3-font-size: $h4-font-size * $pc-font-size-scale; $h3-font-size: $h3-font-size !global; // 1.75
+    $h2-font-size: $h3-font-size * $pc-font-size-scale; $h2-font-size: $h2-font-size !global; // 2
+    $h1-font-size: $h2-font-size * $pc-font-size-scale; $h1-font-size: $h1-font-size !global; // 2.5
 
     $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global;
     $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global;
@@ -682,8 +682,8 @@
 
     // Cards
 
-    // $card-spacer-y: .75rem; $card-spacer-y: $card-spacer-y !global;
-    $card-spacer-x: .75rem; $card-spacer-x: $card-spacer-x !global;
+    // $card-spacer-y: .75rem; $card-spacer-y: $card-spacer-y !global;  // .75rem
+    $card-spacer-x: 0.5*$grid-gutter-width; $card-spacer-x: $card-spacer-x !global; // .75rem
     $card-border-width: 0; $card-border-width: $card-border-width !global; // $border-width
     // $card-border-radius: $border-radius; $card-border-radius: $card-border-radius !global;
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global;
