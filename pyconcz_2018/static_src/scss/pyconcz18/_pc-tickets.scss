@@ -1,22 +1,26 @@
 .pc-tickets {
+    justify-content: center;
+
     @include media-breakpoint-down(sm) {
         align-items: center;
     }
+
+    // nested for higher specificity
+    .pc-ticket {
+        @include media-breakpoint-up(sm) {
+            flex: 1 0 19em;
+            max-width: 22em;
+        }
+
+        @include media-breakpoint-down(xs) {
+            margin-left: -$grid-gutter-width/2;
+            margin-right: -$grid-gutter-width/2;
+        }
+
+        &-unavailable {
+            text-decoration: line-through solid;
+        }
+    }
+
 }
 
-.pc-ticket {
-    max-width: 26em;
-
-    @include media-breakpoint-between(xs,sm) {
-        margin-left: -$grid-gutter-width/2;
-        margin-right: -$grid-gutter-width/2;
-    }
-
-    @include media-breakpoint-up(sm) {
-        min-width: 18em;
-    }
-
-    &-unavailable {
-        text-decoration: line-through solid;
-    }
-}
