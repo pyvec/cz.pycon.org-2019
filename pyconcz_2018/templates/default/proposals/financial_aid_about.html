@@ -2,32 +2,41 @@
 
 
 
-{% block meta_title %}Financial Assistance – {{ block.super }}{% endblock %}
+{% block meta_title %}Financial Aid – {{ block.super }}{% endblock %}
 
 
 {% block main %}
     <div class="container">
-        <h1>Financial Assistance</h1>
+        <h1>Financial Aid</h1>
+
+        <p class="lead">
+            We want PyCon CZ to be as accessible as possible.
+            <br>Financial Aid is meant for anyone who is not able to attend PyCon CZ because of their financial situation. It may cover ticket and/or accommodation and/or travel costs.
+        </p>
+
+        <p class="lead font-weight-bold">While we can’t cover all expenses for everyone, we try our best to help as much as our budget allows.</p>
+
+
+        <h2>Timeline</h2>
+
+        <p class="lead">
+            Financial aid applications open on 15 April and <b>close on 26 April</b>.
+            <br>After that we will carefully examine each application and
+            <br>inform all applicants privately before the end of April about the result.
+        </p>
 
         {% block info_text %}
-            <h2>Timeline</h2>
+            <h2>Philosophy &amp;&nbsp;Outreach</h2>
 
-            <p class="text-center">
-                Financial aid applications open on April 12th and <b>close on April 26th</b>.
-                <br>Grants will be awarded before the end of April.
-            </p>
+            <p>Our primary goal is to make PyCon CZ accessible to everyone, irrespective of their financial situation. For this reason, we provide multiple tiers of ticket prices, Early-Bird, Educational, Individual and Company. This is based on the principle that those who can afford to pay for tickets subsidize those who cannot. This structure enables us to include major diversity and outreach programmes such as DjangoGirls, reward and encourage active participation in the PyCon CZ event organization, and fund PyCon CZ’s Financial Aid programme.</p>
 
-            <h2>Philosophy &amp; Outreach</h2>
+            <p>PyCon CZ’s financial aid programme aims to provide funds to help people attend PyCon CZ. Financial aid recipients have some part of their expenses (which may include travel, accommodation, or ticket registration) paid for by the PyCon CZ budget. We actively encourage people to apply for financial aid. While we can’t cover all expenses for everyone, we try our best to optimally allocate our budget. Optimal is, of course, an ambiguous property.</p>
 
-            <p>Our primary goal is to make PyCon CZ accessible to everyone, irrespective of their financial situation. For this reason, we provide multiple tiers of ticket prices, Early-Bird, Student, Individual and Corporate. This is based on the principle that those who can afford to pay for tickets subsidize those who cannot. This structure enables us to include major diversity and outreach programmes such as DjangoGirls, reward and encourage active participation in the PyCon CZ event organization, and fund PyCon CZ’s Financial Aid programme.</p>
-
-            <p>PyCon CZ’s financial aid programme aims to provide funds to help people attend PyCon CZ. Financial aid recipients have some part of their expenses (which may include travel, accommodation, or ticket registration) paid for by the PyCon CZ budget. We actively encourage people to apply for financial aid. While we can't cover all expenses for everyone, we try our best to optimally allocate our budget. Optimal is, of course, an ambiguous property.</p>
-
-            <p>Since PyCon is a well positioned international Python conference in central Europe, it's a meeting place for Python developers from all around the globe. Therefore, the process is designed to benefit people that we believe make PyCon CZ better, particularly speakers and workshop tutors, as well as notable open source contributors.</p>
+            <p>Since PyCon is a well positioned international Python conference in central Europe, it’s a meeting place for Python developers from all around the globe. Therefore, the process is designed to benefit people that we believe make PyCon CZ better, particularly speakers and workshop tutors, as well as notable open source contributors.</p>
 
             <p>This way, the process attempts to promote a more diverse community event.</p>
 
-            <p>Finally, the process tries to help people with relatively lower incomes, be it because of their location (lower income countries) or their profession (such as students, or the unemployed).</p>
+            <p>Finally, the process tries to help people with relatively lower incomes, be it because of their location (lower income countries or regions) or their profession (such as students, or the unemployed).</p>
 
             <p>In short, we use the financial aid budget to help individuals who would otherwise not be able to attend the conference or whose presence will bring a justifiably positive impact for other attendees.</p>
 
@@ -35,7 +44,7 @@
 
             <p>PyCon CZ aims to be the largest annual gathering for the Python community in the Czech Republic, focused on honoring and supporting awesome people teaching, learning and innovating with Python in the Czech Republic and surrounding countries. The Python Software Foundation, the parent PyCon event organizer and sponsor, aims to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. We believe that the financial aid programme is perfectly aligned with these goals.</p>
 
-            <p>Note well that our <a href="{% url 'about_code' %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
+            <p>Note well that our <a href="{% url "about_code" %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
 
             <p>Please do not hesitate to email us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
         {% endblock %}
