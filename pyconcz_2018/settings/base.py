@@ -88,7 +88,7 @@ PHASE = [
     '70-finaid-opened',
 ]
 
-PHASE_CURRENT = 6
+PHASE_CURRENT = 7
 
 TEMPLATES = [
     {

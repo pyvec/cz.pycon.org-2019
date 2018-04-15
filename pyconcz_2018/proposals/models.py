@@ -31,13 +31,13 @@ class Score(models.Model):
                                 null=True,
                                 blank=True,
                                 help_text='4 = Must have!, 3 = Interesting talk, '
-                                '2 = Meh, 1 = Definitely not!, '
-                                'blank value = No score (f.e. your proposal); '
-                                'you can also use decimals',
+                                          '2 = Meh, 1 = Definitely not!, '
+                                          'blank value = No score (f.e. your proposal); '
+                                          'you can also use decimals',
                                 validators=[
                                     MinValueValidator(1),
                                     MaxValueValidator(4)
-                                    ]
+                                ]
                                 )
     note = models.TextField(
         default='', blank=True,
@@ -319,22 +319,31 @@ class FinancialAid(EntryBase):
         max_length=200, verbose_name='Your name',
     )
     email = models.EmailField(
-        help_text='We’ll keep it secret, for internal use only.'
+        verbose_name='Your email address',
+        help_text='We’ll send information about your application result to this address.',
     )
-    bio = models.TextField(
-        help_text='Tell us a bit about yourself! Who you are, where you are'
-                  ' from, and what your experience with Python is.'
-                  ' Also include how you are involved in the Python community'
-                  ' and how you contribute or plan to contribute to it.'
+    python_involvement = models.CharField(
+        null=True, max_length=400,
+        verbose_name='What is your connection with Python?',
+        help_text='e.g. You’re learning it or teaching it or using for something…',
+    )
+    community_involvement = models.TextField(
+        null=True, blank=True,
+        verbose_name='Do you contribute or plan to contribute to Python community in any way? (optional)',
+        help_text='It’s a plus but we don’t limit Financial Aid to those who do.',
+    )
+    purpose = models.TextField(
+        verbose_name='What do you need the money for exactly?',
+        help_text='If you require help for more items (accomodation, travel costs etc.) '
+                  'please state the amount for each of them in Euros.'
+                  '\nYou don’t need to specify the price of a ticket.'
+                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.23',
     )
     amount = models.CharField(
         max_length=255,
-        help_text='How much money would you like to receive'
-                  ' (please specify currency).'
-    )
-
-    purpose = models.TextField(
-        help_text='How would you like to use the granted money?'
+        verbose_name='How much total money would you like to receive (in Euros)',
+        help_text='If you require just a free ticket, please state “ticket”.'
+                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.23',
     )
 
     def __str__(self):
