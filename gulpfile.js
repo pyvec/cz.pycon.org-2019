@@ -9,6 +9,8 @@ var autoprefixer = require('autoprefixer');
 var csso = require('gulp-csso');
 var exec = require('child_process').exec;
 var plumber = require('gulp-plumber');
+var rename = require("gulp-rename");
+
 
 /*
  * TASKS
@@ -84,8 +86,11 @@ gulp.task('compile-css', gulp.series('clean-css', function(){
             require('postcss-flexbugs-fixes') // fixes flex bugs if possible: see https://github.com/philipwalton/flexbugs
         ])) // add vendor prefixes, fix flexbox bugs
         .pipe(csso()) // compresses CSS
+        .pipe(rename('pyconcz18.min.css'))
+        .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS without sourcemap
+        .pipe(rename('pyconcz18.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS
+        .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS with sourcemap
         .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
 }));
 
