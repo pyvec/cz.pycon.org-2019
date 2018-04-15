@@ -15,7 +15,7 @@ var plumber = require('gulp-plumber');
  */
 // runs django dev server
 gulp.task('runserver', gulp.series(function(done){
-    exec('env\\Scripts\\python manage.py runserver --settings=pyconcz_2018.settings.local', function(err, stdout, stderr){
+    exec('python manage.py runserver --settings=pyconcz_2018.settings.local', function(err, stdout, stderr){
         console.log(stdout);
         console.log(stderr);
     });
