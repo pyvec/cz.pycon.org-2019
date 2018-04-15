@@ -10,3 +10,10 @@ select,
 textarea {
     font-family: $font-family-monospace;
 }
+
+.pc-field-name--community_involvement,
+.pc-field-name--purpose {
+    .form-control {
+        height: 7em;
+    }
+}

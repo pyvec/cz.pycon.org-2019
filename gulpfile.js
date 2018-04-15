@@ -10,11 +10,9 @@ var csso = require('gulp-csso');
 var exec = require('child_process').exec;
 var plumber = require('gulp-plumber');
 
-
 /*
  * TASKS
  */
-
 // runs django dev server
 gulp.task('runserver', gulp.series(function(done){
     exec('python manage.py runserver --settings=pyconcz_2018.settings.local', function(err, stdout, stderr){
