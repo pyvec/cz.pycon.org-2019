@@ -11,7 +11,7 @@ class Sponsor(models.Model):
         (6, 'Media'),
         (7, 'Partners'),
         (8, 'Coffee sponsor'),
-        (9, 'Connectivity sponsor'),
+        (9, 'Con­nectiv­ity sponsor'),
         (10, 'Tea sponsor'),
     )
 
