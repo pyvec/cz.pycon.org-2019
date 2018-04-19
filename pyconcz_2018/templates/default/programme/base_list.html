@@ -1,0 +1,36 @@
+{% extends "_layout.html" %}
+
+
+{% load formatting %}
+
+
+{% block main %}
+    <div class="container-fluid">
+
+        {% comment %}{% include '_menu_programme.html' %}{% endcomment %}
+        <ul class="nav justify-content-center">
+            {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
+
+            {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
+        </ul>
+
+
+        <h1>{% block speakers_title %}{% endblock %}</h1>
+        <div class="row">
+
+            {% for speaker in speakers %}
+
+                <div class="col-12 col-md-3">
+                    <h2 class="h3 mb-0">{{ speaker.full_name }}</h2>
+                    <p class="text-center">
+                        <img style="max-height:12vmax;" class="mx-auto img-fluid" src="{{ speaker.photo.url }}" alt="">
+                    </p>
+                    {% block speakers_items %}{% endblock %}
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+

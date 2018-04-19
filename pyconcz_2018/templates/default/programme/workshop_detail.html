@@ -1,0 +1,130 @@
+{% extends "_layout.html" %}
+
+
+{% load formatting %}
+{% load static %}
+
+
+{% block meta_title %}{{ talk.title }} – a workshop by {{ talk.speakers|join:', ' }} – {{ block.super }}{% endblock %}
+
+
+{% block meta_social_customizable %}
+    <meta property="og:title" content="PyCon CZ – {{ talk.title }} – a workshop by {{ talk.speakers|join:', ' }}">
+    <meta property="og:description" content="{{ talk.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
+    {% with og_speaker=talk.speakers|first %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
+        <meta property="og:image:width" content="{{ og_speaker.photo.width }}">
+        <meta property="og:image:height" content="{{ og_speaker.photo.height }}">
+    {% endwith %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="{{ talk.speakers|join:', ' }}">
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <ul class="nav justify-content-center">
+            {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
+
+            {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
+        </ul>
+
+        <div class="row">
+
+            <section class="col-8">
+                <h1 class="h2">
+                    {{ talk.title }}
+                    <br>
+                    <small>a workshop by {{ talk.speakers|join:' &amp; ' }}</small>
+                </h1>
+
+                <div class="px-5">
+                    {{ talk.abstract|markdown }}
+                </div>
+
+                {% if talk.difficulty == 'advanced' %}
+                    <p class="mt-5">
+                        <strong>This workshop is aimed at advanced Pythonistas.</strong>
+                        (While it might be interesting for beginners we recommend them to choose another workshop.)
+                    </p>
+                {% endif %}
+
+                {% if talk.video_id %}
+                    <div class="">
+                        <iframe src="{{ talk.video_embed_url }}?rel=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                {% endif %}
+
+                {% for speaker in talk.speakers %}
+                    <div class="">
+                        {% if speaker.talks.all|length %}
+                            <h2 class="">{{ speaker.full_name }} also has a talk</h2>
+                        {% endif %}
+
+                        {% for talk_other in speaker.talks.all %}
+                            {% if talk_other.id != talk.id %}
+                                <h3 class="">
+                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk_other.id %}">
+                                        {{ talk_other.title }}
+                                    </a>
+                                </h3>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </section>
+
+            <section class="col pc-gradient-orchidred-navy pt-3">
+                {% for speaker in talk.speakers %}
+                    <section class="mb-4">
+
+                        <div class="" style="background-image: url({{ speaker.photo.url }});"></div>
+
+                        <h3 class="mt-0">{{ speaker.full_name }}</h3>
+                        <img style="max-height:20vh;" class="mx-auto img-fluid" src="{{ speaker.photo.url }}" alt="">
+
+                        <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
+
+                        <div class="row justify-content-between">
+                            {% if speaker.github %}
+                                <a class="col" href="https://github.com/{{ speaker.github }}">
+                                    GH: {{ speaker.github }}
+                                </a>
+                            {% endif %}
+
+                            {% if speaker.twitter %}
+                                <a class="col" href="https://twitter.com/{{ speaker.twitter }}">
+                                    TW: {{ speaker.twitter }}
+                                </a>
+                            {% endif %}
+                        </div>
+
+                    </section>
+
+                {% endfor %}
+            </section>
+        </div>
+
+        {% comment %}
+       {% if speaker.workshops.all %}
+              <h2 class="pc_more__heading">Workshop{{ speaker.workshops.all|pluralize }} by {{ speaker.full_name }}</h2>
+            {% endif %}
+
+            {% for workshop in speaker.workshops.all %}
+              <h3 class="pc_more__title">
+                <a href="{% url 'talk_detail' type='workshop' talk_id=workshop.id %}#main">
+                  {{ workshop.title }}
+                </a>
+              </h3>
+            {% endfor %}{% endcomment %}
+
+        {% with talk.speakers|first as speaker %}
+            <div class="row">
+                <div class="row">
+                    <a class="btn btn-lg mx-auto d-block" href="{% url "speakers_list" type='workshops' %}#{{ speaker.full_name|slugify }}">All workshops</a>
+                </div>
+            </div>
+        {% endwith %}
+    </div>
+{% endblock %}

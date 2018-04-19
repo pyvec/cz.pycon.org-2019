@@ -1,0 +1,21 @@
+{% extends "programme/base_list.html" %}
+
+
+{% load formatting %}
+
+
+{% block meta_title %}Talks – {{ block.super }}{% endblock %}
+
+
+{% block speakers_title %}Talks{% endblock %}
+
+
+{% block speakers_items %}
+    {% for talk in speaker.talks.all %}
+        <h3 class="h5 mt-0">
+            <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                {{ talk.title }}
+            </a>
+        </h3>
+    {% endfor %}
+{% endblock %}
