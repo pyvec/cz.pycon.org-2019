@@ -24,6 +24,15 @@
 {% if speaker.github %} GH: <a href="https://github.com/{{ speaker.github }}">{{ speaker.github }}</a> {% endif %}
 {% if speaker.twitter %} TW: <a href="https://twitter.com/{{ speaker.twitter }}">{{ speaker.twitter }}</a> {% endif %}
 </pre>
+                    <div style="max-width: 20em;" class="mt-2">{{ speaker.bio|markdown }}</div>
+                    <div style="max-width: 20em;">
+                        <div class="font-italic alert {% if speaker.bio|length > 600 or speaker.bio|length < 320 %} alert-danger {% else %} {% endif %} ">
+                            bio is {{ speaker.bio|length }} characters
+                            ({% if speaker.bio|length > 600 %}too long{% elif speaker.bio|length < 320 %}too short{% else %}ok{% endif %})
+                        </div>
+                    </div>
+
+
                     {% block speakers_items %}{% endblock %}
                 </div>
             {% endfor %}
