@@ -12,10 +12,20 @@
 
 {% block speakers_items %}
     {% for talk in speaker.talks.all %}
-        <h3 class="h5 mt-0">
-            <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
-                {{ talk.title }}
+        <div class="pc-talk">
+            <h4 class="text-left mt-2 pc-talk-heading">{{ talk.title|markdown }}</h4>
+            <div class="font-italic alert {% if talk.abstract|length > 1200 or talk.abstract|length < 395 %} alert-danger {% else %} {% endif %} ">
+                abstract is {{ talk.abstract|length }} characters
+                ({% if talk.abstract|length > 1200 %}too long{% elif talk.abstract|length < 395 %}too short{% else %}ok{% endif %})
+            </div>
+
+            <div>
+                {{ talk.abstract|markdown }}
+            </div>
+
+            <a class="btn btn-lg btn-warning" href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                detail
             </a>
-        </h3>
+        </div>
     {% endfor %}
 {% endblock %}
