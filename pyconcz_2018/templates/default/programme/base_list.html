@@ -29,6 +29,7 @@
                         <div class="font-italic alert {% if speaker.bio|length > 600 or speaker.bio|length < 320 %} alert-danger {% else %} {% endif %} ">
                             bio is {{ speaker.bio|length }} characters
                             ({% if speaker.bio|length > 600 %}too long{% elif speaker.bio|length < 320 %}too short{% else %}ok{% endif %})
+                            <a class="btn btn-danger" href="/admin/programme/speaker/{{ speaker.id }}/change/">change in admin</a>
                         </div>
                     </div>
 
