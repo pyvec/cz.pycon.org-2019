@@ -26,6 +26,10 @@
             <a class="btn btn-lg btn-warning" href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
                 detail
             </a>
+            <a class="btn btn-lg btn-danger" href="/admin/programme/talk/{{ talk.id }}/change/">
+                edit in admin
+            </a>
+
         </div>
     {% endfor %}
 {% endblock %}

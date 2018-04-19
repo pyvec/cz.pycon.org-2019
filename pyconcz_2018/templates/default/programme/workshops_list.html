@@ -15,7 +15,7 @@
 
 {% block speakers_items %}
     {% for workshop in speaker.workshops.all %}
-               <div class="pc-talk">
+        <div class="pc-talk">
             <h4 class="text-left mt-2 pc-talk-heading">{{ workshop.title|markdown }}</h4>
             <div class="font-italic alert {% if workshop.abstract|length > 1200 or workshop.abstract|length < 395 %} alert-danger {% else %} {% endif %} ">
                 abstract is {{ workshop.abstract|length }} characters
@@ -28,6 +28,9 @@
 
             <a class="btn btn-lg btn-warning" href="{% url 'talk_detail' type='workshop' talk_id=workshop.id %}">
                 detail
+            </a>
+            <a class="btn btn-lg btn-danger" href="/admin/programme/workshop/{{ workshop.id }}/change/">
+                edit in admin
             </a>
         </div>
     {% endfor %}
