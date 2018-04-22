@@ -22,16 +22,16 @@
             {% for speaker in speakers %}
                 {% block item %}
                     <div class="pc-talk-text card">
-                        <img class="card-img-top" src="{{ speaker.photo.url }}" alt="">
+                        <a href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
+                            <img class="card-img-top" src="{{ speaker.photo.url }}" alt="">
+                        </a>
                         <div class="card-body">
-
                             <h2 class="card-title mt-0 h4">
                                 <span class="d-block">{{ speaker.full_name }}</span>
                                 <a class="d-block" href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
                                     <small>{{ session.title|markdown|cut:"<p>"|cut:"</p>" }}</small>
                                 </a>
                             </h2>
-
                             {% if perms.session.change_talk and perms.speaker.change_speaker %}
                                 <div class="card-text small">
                                     <div class="alert alert-danger">
@@ -55,7 +55,6 @@
                                     </div>
                                 </div>
                             {% endif %}
-
                         </div>
                     </div>
                 {% endblock %}
