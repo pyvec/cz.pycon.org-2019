@@ -1,4 +1,4 @@
-{% extends "programme/base_list.html" %}
+{% extends "programme/_base_list.html" %}
 
 
 {% load formatting %}
@@ -7,48 +7,11 @@
 {% block meta_title %}Workshops – {{ block.super }}{% endblock %}
 
 
-{% block speakers_title %}
-    Workshops
-    {% comment %}<br><small><a href="#tickets">get tickets</a></small>{% endcomment %}
+{% block speakers_title %}Workshops{% endblock %}
+
+
+{% block item %}
+    {% with session_type="workshop" session=speaker.workshops.all|first %}
+        {{ block.super }}
+    {% endwith %}
 {% endblock %}
-
-
-{% block speakers_items %}
-    {% for workshop in speaker.workshops.all %}
-        <div class="pc-talk">
-            <h4 class="text-left mt-2 pc-talk-heading">{{ workshop.title|markdown }}</h4>
-            <div class="font-italic alert {% if workshop.abstract|length > 1200 or workshop.abstract|length < 395 %} alert-danger {% else %} {% endif %} ">
-                abstract is {{ workshop.abstract|length }} characters
-                ({% if workshop.abstract|length > 1200 %}too long{% elif workshop.abstract|length < 395 %}too short{% else %}ok{% endif %})
-            </div>
-
-            <div>
-                {{ workshop.abstract|markdown }}
-            </div>
-
-            <a class="btn btn-lg btn-warning" href="{% url 'talk_detail' type='workshop' talk_id=workshop.id %}">
-                detail
-            </a>
-            <a class="btn btn-lg btn-danger" href="/admin/programme/workshop/{{ workshop.id }}/change/">
-                edit in admin
-            </a>
-        </div>
-    {% endfor %}
-{% endblock %}
-
-{# Uncomment for workshops tickets on page #}
-{% comment %}
-{% block meta_head %}
-    {{ block.super }}
-    <!-- place this in your head tag -->
-    <link rel="stylesheet" type="text/css" href='https://css.tito.io/v1.1'>
-    <script src='https://js.tito.io/v1' async></script>
-{% endblock %}
-
-{% block main %}
-    {{ block.super }}
-    <h1 class="text-center" id="tickets">Workshop tickets</h1>
-    <p class="text-center">These are only for PyCon attendees.<br><strong>Please don't register for more workshops at the same time.</strong></p>
-    <tito-widget event="pyvec/pycon-cz-2017"></tito-widget>
-{% endblock %}
-{% endcomment %}

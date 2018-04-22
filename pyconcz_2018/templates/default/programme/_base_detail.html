@@ -1,0 +1,136 @@
+{% extends "_layout.html" %}
+
+
+{% load formatting %}
+{% load static %}
+
+
+{% block meta_title %}{{ talk.title|markdown|striptags }} – a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
+
+
+{% block meta_social_customizable %}
+    <meta property="og:title" content="PyCon CZ – {{ talk.title|markdown|striptags }} – a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}">
+    <meta property="og:description" content="{{ talk.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
+    {% with og_speaker=talk.speakers|first %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
+        <meta property="og:image:width" content="{{ og_speaker.photo.width }}">
+        <meta property="og:image:height" content="{{ og_speaker.photo.height }}">
+    {% endwith %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="{{ talk.speakers|join:' &amp; ' }}">
+{% endblock %}
+
+
+{% block header_date_place %}{% endblock %}
+
+
+{% block menu_top %}
+    {% include '_menu_top_programme.html' with pc_alignment='center' %}
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <ul class="nav justify-content-center">
+            {% include '_menu_programme.html' with pc_alignment='center' %}
+        </ul>
+
+        <div class="row pc-talk mt-2 mt-lg-3 mt-xl-4">
+
+            <div class="col-12 col-xl-5">
+                <h1 class="h2 mt-0">
+                    {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
+                    <br class="d-md-none">
+                    <small class="pc-talk-title d-md-none">a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}</small>
+                </h1>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-7 col-xl-4">
+                <div class="mb-3">{{ talk.abstract|markdown }}</div>
+
+                {% if talk.difficulty == 'advanced' %}
+                    <p class="p-2 pc-gradient-orchid-violetred text-white">
+                        <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
+                        (While it might be interesting for beginners we recommend them to choose another {{ session_type }}.)
+                    </p>
+                {% endif %}
+
+                {% comment 'todo' %}
+                    {% if talk.video_id %}
+                        <iframe src="{{ talk.video_embed_url }}?rel=0" frameborder="0" allowfullscreen></iframe>
+                    {% endif %}
+                {% endcomment %}
+
+                {% for speaker in talk.speakers %}
+
+                    {% comment 'not needed this year' %}
+                        {% if speaker.talks.all|length > 1 %}
+                            <h2>Another talk by {{ speaker.full_name }}</h2>
+                        {% endif %}
+
+                        {% for talk_other in speaker.talks.all %}
+                            {% if talk_other.id != talk.id %}
+                                <h3>
+                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk_other.id %}">
+                                        {{ talk_other.title }}
+                                    </a>
+                                </h3>
+                            {% endif %}
+                        {% endfor %}
+                    {% endcomment %}
+
+                    {% block other_sessions %}
+                        {% for other_session in other_sessions %}
+                            <h2 class="h3 mt-0">
+                                {{ speaker.full_name }} also
+                                {% if other_session_type == 'talk' %}leads a workshop:{% endif %}
+                                {% if other_session_type == 'workshop' %}has a talk:{% endif %}
+                                <a
+                                    class="pc-talk-title small d-block"
+                                    href="{% url 'talk_detail' type=other_session_type talk_id=other_session.id %}"
+                                >
+                                    {{ other_session.title }}
+                                </a>
+                            </h2>
+                        {% endfor %}
+                    {% endblock %}
+                {% endfor %}
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+                {% for speaker in talk.speakers %}
+                    <section class="p-2 pc-gradient-orchidred-navy-reversed">
+
+                        <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
+
+                        <img class="mx-auto img-fluid" src="{{ speaker.photo.url }}" alt="">
+
+                        <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
+
+                        <div class="row justify-content-between small">
+                            {% if speaker.github %}
+                                <div class="col">
+                                    GH:
+                                    <a href="https://github.com/{{ speaker.github }}">
+                                        {{ speaker.github }}
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% if speaker.twitter %}
+                                <div class="col">
+                                    TW:
+                                    <a href="https://twitter.com/{{ speaker.twitter }}">
+                                        {{ speaker.twitter }}
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </section>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

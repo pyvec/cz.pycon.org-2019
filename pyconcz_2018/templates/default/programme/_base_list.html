@@ -1,0 +1,67 @@
+{% extends "_layout.html" %}
+
+
+{% load formatting %}
+
+
+{% block menu_top %}
+    {% include '_menu_top_programme.html' with pc_alignment='center' %}
+{% endblock %}
+
+
+{% block main %}
+    <div class="container-fluid">
+
+        <nav role="navigation">
+            {% include '_menu_programme.html' with pc_alignment='center' %}
+        </nav>
+
+        <h1>{% block speakers_title %}{% endblock %}</h1>
+
+        <div class="pc-talks">
+            {% for speaker in speakers %}
+                {% block item %}
+                    <div class="pc-talk card">
+                        <img class="card-img-top" src="{{ speaker.photo.url }}" alt="">
+                        <div class="card-body">
+
+                            <h2 class="card-title mt-0 h4">
+                                <span class="d-block">{{ speaker.full_name }}</span>
+                                <a class="d-block" href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
+                                    <small>{{ session.title|markdown|cut:"<p>"|cut:"</p>" }}</small>
+                                </a>
+                            </h2>
+
+                            {% if perms.session.change_talk and perms.speaker.change_speaker %}
+                                <div class="card-text small">
+                                    <div class="alert alert-danger">
+                                        <p class="lead font-weight-bold">You are logged in as administrator</p>
+
+                                        <h4 class="m-0 text-dark">
+                                            Abstract
+                                            <br>
+                                            <small>{{ session.abstract|length }} characters</small>
+                                        </h4>
+                                        {{ session.abstract|markdown }}
+                                        <a class="btn btn-block btn-warning mb-4" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
+
+                                        <h4 class="m-0 text-dark">
+                                            Bio
+                                            <br>
+                                            <small>{{ speaker.bio|length }} characters</small>
+                                        </h4>
+                                        {{ speaker.bio|markdown }}
+                                        <a class="btn btn-block btn-warning" href="/admin/programme/speaker/{{ speaker.id }}/change/">change in admin</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endblock %}
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
