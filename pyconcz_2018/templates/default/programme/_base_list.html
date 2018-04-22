@@ -32,7 +32,7 @@
                                     <small>{{ session.title|markdown|cut:"<p>"|cut:"</p>" }}</small>
                                 </a>
                             </h2>
-                            {% if perms.session.change_talk and perms.speaker.change_speaker %}
+                            {% if user.is_staff %}
                                 <div class="card-text small">
                                     <div class="alert alert-danger">
                                         <p class="lead font-weight-bold">You are logged in as administrator</p>
