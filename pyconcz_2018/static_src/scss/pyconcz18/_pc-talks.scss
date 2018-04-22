@@ -1,4 +1,4 @@
-.pc-talk {
+.pc-talk-text {
     a {
         font-family: $font-family-sans-serif;
     }
@@ -13,6 +13,12 @@
     font-family: $font-family-sans-serif;
     font-weight: $font-weight-base;
 }
+
+
+.pc-talk-image {
+    max-height: 40vh;
+}
+
 
 .pc-talks {
     max-width: 1920px;

@@ -35,17 +35,15 @@
             {% include '_menu_programme.html' with pc_alignment='center' %}
         </ul>
 
-        <div class="row pc-talk mt-2 mt-lg-3 mt-xl-4">
+        <h1 class="pc-talk-text h2 mt-2 mt-lg-3 mt-xl-4">
+            {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
+            <br class="d-md-none">
+            <small class="pc-talk-title d-md-none">a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}</small>
+        </h1>
 
-            <div class="col-12 col-xl-5">
-                <h1 class="h2 mt-0">
-                    {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
-                    <br class="d-md-none">
-                    <small class="pc-talk-title d-md-none">a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}</small>
-                </h1>
-            </div>
+        <div class="row pc-talk-text justify-content-center">
 
-            <div class="col-12 col-md-6 col-lg-7 col-xl-4">
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                 <div class="mb-3">{{ talk.abstract|markdown }}</div>
 
                 {% if talk.difficulty == 'advanced' %}
@@ -97,13 +95,12 @@
                 {% endfor %}
             </div>
 
-            <div class="col-12 col-md-6 col-lg-5 col-xl-3">
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
                 {% for speaker in talk.speakers %}
-                    <section class="p-2 pc-gradient-orchidred-navy-reversed">
-
+                    <div class="pc-gradient-orchidred-navy-reversed p-2">
                         <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
 
-                        <img class="mx-auto img-fluid" src="{{ speaker.photo.url }}" alt="">
+                        <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
 
                         <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
 
@@ -126,8 +123,7 @@
                                 </div>
                             {% endif %}
                         </div>
-
-                    </section>
+                    </div>
                 {% endfor %}
             </div>
         </div>
