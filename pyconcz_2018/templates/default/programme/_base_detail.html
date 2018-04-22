@@ -43,9 +43,8 @@
 
         <div class="row pc-talk-text justify-content-center">
 
-            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+            <div class="col-12 col-md-6 {% if talk.abstract|length < 1000 %}col-lg-5 col-xl-4{% endif %}">
                 <div class="mb-3">{{ talk.abstract|markdown }}</div>
-
                 {% if talk.difficulty == 'advanced' %}
                     <p class="p-2 pc-gradient-orchid-violetred text-white">
                         <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
