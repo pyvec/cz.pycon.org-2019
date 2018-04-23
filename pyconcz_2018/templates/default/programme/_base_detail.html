@@ -41,15 +41,27 @@
             <small class="pc-talk-title d-md-none">a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        <div class="row pc-talk-text justify-content-center">
+        <div class="row pc-talk-text justify-content-center align-items-start">
 
-            <div class="col-12 col-md-6 {% if talk.abstract|length < 1000 %}col-lg-5 col-xl-4{% endif %}">
+            <div
+                class="
+                    col-12
+                    {% if talk.speakers|length_is:"1" %}
+                        col-md-6
+                        {% if talk.abstract|length < 1000 %}
+                            col-lg-5 col-xl-4
+                        {% endif %}
+                    {% else %}
+                        col-md-4
+                    {% endif %}
+                ">
+
                 {% if talk.language == 'cs' %}
                     <p class="p-2 pc-gradient-orchidred-navy text-white d-flex align-items-center">
                         <svg class="mr-2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
-                            <rect width="90" height="60" fill="#d7141a"/>
-                            <rect width="90" height="30" fill="#fff"/>
-                            <path d="M 45,30 0,0 V 60 z" fill="#11457e"/>
+                            <rect width="90" height="60" fill="#d7141a" />
+                            <rect width="90" height="30" fill="#fff" />
+                            <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
                         </svg>
                         <span>This {{ session_type }} will be in Czech.</span>
                     </p>
@@ -106,37 +118,45 @@
                 {% endfor %}
             </div>
 
-            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
-                {% for speaker in talk.speakers %}
-                    <div class="pc-gradient-orchidred-navy-reversed p-2">
-                        <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
+            {% for speaker in talk.speakers %}
+                <div
+                    class="
+                    col-12
+                    {% if talk.speakers|length_is:"1" %}
+                        col-md-6 col-lg-5 col-xl-4
+                    {% else %}
+                        col-sm-6 col-md-4
+                    {% endif %}
+                    pc-gradient-{% if not forloop.counter|divisibleby:'2' %}orchidred-navy-reversed{% else %}orchid-blue{% endif %}
+                    py-2
+                ">
+                    <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
 
-                        <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
+                    <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
 
-                        <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
+                    <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
 
-                        <div class="row justify-content-between small">
-                            {% if speaker.github %}
-                                <div class="col">
-                                    GH:
-                                    <a href="https://github.com/{{ speaker.github }}">
-                                        {{ speaker.github }}
-                                    </a>
-                                </div>
-                            {% endif %}
+                    <div class="row justify-content-between small">
+                        {% if speaker.github %}
+                            <div class="col">
+                                GH:
+                                <a href="https://github.com/{{ speaker.github }}">
+                                    {{ speaker.github }}
+                                </a>
+                            </div>
+                        {% endif %}
 
-                            {% if speaker.twitter %}
-                                <div class="col">
-                                    TW:
-                                    <a href="https://twitter.com/{{ speaker.twitter }}">
-                                        {{ speaker.twitter }}
-                                    </a>
-                                </div>
-                            {% endif %}
-                        </div>
+                        {% if speaker.twitter %}
+                            <div class="col">
+                                TW:
+                                <a href="https://twitter.com/{{ speaker.twitter }}">
+                                    {{ speaker.twitter }}
+                                </a>
+                            </div>
+                        {% endif %}
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
 
     </div>
