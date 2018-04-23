@@ -22,7 +22,7 @@
             {% for speaker in speakers %}
                 {% block item %}
                     <div class="pc-talk-text card">
-                        <a href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
+                        <a class="pc-session-photo pc-session-photo-id-{{ session.id }}" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}{% endif %}">
                             <img class="card-img-top" src="{{ speaker.photo.url }}" alt="">
                         </a>
                         <div class="card-body">

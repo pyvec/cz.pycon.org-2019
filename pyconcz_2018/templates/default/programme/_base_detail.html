@@ -132,7 +132,11 @@
                 ">
                     <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
 
-                    <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
+                    <div class="text-center">
+                        <div class="d-inline-block pc-session-photo pc-session-photo-id-{{ talk.id|add:forloop.revcounter }}">
+                            <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
+                        </div>
+                    </div>
 
                     <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
 

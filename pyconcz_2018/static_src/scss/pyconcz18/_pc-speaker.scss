@@ -37,7 +37,7 @@
             @include media-breakpoint-up(md) {
                 width: 200%;
             }
-            
+
             @include media-breakpoint-up(xl) {
                 width: 230%;
             }
@@ -71,3 +71,53 @@
 
 }
 
+.pc-session-photo {
+    display: block;
+    position: relative;
+}
+
+.pc-session-photo-id-1 , .pc-session-photo-id-16, .pc-session-photo-id-33 {background-image: $pc-gradient-orchid-ginger;}
+.pc-session-photo-id-2 , .pc-session-photo-id-17, .pc-session-photo-id-34 {background-image: $pc-gradient-orchid-violetred;}
+.pc-session-photo-id-3 , .pc-session-photo-id-18, .pc-session-photo-id-35 {background-image: $pc-gradient-orchid-yellow;}
+.pc-session-photo-id-4 , .pc-session-photo-id-20, .pc-session-photo-id-36 {background-image: $pc-gradient-orchidred-yellow;}
+.pc-session-photo-id-5 , .pc-session-photo-id-21, .pc-session-photo-id-37 {background-image: $pc-gradient-orchid-lime;}
+.pc-session-photo-id-6 , .pc-session-photo-id-22, .pc-session-photo-id-38 {background-image: $pc-gradient-violetred-lime;}
+.pc-session-photo-id-7 , .pc-session-photo-id-23, .pc-session-photo-id-39 {background-image: $pc-gradient-yellow-lime;}
+.pc-session-photo-id-8 , .pc-session-photo-id-24, .pc-session-photo-id-40 {background-image: $pc-gradient-orchid-mint;}
+.pc-session-photo-id-9 , .pc-session-photo-id-25, .pc-session-photo-id-41 {background-image: $pc-gradient-orchidred-cyan;}
+.pc-session-photo-id-10, .pc-session-photo-id-26, .pc-session-photo-id-42 {background-image: $pc-gradient-yellow-cyan;}
+.pc-session-photo-id-11, .pc-session-photo-id-27, .pc-session-photo-id-43 {background-image: $pc-gradient-orchid-blue;}
+.pc-session-photo-id-12, .pc-session-photo-id-28, .pc-session-photo-id-44 {background-image: $pc-gradient-yellow-blue;}
+.pc-session-photo-id-13, .pc-session-photo-id-29, .pc-session-photo-id-45 {background-image: $pc-gradient-orchidred-navy;}
+.pc-session-photo-id-14, .pc-session-photo-id-30, .pc-session-photo-id-46 {background-image: $pc-gradient-orchid-orchidred;}
+.pc-session-photo-id-15, .pc-session-photo-id-31, .pc-session-photo-id-47 {background-image: $pc-gradient-blue-cyan;}
+.pc-session-photo-id-16, .pc-session-photo-id-32, .pc-session-photo-id-48 {background-image: $pc-gradient-navy-cyan;}
+
+.pc-session-photo {
+    img {
+        filter: grayscale(1) contrast(0.9) brightness(1.2);
+        mix-blend-mode: luminosity;
+    }
+
+    &::before,
+    &::after {
+        z-index: 1;
+        content: "";
+        display: block;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        mix-blend-mode: difference;
+        background-color: #ffffff;
+    }
+
+    &::before {
+        height: 15%;
+        top: 0;
+    }
+
+    &::after {
+        height: 30%;
+        top: 70%;
+    }
+}
