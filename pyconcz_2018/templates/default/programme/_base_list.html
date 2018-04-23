@@ -30,7 +30,7 @@
                                 <span class="d-block">{{ speaker.full_name }}</span>
                                 {% if session.title == 'TBD' %}
                                     <span class="d-block pc-talk-name">
-                                        <small>{{ session_type|capfirst }} will be announced later</small>
+                                        <small>This {{ session_type|capfirst }} will be announced later</small>
                                     </span>
                                 {% else %}
                                     <a class="d-block" href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
