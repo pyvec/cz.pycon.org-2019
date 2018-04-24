@@ -96,7 +96,7 @@
 .pc-session-photo {
     img { mix-blend-mode: luminosity; }
 
-    &::before,
+    //&::before,
     &::after {
         z-index: 1;
         content: "";
@@ -108,10 +108,10 @@
         background-color: #ffffff;
     }
 
-    &::before {
+    /*&::before {
         height: 15%;
         top: 0;
-    }
+    }*/
 
     &::after {
         height: 30%;
