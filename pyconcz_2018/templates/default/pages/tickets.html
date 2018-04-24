@@ -1,5 +1,6 @@
 {% extends "_layout.html" %}
 
+
 {% block meta_title %}Tickets – {{ block.super }}{% endblock %}
 
 
@@ -92,7 +93,7 @@
                         <p class="card-text">Do you want to have the best PyCon&nbsp;CZ experience?</p>
                         <div class="card-text">VIP ticket will get you a seat at the speakers’ dinner on May&nbsp;31. You will meet PyCon&nbsp;CZ speakers over great food and beer which is included in the price.</div>
                     </div>
-                    {% include 'pages/_ticket-pricing.html' with early_soldout=0 early_price=3000 regular_price=4000 late_price=5000 %}
+                    {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=3000 regular_price=4000 late_price=5000 %}
                 </div>
 
             </div>
