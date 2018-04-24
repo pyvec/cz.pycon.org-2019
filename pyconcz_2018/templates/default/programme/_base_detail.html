@@ -104,8 +104,8 @@
                         {% for other_session in other_sessions %}
                             <h2 class="h3 mt-0">
                                 {{ speaker.full_name }} also
-                                {% if other_session_type == 'talk' %}leads a workshop:{% endif %}
-                                {% if other_session_type == 'workshop' %}has a talk:{% endif %}
+                                {% if other_session_type == 'workshop' %}leads a workshop:{% endif %}
+                                {% if other_session_type == 'talk' %}has a talk:{% endif %}
                                 <a
                                     class="pc-talk-title small d-block"
                                     href="{% url 'talk_detail' type=other_session_type talk_id=other_session.id %}"
