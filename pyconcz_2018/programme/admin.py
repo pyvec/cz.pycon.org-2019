@@ -46,12 +46,15 @@ class SlotAdmin(admin.ModelAdmin):
 
 
 class SpeakerResource(resources.ModelResource):
+    talks = fields.Field(attribute='talks_export', column_name='talks')
+    workshops = fields.Field(attribute='workshops_export', column_name='workshops')
 
     class Meta:
         model = Speaker
         fields = export_order = (
             'full_name',
             'email', 'github', 'twitter', 'is_public',
+            'talks', 'workshops',
         )
 
 
@@ -79,7 +82,8 @@ class TalkResource(resources.ModelResource):
         model = Talk
         fields = export_order = (
             'title', 'speakers',
-            'language', 'difficulty', 'is_keynote', 'is_public', 'is_backup', 'private_note',
+            'language', 'difficulty',
+            'is_keynote', 'is_public', 'is_backup',
         )
 
 
