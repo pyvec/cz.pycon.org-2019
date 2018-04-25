@@ -13,7 +13,7 @@
     flex-shrink: 1;
     flex-basis: 400px;
     min-width: 240px;
-    max-width: 300px;
+    max-width: 320px;
     margin-bottom: $spacer;
     margin-left: .5*$spacer;
     margin-right: .5*$spacer;
@@ -21,7 +21,7 @@
     min-height: 480px;
     position: relative;
 
-    @supports (mix-blend-mode:difference) {
+    @supports (mix-blend-mode:luminosity) {
         &-id-1, &-id-16, &-id-33 { background-image: $pc-gradient-orchid-ginger; }
         &-id-2, &-id-17, &-id-34 { background-image: $pc-gradient-orchid-violetred; }
         &-id-3, &-id-18, &-id-35 { background-image: $pc-gradient-orchid-yellow; }
@@ -87,16 +87,25 @@
 
 .pc-talk-name {
     top: 0;
-    min-height: 20%;
+    min-height: 24%;
 }
 
 .pc-talk-title {
     bottom: 0;
     background-color: transparentize(white, 0.8);
+    min-height: 5em;
+
+    @include media-breakpoint-down(lg) {
+        font-weight: $font-weight-bold;
+    }
 
     @include media-breakpoint-up(xl) {
-        min-height: 8rem;
         font-size: $font-size-lg;
+    }
+
+    em {
+        text-transform: uppercase;
+        font-style: normal;
     }
 
     a[href] & {

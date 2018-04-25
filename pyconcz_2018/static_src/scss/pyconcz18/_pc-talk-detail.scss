@@ -1,0 +1,20 @@
+.pc-talk-detail-title {
+    a {
+        font-family: $font-family-sans-serif;
+    }
+
+    em {
+        text-transform: uppercase;
+        font-style: normal;
+    }
+}
+
+.pc-talk-detail-note {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-base;
+}
+
+.pc-talk-detail-image {
+    mix-blend-mode: luminosity;
+    max-height: 60vmin;
+}

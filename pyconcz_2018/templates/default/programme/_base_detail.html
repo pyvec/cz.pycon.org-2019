@@ -5,7 +5,7 @@
 {% load static %}
 
 
-{% block meta_title %}{{ talk.title|markdown|striptags }} – a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
+{% block meta_title %}{{ talk.title|markdown|striptags }} – a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
 
 
 {% block meta_social_customizable %}
@@ -35,13 +35,13 @@
             {% include '_menu_programme.html' with pc_alignment='center' %}
         </ul>
 
-        <h1 class="pc-talk-text h2 mt-2 mt-lg-3 mt-xl-4">
+        <h1 class="pc-talk-detail-title h2 mt-2 mt-lg-3 mt-xl-4">
             {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
             <br class="d-md-none">
-            <small class="pc-talk-title d-md-none">a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}</small>
+            <small class="pc-talk-detail-note d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        <div class="row pc-talk-text justify-content-center align-items-start">
+        <div class="row justify-content-center align-items-start">
 
             <div
                 class="
@@ -86,7 +86,7 @@
 
                     {% comment 'not needed this year' %}
                         {% if speaker.talks.all|length > 1 %}
-                            <h2>Another talk by {{ speaker.full_name }}</h2>
+                            <h2>Another {{ session_type }} {{ session_preposition }} {{ speaker.full_name }}</h2>
                         {% endif %}
 
                         {% for talk_other in speaker.talks.all %}
@@ -102,12 +102,12 @@
 
                     {% block other_sessions %}
                         {% for other_session in other_sessions %}
-                            <h2 class="h3 mt-0">
+                            <h2 class="h3 mt-0 pc-talk-detail-title">
                                 {{ speaker.full_name }} also
                                 {% if other_session_type == 'workshop' %}leads a workshop:{% endif %}
                                 {% if other_session_type == 'talk' %}has a talk:{% endif %}
                                 <a
-                                    class="pc-talk-title small d-block"
+                                    class="small d-block"
                                     href="{% url 'talk_detail' type=other_session_type talk_id=other_session.id %}"
                                 >
                                     {{ other_session.title }}
@@ -133,8 +133,8 @@
                     <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
 
                     <div class="text-center">
-                        <div class="d-inline-block pc-session-photo pc-session-photo-id-{{ talk.id|add:forloop.revcounter }}">
-                            <img class="img-fluid pc-talk-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
+                        <div class="d-inline-block pc-talk-id-{{ talk.id|add:forloop.revcounter }}">
+                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
                         </div>
                     </div>
 
