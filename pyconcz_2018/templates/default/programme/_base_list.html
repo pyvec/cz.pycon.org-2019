@@ -21,52 +21,53 @@
         <div class="pc-talks">
             {% for speaker in speakers %}
                 {% block item %}
-                    <div class="pc-talk-text card">
-                        <a class="pc-session-photo pc-session-photo-id-{{ session.id }}" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}{% endif %}">
-                            <img class="card-img-top" src="{{ speaker.photo.url }}" alt="">
-                        </a>
-                        <div class="card-body">
-                            <h2 class="card-title mt-0 h4">
-                                <span class="d-block">{{ speaker.full_name }}</span>
-                                {% if session.title == 'TBD' %}
-                                    <span class="d-block pc-talk-name">
-                                        <small>This {{ session_type }} will be announced later</small>
-                                    </span>
-                                {% else %}
-                                    <a class="d-block" href="{% url 'talk_detail' type=session_type talk_id=session.id %}">
-                                        <small>{{ session.title|markdown|cut:"<p>"|cut:"</p>" }}</small>
-                                    </a>
-                                {% endif %}
+                    <div class="pc-talk pc-talk-id-{{ session.id }}">
+                        <a {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}"{% endif %}>
+                        <div class="pc-talk-image" style="background-image: url({{ speaker.photo.url }})"></div>
+
+                        <div class="pc-talk-name">
+                            <h2 class="pc-talk-text h3 my-0">
+                                {{ speaker.full_name }}
                             </h2>
-                            {% if user.is_staff %}
-                                <div class="card-text small">
-                                    <div class="alert alert-danger">
-                                        <p class="lead font-weight-bold">You are logged in as administrator</p>
-
-                                        <h4 class="m-0 text-dark">
-                                            Abstract
-                                            <br>
-                                            <small>{{ session.abstract|length }} characters</small>
-                                        </h4>
-                                        {{ session.abstract|markdown }}
-                                        <a class="btn btn-block btn-warning mb-4" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
-
-                                        <h4 class="m-0 text-dark">
-                                            Bio
-                                            <br>
-                                            <small>{{ speaker.bio|length }} characters</small>
-                                        </h4>
-                                        {{ speaker.bio|markdown }}
-                                        <a class="btn btn-block btn-warning" href="/admin/programme/speaker/{{ speaker.id }}/change/">change in admin</a>
-                                    </div>
-                                </div>
-                            {% endif %}
                         </div>
+
+                        <div class="pc-talk-title">
+                            <div class="pc-talk-text">
+                                {% if session.title == 'TBD' %}
+                                    This {{ session_type }} will be announced later
+                                {% else %}
+                                    {{ session.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        </a>
                     </div>
+
+                    {% if user.is_staff %}
+                        <div class="small mt-1">
+                            <div class="alert alert-danger">
+                                <p class="lead font-weight-bold">You are logged in as administrator</p>
+
+                                <h4 class="m-0 text-dark">
+                                    Abstract
+                                    <br>
+                                    <small>{{ session.abstract|length }} characters</small>
+                                </h4>
+                                {{ session.abstract|markdown }}
+                                <a class="btn btn-block btn-warning mb-4" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
+
+                                <h4 class="m-0 text-dark">
+                                    Bio
+                                    <br>
+                                    <small>{{ speaker.bio|length }} characters</small>
+                                </h4>
+                                {{ speaker.bio|markdown }}
+                                <a class="btn btn-block btn-warning" href="/admin/programme/speaker/{{ speaker.id }}/change/">change in admin</a>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endblock %}
-
             {% endfor %}
-
         </div>
     </div>
 {% endblock %}
