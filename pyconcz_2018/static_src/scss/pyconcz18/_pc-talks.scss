@@ -39,7 +39,6 @@
         &-id-15, &-id-31, &-id-47 { background-image: $pc-gradient-blue-cyan; }
         &-id-16, &-id-32, &-id-48 { background-image: $pc-gradient-navy-cyan; }
     }
-
 }
 
 .pc-talk-image {
@@ -69,12 +68,17 @@
         position: absolute;
         top: 0;
         left: 0;
-        mix-blend-mode: difference;
-        background-color: lighten($pc-color-orchid, 20%);
+        background-image: $pc-gradient-orchidred-navy-reversed;
 
-        a[href]:hover & {
-            mix-blend-mode: normal;
-            background-color: darken($pc-color-orchid, 20%);
+        @supports (mix-blend-mode:difference) {
+            background-image: none;
+            mix-blend-mode: difference;
+            background-color: lighten($pc-color-orchid, 20%);
+
+            a[href]:hover & {
+                mix-blend-mode: normal;
+                background-color: darken($pc-color-orchid, 20%);
+            }
         }
     }
 }
