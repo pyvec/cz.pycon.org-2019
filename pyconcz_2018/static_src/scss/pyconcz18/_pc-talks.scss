@@ -75,7 +75,9 @@
             mix-blend-mode: difference;
             background-color: lighten($pc-color-orchid, 20%);
 
-            a[href]:hover & {
+            a[href]:focus &,
+            a[href]:hover &,
+            a[href]:active & {
                 mix-blend-mode: normal;
                 background-color: darken($pc-color-orchid, 20%);
             }

@@ -22,7 +22,7 @@
             {% for speaker in speakers %}
                 {% block item %}
                     <div class="pc-talk pc-talk-id-{{ session.id }}">
-                        <a {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}"{% endif %}>
+                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}"{% endif %}>
                         <div class="pc-talk-image" style="background-image: url({{ speaker.photo.url }})"></div>
 
                         <div class="pc-talk-name">
