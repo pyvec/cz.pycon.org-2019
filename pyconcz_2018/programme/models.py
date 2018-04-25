@@ -2,6 +2,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.urls import reverse
 
 
 class Speaker(models.Model):
@@ -26,6 +27,18 @@ class Speaker(models.Model):
 
     def __str__(self):
         return self.full_name
+
+    def _talkws_export(self, type_):
+        qs = self.talks.all() if type_ == 'talk' else self.workshops.all()
+        return '\n'.join(['%s | %s' % (t.title, 'https://cz.pycon.org'+reverse('talk_detail',
+                                                                               kwargs={'type': type_, 'talk_id': t.id}),
+                                       ) for t in qs])
+
+    def talks_export(self):
+        return self._talkws_export('talk')
+
+    def workshops_export(self):
+        return self._talkws_export('workshop')
 
 
 class Talk(models.Model):
