@@ -15,11 +15,18 @@
     min-width: 240px;
     max-width: 320px;
     margin-bottom: $spacer;
-    margin-left: .5*$spacer;
-    margin-right: .5*$spacer;
     height: auto;
-    min-height: 480px;
+    min-height: 100vh;
     position: relative;
+
+    @media (min-height: 480px) {
+        min-height: 480px;
+    }
+
+    @media (min-width: 500px) {
+        margin-left: .5*$spacer;
+        margin-right: .5*$spacer;
+    }
 
     @supports (mix-blend-mode:luminosity) {
         &-id-1, &-id-16, &-id-33 { background-image: $pc-gradient-orchid-ginger; }
