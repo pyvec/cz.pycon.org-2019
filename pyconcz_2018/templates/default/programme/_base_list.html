@@ -43,29 +43,6 @@
                         </a>
                     </div>
 
-                    {% if user.is_staff %}
-                        <div class="small mt-1">
-                            <div class="alert alert-danger">
-                                <p class="lead font-weight-bold">You are logged in as administrator</p>
-
-                                <h4 class="m-0 text-dark">
-                                    Abstract
-                                    <br>
-                                    <small>{{ session.abstract|length }} characters</small>
-                                </h4>
-                                {{ session.abstract|markdown }}
-                                <a class="btn btn-block btn-warning mb-4" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
-
-                                <h4 class="m-0 text-dark">
-                                    Bio
-                                    <br>
-                                    <small>{{ speaker.bio|length }} characters</small>
-                                </h4>
-                                {{ speaker.bio|markdown }}
-                                <a class="btn btn-block btn-warning" href="/admin/programme/speaker/{{ speaker.id }}/change/">change in admin</a>
-                            </div>
-                        </div>
-                    {% endif %}
                 {% endblock %}
             {% endfor %}
         </div>
