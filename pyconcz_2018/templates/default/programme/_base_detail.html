@@ -70,9 +70,13 @@
                 <div class="mb-3">{{ talk.abstract|markdown }}</div>
 
                 {% if talk.difficulty == 'advanced' %}
-                    <p class="p-2 pc-gradient-yellow-cyan text-dark">
+                    <p class="p-2 pc-gradient-yellow-lime text-dark">
                         <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
                         (While it might be interesting for beginners we recommend them to choose another {{ session_type }}.)
+                    </p>
+                {% else %}
+                    <p class="p-2 bg-navy text-light">
+                        This {{ session_type }} is suitable for both beginner and advanced Pythonistas.
                     </p>
                 {% endif %}
 
