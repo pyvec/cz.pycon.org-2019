@@ -1,0 +1,15 @@
+{% extends "programme/_base_detail.html" %}
+
+
+{% block all %}
+    {% with session_type='talk' session_preposition='by' %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+
+{% block other_sessions %}
+    {% with other_sessions=speaker.workshops.all other_session_type='workshop' %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}

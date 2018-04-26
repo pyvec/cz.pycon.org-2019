@@ -86,9 +86,10 @@ PHASE = [
     '50-cfp-evaluated',  # Papers were evaluated
     '60-earlybird',  # Early bird ticket sales start
     '70-finaid-opened',
+    '80-talks-published',  # even if only part of them
 ]
 
-PHASE_CURRENT = 7
+PHASE_CURRENT = 8
 
 TEMPLATES = [
     {

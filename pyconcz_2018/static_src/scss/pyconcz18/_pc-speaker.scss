@@ -37,7 +37,7 @@
             @include media-breakpoint-up(md) {
                 width: 200%;
             }
-            
+
             @include media-breakpoint-up(xl) {
                 width: 230%;
             }
@@ -70,4 +70,3 @@
     &-cyan::after { background-image: $pc-gradient-yellow-cyan-reversed; }
 
 }
-
