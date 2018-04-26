@@ -108,13 +108,15 @@
 
             <tito-button event="pyvec/pycon-cz-2018">Buy your<br class="d-sm-none"> ticket<br class="d-sm-none"> now!</tito-button>
 
-            <div class="row justify-content-center mt-4">
-                <div class="text-center col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
-                    {% block finaid_info %}
-                        If money is the only factor stopping you from attending PyCon&nbsp;CZ you will have an&nbsp;opportunity to apply for Financial Aid to cover your expenses&nbsp;soon.
-                    {% endblock %}
+            {% block finaid_info %}
+                <div class="row justify-content-center mt-4">
+                    <div class="text-center col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+                        {% block finaid_info_text %}
+                            If money is the only factor stopping you from attending PyCon&nbsp;CZ you will have an&nbsp;opportunity to apply for Financial Aid to cover your expenses&nbsp;soon.
+                        {% endblock %}
+                    </div>
                 </div>
-            </div>
+            {% endblock %}
 
         </div>
     {% endwith %}

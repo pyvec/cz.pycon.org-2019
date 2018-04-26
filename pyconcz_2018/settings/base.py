@@ -87,9 +87,10 @@ PHASE = [
     '60-earlybird',  # Early bird ticket sales start
     '70-finaid-opened',
     '80-talks-published',  # even if only part of them
+    '90-finaid-closed',
 ]
 
-PHASE_CURRENT = 8
+PHASE_CURRENT = 9
 
 TEMPLATES = [
     {
