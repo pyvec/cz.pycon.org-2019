@@ -107,6 +107,8 @@ gulp.task(
             proxy: {
                 target: 'http://127.0.0.1:8000' // Django is running here
             },
+            port: 3838,
+            host: 'pycon.test',
             open: false,
             files: [
                 './pyconcz_2018/templates/**/*.html'

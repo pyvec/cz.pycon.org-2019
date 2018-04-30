@@ -60,7 +60,9 @@ You can run your dev server manually on [http://localhost:8000]() with:
 
 To start development with static files being processed run `gulp`. It will also start dev server for you.
 
-Open [http://localhost:3000]() and you should see development version of website with automatic compiling and reloading.
+Open [http://localhost:3838]() and you should see development version of website with automatic compiling and reloading.
+
+You can also set your hosts to map 127.0.0.1 to `pycon.test` and it will work on [http://pycon.test:3838]().
 
 Everything in `/static/css` and `/static/img` is replaced with 
 processed content of `/static_src/css` and `/static_src/img` respectively.
