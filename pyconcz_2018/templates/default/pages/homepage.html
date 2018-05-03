@@ -157,10 +157,9 @@
                                     {{ keynoter.short_bio|markdown }}
                                     {% with talk=keynoter.talks.all|first %}
                                         {% if talk.title != 'TBD' %}
-                                            <p class="small">
-                                                Learn more about
-                                                <a class="text-dark" href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
-                                                    {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
+                                            <p>
+                                                {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
+                                                <a class="text-orchid" href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
                                                     {{ talk.title }}
                                                 </a>
                                             </p>
