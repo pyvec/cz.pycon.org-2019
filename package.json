@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/pyvec/cz.pycon.org-2018#readme",
   "devDependencies": {
-    "autoprefixer": "^8.3.0",
-    "bootstrap": "^4.1.0",
-    "browser-sync": "^2.23.7",
+    "autoprefixer": "^8.4.1",
+    "bootstrap": "^4.1.1",
+    "browser-sync": "^2.24.2",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.9.3",
@@ -33,7 +33,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.0",
     "normalize.css": "^8.0.0",
-    "postcss-flexbugs-fixes": "^3.3.0",
+    "postcss-flexbugs-fixes": "^3.3.1",
     "voidcss-vertical-rhythm": "^1.2.0"
   },
   "dependencies": {}
