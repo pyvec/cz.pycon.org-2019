@@ -1,13 +1,20 @@
 tito-button {
-    @extend .row;
+    //@extend .row;
 }
 
-.tito-tickets-button {
+.pc-tito-link {
     @extend .btn;
     @extend .btn-lg;
     @extend .btn-success;
-    @extend .mx-auto;
 }
+
+.tito-tickets-button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
 
 /* Tito widget (not used) */
 /*
