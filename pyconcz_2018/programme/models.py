@@ -147,7 +147,7 @@ class Slot(models.Model):
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
 
-    description = models.CharField(max_length=100, blank=True, default='')
+    description = models.CharField(max_length=100, blank=True, default='', help_text='will be markdowned')
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
 
     class Meta:
