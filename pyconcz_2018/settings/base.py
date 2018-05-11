@@ -211,7 +211,8 @@ SPRINT_ROOMS = [
 
 OTHER_ROOMS = [
     (30, 'Foyer'),
-    (40, 'Backyard')
+    (40, 'Backyard'),
+    (50, 'Red room'),
 ]
 
 ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + SPRINT_ROOMS + OTHER_ROOMS
