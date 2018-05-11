@@ -13,7 +13,7 @@ class Command(BaseCommand):
         parser.add_argument('--talk-id', dest='talk_id', type=int, help='talk id')
 
     def handle(self, *args, **options):
-        qs = Talk.objects.filter(is_public=True)
+        qs = Talk.objects.filter(is_public=True, is_backup=False)
         if options['talk_id']:
             qs = qs.filter(id=options['talk_id'])
 
