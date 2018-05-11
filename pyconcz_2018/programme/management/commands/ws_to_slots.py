@@ -13,7 +13,9 @@ class Command(BaseCommand):
         parser.add_argument('--ws-id', dest='ws_id', type=int, help='ws id')
 
     def handle(self, *args, **options):
-        qs = Workshop.objects.all() if not options['ws_id'] else Workshop.objects.filter(id=options['ws_id'])
+        qs = Workshop.objects.filter(is_public=True)
+        if options['ws_id']:
+            qs = qs.filter(id=options['ws_id'])
 
         for one in Workshop.objects.all():
             Slot.objects.create(

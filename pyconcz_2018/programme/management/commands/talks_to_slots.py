@@ -13,7 +13,9 @@ class Command(BaseCommand):
         parser.add_argument('--talk-id', dest='talk_id', type=int, help='talk id')
 
     def handle(self, *args, **options):
-        qs = Talk.objects.all() if not options['talk_id'] else Talk.objects.filter(id=options['talk_id'])
+        qs = Talk.objects.filter(is_public=True)
+        if options['talk_id']:
+            qs = qs.filter(id=options['talk_id'])
 
         for one in qs:
             Slot.objects.create(
