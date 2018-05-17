@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'pyconcz_2018.programme',
 
     'widget_tweaks',
+    'emojificate',
 ]
 
 MIDDLEWARE = [
