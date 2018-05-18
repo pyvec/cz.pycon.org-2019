@@ -8,3 +8,4 @@ pillow~=3.4.1
 pyt==0.7.26
 django-import-export~=0.5.1
 django-widget-tweaks~=1.4.1
+emojificate~=0.2.0
