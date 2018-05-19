@@ -201,20 +201,24 @@ TALKS_ROOMS = [
     (2, 'Theatre'),
 ]
 WORKSHOPS_ROOMS = [
-    (4, 'room 346'),
-    (5, 'room 347'),
-    (6, 'room 301'),
-    (7, 'room 302'),
-    (8, 'room 303'),
+    (4, 'room 301'),
+    (5, 'room 302'),
+    (6, 'room 303'),
+    (7, 'room 343'),
+    (8, 'room 346'),
+    (9, 'room 347'),
+    (10, 'room 348'),
+    (11, 'room 349'),
 ]
 SPRINT_ROOMS = [
-    (9, 'room 343'),
+
 ]
 
 OTHER_ROOMS = [
     (30, 'Foyer'),
     (40, 'Backyard'),
     (50, 'Red room'),
+    (60, 'Fish tank'),
 ]
 
 ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + SPRINT_ROOMS + OTHER_ROOMS
