@@ -209,6 +209,7 @@ WORKSHOPS_ROOMS = [
     (9, 'room 347'),
     (10, 'room 348'),
     (11, 'room 349'),
+    (20, 'Respirium'),
 ]
 SPRINT_ROOMS = [
 
