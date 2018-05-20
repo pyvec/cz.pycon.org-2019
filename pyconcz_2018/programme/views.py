@@ -50,7 +50,6 @@ def _prefetch_generic(ct):
         )
         .prefetch_related(
             'content_object',
-            'content_object__{}s'.format(ct)
         )
         .annotate(
             date_end=EndTime()
