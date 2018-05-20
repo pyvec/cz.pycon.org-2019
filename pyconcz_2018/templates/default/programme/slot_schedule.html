@@ -1,6 +1,9 @@
 {% extends "_layout.html" %}
 
 
+{% load formatting %}
+
+
 {% block meta_title %}Schedule – {{ block.super }}{% endblock %}
 
 
@@ -14,7 +17,7 @@
         <h1>Schedule</h1>
 
         {# Temporary schedule #}
-        <section class="">
+        {% comment %}<section class="">
             <div class="">
                 <h2 class="">Thursday,<br> 08 June</h2>
                 <p class="">MeetFactory</p>
@@ -57,68 +60,134 @@
                     <span class="">10&nbsp;am–4&nbsp;pm</span>
                 </p>
             </div>
-        </section>
+        </section>{% endcomment %}
 
 
         {# Full schedule #}
 
-        {% regroup slots by date|date:'l, d F' as slots_by_date %}
+        {% comment %}
+        <pre>{{ slots|pprint }}</pre>
+        {% for slot in slots %}
+            <pre>{{ slot|pprint }}</pre>
+        {% endfor %}
 
-        <section class="">
+        <pre>{{ ALL_ROOMS|pprint }}</pre>
+{% endcomment %}
+
+
+        {% regroup slots by date|date:'l, j F' as slots_by_date %}
+
+        <section class="row justify-content-center">
 
             {% for day in slots_by_date %}
-                <div class="">
+                <div class="col-12 col-md-6 col-xl-4">
 
-                    <h2 class="">{{ day.grouper }}</h2>
+                    <h2 class="m-0 pb-2 pc-schedule-day">{{ day.grouper }}</h2>
 
-                    <p class="">
-                        {% if day.grouper == 'Sunday, 3 June' %}
+                    <h3 class="m-0">
+                        {% if day.grouper == 'Sunday, 3 June' %}
                             Sprints and Workshops<br>
                             <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
                         {% else %}
                             Talks<br>
                             MeetFactory
                         {% endif %}
-                    </p>
+                    </h3>
 
                     {% regroup day.list by date as slots_by_time %}
 
                     {% for slot in slots_by_time %}
                         {% if slot.list.0.description != 'Break' %}
-                            <div class="pc_schedule__item {% if slot.list.0.description %}pc_schedule__item--break{% endif %}">
-                                <span class="">{{ slot.grouper|time }}</span>
-                                {{ slot.list.0.description }}
+                            <div class="{% comment %}{% if slot.list.0.description %}bg-yellow {% else %} bg-cyan {% endif %}{% endcomment %}">
 
-                                <div class="">
+                                <h4 class="
+                                    h3 py-1 mt-2 mb-0
+                                    {% if slot.grouper|time == "10:00" %}
+                                    {% elif slot.grouper|time == "10:15" %}
+                                    {% elif slot.grouper|time == "11:00" %}
+                                    {% elif slot.grouper|time == "11:40" %}
+                                    {% elif slot.grouper|time == "12:25" %}
+                                    {% elif slot.grouper|time == "13:00" %}
+                                    {% elif slot.grouper|time == "14:00" %}
+                                    {% elif slot.grouper|time == "14:50" %}
+                                    {% elif slot.grouper|time == "15:30" %}
+                                    {% elif slot.grouper|time == "16:05" %}
+                                    {% elif slot.grouper|time == "16:35" %}
+                                    {% elif slot.grouper|time == "17:20" %}
+                                    {% elif slot.grouper|time == "18:20" %}
+                                    {% endif %}
+                                ">
+                                    {{ slot.grouper|time }}
+                                </h4>
+
+                                {% if slot.list.0.description == 'Welcome to PyCon CZ' %}
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 col-sm-6 mb-3">
+                                            <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
+                                            <p class="h5 m-0 text-sans-serif">{{ slot.list.0.description }}</p>
+                                        </div>
+                                    </div>
+                                {% elif slot.list.0.description %}
+                                    <p class="h5 mt-0 mb-2 py-3 bg-light text-dark">{{ slot.list.0.description }}</p>
+                                {% endif %}
+
+
+                                <div class="row justify-content-center">
                                     {% for slot_item in slot.list %}
                                         {% if slot_item.content_type or slot_item.description == 'Sprints' %}
-                                            <div class="">
 
-                                                <p class="">
+                                            <div class="col-12 col-sm-6 mt-0 mb-4">
+                                                <h5
+                                                    class="
+                                                    h6 mt-0 mb-2 p-1
+                                                    {% if slot_item.room == 1 %}
+                                                        bg-orchid
+                                                    {% elif slot_item.room == 2 %}
+                                                        bg-yellow text-dark
+                                                    {% elif slot_item.room == 50 %}
+                                                        bg-red text-dark
+                                                    {% else %}
+                                                        bg-cyan text-dark
+                                                    {% endif %}
+                                                    "
+                                                >
+                                                    {% comment %}{{ slot_item.room }}{% endcomment %}
                                                     {% for key, value in ALL_ROOMS %}
                                                         {% if slot_item.room == key %} {{ value }} {% endif %}
                                                     {% endfor %}
+                                                </h5>
+
+                                                {% comment %}<p>{{ slot_item.content_object.abstract|markdown }}</p>{% endcomment %}
+
+                                                <p class="h5 m-0">
+                                                    {{ slot_item.content_object.speakers|join:" &amp; " }}<br>
+                                                    {% if slot_item.content_type.model == 'talk' %}
+                                                        <a class="text-cyan d-block text-sans-serif" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}">
+                                                            {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                        </a>
+                                                        <span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
+                                                    {% elif slot_item.content_type.model == 'workshop' %}
+                                                        <a class="text-cyan d-block text-sans-serif" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}">
+                                                            {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                        </a>
+                                                        <span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
+                                                    {% elif slot_item.description == 'Sprints' %}
+                                                        <span class="text-sans-serif">{{ slot_item.description }}</span>
+                                                        <span class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
+                                                    {% endif %}
                                                 </p>
 
-                                                {% if slot_item.content_type.model == 'talk' %}
-                                                    <a class="" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}#main">
-                                                        <span class="">{{ slot_item.content_object.title }}</span>
-                                                    </a>
-                                                    <span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
-                                                {% elif slot_item.content_type.model == 'workshop' %}
-                                                    <a class="" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}#main">
-                                                        <span class="">{{ slot_item.content_object.title }}</span>
-                                                    </a>
-                                                    <span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
-                                                {% elif slot_item.description == 'Sprints' %}
-                                                    <span class=""><span class="">{{ slot_item.description }}</span></span>
-                                                    <span class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
+                                                {% if slot_item.content_object.difficulty == 'advanced' %}
+                                                    <p class="small text-center m-0">This {{ slot_item.content_type.model }} is aimed at advanced Pythonistas.</p>
+                                                {% endif %}
+                                                {% if slot_item.content_object.language == 'cs' %}
+                                                    <p class="small text-center m-0">This talk will be in Czech only.</p>
                                                 {% endif %}
 
                                             </div>
-                                        {% endif %} {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-
                             </div>
                         {% endif %}
                     {% endfor %}
