@@ -80,7 +80,7 @@
         <section class="row justify-content-center">
 
             {% for day in slots_by_date %}
-                <div class="col-12 col-md-6 col-xl-4">
+                <div class="col-12 col-md-6 col-xl-4 px-lg-2 px-xl-3">
 
                     <h2 class="m-0 pb-2 pc-schedule-day">{{ day.grouper }}</h2>
 
@@ -100,27 +100,11 @@
                         {% if slot.list.0.description != 'Break' %}
                             <div class="{% comment %}{% if slot.list.0.description %}bg-yellow {% else %} bg-cyan {% endif %}{% endcomment %}">
 
-                                <h4 class="
-                                    h3 py-1 mt-2 mb-0
-                                    {% if slot.grouper|time == "10:00" %}
-                                    {% elif slot.grouper|time == "10:15" %}
-                                    {% elif slot.grouper|time == "11:00" %}
-                                    {% elif slot.grouper|time == "11:40" %}
-                                    {% elif slot.grouper|time == "12:25" %}
-                                    {% elif slot.grouper|time == "13:00" %}
-                                    {% elif slot.grouper|time == "14:00" %}
-                                    {% elif slot.grouper|time == "14:50" %}
-                                    {% elif slot.grouper|time == "15:30" %}
-                                    {% elif slot.grouper|time == "16:05" %}
-                                    {% elif slot.grouper|time == "16:35" %}
-                                    {% elif slot.grouper|time == "17:20" %}
-                                    {% elif slot.grouper|time == "18:20" %}
-                                    {% endif %}
-                                ">
+                                <h4 class="h3 py-1 mt-0 mt-sm-2 mb-0">
                                     {{ slot.grouper|time }}
                                 </h4>
 
-                                {% if slot.list.0.description == 'Welcome to PyCon CZ' or slot.list.0.description == 'Lightning Talks' %}
+                                {% if slot.list.0.description|truncatewords_html:1 == 'Welcome ...' or slot.list.0.description == 'Lightning Talks' %}
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-sm-6 mb-3">
                                             <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
@@ -128,7 +112,17 @@
                                         </div>
                                     </div>
                                 {% elif slot.list.0.description %}
-                                    <p class="h5 mt-0 mb-2 py-3 bg-light text-dark">{{ slot.list.0.description|safe }}</p>
+                                    <p class="h5 mt-0 mb-2 py-3 text-dark
+                                        {% if slot.list.0.description|truncatewords_html:1 == 'Afterparty ...' %}
+                                            pc-gradient-orchidred-yellow text-black
+                                        {% elif slot.list.0.description|truncatewords_html:1 == "Board ..." %}
+                                            pc-gradient-navy-cyan text-black
+                                        {% else %}
+                                            bg-light
+                                        {% endif %}
+                                    ">
+                                        {{ slot.list.0.description|safe }}
+                                    </p>
                                 {% endif %}
 
 
@@ -136,7 +130,7 @@
                                     {% for slot_item in slot.list %}
                                         {% if slot_item.content_type or slot_item.description == 'Sprints' %}
 
-                                            <div class="col-12 col-sm-6 mt-0 mb-4">
+                                            <div class="col-12 col-sm-6 mt-0 mb-3 mb-sm-4">
                                                 <h5
                                                     class="
                                                     h6 mt-0 mb-2 p-1
@@ -144,10 +138,10 @@
                                                         bg-orchid
                                                     {% elif slot_item.room == 2 %}
                                                         bg-yellow text-dark
+                                                    {% elif slot_item.room == 11 or slot_item.room == 20 %}
+                                                        bg-orange
                                                     {% elif slot_item.room < 20 %}
                                                         bg-cyan text-dark
-                                                    {% elif slot_item.room == 20 %}
-                                                        bg-orange
                                                     {% elif slot_item.room == 50 %}
                                                         bg-red text-dark
                                                     {% else %}
@@ -163,11 +157,10 @@
 
                                                 {% comment %}<p>{{ slot_item.content_object.abstract|markdown }}</p>{% endcomment %}
 
-                                                <p class="h5 m-0">
-
+                                                <div class="h5 m-0">
                                                     {% if slot_item.content_type.model == 'talk' %}
                                                         <a
-                                                            class="d-block text-sans-serif {% if slot_item.room == 1 %} text-orchidlight {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            class="pc-schedule-title d-block text-sans-serif {% if slot_item.room == 1 %} text-orchidlight {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
                                                             href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}"
                                                         >
                                                             {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
@@ -175,18 +168,18 @@
                                                         {% comment %}<span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>{% endcomment %}
                                                     {% elif slot_item.content_type.model == 'workshop' %}
                                                         <a
-                                                            class="d-block text-sans-serif {% if slot_item.room == 1 %} text-orchid {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            class="pc-schedule-title d-block text-sans-serif {% if slot_item.room == 1 %} text-orchid {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
                                                             href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}"
                                                         >
                                                             {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
                                                         </a>
                                                         {% comment %}<span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>{% endcomment %}
                                                     {% elif slot_item.description == 'Sprints' %}
-                                                        <span class="text-sans-serif">{{ slot_item.description }}</span>
-                                                        <span class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
+                                                        <div class="text-sans-serif">{{ slot_item.description }}</div>
+                                                        <div class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</div>
                                                     {% endif %}
                                                     <span class="d-block text-center mt-1">{{ slot_item.content_object.speakers|join:" &amp; " }}</span>
-                                                </p>
+                                                </div>
 
                                                 {% if slot_item.content_object.difficulty == 'advanced' %}
                                                     <p class="small text-center m-0">This {{ slot_item.content_type.model }} is aimed at advanced Pythonistas.</p>

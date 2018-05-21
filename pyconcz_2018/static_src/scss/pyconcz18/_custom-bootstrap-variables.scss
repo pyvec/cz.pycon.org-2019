@@ -122,8 +122,8 @@
         "red": $pc-color-red,
         "orchidred": $pc-color-orchidred,
         "orchid": $pc-color-orchid,
-        "orchidlight": lighten($pc-color-orchid, 5%)
-
+        "orchidlight": lighten($pc-color-orchid, 5%),
+        "black": #000
     ); $theme-colors: $theme-colors !global;
     // stylelint-enable
 
