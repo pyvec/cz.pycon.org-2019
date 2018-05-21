@@ -104,7 +104,7 @@
                                     {{ slot.grouper|time }}
                                 </h4>
 
-                                {% if slot.list.0.description|truncatewords_html:1 == 'Welcome ...' or slot.list.0.description == 'Lightning Talks' %}
+                                {% if slot.list.0.description|truncatewords_html:1 == 'Welcome ...' or slot.list.0.description == 'Lightning Talks' or slot.list.0.description == 'Closing ceremony' %}
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-sm-6 mb-3">
                                             <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
