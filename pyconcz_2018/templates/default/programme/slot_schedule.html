@@ -120,7 +120,7 @@
                                     {{ slot.grouper|time }}
                                 </h4>
 
-                                {% if slot.list.0.description == 'Welcome to PyCon CZ' %}
+                                {% if slot.list.0.description == 'Welcome to PyCon CZ' or slot.list.0.description == 'Lightning Talks' %}
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-sm-6 mb-3">
                                             <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
@@ -144,10 +144,14 @@
                                                         bg-orchid
                                                     {% elif slot_item.room == 2 %}
                                                         bg-yellow text-dark
+                                                    {% elif slot_item.room < 20 %}
+                                                        bg-cyan text-dark
+                                                    {% elif slot_item.room == 20 %}
+                                                        bg-orange
                                                     {% elif slot_item.room == 50 %}
                                                         bg-red text-dark
                                                     {% else %}
-                                                        bg-cyan text-dark
+                                                        bg-light text-dark
                                                     {% endif %}
                                                     "
                                                 >
@@ -160,21 +164,28 @@
                                                 {% comment %}<p>{{ slot_item.content_object.abstract|markdown }}</p>{% endcomment %}
 
                                                 <p class="h5 m-0">
-                                                    {{ slot_item.content_object.speakers|join:" &amp; " }}<br>
+
                                                     {% if slot_item.content_type.model == 'talk' %}
-                                                        <a class="text-cyan d-block text-sans-serif" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}">
+                                                        <a
+                                                            class="d-block text-sans-serif {% if slot_item.room == 1 %} text-orchidlight {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}"
+                                                        >
                                                             {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
                                                         </a>
-                                                        <span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
+                                                        {% comment %}<span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>{% endcomment %}
                                                     {% elif slot_item.content_type.model == 'workshop' %}
-                                                        <a class="text-cyan d-block text-sans-serif" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}">
+                                                        <a
+                                                            class="d-block text-sans-serif {% if slot_item.room == 1 %} text-orchid {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}"
+                                                        >
                                                             {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
                                                         </a>
-                                                        <span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
+                                                        {% comment %}<span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>{% endcomment %}
                                                     {% elif slot_item.description == 'Sprints' %}
                                                         <span class="text-sans-serif">{{ slot_item.description }}</span>
                                                         <span class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
                                                     {% endif %}
+                                                    <span class="d-block text-center mt-1">{{ slot_item.content_object.speakers|join:" &amp; " }}</span>
                                                 </p>
 
                                                 {% if slot_item.content_object.difficulty == 'advanced' %}

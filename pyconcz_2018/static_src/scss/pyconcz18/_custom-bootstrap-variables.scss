@@ -121,7 +121,9 @@
         "orange": $pc-color-orange,
         "red": $pc-color-red,
         "orchidred": $pc-color-orchidred,
-        "orchid": $pc-color-orchid
+        "orchid": $pc-color-orchid,
+        "orchidlight": lighten($pc-color-orchid, 5%)
+
     ); $theme-colors: $theme-colors !global;
     // stylelint-enable
 
@@ -216,12 +218,12 @@
     //
     // Define the maximum width of `.container` for different screen sizes.
 
-     // $container-max-widths: (
-     //         sm: 540px,
-     //         md: 720px,
-     //         lg: 960px,
-     //         xl: 1140px
-     // ); $container-max-widths: $container-max-widths !global;
+    // $container-max-widths: (
+    //         sm: 540px,
+    //         md: 720px,
+    //         lg: 960px,
+    //         xl: 1140px
+    // ); $container-max-widths: $container-max-widths !global;
 
     // @include _assert-ascending($container-max-widths, "$container-max-widths");
 
