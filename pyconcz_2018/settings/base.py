@@ -89,10 +89,11 @@ PHASE = [
     '70-finaid-opened',
     '80-talks-published',  # even if only part of them
     '90-finaid-closed',
-    '100-tickets-sold-out'
+    '100-tickets-sold-out',
+    '110-schedule-published'
 ]
 
-PHASE_CURRENT = 10
+PHASE_CURRENT = 11
 
 TEMPLATES = [
     {

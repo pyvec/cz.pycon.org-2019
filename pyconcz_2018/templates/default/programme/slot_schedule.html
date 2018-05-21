@@ -1,130 +1,197 @@
 {% extends "_layout.html" %}
 
 
+{% load formatting %}
+
+
 {% block meta_title %}Schedule – {{ block.super }}{% endblock %}
 
 
 {% block main %}
-    <div class="alert-info">
-        <p>Under Construction</p>
-    </div>
-    {% comment %}<main class="pc_container" role="main">
+    <div class="container-fluid">
 
-        <div class="nav nav--programme">
-            {% include '_menu_programme.html' %}
-        </div>
+        <nav role="navigation">
+            {% include '_menu_programme.html' with pc_alignment='center' %}
+        </nav>
 
         <h1>Schedule</h1>
 
         {# Temporary schedule #}
-        <section class="pc_schedule__list pc_schedule__list--temporary">
-            <div class="pc_schedule__day">
-                <h2 class="pc_schedule__date">Thursday,<br> 08 June</h2>
-                <p class="pc_schedule__place">MeetFactory</p>
-                <p class="pc_schedule__item">
+        {% comment %}<section class="">
+            <div class="">
+                <h2 class="">Thursday,<br> 08 June</h2>
+                <p class="">MeetFactory</p>
+                <p class="">
                     Registration
-                    <span class="pc_schedule__time">9&nbsp;am–10&nbsp;am</span>
+                    <span class="">9&nbsp;am–10&nbsp;am</span>
                 </p>
-                <p class="pc_schedule__item">
+                <p class="">
                     Talks
-                    <span class="pc_schedule__time">10&nbsp;am–6&nbsp;pm</span>
+                    <span class="">10&nbsp;am–6&nbsp;pm</span>
                 </p>
             </div>
 
-            <div class="pc_schedule__day">
-
-                <h2 class="pc_schedule__date">Friday,<br> 09 June</h2>
-                <p class="pc_schedule__place">MeetFactory</p>
-                <p class="pc_schedule__item">
+            <div class="">
+                <h2 class="">Friday,<br> 09 June</h2>
+                <p class="">MeetFactory</p>
+                <p class="">
                     Registration
-                    <span class="pc_schedule__time">9&nbsp;am–10&nbsp;am</span>
+                    <span class="">9&nbsp;am–10&nbsp;am</span>
                 </p>
-                <p class="pc_schedule__item">
+                <p class="">
                     Talks
-                    <span class="pc_schedule__time">10&nbsp;am–6&nbsp;pm</span>
+                    <span class="">10&nbsp;am–6&nbsp;pm</span>
                 </p>
-                <p class="pc_schedule__item">
+                <p class="">
                     Afterparty
-                    <span class="pc_schedule__time">
-            6&nbsp;pm <strong>till you drop<sup>*</sup></strong>
-            <br><small><sup>*</sup>or&nbsp;3&nbsp;am (whichever comes first)</small>
-          </span>
+                    <span class="">
+                        6&nbsp;pm <strong>till you drop<sup>*</sup></strong><br><small><sup>*</sup>or&nbsp;3&nbsp;am (whichever comes first)</small>
+                    </span>
                 </p>
             </div>
 
-            <div class="pc_schedule__day">
-                <h2 class="pc_schedule__date">Saturday,<br> 10 June</h2>
-                <p class="pc_schedule__place">
+            <div class="">
+                <h2 class="">Saturday,<br> 10 June</h2>
+                <p class="">
                     <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
                 </p>
-                <p class="pc_schedule__item">
+                <p class="">
                     Sprints and Workshops
-                    <span class="pc_schedule__time">10&nbsp;am–4&nbsp;pm</span>
+                    <span class="">10&nbsp;am–4&nbsp;pm</span>
                 </p>
             </div>
-        </section>
+        </section>{% endcomment %}
 
 
         {# Full schedule #}
 
-        {% regroup slots by date|date:'l, d F' as slots_by_date %}
+        {% comment %}
+        <pre>{{ slots|pprint }}</pre>
+        {% for slot in slots %}
+            <pre>{{ slot|pprint }}</pre>
+        {% endfor %}
 
-        <section class="pc_schedule__list">
+        <pre>{{ ALL_ROOMS|pprint }}</pre>
+{% endcomment %}
+
+
+        {% regroup slots by date|date:'l, j F' as slots_by_date %}
+
+        <section class="row justify-content-center">
 
             {% for day in slots_by_date %}
-                <div class="pc_schedule__day">
+                <div class="col-12 col-md-6 col-xl-4 px-lg-2 px-xl-3">
 
-                    <h2 class="pc_schedule__date">{{ day.grouper }}</h2>
-                    <p class="pc_schedule__place">
-                        {% if day.grouper == 'Saturday, 10 June' %}
+                    <h2 class="m-0 pb-2 pc-schedule-day">{{ day.grouper }}</h2>
+
+                    <h3 class="m-0">
+                        {% if day.grouper == 'Sunday, 3 June' %}
                             Sprints and Workshops<br>
                             <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
                         {% else %}
                             Talks<br>
                             MeetFactory
                         {% endif %}
-                    </p>
+                    </h3>
 
                     {% regroup day.list by date as slots_by_time %}
 
                     {% for slot in slots_by_time %}
                         {% if slot.list.0.description != 'Break' %}
-                            <div class="pc_schedule__item {% if slot.list.0.description %}pc_schedule__item--break{% endif %}">
-                                <span class="pc_schedule__time">{{ slot.grouper|time }}</span>
-                                {{ slot.list.0.description }}
+                            <div class="{% comment %}{% if slot.list.0.description %}bg-yellow {% else %} bg-cyan {% endif %}{% endcomment %}">
 
-                                <div class="pc_schedule__slot">
+                                <h4 class="h3 py-1 mt-0 mt-sm-2 mb-0">
+                                    {{ slot.grouper|time }}
+                                </h4>
+
+                                {% if slot.list.0.description|truncatewords_html:1 == 'Welcome ...' or slot.list.0.description == 'Lightning Talks' or slot.list.0.description == 'Closing ceremony' %}
+                                    <div class="row justify-content-center">
+                                        <div class="col-12 col-sm-6 mb-3">
+                                            <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
+                                            <p class="h5 m-0 text-sans-serif">{{ slot.list.0.description|safe }}</p>
+                                        </div>
+                                    </div>
+                                {% elif slot.list.0.description %}
+                                    <p class="h5 mt-0 mb-2 py-3 text-dark
+                                        {% if slot.list.0.description|truncatewords_html:1 == 'Afterparty ...' %}
+                                            pc-gradient-orchidred-yellow text-black
+                                        {% elif slot.list.0.description|truncatewords_html:1 == "Board ..." %}
+                                            pc-gradient-navy-cyan text-black
+                                        {% else %}
+                                            bg-light
+                                        {% endif %}
+                                    ">
+                                        {{ slot.list.0.description|safe }}
+                                    </p>
+                                {% endif %}
+
+
+                                <div class="row justify-content-center">
                                     {% for slot_item in slot.list %}
                                         {% if slot_item.content_type or slot_item.description == 'Sprints' %}
-                                            <div class="pc_schedule__room">
 
-                                                <p class="pc_schedule__room__id">
+                                            <div class="col-12 col-sm-6 mt-0 mb-3 mb-sm-4">
+                                                <h5
+                                                    class="
+                                                    h6 mt-0 mb-2 p-1
+                                                    {% if slot_item.room == 1 %}
+                                                        bg-orchid
+                                                    {% elif slot_item.room == 2 %}
+                                                        bg-yellow text-dark
+                                                    {% elif slot_item.room == 11 or slot_item.room == 20 %}
+                                                        bg-orange
+                                                    {% elif slot_item.room < 20 %}
+                                                        bg-cyan text-dark
+                                                    {% elif slot_item.room == 50 %}
+                                                        bg-red text-dark
+                                                    {% else %}
+                                                        bg-light text-dark
+                                                    {% endif %}
+                                                    "
+                                                >
+                                                    {% comment %}{{ slot_item.room }}{% endcomment %}
                                                     {% for key, value in ALL_ROOMS %}
                                                         {% if slot_item.room == key %} {{ value }} {% endif %}
                                                     {% endfor %}
-                                                </p>
+                                                </h5>
 
-                                                {% if slot_item.content_type.model == 'talk' %}
-                                                    <a class="pc_schedule__details" href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}#main">
-                                                        <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
-                                                    </a>
-                                                    <span class="pc_schedule__speakers">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>
-                                                {% elif slot_item.content_type.model == 'workshop' %}
-                                                    <a class="pc_schedule__details" href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}#main">
-                                                        <span class="pc_schedule__title">{{ slot_item.content_object.title }}</span>
-                                                    </a>
-                                                    <span class="pc_schedule__speakers">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>
-                                                {% elif slot_item.description == 'Sprints' %}
-                                                    <span class="pc_schedule__details">
-                            <span class="pc_schedule__title">{{ slot_item.description }}</span>
-                          </span>
-                                                    <span class="pc_schedule__speakers">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</span>
+                                                {% comment %}<p>{{ slot_item.content_object.abstract|markdown }}</p>{% endcomment %}
+
+                                                <div class="h5 m-0">
+                                                    {% if slot_item.content_type.model == 'talk' %}
+                                                        <a
+                                                            class="pc-schedule-title d-block text-sans-serif {% if slot_item.room == 1 %} text-orchidlight {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}"
+                                                        >
+                                                            {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                        </a>
+                                                        {% comment %}<span class="">{{ slot_item.content_object.talks.all|join:'<br>' }}</span>{% endcomment %}
+                                                    {% elif slot_item.content_type.model == 'workshop' %}
+                                                        <a
+                                                            class="pc-schedule-title d-block text-sans-serif {% if slot_item.room == 1 %} text-orchid {% elif slot_item.room == 2 %} text-yellow {% elif slot_item.room < 20 %} text-cyan {% elif slot_item.room == 20 %} text-orange {% elif slot_item.room == 50 %} text-red  {% else %} text-light {% endif %}"
+                                                            href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}"
+                                                        >
+                                                            {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                        </a>
+                                                        {% comment %}<span class="">{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>{% endcomment %}
+                                                    {% elif slot_item.description == 'Sprints' %}
+                                                        <div class="text-sans-serif">{{ slot_item.description }}</div>
+                                                        <div class="">freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</div>
+                                                    {% endif %}
+                                                    <span class="d-block text-center mt-1">{{ slot_item.content_object.speakers|join:" &amp; " }}</span>
+                                                </div>
+
+                                                {% if slot_item.content_object.difficulty == 'advanced' %}
+                                                    <p class="small text-center m-0">This {{ slot_item.content_type.model }} is aimed at advanced Pythonistas.</p>
+                                                {% endif %}
+                                                {% if slot_item.content_object.language == 'cs' %}
+                                                    <p class="small text-center m-0">This talk will be in Czech only.</p>
                                                 {% endif %}
 
                                             </div>
-                                        {% endif %} {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
-
                             </div>
                         {% endif %}
                     {% endfor %}
@@ -133,6 +200,6 @@
             {% endfor %}
 
         </section>
-    </main>{% endcomment %}
+    </div>
 
 {% endblock %}
