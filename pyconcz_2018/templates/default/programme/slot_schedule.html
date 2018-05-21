@@ -124,7 +124,7 @@
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-sm-6 mb-3">
                                             <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
-                                            <p class="h5 m-0 text-sans-serif">{{ slot.list.0.description }}</p>
+                                            <p class="h5 m-0 text-sans-serif">{{ slot.list.0.description|safe }}</p>
                                         </div>
                                     </div>
                                 {% elif slot.list.0.description %}
