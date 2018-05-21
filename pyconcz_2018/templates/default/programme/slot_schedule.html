@@ -128,7 +128,7 @@
                                         </div>
                                     </div>
                                 {% elif slot.list.0.description %}
-                                    <p class="h5 mt-0 mb-2 py-3 bg-light text-dark">{{ slot.list.0.description }}</p>
+                                    <p class="h5 mt-0 mb-2 py-3 bg-light text-dark">{{ slot.list.0.description|safe }}</p>
                                 {% endif %}
 
 
