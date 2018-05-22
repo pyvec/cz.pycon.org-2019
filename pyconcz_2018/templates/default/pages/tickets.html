@@ -21,7 +21,9 @@
     {% now "nd" as today %}
     {% with last_day_regular=520 today=today|add:0 %}
         <div class="container">
+
             <h1>Tickets</h1>
+
             {% if total_sold_out %}
                 <p class="lead">We’re sorry but all available tickets have been sold out.</p>
                 <p class="text-center small">
@@ -35,24 +37,27 @@
             {% else %}
                 <p class="lead">Good news!<br>You can still get your ticket at a late bird price.</p>
             {% endif %}
-            <h2>Each ticket includes</h2>
-            <ul class="{% if not total_sold_out %}list-inline{% endif %}">
-                <li class="{% if not total_sold_out %}list-inline-item{% endif %}">entry for both conference days at MeetFactory (1–2&nbsp;June)</li>
-                <li class="{% if not total_sold_out %}list-inline-item{% endif %}">entry to the Afterparty on 2&nbsp;June</li>
-                <li class="{% if not total_sold_out %}list-inline-item{% endif %}">lunch on all days</li>
-                <li class="{% if not total_sold_out %}list-inline-item{% endif %}">water, coffee and tea</li>
-                <li class="{% if not total_sold_out %}list-inline-item{% endif %}">option to register for workshops and attend sprints
-                    {% if not total_sold_out %}<small>(tickets for workshops will be available later, most of them for free)</small>{% endif %}
-                </li>
-            </ul>
 
-            <h2>Workshop tickets</h2>
-
-            <p>Workshop registration for PyCon CZ ticket holders will open on this website on Thursday, 24 May 20:00 CEST</p>
-            <p>As the seats are limited, don’t miss your chance to attend these <a href="{% url "speakers_list" type="workshops" %}">awesome workshops</a>.</p>
-
+            <h2 id="workshops">Workshop registration</h2>
+            <p class="lead p-2 bg-info text-white">Workshop registration for PyCon CZ ticket holders will open here on Thursday, 24&nbsp;May&nbsp;20:00&nbsp;CEST</p>
+            <p class="text-center">As the seats are limited, don’t miss your chance to attend these <a href="{% url "speakers_list" type="workshops" %}">awesome workshops</a>.</p>
         </div>
         {% if not total_sold_out %}
+
+            <div class="container">
+                <h2>Each ticket includes</h2>
+                <ul class="list-inline">
+                    <li class="list-inline-item">entry for both conference days at MeetFactory (1–2&nbsp;June)</li>
+                    <li class="list-inline-item">entry to the Afterparty on 2&nbsp;June</li>
+                    <li class="list-inline-item">lunch on all days</li>
+                    <li class="list-inline-item">water, coffee and tea</li>
+                    <li class="list-inline-item">option to register for workshops and attend sprints
+                        <small>(registration for workshops will be available later, mostly for free)</small>
+                    </li>
+                </ul>
+            </div>
+
+
             <div class="container-fluid">
 
                 <h2 class="sr-only">Ticket types</h2>
