@@ -20,11 +20,6 @@
 {% block main %}
     {% now "nd" as today %}
     {% with last_day_regular=520 today=today|add:0 %}
-        {% comment %}
-            <h2>Workshop tickets</h1>
-            <p>These are only for PyCon attendees.<br><strong>Please don’t register for more workshops at the same time.</strong></div>
-        {% endcomment %}
-
         <div class="container">
             <h1>Tickets</h1>
             {% if total_sold_out %}
