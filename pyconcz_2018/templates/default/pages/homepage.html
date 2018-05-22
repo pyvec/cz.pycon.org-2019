@@ -52,34 +52,43 @@
                 {% endblock %}
 
                 {% block dates %}
-                    <div class="row">
-                        <div class="col">
-                            <h3 class="mt-3 text-yellow">
-                                {% comment %}<a href="{% url 'speakers_list' type='talks' %}">{% endcomment %}
-                                Talks<br>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-6 col-lg-3 col-lg-3 order-2 order-lg-1">
+                            <h3 class="h4 mt-3 mb-0 text-yellow">
                                 <small>1-2&nbsp;June</small>
-                                {% comment %}</a>{% endcomment %}
+                                <a class="d-block" href="{% url 'speakers_list' type='talks' %}">
+                                    Talks
+                                </a>
                             </h3>
-
-                            {% comment %}
-                                <p>
-                                    <strong>Two days</strong>, <strong>two</strong> parallel tracks,
-                                    <strong>four</strong> keynotes and <strong>27</strong>
-                                    <a href="{% url 'speakers_list' type='talks' %}">awesome talks</a>.
-                                </p>
-                            {% endcomment %}
                         </div>
-                        <div class="col mb-4">
-                            <h3 class="mt-3 text-yellow">
-                                {% comment %}<a href="{% url 'speakers_list' type='workshops' %}">{% endcomment %}
-                                Workshops<br>
+                        <div class="col-12 col-sm-6 col-lg-3 order-3 order-lg-2">
+                            <h3 class="h4 mt-3 mb-0 text-yellow">
+                                <small>1&nbsp;June</small>
+                                <span class="d-block"{% comment %} href="{% url 'board_game_night' %}"{% endcomment %}>
+                                    Board Game Night
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 order-4 order-lg-3">
+                            <h3 class="h4 mt-3 mb-0 text-yellow">
+                                <small>2&nbsp;June</small>
+                                <span class="d-block">
+                                    Afterparty
+                                </span>
+                            </h3>
+                            <p class="text-center text-yellow">Till you drop or 3 am (whichever comes first).</p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 order-2 order-lg-4">
+                            <h3 class="h4 mt-3 mb-0 text-yellow">
                                 <small>3&nbsp;June</small>
-                                {% comment %}</a>{% endcomment %}
+                                <a class="d-block" href="{% url 'speakers_list' type='workshops' %}">
+                                    Workshops
+                                </a>
+                                &amp; Sprints at&nbsp;<a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
                             </h3>
-                            {% comment %}
-                                <p><strong>Nine</strong> <a href="{% url 'speakers_list' type='workshops' %}">workshops</a> in two blocks and sprinting <strong>all day long</strong>. Hack on open-source projects together with other Python community members.</p>
-                            {% endcomment %}
                         </div>
+
+
                     </div>
                 {% endblock %}
             </div>
