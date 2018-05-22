@@ -106,6 +106,12 @@ class Workshop(models.Model):
         ('cs', 'Czech/Slovak'),
     )
 
+    REGISTRATION = (
+        ('without', 'Without'),
+        ('free', 'Free'),
+        ('paid', 'Paid'),
+    )
+
     type = models.CharField(
         max_length=10, choices=TYPE, default='sprint'
     )
@@ -126,6 +132,10 @@ class Workshop(models.Model):
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+
+    registration = models.CharField(
+        max_length=10, choices=REGISTRATION, default='free', blank='free'
+    )
 
     def __str__(self):
         return self.title
