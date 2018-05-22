@@ -80,19 +80,18 @@
         <section class="row justify-content-center">
 
             {% for day in slots_by_date %}
-                <div class="col-12 col-md-6 col-xl-4 px-lg-2 px-xl-3">
+                <div class="col-12 col-md-6 col-xl-4 px-lg-2 px-xl-3 mb-4">
 
-                    <h2 class="m-0 pb-2 pc-schedule-day">{{ day.grouper }}</h2>
+                    <h2 class="h3 m-0 pb-2 pc-schedule-day">{{ day.grouper }}</h2>
 
-                    <h3 class="m-0">
+                    <p class="text-center m-0">
                         {% if day.grouper == 'Sunday, 3 June' %}
-                            Sprints and Workshops<br>
+                            Sprints and Workshops at
                             <a href="https://goo.gl/maps/ZA3DoxKdt3m">FIT&nbsp;CTU</a>
                         {% else %}
-                            Talks<br>
-                            MeetFactory
+                            Talks at MeetFactory
                         {% endif %}
-                    </h3>
+                    </p>
 
                     {% regroup day.list by date as slots_by_time %}
 
@@ -100,14 +99,14 @@
                         {% if slot.list.0.description != 'Break' %}
                             <div class="{% comment %}{% if slot.list.0.description %}bg-yellow {% else %} bg-cyan {% endif %}{% endcomment %}">
 
-                                <h4 class="h3 py-1 mt-0 mt-sm-2 mb-0">
+                                <h3 class="py-1 mt-0 mt-sm-2 mb-0">
                                     {{ slot.grouper|time }}
-                                </h4>
+                                </h3>
 
                                 {% if slot.list.0.description|truncatewords_html:1 == 'Welcome ...' or slot.list.0.description == 'Lightning Talks' or slot.list.0.description == 'Closing ceremony' %}
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-sm-6 mb-3">
-                                            <h5 class="h6 m-0 bg-orchid py-1 mt-0 mb-2">Main</h5>
+                                            <h4 class="h5 m-0 bg-orchid py-1 mt-0 mb-2">Main</h4>
                                             <p class="h5 m-0 text-sans-serif">{{ slot.list.0.description|safe }}</p>
                                         </div>
                                     </div>
@@ -131,9 +130,9 @@
                                         {% if slot_item.content_type or slot_item.description == 'Sprints' %}
 
                                             <div class="col-12 col-sm-6 mt-0 mb-3 mb-sm-4">
-                                                <h5
+                                                <h4
                                                     class="
-                                                    h6 mt-0 mb-2 p-1
+                                                    h5 mt-0 mb-2 p-1
                                                     {% if slot_item.room == 1 %}
                                                         bg-orchid
                                                     {% elif slot_item.room == 2 %}
@@ -153,7 +152,7 @@
                                                     {% for key, value in ALL_ROOMS %}
                                                         {% if slot_item.room == key %} {{ value }} {% endif %}
                                                     {% endfor %}
-                                                </h5>
+                                                </h4>
 
                                                 {% comment %}<p>{{ slot_item.content_object.abstract|markdown }}</p>{% endcomment %}
 
@@ -182,10 +181,10 @@
                                                 </div>
 
                                                 {% if slot_item.content_object.difficulty == 'advanced' %}
-                                                    <p class="small text-center m-0">This {{ slot_item.content_type.model }} is aimed at advanced Pythonistas.</p>
+                                                    <p class="small text-center m-0 text-muted">This {{ slot_item.content_type.model }} is aimed at advanced Pythonistas.</p>
                                                 {% endif %}
                                                 {% if slot_item.content_object.language == 'cs' %}
-                                                    <p class="small text-center m-0">This talk will be in Czech only.</p>
+                                                    <p class="small text-center m-0 text-muted">This talk will be in Czech only.</p>
                                                 {% endif %}
 
                                             </div>

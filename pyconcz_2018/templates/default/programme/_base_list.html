@@ -13,6 +13,8 @@
 
         <h1>{% block speakers_title %}{% endblock %}</h1>
 
+        {% block top_info %}{% endblock %}
+
         <div class="pc-talks">
             {% for speaker in speakers %}
                 {% block item %}
