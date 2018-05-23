@@ -39,6 +39,10 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}
         {% endblock %}
 
+        {% block link_board_game_night %}
+            {% include "__nav-link.html" with url="board_game_night" link_text="Board Game Night" %}
+        {% endblock %}
+
         {% block link_sponsors %}
             {% include "__nav-link.html" with url="sponsors_list" link_text="Sponsors" %}
         {% endblock %}

@@ -114,13 +114,17 @@
                                     <p class="h5 mt-0 mb-2 py-3 text-dark
                                         {% if slot.list.0.description|truncatewords_html:1 == 'Afterparty ...' %}
                                             pc-gradient-orchidred-yellow text-black
-                                        {% elif slot.list.0.description|truncatewords_html:1 == "Board ..." %}
+                                        {% elif slot.list.0.description|truncatewords_html:1 == "board_game_night" %}
                                             pc-gradient-navy-cyan text-black
                                         {% else %}
                                             bg-light
                                         {% endif %}
                                     ">
-                                        {{ slot.list.0.description|safe }}
+                                        {% if slot.list.0.description|truncatewords_html:1 == "board_game_night" %}
+                                            <a href="{% url 'board_game_night' %}">Board Game Night!</a>
+                                        {% else %}
+                                            {{ slot.list.0.description|safe }}
+                                        {% endif %}
                                     </p>
                                 {% endif %}
 
