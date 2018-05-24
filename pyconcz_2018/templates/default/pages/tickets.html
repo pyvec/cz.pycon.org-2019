@@ -38,9 +38,7 @@
                 <p class="lead">Good news!<br>You can still get your ticket at a late bird price.</p>
             {% endif %}
 
-            <h2 id="workshops">Workshop registration</h2>
-            <p class="lead p-2 bg-info text-white">Workshop registration for PyCon CZ ticket holders will open here on Thursday, 24&nbsp;May&nbsp;20:00&nbsp;CEST</p>
-            <p class="text-center">As the seats are limited, don’t miss your chance to attend these <a href="{% url "speakers_list" type="workshops" %}">awesome workshops</a>.</p>
+            {% block workshop_registration %}{% endblock %}
         </div>
         {% if not total_sold_out %}
 

@@ -8,11 +8,26 @@ tito-button {
     @extend .btn-success;
 }
 
+
 .tito-tickets-button {
     padding: 0;
     margin: 0;
     border: 0;
     background-color: transparent;
+}
+
+.pc-tito-link-workshops {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend .btn-outline-light;
+
+    .tito-tickets-button {
+        color: $white;
+
+        &:hover {
+            color: $dark;
+        }
+    }
 }
 
 
