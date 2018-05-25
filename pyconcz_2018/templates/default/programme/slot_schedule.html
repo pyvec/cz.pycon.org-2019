@@ -102,15 +102,11 @@
                                 {% if day.grouper == 'Sunday, 3 June' %}
                                     {% if slot.grouper|time == '10:00' or slot.grouper|time == '14:00' %}
                                         <div class="col-sm-6">
-
                                             <div>
                                                 <h3 class="py-1 mt-0 mt-sm-2 mb-0">{{ slot.grouper|time }}</h3>
-
                                                 <div class="row justify-content-center">
                                                     <div class="col-12 mt-0 mb-3 mb-sm-4">
-                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">
-                                                            room 349
-                                                        </h4>
+                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">room 349</h4>
                                                         <div class="h5 m-0">
                                                             <span class="pc-schedule-title d-block text-sans-serif">
                                                                 Sprints
@@ -122,17 +118,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div>
-                                                {% if slot.grouper|time == '11:00' %}
+                                                {% if slot.grouper|time == '10:00' %}
                                                     <h3 class="py-1 mt-0 mt-sm-2 mb-0">11:00</h3>
                                                 {% endif %}
-
                                                 <div class="row justify-content-center">
                                                     <div class="col-12 mt-0 mb-3 mb-sm-4">
-                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">
-                                                            Respirium
-                                                        </h4>
+                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">Respirium</h4>
                                                         <div class="h5 m-0">
                                                             <a class="pc-schedule-title d-block text-sans-serif text-orange" href="/2018/programme/detail/workshop/7/">
                                                                 The doc(tor) is in! <em>documenta&shy;tion helpdesk</em>
