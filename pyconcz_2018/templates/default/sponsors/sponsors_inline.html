@@ -3,7 +3,9 @@
 {% if sponsors %}
     <div class="bg-light text-dark py-1">
         <div class="container">
-            <h2 class="text-muted">Our partners</h2>
+            <h2 class="text-muted">
+                <a class="text-dark" href="{% url 'sponsors_list' %}">Our partners</a>
+            </h2>
 
             <section class="mb-4">
                 {% for level in sponsors_list %}
