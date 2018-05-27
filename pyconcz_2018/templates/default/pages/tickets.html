@@ -26,10 +26,6 @@
 
             {% if total_sold_out %}
                 <p class="lead">We’re sorry but all available tickets have been sold out.</p>
-                <p class="text-center small">
-                    You can try winning our sponsors tickets on&nbsp;<a href="https://twitter.com/JetBrainsCZ/status/998453042809835521">Twitter</a> or <a href="https://www.facebook.com/jetbrainsCZ/photos/a.408080092636670.1073741827.315284691916211/1562971527147515/">Facebook</a>.
-                </p>
-
             {% elif today < last_day_regular %}
                 <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
             {% elif today == last_day_regular %}
