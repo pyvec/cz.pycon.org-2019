@@ -13,25 +13,41 @@
 
 {% block workshop_registration %}
     <h2 id="workshops">Workshop registration</h2>
-    <p class="bg-cyan text-black p-1 px-2 font-weight-bold">
-        Please read the following rules. <br>Registrations not following them will be&nbsp;voided.
+    <p class="bg-cyan text-black p-1 mb-3 px-2 font-weight-bold text-center">
+        Please read the following rules. Registrations not following them will be&nbsp;voided.
     </p>
-    <ol>
-        <li><span class="bg-yellow text-black px-1"> You must have a ticket to PyCon CZ</span> to register for <a href="{% url "speakers_list" type="workshops" %}">workshops</a>.</li>
-        <li>Use the same e-mail and name you used for your ticket.</li>
-        <li>You can register for <a class="text-light" href="/2018/programme/detail/workshop/13/">Networking for Geeks</a> (Friday 9:00) <br>plus <b class="text-yellow">one</b> Sunday workshop from 10:00 <br>plus <b class="text-yellow">one</b> Sunday workshop from 14:00.</li>
-        <li>
-            There are waiting lists for full workshops.
-            <br>Please cancel your registration if you can’t come so somebody else can attend! Even on Sunday morning.
-            <br><small>How to cancel? There is a link to <i>Change details</i> page in your confirmation e-mail. Click on <i>Cancel this ticket</i> button and you’re done.</small>
-            <ul>
-                <li>Do not join waiting lists for the same time you have registered for another workshop.</li>
-                <li>If you joined a waiting list, you might get an offer to register a seat as an e-mail from support@tito.io.</li>
-                <li>Everybody on the waiting list will be sent the offer at the same time to have a fair chance: the quickest will get a seat.</li>
-                <li>If anybody cancels, we will send offers even on Sunday.</li>
-            </ul>
-        </li>
-    </ol>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black p-2 h-100">
+                <h3 class="h4 my-2 text-black">Conference attendees only</h3>
+                <p>You must have a ticket to PyCon CZ to register for <a class="text-dark" href="{% url "speakers_list" type="workshops" %}">workshops</a>.</p>
+                <p>Use the same e-mail and name you used for your ticket.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black p-2 h-100">
+                <h3 class="h4 my-2 text-black">Registration limits</h3>
+                <p>You can register for <a class="text-dark" href="/2018/programme/detail/workshop/13/">Networking for Geeks</a> (Friday 9:00) <br>plus <b class="text-red">one</b> Sunday workshop from 10:00 <br>plus <b class="text-red">one</b> Sunday workshop from 14:00.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black p-2 h-100">
+                <h3 class="h4 my-2 text-black">Waiting lists</h3>
+                <p>Please cancel your registration if you can’t come so somebody else can attend! Even on Sunday morning.</p>
+                <h4 class="h4 mt-3 my-2 text-black">How to cancel? </h4>
+                <p>There is a link to <i>Change details</i> page in your confirmation e-mail. Click on <i>Cancel this ticket</i> button and you’re done.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black p-2 h-100">
+                <h3 class="h4 my-2 text-black">Joining waiting lists</h3>
+                <p><b>Do not</b> join waiting lists for the <b>same time you have registered a&nbsp;workshop</b>.</p>
+                <p>If you joined a waiting list, you might get an offer to register a&nbsp;seat as an e-mail from support@tito.io.</p>
+                <p>Everybody on the waiting list will be sent the offer at the same time to have a fair chance: the quickest will get a seat.</p>
+                <p>If anybody cancels, we’ll send last offers on Sunday.</p>
+            </div>
+        </div>
+    </div>
 
     <div class="row justify-content-center">
         <a href="https://ti.to/pyvec/pycon-cz-2018" class="pc-tito-link-workshops">
