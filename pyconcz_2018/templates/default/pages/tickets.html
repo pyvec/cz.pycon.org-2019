@@ -25,7 +25,8 @@
             <h1>Tickets</h1>
 
             {% if total_sold_out %}
-                <p class="lead">We’re sorry but all available tickets have been sold out.</p>
+                <p class="lead p-2 bg-red text-yellow">We’re sorry but all available tickets have been sold out.</p>
+                {% block workshop_registration_tip %}{% endblock %}
             {% elif today < last_day_regular %}
                 <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
             {% elif today == last_day_regular %}
@@ -36,6 +37,7 @@
 
             {% block workshop_registration %}{% endblock %}
         </div>
+
         {% if not total_sold_out %}
 
             <div class="container">
