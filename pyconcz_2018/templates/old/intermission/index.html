@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,24 +48,18 @@
 
 	urls = [
 	'{% url 'intermission:annoucements' %}',
-  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:up_next' track=1 %}',
 	'{% url 'intermission:up_next' track=2 %}',
-
-  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:sponsors' level=1 %}',
 	'{% url 'intermission:sponsors' level=2 %}',
 	'{% url 'intermission:sponsors' level=3 %}',
 
 	'{% url 'intermission:annoucements' %}',
-  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:up_next' track=1 %}',
 	'{% url 'intermission:up_next' track=2 %}',
-
-  '{% url 'intermission:workshop_sinners' %}',
 
 	'{% url 'intermission:sponsors' level=4 %}',
 	'{% url 'intermission:sponsors' level=5 %}',
@@ -91,7 +86,7 @@
 	        $("#content").html(data)});
 	}
 
-	cycle(5000, fetch_content, urls);
+	cycle({{ interval }}, fetch_content, urls);
 });
 
 </script>

@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'pyconcz_2018.proposals',
     'pyconcz_2018.sponsors',
     'pyconcz_2018.programme',
+    'pyconcz_2018.intermission',
 
     'widget_tweaks',
     'emojificate',
