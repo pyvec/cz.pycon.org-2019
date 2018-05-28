@@ -28,3 +28,7 @@ def up_next(request, track):
 def announcements(request):
     return render(request, 'intermission/annoucements.html',
                   dict(announcements=Announcement.objects.filter(is_public=True)[:7]))
+
+
+def slido(request):
+    return render(request, 'intermission/slido.html', {})
