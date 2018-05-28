@@ -20,9 +20,9 @@
                 '{% url 'intermission:up_next' track=1 %}',
                 '{% url 'intermission:up_next' track=2 %}',
 
-                '{% url 'intermission:sponsors' level=2 %}',
-                '{% url 'intermission:sponsors' level=3 %}',
-                '{% url 'intermission:sponsors' level=4 %}',
+                '{% url 'intermission:sponsors' level='gold' %}',
+                '{% url 'intermission:sponsors' level='silver' %}',
+                '{% url 'intermission:sponsors' level='bronze' %}',
 
                 '{% url 'intermission:annoucements' %}',
                 '{% url 'intermission:slido' %}',
@@ -30,9 +30,9 @@
                 '{% url 'intermission:up_next' track=1 %}',
                 '{% url 'intermission:up_next' track=2 %}',
 
-                '{% url 'intermission:sponsors' level=6 %}',
-                '{% url 'intermission:sponsors' level=7 %}',
-                '{% url 'intermission:sponsors' level=9 %}',
+                '{% url 'intermission:sponsors' level='media' %}',
+                '{% url 'intermission:sponsors' level='partners' %}',
+                '{% url 'intermission:sponsors' level='connectivity' %}',
             ];
 
             function cycle(delay, f, xs) {

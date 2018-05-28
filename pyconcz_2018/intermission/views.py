@@ -27,10 +27,9 @@ def index(request):
 
 
 def sponsors(request, level):
-    sponsors = Sponsor.objects.filter(published=True, level=int(level))
-    level_name = dict(Sponsor.LEVEL)[int(level)]
-    return render(request, 'intermission/sponsors.html',
-                  context=dict(sponsors=sponsors, level_name=level_name))
+    _, val, display = Sponsor.LEVELS.for_constant(level)
+    sponsors = Sponsor.objects.filter(published=True, level=val)
+    return render(request, 'intermission/sponsors.html', context=dict(sponsors=sponsors, level_name=display))
 
 
 def up_next(request, track):
