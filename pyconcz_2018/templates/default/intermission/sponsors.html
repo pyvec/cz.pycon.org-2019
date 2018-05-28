@@ -1,0 +1,6 @@
+<div class="sponsors">
+    <h1>Our <strong>{{ level_name }}</strong> sponsors</h1>
+    {% for sponsor in sponsors %}
+        <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+    {% endfor %}
+</div>
