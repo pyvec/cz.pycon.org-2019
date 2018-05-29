@@ -106,7 +106,7 @@
                                                 <h3 class="py-1 mt-0 mt-sm-2 mb-0">{{ slot.grouper|time }}</h3>
                                                 <div class="row justify-content-center">
                                                     <div class="col-12 mt-0 mb-3 mb-sm-4">
-                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">room 349</h4>
+                                                        <h4 class="h5 mt-0 mb-2 p-1 bg-orange">Respirium</h4>
                                                         <div class="h5 m-0">
                                                             <span class="pc-schedule-title d-block text-sans-serif">
                                                                 Sprints
@@ -182,7 +182,7 @@
 
                                     <div class="row justify-content-center">
                                         {% for slot_item in slot.list %}
-                                            {% if slot_item.content_type and slot_item.room != 11 and slot_item.room != 20 %}
+                                            {% if slot_item.content_type and slot_item.room != 20 %}
 
                                                 <div class="col-12 {% if day.grouper != 'Sunday, 3 June' %} {% if slot.grouper|time != '10:00' and slot.grouper|time != '14:00' %} col-sm-6 {% endif %} {% endif %} mt-0 mb-3 mb-sm-4">
                                                     <h4
@@ -192,7 +192,7 @@
                                                                 bg-orchid
                                                             {% elif slot_item.room == 2 %}
                                                                 bg-yellow text-dark
-                                                            {% elif slot_item.room == 11 or slot_item.room == 20 %}
+                                                            {% elif slot_item.room == 20 %}
                                                                 bg-orange
                                                             {% elif slot_item.room < 20 %}
                                                                 bg-cyan text-dark
