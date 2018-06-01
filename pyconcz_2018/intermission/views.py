@@ -45,7 +45,7 @@ def sponsors(request, level):
 def up_next(request, track):
     dt_from = datetime.datetime.now()
     slot = Slot.objects.filter(date__gte=dt_from, room=track, object_id__isnull=False).order_by('date').first()
-    pc_gradient = random.choice(names) + random.choice(['', '-reversed'])
+    pc_gradient = random.choice(gradients) + random.choice(['', '-reversed'])
     return render(request, 'intermission/up_next.html', dict(slot=slot, pc_gradient=pc_gradient))
 
 

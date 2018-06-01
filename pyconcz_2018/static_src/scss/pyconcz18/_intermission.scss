@@ -41,13 +41,16 @@
     .sponsors {
         h1 { @extend h2; margin: 2rem 0 3rem 0; }
 
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        .logos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
 
         img {
-            margin: 1rem 2rem;
-            max-height: 30vh;
+            margin: 2rem 1rem;
+            max-width: 30%;
+            max-height: 20vh;
         }
     }
 }
