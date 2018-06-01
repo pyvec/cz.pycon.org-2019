@@ -1,0 +1,9 @@
+<div class="sponsors">
+    <h1>Our <strong>{{ level_name }}</strong>
+        {% if level_slug != 'partners' %} sponsors{% endif %}</h1>
+    <div class="logos">
+    {% for sponsor in sponsors %}
+        <img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+    {% endfor %}
+    </div>
+</div>

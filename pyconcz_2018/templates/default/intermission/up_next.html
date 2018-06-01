@@ -1,0 +1,15 @@
+<div class="up-next">
+    <h1>Next up in <strong>{{ slot.get_room_display }}</strong></h1>
+    <h2><small>{{ slot.date|date:"H:i" }}</small>&nbsp;{{ slot.content_object.title }}</h2>
+
+    <div class="speakers">
+    {% for speaker in slot.content_object.speakers %}
+        <div class="speaker">
+            <div class="speaker-frame {{ pc_gradient }}">
+                <img src="{{ speaker.photo.url }}">
+            </div>
+            <h3>{{ speaker }}</h3>
+        </div>
+    {% endfor %}
+    </div>
+</div>

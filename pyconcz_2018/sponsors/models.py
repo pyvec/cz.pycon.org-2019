@@ -1,21 +1,23 @@
+# coding=utf-8
+
 from django.db import models
+
+from extended_choices import Choices
 
 
 class Sponsor(models.Model):
-    LEVEL = (
-        (1, 'Platinum'),
-        (2, 'Gold'),
-        (3, 'Silver'),
-        (4, 'Bronze'),
-        (5, 'Diversity'),
-        (6, 'Media'),
-        (7, 'Partners'),
-        (8, 'Coffee sponsor'),
-        (9, 'Con­nectiv­ity sponsor'),
-        (10, 'Tea sponsor'),
+    LEVELS = Choices(
+        ('platinum', 1, 'Platinum'),
+        ('gold', 2, 'Gold'),
+        ('silver', 3, 'Silver'),
+        ('bronze', 4, 'Bronze'),
+        ('diversity', 5, 'Diversity'),
+        ('media', 6, 'Media'),
+        ('partners', 7, 'Partners'),
+        ('connectivity', 9, 'Con­nectiv­ity'),
     )
 
-    level = models.PositiveSmallIntegerField(choices=LEVEL, default=3)
+    level = models.PositiveSmallIntegerField(choices=LEVELS, default=LEVELS.silver)
 
     name = models.CharField(max_length=200)
     logo = models.FileField(upload_to='sponsors/pyconcz_2018/')
@@ -28,7 +30,7 @@ class Sponsor(models.Model):
     published = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ["level", "name"]
+        ordering = ['level', 'name']
 
     def __str__(self):
         return self.name

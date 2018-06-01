@@ -1,0 +1,64 @@
+{% extends '_base18.html' %}
+
+
+{% load static %}
+
+
+{% block meta_title %}Intermission – {{ block.super }}{% endblock %}
+
+
+{% block js_head %}<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>{% endblock %}
+
+
+{% block body %}
+    <script>
+        $(document).ready(function () {
+            var urls = [
+                '{% url 'intermission:annoucements' %}',
+                '{% url 'intermission:slido' %}',
+
+                '{% url 'intermission:up_next' track=1 %}',
+                '{% url 'intermission:up_next' track=2 %}',
+
+                '{% url 'intermission:sponsors' level='gold' %}',
+                '{% url 'intermission:sponsors' level='silver' %}',
+                '{% url 'intermission:sponsors' level='bronze' %}',
+
+                '{% url 'intermission:annoucements' %}',
+                '{% url 'intermission:slido' %}',
+
+                '{% url 'intermission:up_next' track=1 %}',
+                '{% url 'intermission:up_next' track=2 %}',
+
+                '{% url 'intermission:sponsors' level='media' %}',
+                '{% url 'intermission:sponsors' level='partners' %}',
+                '{% url 'intermission:sponsors' level='connectivity' %}',
+            ];
+
+            function cycle(delay, f, xs) {
+                var run = function (i) {
+                    setTimeout(function () {
+                        f(xs[i]);
+                        i += 1;
+                        if (i >= xs.length) { i = 0; }
+                        run(i);
+                    }, delay);
+                }
+                f(xs[0]);
+                run(1);
+            }
+
+            function fetch_content(url) {
+                $.get(url, function (data) {
+                    $('#intermission-content').html(data);
+                });
+            }
+
+            cycle({{ interval }}, fetch_content, urls);
+        });
+    </script>
+
+    <main role="main" class="intermission">
+        <div id="intermission-content"></div>
+    </main>
+{% endblock %}
