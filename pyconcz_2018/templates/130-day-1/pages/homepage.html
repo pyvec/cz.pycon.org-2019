@@ -1,0 +1,27 @@
+{% extends "pages/homepage.html" %}
+
+
+{% block stream %}
+    <div class="container mb-4 mb-lg-5">
+        <h2>We're on! Watch online stream!</h2>
+
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-lg btn-orchid btn-block" href="https://www.youtube.com/watch?v=cIaZzjYeUL4">Main</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg btn-yellow btn-block" href="https://www.youtube.com/watch?v=SlG4SYfXTbI">Theatre</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block tickets %}
+    <div class="container mb-4">
+        <p class="text-center m-0 p-2 bg-info text-black h4"><a class="text-white" href="{% url 'tickets' %}#workshops">Workshop registration</a> for PyCon CZ ticket holders is opened!</p>
+    </div>
+{% endblock %}
+
+
+

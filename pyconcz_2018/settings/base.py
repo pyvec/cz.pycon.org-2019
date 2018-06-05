@@ -92,10 +92,14 @@ PHASE = [
     '90-finaid-closed',
     '100-tickets-sold-out',
     '110-schedule-published',
-    '120-workshop-registration-opened'
+    '120-workshop-registration-opened',
+    '130-day-1',
+    '140-day-2',
+    '150-day-3',
+    '160-after',
 ]
 
-PHASE_CURRENT = 12
+PHASE_CURRENT = 16
 
 TEMPLATES = [
     {

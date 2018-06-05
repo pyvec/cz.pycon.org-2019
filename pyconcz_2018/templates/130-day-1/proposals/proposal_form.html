@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+
+{% load widget_tweaks %}
+
+
+{% block meta_title %}{{ proposal_config.cfp_title|safe }} – {{ block.super }}{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+
+        <h1>{{ proposal_config.cfp_title|safe }}</h1>
+
+        {% if proposal_config.key == "financial-aid" %}
+            <p class="lead">
+                Financial aid applications <b>closed on 26 April</b>.
+                <br>More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.
+            </p>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "pages/homepage.html" %}
+
+
+{% block tickets %}{% endblock %}
+
+
+{% block thanks %}
+    <h2>PyCon CZ 2018 is over</h2>
+    <div class="container mb-4 mb-lg-5">
+        <p class="text-center"></p>
+        <p class="text-center">Did you forget something at the venue? Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+    </div>
+{% endblock %}
+
+
+{% block stream %}
+    <div class="container mb-4 mb-lg-5">
+        <h2>Streams from talks</h2>
+        <p class="lead">Videos from all talks will be available later. You can watch rough recordings stream’s until then.</p>
+
+        <h3>Friday</h3>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-lg btn-orchid btn-block" href="https://www.youtube.com/watch?v=cIaZzjYeUL4">Main</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg btn-yellow btn-block" href="https://www.youtube.com/watch?v=SlG4SYfXTbI">Theatre</a>
+            </div>
+        </div>
+
+        <h3>Saturday</h3>
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-lg btn-orchid btn-block" href="https://www.youtube.com/watch?v=I5DmlKniTO0">Main</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg btn-yellow btn-block" href="https://www.youtube.com/watch?v=6rfOJJjfz-g">Theatre</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
