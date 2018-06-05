@@ -37,19 +37,21 @@
         </h1>
 
         <div class="row justify-content-center align-items-start">
-            {% if talk.registration %}
-                <div class="col-12">
-                    <p class="h5 mt-0 mb-3">
-                        {% if talk.registration == 'without' %}
-                            No registration required.
-                        {% elif talk.registration == 'free' %}
-                            This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
-                        {% elif talk.registration == 'paid' %}
-                            This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
-                        {% endif %}
-                    </p>
-                </div>
-            {% endif %}
+            {% block registration_info %}
+                {% if talk.registration %}
+                    <div class="col-12">
+                        <p class="h5 mt-0 mb-3">
+                            {% if talk.registration == 'without' %}
+                                No registration required.
+                            {% elif talk.registration == 'free' %}
+                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
+                            {% elif talk.registration == 'paid' %}
+                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
+                            {% endif %}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endblock %}
             <div
                 class="
                     col-12
