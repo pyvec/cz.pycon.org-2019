@@ -1,11 +1,9 @@
 {% load formatting %}
 {% load emojificate %}
 
-<div class="announcements">
-    <h1>Attention!</h1>
-    {% for announcement in announcements %}
-        <div class="ann">
-            {{ announcement.message|markdown|emojificate }}
-        </div>
-    {% endfor %}
-</div>
+<h1 class="mt-0">Attention!</h1>
+{% for announcement in announcements %}
+    <div class="display-4 text-white">
+        {{ announcement.message|markdown|emojificate }}
+    </div>
+{% endfor %}

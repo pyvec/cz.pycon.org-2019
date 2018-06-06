@@ -43,14 +43,14 @@
                         if (i >= xs.length) { i = 0; }
                         run(i);
                     }, delay);
-                }
+                };
                 f(xs[0]);
                 run(1);
             }
 
             function fetch_content(url) {
                 $.get(url, function (data) {
-                    $('#intermission-content').html(data);
+                    $('#intermission-content').hide().html(data).fadeIn(300);
                 });
             }
 
@@ -58,7 +58,7 @@
         });
     </script>
 
-    <main role="main" class="intermission">
+    <main role="main" class="text-center p-4 pc-intermission">
         <div id="intermission-content"></div>
     </main>
 {% endblock %}
