@@ -97,9 +97,10 @@ PHASE = [
     '140-day-2',
     '150-day-3',
     '160-after',
+    '170-videos-published',
 ]
 
-PHASE_CURRENT = 16
+PHASE_CURRENT = 17
 
 TEMPLATES = [
     {
