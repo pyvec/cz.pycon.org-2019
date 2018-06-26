@@ -36,7 +36,7 @@
             <small class="pc-talk-detail-note d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        {% if talk.video_id and user.is_staff %}
+        {% if talk.video_id %}
             <div class="row justify-content-center">
                 <div class="col-12 mb-3">
                     <div class="embed-responsive embed-responsive-16by9">
