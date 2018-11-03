@@ -1,0 +1,20 @@
+{% extends "_layout.html" %}
+
+
+
+{% block meta_title %}About – {{ block.super }}{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <p class="lead">PyCon CZ aims to be the largest annual gathering for the Python community in the Czech Republic, focused on honoring and supporting awesome people teaching, learning and innovating with Python in Czech Republic and surrounding EU.</p>
+
+        <p>PyCon CZ is organized by the <a href="/2018/about/team">Python CZ community</a> for the Python community. We keep ticket prices low to make PyCon CZ accessible to the most diverse group possible, offering {% comment %}low cost <a href="https://ti.to/pyvec/pycon-cz-2018">Early Bird and Student discounts</a> and{% endcomment %} <a href="/2018/proposals/financial-aid/">Financial Aid</a> for those who qualify. Our <a href="/2018/about/code">code of conduct</a> is intended to help everyone maintain the open and inviting PyCon spirit. We thank all attendees and staff for observing it!</p>
+
+        <p>
+            PyCon CZ is produced and underwritten by the <a href="http://pyvec.org/en/">Pyvec</a> (občanské sdružení, Civic Association, est. 2012).
+            {# **Note: PSF sponsorship isn't confirmed yet** #}
+            {% comment %}PyCon CZ is sponsored by Python Software Foundation [501(c)(3)], among the many others sponsoring organizations dedicated to advancing and promoting the PSF’s mission of growing the international community of Python programmers.{% endcomment %}
+        </p>
+    </div>
+{% endblock %}

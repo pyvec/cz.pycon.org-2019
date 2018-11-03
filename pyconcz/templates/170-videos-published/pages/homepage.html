@@ -1,0 +1,22 @@
+{% extends "pages/homepage.html" %}
+
+
+{% block tickets %}{% endblock %}
+
+
+{% block thanks %}
+    <div class="container-fluid pc-gradient-yellow-lime text-black py-3">
+        <h2 class="mt-0 mb-2 text-black">PyCon CZ 2018 is over</h2>
+        <p class="mb-0 text-center">Thank you all for coming.<br>You were <strong>awesome</strong>.<br>See you in 2019!</p>
+    </div>
+    <div class="container-fluid mb-3 mb-lg-4">
+        <p class="text-center mt-2">Did you forget something at the venue? Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+    </div>
+{% endblock %}
+
+
+{% block video %}
+    <div class="container mb-3 mb-lg-4 pc-gradient-orchid-violetred-reversed py-3">
+        <p class="lead my-0 text-center text-yellow"><a href="{% url 'speakers_list' type='talks' %}">Recordings from all talks</a> are available.</p>
+    </div>
+{% endblock %}

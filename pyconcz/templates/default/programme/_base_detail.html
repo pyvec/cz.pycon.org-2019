@@ -1,0 +1,183 @@
+{% extends "_layout.html" %}
+
+
+{% load formatting %}
+{% load static %}
+
+
+{% block meta_title %}{{ talk.title|markdown|striptags }} – a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
+
+
+{% block meta_social_customizable %}
+    <meta property="og:title" content="PyCon CZ – {{ talk.title|markdown|striptags }} – a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}">
+    <meta property="og:description" content="{{ talk.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
+    {% with og_speaker=talk.speakers|first %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
+        <meta property="og:image:width" content="{{ og_speaker.photo.width }}">
+        <meta property="og:image:height" content="{{ og_speaker.photo.height }}">
+    {% endwith %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="{{ talk.speakers|join:' &amp; ' }}">
+{% endblock %}
+
+
+{% block header_text_classes %} {{ block.super }} d-none d-sm-block {% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <ul class="nav justify-content-center">
+            {% include '_menu_programme.html' with pc_alignment='center' %}
+        </ul>
+
+        <h1 class="pc-talk-detail-title h2 mt-2 mt-lg-3 mt-xl-4">
+            {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
+            <br class="d-md-none">
+            <small class="pc-talk-detail-note d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
+        </h1>
+
+        {% if talk.video_id %}
+            <div class="row justify-content-center">
+                <div class="col-12 mb-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="{{ talk.video_embed_url }}?rel=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="row justify-content-center align-items-start">
+            {% block registration_info %}
+                {% if talk.registration %}
+                    <div class="col-12">
+                        <p class="h5 mt-0 mb-3">
+                            {% if talk.registration == 'without' %}
+                                No registration required.
+                            {% elif talk.registration == 'free' %}
+                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
+                            {% elif talk.registration == 'paid' %}
+                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
+                            {% endif %}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endblock %}
+            <div
+                class="
+                    col-12
+                    {% if talk.speakers|length_is:"1" %}
+                        col-md-6
+                        {% if talk.abstract|length < 1000 %}
+                            col-lg-5 col-xl-4
+                        {% endif %}
+                    {% else %}
+                        col-md-4
+                    {% endif %}
+                ">
+
+                {% if talk.language == 'cs' %}
+                    <p class="p-2 pc-gradient-orchidred-navy text-white d-flex align-items-center">
+                        <svg class="mr-2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
+                            <rect width="90" height="60" fill="#d7141a" />
+                            <rect width="90" height="30" fill="#fff" />
+                            <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
+                        </svg>
+                        <span>This {{ session_type }} will be in Czech.</span>
+                    </p>
+                {% endif %}
+
+                <div class="mb-3">{{ talk.abstract|markdown }}</div>
+
+                {% if talk.difficulty == 'advanced' %}
+                    <p class="p-2 pc-gradient-yellow-lime text-dark">
+                        <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
+                        (While it might be interesting for beginners we recommend them to choose another {{ session_type }}.)
+                    </p>
+                {% else %}
+                    <p class="p-2 bg-navy text-light">
+                        This {{ session_type }} is suitable for both beginner and advanced Pythonistas.
+                    </p>
+                {% endif %}
+
+                {% for speaker in talk.speakers %}
+
+                    {% comment 'not needed this year' %}
+                        {% if speaker.talks.all|length > 1 %}
+                            <h2>Another {{ session_type }} {{ session_preposition }} {{ speaker.full_name }}</h2>
+                        {% endif %}
+
+                        {% for talk_other in speaker.talks.all %}
+                            {% if talk_other.id != talk.id %}
+                                <h3>
+                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk_other.id %}">
+                                        {{ talk_other.title }}
+                                    </a>
+                                </h3>
+                            {% endif %}
+                        {% endfor %}
+                    {% endcomment %}
+
+                    {% block other_sessions %}
+                        {% for other_session in other_sessions %}
+                            <h2 class="h3 mt-0 pc-talk-detail-title">
+                                {{ speaker.full_name }} also
+                                {% if other_session_type == 'workshop' %}leads a workshop:{% endif %}
+                                {% if other_session_type == 'talk' %}has a talk:{% endif %}
+                                <a
+                                    class="small d-block"
+                                    href="{% url 'talk_detail' type=other_session_type talk_id=other_session.id %}"
+                                >
+                                    {{ other_session.title }}
+                                </a>
+                            </h2>
+                        {% endfor %}
+                    {% endblock %}
+                {% endfor %}
+            </div>
+
+            {% for speaker in talk.speakers %}
+                <div
+                    class="
+                    col-12
+                    {% if talk.speakers|length_is:"1" %}
+                        col-md-6 col-lg-5 col-xl-4
+                    {% else %}
+                        col-sm-6 col-md-4
+                    {% endif %}
+                    pc-gradient-{% if not forloop.counter|divisibleby:'2' %}orchidred-navy-reversed{% else %}orchid-blue{% endif %}
+                    py-2
+                ">
+                    <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
+
+                    <div class="text-center">
+                        <div class="d-inline-block pc-talk-id-{{ talk.id }}">
+                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
+
+                    <div class="row justify-content-between small">
+                        {% if speaker.github %}
+                            <div class="col">
+                                GH:
+                                <a href="https://github.com/{{ speaker.github }}">
+                                    {{ speaker.github }}
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        {% if speaker.twitter %}
+                            <div class="col">
+                                TW:
+                                <a href="https://twitter.com/{{ speaker.twitter }}">
+                                    {{ speaker.twitter }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

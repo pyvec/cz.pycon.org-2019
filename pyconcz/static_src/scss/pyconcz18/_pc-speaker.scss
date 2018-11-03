@@ -1,0 +1,72 @@
+.pc-speaker-text {
+    z-index: 10;
+    position: relative;
+    top: -11%;
+
+    @include media-breakpoint-up(md) {
+        position: static;
+    }
+
+}
+
+.pc-speaker-short-bio {
+    position: relative;
+    top: -10%;
+}
+
+.pc-speaker-photo {
+    position: relative;
+
+    img {
+        filter: grayscale(1) contrast(1.2);
+        mix-blend-mode: difference;
+    }
+
+    @supports (mix-blend-mode:difference) {
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 31%;
+            left: 0;
+            height: 47%;
+            width: 100%;
+
+            @include media-breakpoint-up(md) {
+                width: 200%;
+            }
+
+            @include media-breakpoint-up(xl) {
+                width: 230%;
+            }
+        }
+
+        &-right {
+            &::before,
+            &::after {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+
+    &::before {
+        mix-blend-mode: darken;
+        background-color: $gray-900;
+    }
+
+    &::after { mix-blend-mode: color; }
+
+    &-yellow::after { background-image: $pc-gradient-orchid-yellow-reversed; }
+
+    &-blue::after { background-image: $pc-gradient-orchidred-navy; }
+
+    &-green::after { background-image: $pc-gradient-yellow-lime-reversed; }
+
+    &-orchid::after { background-image: $pc-gradient-orchid-blue-reversed; }
+
+    &-cyan::after { background-image: $pc-gradient-yellow-cyan-reversed; }
+
+}

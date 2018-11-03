@@ -1,0 +1,86 @@
+{% extends '_base18.html' %}
+
+
+{% load static %}
+
+
+{% block body %}
+    <nav role="navigation" class="navbar navbar-expand">
+        {% include '_menu_top.html' with pc_alignment='center' %}
+    </nav>
+
+    {% block header %}
+        <header>
+            <div class="container mb-3 mb-xl-4">
+
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="
+                        my-sm-2
+                        col-12 {% block header_logo_classes %}col-sm-7 col-lg-5{% endblock %}
+                    ">
+                        <a href="{% url "homepage" %}">
+                            <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
+                        </a>
+                    </div>
+
+                    <div class="
+                        my-2 my-xl-3
+                        col-12
+                        {% block header_text_classes %}col-sm-5 col-lg-6 h3{% endblock %}
+                        text-white
+                    ">
+                        PyCon CZ 2018 Prague<br>1-3 June
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+    {% endblock %}
+
+
+    <main role="main">
+        {% block main %}{% endblock %}
+    </main>
+
+
+    <footer class="text-center pc-footer mt-2 mt-md-3 mt-lg-5 py-5 px-3 small">
+        <div class="container">
+            <nav class="nav mb-4">
+                {% include '_menu_footer.html' with pc_alignment='center' %}
+            </nav>
+
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+
+            <p>
+                We’re on <a href="https://twitter.com/pyconcz">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018">GitHub</a>
+            </p>
+
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>.
+            </p>
+
+            <p>Powered by <a href="https://rosti.cz/">Roští.cz</a></p>
+
+            <nav class="nav mt-5">
+                <ul class="nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a href="/2015/" class="nav__link nav-link">PyCon&nbsp;CZ 2015</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2016/" class="nav__link nav-link">PyCon&nbsp;CZ 2016</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2017/" class="nav__link nav-link">PyCon&nbsp;CZ 2017</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+{% endblock %}

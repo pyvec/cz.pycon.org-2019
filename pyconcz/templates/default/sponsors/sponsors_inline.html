@@ -1,0 +1,76 @@
+{% regroup sponsors by get_level_display as sponsors_list %}
+
+{% if sponsors %}
+    <div class="bg-light text-dark py-1">
+        <div class="container">
+            <h2 class="text-muted">
+                <a class="text-dark" href="{% url 'sponsors_list' %}">Our partners</a>
+            </h2>
+
+            <section class="mb-4">
+                {% for level in sponsors_list %}
+                    <h3 class="mb-3 text-muted">{{ level.grouper }}</h3>
+                    <div class="row justify-content-around align-items-center">
+                        {% for sponsor in level.list %}
+                            <div class="
+                                text-center
+                                {% if level.grouper == 'Platinum' %}
+                                    col-12 my-4
+                                    col-sm-10
+                                    col-md-8 my-md-5
+                                    col-lg-7 my-lg-3
+                                    col-xl-6
+                                {% elif level.grouper == 'Gold' %}
+                                    col-10 my-4
+                                    col-sm-8
+                                    col-md-6 px-md-3 my-md-3
+                                    col-lg-6 px-lg-5
+                                    col-xl-4 px-xl-4 my-xl-4
+                                    {% if sponsor.name == "LMC" %}
+                                        order-2 order-md-3 order-xl-2
+                                    {% elif sponsor.name == "Python Software Foundation" %}
+                                        order-3 order-md-2 order-xl-3
+                                    {% elif sponsor.name == "Red Hat" %}
+                                        order-1
+                                    {% endif %}
+                                {% elif level.grouper == 'Silver' %}
+                                    col-8 my-4
+                                    col-sm-7
+                                    col-md-4 px-md-3 my-md-4
+                                    col-lg-3 px-lg-3 my-lg-2
+                                    my-xl-3
+                                {% elif level.grouper == 'Bronze' %}
+                                    col-7 my-3
+                                    col-sm-6 px-sm-3 my-sm-2
+                                    col-md-4 px-md-3 my-md-4
+                                    col-lg-2 px-lg-0 my-lg-2
+                                    px-xl-2 my-xl-3
+                                {% elif level.grouper == 'Media' or level.grouper == 'Partners' %}
+                                    col-8 my-3
+                                    col-sm-7
+                                    col-md-5 my-md-4
+                                    col-lg-3 my-lg-2
+                                    px-xl-3
+                                {% else %}
+                                    col-6 my-2
+                                    col-md-4 my-md-5
+                                    col-lg-3 my-lg-2
+                                    col-xl-2
+                                {% endif %}
+                                 "
+                            >
+                                <a href="{{ sponsor.link_url }}" class="d-block">
+                                    <img
+                                        class="img-fluid w-100"
+                                        src="{{ sponsor.logo.url }}"
+                                        alt="{{ sponsor.name }}"
+                                    >
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+{% endif %}

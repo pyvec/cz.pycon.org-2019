@@ -1,0 +1,20 @@
+<h1 class="h3 m-0 mb-3 py-2 {% if slot.room == 1 %}bg-orchid{% elif slot.room == 2 %}text-black bg-yellow{% endif %}">
+    Next up in
+    <strong {% if slot.room == 2 %}class="text-orchid"{% endif %}>{{ slot.get_room_display }}</strong>
+    from {{ slot.date|date:"H:i" }}
+</h1>
+
+<h2 class="mt-3 mb-2 h1">
+    {{ slot.content_object.title }}
+</h2>
+
+<div class="d-flex justify-content-center">
+    {% for speaker in slot.content_object.speakers %}
+        <div class="text-center">
+            <h3 class="h2 mt-2">{{ speaker }}</h3>
+            <div class="text-center px-5 mx-3 {{ pc_gradient }}">
+                <img class="pc-intermission-picture d-block mx-auto my-0" src="{{ speaker.photo.url }}">
+            </div>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,68 @@
+{% extends "pages/tickets.html" %}
+
+
+{% block finaid_info %}{% endblock %}
+
+
+{% block main %}
+    {% with total_sold_out=1 %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+
+{% block workshop_registration_tip %}
+    <p class="text-center">If you already have a ticket, you can register for workshops below.</p>
+{% endblock %}
+
+
+{% block workshop_registration %}
+    <h2 id="workshops">Workshop registration</h2>
+    <p class="bg-cyan text-black p-1 mb-3 px-2 font-weight-bold text-center">
+        Please read the following rules. Registrations not following them will be&nbsp;voided.
+    </p>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black py-2 px-3 h-100">
+                <h3 class="h4 my-2 text-black">Conference attendees only</h3>
+                <p>You must have a ticket to PyCon CZ to register for <a class="text-dark" href="{% url "speakers_list" type="workshops" %}">workshops</a>.</p>
+                <p>Use the same e-mail and name you used for your ticket.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black py-2 px-3 h-100">
+                <h3 class="h4 my-2 text-black">Registration limits</h3>
+                <p>You can register for <a class="text-dark" href="/2018/programme/detail/workshop/13/">Networking for Geeks</a> (Friday 9:00) <br>plus <b class="text-red">one</b> Sunday workshop from 10:00 <br>plus <b class="text-red">one</b> Sunday workshop from 14:00.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black py-2 px-3 h-100">
+                <h3 class="h4 my-2 text-black">Waiting lists</h3>
+                <p>Please cancel your registration if you can’t come so somebody else can attend! Even on Sunday morning.</p>
+                <h4 class="h4 mt-3 my-2 text-black">How to cancel? </h4>
+                <p>There is a link to <i>Change details</i> page in your confirmation e-mail. Click on <i>Cancel this ticket</i> button and you’re done.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <div class="bg-yellow text-black py-2 px-3 h-100">
+                <h3 class="h4 my-2 text-black">Joining waiting lists</h3>
+                <p><b>Do not</b> join waiting lists for the <b>same time you have registered a&nbsp;workshop</b>.</p>
+                <p>If you joined a waiting list, you might get an offer to register a&nbsp;seat as an e-mail from support@tito.io.</p>
+                <p>Everybody on the waiting list will be sent the offer at the same time to have a fair chance: the quickest will get a&nbsp;seat.</p>
+                <p>If the offer expires or somebody will be quicker than you don’t join the waiting list again, you're still on it.</p>
+                <p>If anybody cancels, we’ll send last offers on&nbsp;Sunday.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <a href="https://ti.to/pyvec/pycon-cz-2018" class="pc-tito-link-workshops">
+            <tito-button event="pyvec/pycon-cz-2018">
+                I’ve read the information <br class="d-sm-none">above <br class="d-md-none"> and want to register <br class="d-sm-none"> for workshops.
+            </tito-button>
+        </a>
+    </div>
+
+
+
+{% endblock %}

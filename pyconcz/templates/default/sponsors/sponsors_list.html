@@ -1,0 +1,35 @@
+{% extends "_layout.html" %}
+
+{% load formatting %}
+
+{% block meta_title %}Sponsors and partners – {{ block.super }}{% endblock %}
+
+
+{% block main %}
+    {% regroup sponsors_list by get_level_display as sponsor_levels %}
+
+    <div class="container">
+        <h1>Sponsors and partners</h1>
+
+        <p class="lead">We’re grateful to companies that help us organize PyCon CZ and allow keeping ticket prices as low as possible.</p>
+
+        <p>Do you want to sponsor us too? Check out <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact&nbsp;us.</a></p>
+
+        {% for level in sponsor_levels %}
+            <h2 class="mt-lg-5 mb-0">{{ level.grouper }}</h2>
+            {% for sponsor in level.list %}
+                <h3 class="text-lg-left">{{ sponsor.name }}</h3>
+                <div class="row align-items-start mb-4 mb-lg-5">
+                    <div class="col-12 col-md-6 col-lg-4 justify-content-center bg-light py-2 px-sm-5 px-md-2 mb-2 justify-content-center">
+                        <a href="{{ sponsor.link_url }}" class="d-block">
+                            <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-8">
+                        {{ sponsor.description|markdown }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
