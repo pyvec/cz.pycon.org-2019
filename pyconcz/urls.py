@@ -50,8 +50,8 @@ urlpatterns = (
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) +
     [
-        url(r'^2018/', include(prefixed_urlpatterns)),
+        url(r'^2019/', include(prefixed_urlpatterns)),
         url(r'^admin/', include(admin.site.urls)),
-        url(r'^$', RedirectView.as_view(url='/2018/')),
+        url(r'^$', RedirectView.as_view(url='/2019/')),
     ]
 )
