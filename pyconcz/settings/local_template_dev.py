@@ -6,13 +6,29 @@ SECRET_KEY = 42
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'pyconcz',
-    }
-}
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
+# SQLite
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': './db.sqlite3',
+#     }
+# }
+
+# PostgreSQL
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'HOST': '127.0.0.1',
+#         'NAME': 'pyconcz',
+#         'USER': 'pyconcz',
+#         'PASSWORD': '',
+#         'PORT': 5432,
+#     }
+# }
 
 def show_toolbar(request):
     return not request.is_ajax()
