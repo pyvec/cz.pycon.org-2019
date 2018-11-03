@@ -17,7 +17,7 @@ var rename = require("gulp-rename");
  */
 // runs django dev server
 gulp.task('runserver', gulp.series(function(done){
-    exec('python manage.py runserver --settings=pyconcz_2018.settings.local', function(err, stdout, stderr){
+    exec('python manage.py runserver --settings=pyconcz.settings.local', function(err, stdout, stderr){
         console.log(stdout);
         console.log(stderr);
     });
@@ -27,27 +27,27 @@ gulp.task('runserver', gulp.series(function(done){
 
 // delete all previously generated CSS
 gulp.task('clean-css', gulp.series(function(){
-    return del(['./pyconcz_2018/static/css/pyconcz18.*'], { force: true });
+    return del(['./pyconcz/static/css/pyconcz18.*'], { force: true });
 }));
 
 
 // delete all previously generated images
 gulp.task('clean-img', gulp.series(function(){
-    return del(['./pyconcz_2018/static/img/'], { force: true });
+    return del(['./pyconcz/static/img/'], { force: true });
 }));
 
 
 // delete all previously generated JavaScript
 gulp.task('clean-js', gulp.series(function(){
-    return del(['./pyconcz_2018/static/js/'], { force: true });
+    return del(['./pyconcz/static/js/'], { force: true });
 }));
 
 
 // copy images
 gulp.task('copy-img', gulp.series('clean-img', function(){
     return gulp
-        .src(['./pyconcz_2018/static_src/img/**/*'])
-        .pipe(gulp.dest('./pyconcz_2018/static/img/'))
+        .src(['./pyconcz/static_src/img/**/*'])
+        .pipe(gulp.dest('./pyconcz/static/img/'))
         .pipe(browserSync.stream());
 }));
 
@@ -55,7 +55,7 @@ gulp.task('copy-img', gulp.series('clean-img', function(){
 // compile CSS
 gulp.task('compile-css', gulp.series('clean-css', function(){
     return gulp
-        .src('./pyconcz_2018/static_src/scss/pyconcz18/pyconcz18.scss') // scss source
+        .src('./pyconcz/static_src/scss/pyconcz18/pyconcz18.scss') // scss source
         .pipe(plumber())
         .pipe(sourcemaps.init()) // initalizes a sourcemap
         .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
@@ -87,10 +87,10 @@ gulp.task('compile-css', gulp.series('clean-css', function(){
         ])) // add vendor prefixes, fix flexbox bugs
         .pipe(csso()) // compresses CSS
         .pipe(rename('pyconcz18.min.css'))
-        .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS without sourcemap
+        .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS without sourcemap
         .pipe(rename('pyconcz18.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./pyconcz_2018/static/css/')) // resulting CSS with sourcemap
+        .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS with sourcemap
         .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
 }));
 
@@ -111,11 +111,11 @@ gulp.task(
             host: 'pycon.test',
             open: false,
             files: [
-                './pyconcz_2018/templates/**/*.html'
+                './pyconcz/templates/**/*.html'
             ]
         });
-        gulp.watch('./pyconcz_2018/static_src/scss/**/*.scss', gulp.series('compile-css')); // watcher for SCSS
-        gulp.watch('./pyconcz_2018/static_src/img/**/*', gulp.series('copy-img')); // watcher for images
+        gulp.watch('./pyconcz/static_src/scss/**/*.scss', gulp.series('compile-css')); // watcher for SCSS
+        gulp.watch('./pyconcz/static_src/img/**/*', gulp.series('copy-img')); // watcher for images
     })
 );
 

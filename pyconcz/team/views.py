@@ -1,7 +1,7 @@
 from django.template import RequestContext
 from django.template.response import TemplateResponse
 
-from pyconcz_2018.team.models import Organizer
+from pyconcz.team.models import Organizer
 
 
 def team_list(request):

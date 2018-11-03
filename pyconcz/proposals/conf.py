@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.utils.timezone import get_current_timezone
 
-from pyconcz_2018.proposals.models import Talk, Workshop, FinancialAid
+from pyconcz.proposals.models import Talk, Workshop, FinancialAid
 
 tz = get_current_timezone()
 

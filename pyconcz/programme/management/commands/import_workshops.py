@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from pyconcz_2018.proposals.models import Workshop as ProposalWorkshop
-from pyconcz_2018.programme.models import Speaker, Workshop
+from pyconcz.proposals.models import Workshop as ProposalWorkshop
+from pyconcz.programme.models import Speaker, Workshop
 
 
 class Command(BaseCommand):

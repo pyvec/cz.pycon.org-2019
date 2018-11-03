@@ -20,7 +20,7 @@ class Sponsor(models.Model):
     level = models.PositiveSmallIntegerField(choices=LEVELS, default=LEVELS.silver)
 
     name = models.CharField(max_length=200)
-    logo = models.FileField(upload_to='sponsors/pyconcz_2018/')
+    logo = models.FileField(upload_to='sponsors/pyconcz/')
 
     description = models.TextField()
     link_url = models.URLField()

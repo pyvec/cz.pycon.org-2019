@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from pyconcz_2018.proposals.models import Talk as ProposalTalk
-from pyconcz_2018.programme.models import Speaker, Talk
+from pyconcz.proposals.models import Talk as ProposalTalk
+from pyconcz.programme.models import Speaker, Talk
 
 
 class Command(BaseCommand):

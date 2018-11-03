@@ -1,6 +1,6 @@
 from django.template.response import TemplateResponse
 
-from pyconcz_2018.programme.models import Speaker
+from pyconcz.programme.models import Speaker
 
 
 def homepage(request):

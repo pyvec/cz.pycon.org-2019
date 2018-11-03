@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class ProgrammeConfig(AppConfig):
-    name = "pyconcz_2018.programme"
+    name = "pyconcz.programme"
     verbose_name = "Programme"

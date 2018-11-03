@@ -1,5 +1,5 @@
 """
-Django settings for pyconcz_2018 project.
+Django settings for pyconcz project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.9/topics/settings/
@@ -54,13 +54,13 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
     'import_export',
 
-    'pyconcz_2018.announcements',
-    'pyconcz_2018.common',
-    'pyconcz_2018.team',
-    'pyconcz_2018.proposals',
-    'pyconcz_2018.sponsors',
-    'pyconcz_2018.programme',
-    'pyconcz_2018.intermission',
+    'pyconcz.announcements',
+    'pyconcz.common',
+    'pyconcz.team',
+    'pyconcz.proposals',
+    'pyconcz.sponsors',
+    'pyconcz.programme',
+    'pyconcz.intermission',
 
     'widget_tweaks',
     'emojificate',
@@ -77,7 +77,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'pyconcz_2018.urls'
+ROOT_URLCONF = 'pyconcz.urls'
 
 PHASE = [
     '00-init',  # Initial phase
@@ -123,7 +123,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'pyconcz_2018.wsgi.application'
+WSGI_APPLICATION = 'pyconcz.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -183,7 +183,7 @@ USE_TZ = True
 TIME_ZONE = 'Europe/Prague'
 
 FORMAT_MODULE_PATH = [
-    'pyconcz_2018.formats'
+    'pyconcz.formats'
 ]
 
 # Static files (CSS, JavaScript, Images)

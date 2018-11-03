@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from pyconcz_2018.programme.models import Slot, Talk
+from pyconcz.programme.models import Slot, Talk
 
 
 class Command(BaseCommand):

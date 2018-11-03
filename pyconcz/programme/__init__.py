@@ -1,1 +1,1 @@
-default_app_config = 'pyconcz_2018.programme.apps.ProgrammeConfig'
+default_app_config = 'pyconcz.programme.apps.ProgrammeConfig'

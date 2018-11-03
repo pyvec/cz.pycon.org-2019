@@ -15,7 +15,7 @@ bundling frontend assets and Postgresql as a database.
 
 
 
-Inside `pyconcz_2018` directory,
+Inside `pyconcz` directory,
 run following commands to setup project for local development:
 
 1.	You can either use sqlite database, if you only need to work with
@@ -34,7 +34,7 @@ run following commands to setup project for local development:
 
 1.  `python3 -m venv env` _note: Use exactly Python 3.5.2 on Windows (otherwise Pillow won't install with pip) so you might want to `py -3.5 -m venv env`_
 1.  `pip install -r requirements-dev.txt`
-1.	copy `pyconcz_2018/settings/local_template_dev.py` to `pyconcz_2018/settings/local.py`
+1.	copy `pyconcz/settings/local_template_dev.py` to `pyconcz/settings/local.py`
 1.  `./manage.py migrate`
 
 
@@ -53,7 +53,7 @@ Inside root directory (the same directory where `manage.py` is) run `npm install
 
 You can run your dev server manually on [http://localhost:8000]() with:
 
-`./manage.py runserver --settings=pyconcz_2018.settings.local`
+`./manage.py runserver --settings=pyconcz.settings.local`
 
 
 #### Static files
@@ -77,7 +77,7 @@ After each production build, you have to commit newly generated CSS and image fi
 Old files are automatically replaced.
 
 1. `npm run build`
-1. `git add pyconcz_2018/static`
+1. `git add pyconcz/static`
 
 
 ### Deployment

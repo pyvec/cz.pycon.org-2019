@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from pyconcz_2018.sponsors.models import Sponsor
+from pyconcz.sponsors.models import Sponsor
 
 
 class SponsorAdmin(admin.ModelAdmin):

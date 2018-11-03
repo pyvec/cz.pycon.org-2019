@@ -12,7 +12,7 @@ from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils.html import format_html
 
-from pyconcz_2018.proposals.models import Ranking, Score, StdDev, FinancialAid, Talk, Workshop
+from pyconcz.proposals.models import Ranking, Score, StdDev, FinancialAid, Talk, Workshop
 
 
 class ScoreForm(forms.ModelForm):

@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.template.loader import render_to_string
 
-from pyconcz_2018.proposals.models import Talk, Workshop, FinancialAid
+from pyconcz.proposals.models import Talk, Workshop, FinancialAid
 
 PROPOSAL_MAP = dict(
     talk=Talk.objects.filter(accepted=True),

@@ -5,10 +5,10 @@ import datetime
 
 from django.shortcuts import render
 
-from pyconcz_2018.settings import BASE_DIR
-from pyconcz_2018.sponsors.models import Sponsor
-from pyconcz_2018.programme.models import Slot
-from pyconcz_2018.announcements.models import Announcement
+from pyconcz.settings import BASE_DIR
+from pyconcz.sponsors.models import Sponsor
+from pyconcz.programme.models import Slot
+from pyconcz.announcements.models import Announcement
 
 
 gradients = [

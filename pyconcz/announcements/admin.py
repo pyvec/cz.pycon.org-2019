@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from pyconcz_2018.announcements.models import Announcement
+from pyconcz.announcements.models import Announcement
 
 
 class AnnouncementAdmin(admin.ModelAdmin):

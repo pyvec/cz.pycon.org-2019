@@ -1,6 +1,6 @@
 from django import template
 
-from pyconcz_2018.announcements.models import Announcement
+from pyconcz.announcements.models import Announcement
 
 register = template.Library()
 

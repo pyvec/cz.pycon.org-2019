@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
-from pyconcz_2018.sponsors.views import sponsors_list
+from pyconcz.sponsors.views import sponsors_list
 
 
 urlpatterns = [

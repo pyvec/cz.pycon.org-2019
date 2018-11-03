@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from pyconcz_2018.proposals.views import (
+from pyconcz.proposals.views import (
     proposal_success, proposal_create, proposal_about)
 
 

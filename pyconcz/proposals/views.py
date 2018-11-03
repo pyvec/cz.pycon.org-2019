@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.template.response import TemplateResponse
 from django.utils.timezone import now
 
-from pyconcz_2018.proposals.config import proposals
+from pyconcz.proposals.config import proposals
 
 
 def proposal_create(request, *, key):

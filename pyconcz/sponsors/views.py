@@ -1,6 +1,6 @@
 from django.template.response import TemplateResponse
 
-from pyconcz_2018.sponsors.models import Sponsor
+from pyconcz.sponsors.models import Sponsor
 
 
 def sponsors_list(request):
