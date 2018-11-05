@@ -18,3 +18,4 @@ wget \
 
 mv cz.pycon.org/$1 $1
 mv cz.pycon.org/$1.html $1/index.html
+mv cz.pycon.org/media $1/
