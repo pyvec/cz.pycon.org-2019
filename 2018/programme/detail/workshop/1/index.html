@@ -1,0 +1,666 @@
+
+
+    
+        
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Dash for beautiful and easy data visualiza­tion – a workshop with Anastazie Sedláková – PyCon CZ 2018</title>
+
+        
+            <meta property="og:type" content="website">
+            <meta property="og:site_name" content="PyCon CZ 2018">
+            <meta name="twitter:site" content="@pyconcz">
+            <meta property="og:url" content="https://cz.pycon.org/2018/programme/detail/workshop/1/">
+            
+    <meta property="og:title" content="PyCon CZ – Dash for beautiful and easy data visualiza­tion – a workshop by Anastazie Sedláková">
+    <meta property="og:description" content="Dash is a Python library that makes creating a web application for data visualization easy. In this workshop, we will create a visualization with publicly available data. We will use Pandas to crunch data, Plotly to visualize them and pinch of Dash to make the web app.The workshop will take appro...">
+    
+        <meta property="og:image" content="https://cz.pycon.org/media/proposals/pyconcz2018/talks/Zidkova_reflex.jpg">
+        <meta property="og:image:width" content="905">
+        <meta property="og:image:height" content="798">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Anastazie Sedláková">
+
+        
+
+        <link href="../../../../static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
+        
+
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../../static/img/favicon/apple-touch-icon.878bc7265d52.png">
+        <link rel="icon" type="image/png" href="../../../../static/img/favicon/favicon-32x32.fd4111cf727a.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../../../../static/img/favicon/favicon-16x16.aaac3183282d.png" sizes="16x16">
+        <link rel="manifest" href="../../../../static/img/favicon/site.dc56cdf2fdbf.webmanifest">
+        <link rel="mask-icon" href="../../../../static/img/favicon/safari-pinned-tab.5d89428ccfa8.svg" color="#002633">
+        <link rel="shortcut icon" href="../../../../static/img/favicon/favicon.781ce4419478.ico">
+        <meta name="msapplication-TileColor" content="#002633">
+        <meta name="msapplication-config" content="/2018/static/img/favicon/browserconfig.fa1ab1bb361d.xml">
+        <meta name="theme-color" content="#002633">
+        
+
+        
+
+        
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag(){
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+
+                gtag('config', 'UA-81705668-1');
+            </script>
+        
+    </head>
+    <body>
+    
+    <nav role="navigation" class="navbar navbar-expand">
+        
+<ul class="nav w-100 justify-content-center">
+    
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../../2018.html"
+            class="nav-link pc-nav-link-hide-active "
+        >
+            Home
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+         
+
+        
+
+        
+
+        
+    
+</ul>
+
+    </nav>
+
+    
+        <header>
+            <div class="container mb-3 mb-xl-4">
+
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="
+                        my-sm-2
+                        col-12 col-sm-7 col-lg-5
+                    ">
+                        <a href="../../../../../2018.html">
+                            <img class="img-fluid" src="../../../../static/img/pyconlogo.a4bd7b5c566b.svg" alt="PyCon CZ">
+                        </a>
+                    </div>
+
+                    <div class="
+                        my-2 my-xl-3
+                        col-12
+                         col-sm-5 col-lg-6 h3 d-none d-sm-block 
+                        text-white
+                    ">
+                        PyCon CZ 2018 Prague<br>1-3 June
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+    
+
+
+    <main role="main">
+        
+    <div class="container">
+        <ul class="nav justify-content-center">
+            
+<ul class="nav w-100 justify-content-center">
+    
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+</ul>
+
+        </ul>
+
+        <h1 class="pc-talk-detail-title h2 mt-2 mt-lg-3 mt-xl-4">
+            Dash for beautiful and easy data visualiza­tion
+            <br class="d-md-none">
+            <small class="pc-talk-detail-note d-md-none">a workshop with Anastazie Sedláková</small>
+        </h1>
+
+        
+
+        <div class="row justify-content-center align-items-start">
+            
+            <div
+                class="
+                    col-12
+                    
+                        col-md-6
+                        
+                            col-lg-5 col-xl-4
+                        
+                    
+                ">
+
+                
+
+                <div class="mb-3"><p>Dash is a Python library that makes creating a web application for data visualization easy. </p>
+<p>In this workshop, we will create a visualization with publicly available data. We will use Pandas to crunch data, Plotly to visualize them and pinch of Dash to make the web app.</p>
+<p>The workshop will take approximately 4 hours.</p>
+<p>See <a href="https://github.com/anastazie/dash-pycon-2018">workshop's GitHub repository</a> for more information.</p>
+<p>Please have <a href="https://github.com/anastazie/dash-pycon-2018#installation">these tools</a> installed.</p></div>
+
+                
+                    <p class="p-2 bg-navy text-light">
+                        This workshop is suitable for both beginner and advanced Pythonistas.
+                    </p>
+                
+
+                
+
+                    
+
+                    
+    
+        
+                        
+                    
+    
+
+                
+            </div>
+
+            
+                <div
+                    class="
+                    col-12
+                    
+                        col-md-6 col-lg-5 col-xl-4
+                    
+                    pc-gradient-orchidred-navy-reversed
+                    py-2
+                ">
+                    <h3 class="mt-0 mb-2">Anastazie Sedláková</h3>
+
+                    <div class="text-center">
+                        <div class="d-inline-block pc-talk-id-1">
+                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="../../../../../media/proposals/pyconcz2018/talks/Zidkova_reflex.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="mt-2 small"><p>I am data scientist with passion for data visualization. I started my programming journey with R language. The possibility of easy data visualization was the last reason I kept returning to R. Once I discovered python library <strong>Dash</strong>, there was no turning back :)</p></div>
+
+                    <div class="row justify-content-between small">
+                        
+                            <div class="col">
+                                GH:
+                                <a href="https://github.com/anastazie">
+                                    anastazie
+                                </a>
+                            </div>
+                        
+
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    </main>
+
+
+    <footer class="text-center pc-footer mt-2 mt-md-3 mt-lg-5 py-5 px-3 small">
+        <div class="container">
+            <nav class="nav mb-4">
+                
+<ul class="nav w-100 justify-content-center">
+    
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../../2018.html"
+            class="nav-link pc-nav-link-hide-active "
+        >
+            Home
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/prague/index.html"
+            class="nav-link  "
+        >
+            Prague
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/team/index.html"
+            class="nav-link  "
+        >
+            Team
+            
+        </a>
+    </li>
+
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../board-game-night/index.html"
+            class="nav-link  "
+        >
+            Board Game Night
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../sponsors/index.html"
+            class="nav-link  "
+        >
+            Sponsors
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../sponsors/offer/index.html"
+            class="nav-link  "
+        >
+            Sponsorship
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../proposals/financial-aid/index.html"
+            class="nav-link  "
+        >
+            Financial Aid
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/code/index.html"
+            class="nav-link  "
+        >
+            Code of Conduct
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/privacy/index.html"
+            class="nav-link  "
+        >
+            Privacy Policy
+            
+        </a>
+    </li>
+
+
+        
+
+        
+    
+</ul>
+
+            </nav>
+
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+
+            <p>
+                We’re on <a href="https://twitter.com/pyconcz">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018">GitHub</a>
+            </p>
+
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>.
+            </p>
+
+            <p>Powered by <a href="https://rosti.cz/">Roští.cz</a></p>
+
+            <nav class="nav mt-5">
+                <ul class="nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a href="../../../../../2015/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2015</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../../../2016/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2016</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../../../2017/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2017</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+
+    </body>
+    </html>
+
+    
+
