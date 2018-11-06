@@ -25,7 +25,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 #         'HOST': '127.0.0.1',
 #         'NAME': 'pyconcz',
 #         'USER': 'pyconcz',
-#         'PASSWORD': '',
+#         'PASSWORD': 'pyconcz',
 #         'PORT': 5432,
 #     }
 # }

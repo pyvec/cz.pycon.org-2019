@@ -33,7 +33,7 @@ run following commands to setup project for local development:
     ```
 
     You can also use PostgreSQL localy in Docker container:
-    `$ docker run --name pyconcz-pg -e POSTGRES_PASSWORD="" -e POSTGRES_USER=pyconcz -d -p 5432:5432 postgres`
+    `$ docker run --name pyconcz-pg -e POSTGRES_PASSWORD="pyconcz" -e POSTGRES_USER=pyconcz -d -p 5432:5432 postgres`
 
 1.  `python3 -m venv env` _note: Use exactly Python 3.5.2 on Windows (otherwise Pillow won't install with pip) so you might want to `py -3.5 -m venv env`_
 1.  `pip install -r requirements-dev.txt`
