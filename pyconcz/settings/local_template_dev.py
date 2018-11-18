@@ -7,28 +7,31 @@ CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+INTERNAL_IPS = ('127.0.0.1',)
 
 # SQLite
 #
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': './db.sqlite3',
+#         'NAME': './2019.sqlite3',
 #     }
 # }
 
 # PostgreSQL
 #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'HOST': '127.0.0.1',
-#         'NAME': 'pyconcz',
-#         'USER': 'pyconcz',
-#         'PASSWORD': 'pyconcz',
-#         'PORT': 5432,
-#     }
-# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': '127.0.0.1',
+        'NAME': 'pyconcz2019',
+        'USER': 'pyconcz',
+        'PASSWORD': '',  # fill in please
+        'PORT': 5432,
+        }
+    }
+
 
 def show_toolbar(request):
     return not request.is_ajax()
@@ -38,5 +41,3 @@ STATICFILES_DIRS = [
 ]
 
 SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications
-
-INTERNAL_IPS = ('127.0.0.1',)

@@ -14,31 +14,28 @@ bundling frontend assets and Postgresql as a database.
 #### Django
 
 
-
-Inside `pyconcz` directory,
-run following commands to setup project for local development:
+Run following commands to setup project for local development:
 
 1.	You can either use sqlite database, if you only need to work with
 	static pages and styles, in which case, you don't need to setup
 	anything. Or, if you need to work with dynamic apps, you need to
 	use postgresql.
 
-	Prepare postgresql database: user `pyconcz`, password empty, database `pyconcz`
-
-    E.g. on Mac:
+    Create role and db via cli:
 
     ```
-    $ createuser --pwprompt pyconcz
-    $ createdb -Opyconcz -Eutf8 pyconcz
+    # su -c psql postgres
+    postgres=# CREATE ROLE pyconcz LOGIN ENCRYPTED PASSWORD 'your fancy password';
+    postgres=# CREATE DATABASE "pycon2019" WITH ENCODING='UTF8' OWNER=pyconcz;
     ```
 
     You can also use PostgreSQL localy in Docker container:
-    `$ docker run --name pyconcz-pg -e POSTGRES_PASSWORD="pyconcz" -e POSTGRES_USER=pyconcz -d -p 5432:5432 postgres`
+    `$ docker run --name pyconcz2019-pg -e POSTGRES_PASSWORD="your fancy password" -e POSTGRES_USER=pyconcz -d -p 5432:5432 postgres`
 
 1.  `python3 -m venv env` _note: Use exactly Python 3.5.2 on Windows (otherwise Pillow won't install with pip) so you might want to `py -3.5 -m venv env`_
 1.  `pip install -r requirements-dev.txt`
 1.	copy `pyconcz/settings/local_template_dev.py` to `pyconcz/settings/local.py`
-    and don't forget to choose/uncoment database settings.
+    and don't forget to set DATABASES and SECRET_KEY settings.
 1.  `./manage.py migrate`
 
 

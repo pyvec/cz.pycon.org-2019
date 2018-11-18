@@ -2,17 +2,17 @@ from .base import *
 
 SECRET_KEY = ''  # fill in, please
 
-ALLOWED_HOSTS = ['cz.pycon.org',
-                 'czpyconorg-1994.rostiapp.cz',  # to be removed
+ALLOWED_HOSTS = ['cz.pycon.org',  # main site
+                 'czpyconorg-1994.rostiapp.cz',  # "beta site"
                  ]
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'NAME': 'pyconcz2019',
+        'USER': 'pyconcz',
+        'PASSWORD': '',  # fill in please
+        'HOST': '127.0.0.1',
         'ATOMIC_REQUESTS': True,
         'CONN_MAX_AGE': 1800,
         },
