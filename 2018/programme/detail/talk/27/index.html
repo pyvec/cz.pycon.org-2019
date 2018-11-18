@@ -1,0 +1,683 @@
+
+
+    
+        
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Machine Learning and Keras – a talk by Petr Baudiš – PyCon CZ 2018</title>
+
+        
+            <meta property="og:type" content="website">
+            <meta property="og:site_name" content="PyCon CZ 2018">
+            <meta name="twitter:site" content="@pyconcz">
+            <meta property="og:url" content="https://cz.pycon.org/2018/programme/detail/talk/27/">
+            
+    <meta property="og:title" content="PyCon CZ – Machine Learning and Keras – a talk by Petr Baudiš">
+    <meta property="og:description" content="What is needed for machines to automatically teach themselves to make decisions based on examples? Machine Learning is all the rage nowadays and may seem very magical, especially on “unstructured data” like texts, pictures or sounds.But what is actually a “neural network” and do you need a PhD to...">
+    
+        <meta property="og:image" content="https://cz.pycon.org/media/programme/pyconcz2018/petr-baudis.jpg">
+        <meta property="og:image:width" content="585">
+        <meta property="og:image:height" content="585">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="Petr Baudiš">
+
+        
+
+        <link href="../../../../static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
+        
+
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../../static/img/favicon/apple-touch-icon.878bc7265d52.png">
+        <link rel="icon" type="image/png" href="../../../../static/img/favicon/favicon-32x32.fd4111cf727a.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../../../../static/img/favicon/favicon-16x16.aaac3183282d.png" sizes="16x16">
+        <link rel="manifest" href="../../../../static/img/favicon/site.dc56cdf2fdbf.webmanifest">
+        <link rel="mask-icon" href="../../../../static/img/favicon/safari-pinned-tab.5d89428ccfa8.svg" color="#002633">
+        <link rel="shortcut icon" href="../../../../static/img/favicon/favicon.781ce4419478.ico">
+        <meta name="msapplication-TileColor" content="#002633">
+        <meta name="msapplication-config" content="/2018/static/img/favicon/browserconfig.fa1ab1bb361d.xml">
+        <meta name="theme-color" content="#002633">
+        
+
+        
+
+        
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag(){
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+
+                gtag('config', 'UA-81705668-1');
+            </script>
+        
+    </head>
+    <body>
+    
+    <nav role="navigation" class="navbar navbar-expand">
+        
+<ul class="nav w-100 justify-content-center">
+    
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../../2018.html"
+            class="nav-link pc-nav-link-hide-active "
+        >
+            Home
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+         
+
+        
+
+        
+
+        
+    
+</ul>
+
+    </nav>
+
+    
+        <header>
+            <div class="container mb-3 mb-xl-4">
+
+                <div class="row align-items-center justify-content-center">
+
+                    <div class="
+                        my-sm-2
+                        col-12 col-sm-7 col-lg-5
+                    ">
+                        <a href="../../../../../2018.html">
+                            <img class="img-fluid" src="../../../../static/img/pyconlogo.a4bd7b5c566b.svg" alt="PyCon CZ">
+                        </a>
+                    </div>
+
+                    <div class="
+                        my-2 my-xl-3
+                        col-12
+                         col-sm-5 col-lg-6 h3 d-none d-sm-block 
+                        text-white
+                    ">
+                        PyCon CZ 2018 Prague<br>1-3 June
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+    
+
+
+    <main role="main">
+        
+    <div class="container">
+        <ul class="nav justify-content-center">
+            
+<ul class="nav w-100 justify-content-center">
+    
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    
+</ul>
+
+        </ul>
+
+        <h1 class="pc-talk-detail-title h2 mt-2 mt-lg-3 mt-xl-4">
+            Machine Learning and Keras
+            <br class="d-md-none">
+            <small class="pc-talk-detail-note d-md-none">a talk by Petr Baudiš</small>
+        </h1>
+
+        
+            <div class="row justify-content-center">
+                <div class="col-12 mb-3">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/LNUzWaukvcc?rel=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="row justify-content-center align-items-start">
+            
+                
+            
+            <div
+                class="
+                    col-12
+                    
+                        col-md-6
+                        
+                            col-lg-5 col-xl-4
+                        
+                    
+                ">
+
+                
+
+                <div class="mb-3"><p>What is needed for machines to automatically teach themselves to make decisions based on examples? Machine Learning is all the rage nowadays and may seem very magical, especially on “unstructured data” like texts, pictures or sounds.</p>
+<p>But what is actually a “neural network” and do you need a PhD to build some?  Turns out that machine learning models are far less magical than they seem to be (at least when solving the more common tasks).  Even if your program will acquire magic powers in the eyes of your users.</p>
+<p>We will unveil the dark secret of how neural networks actually look inside.  And to solve two real problems (related to text and pictures), we will actually build a couple of simple ones in the popular Python framework <a href="https://keras.io">Keras</a>.</p></div>
+
+                
+                    <p class="p-2 bg-navy text-light">
+                        This talk is suitable for both beginner and advanced Pythonistas.
+                    </p>
+                
+
+                
+
+                    
+
+                    
+    
+        
+                        
+                    
+    
+
+                
+            </div>
+
+            
+                <div
+                    class="
+                    col-12
+                    
+                        col-md-6 col-lg-5 col-xl-4
+                    
+                    pc-gradient-orchidred-navy-reversed
+                    py-2
+                ">
+                    <h3 class="mt-0 mb-2">Petr Baudiš</h3>
+
+                    <div class="text-center">
+                        <div class="d-inline-block pc-talk-id-27">
+                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="../../../../../media/programme/pyconcz2018/petr-baudis.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="mt-2 small"><p>I built machine learning based technologies for 10 years now, and build deep learning models for past couple of years.  </p>
+<p>Some of the interesting work I did is the Pachi Go program (used to be the best open source Go-playing program for many years) or the YodaQA open source question answering engine. I'm also Keras contributor.</p>
+<p>I co-founded and currently lead the R&amp;D at Rossum.ai, a startup building Artificial Intelligence for document understanding.</p></div>
+
+                    <div class="row justify-content-between small">
+                        
+                            <div class="col">
+                                GH:
+                                <a href="https://github.com/pasky">
+                                    pasky
+                                </a>
+                            </div>
+                        
+
+                        
+                            <div class="col">
+                                TW:
+                                <a href="https://twitter.com/xpasky">
+                                    xpasky
+                                </a>
+                            </div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+
+    </main>
+
+
+    <footer class="text-center pc-footer mt-2 mt-md-3 mt-lg-5 py-5 px-3 small">
+        <div class="container">
+            <nav class="nav mb-4">
+                
+<ul class="nav w-100 justify-content-center">
+    
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../../2018.html"
+            class="nav-link pc-nav-link-hide-active "
+        >
+            Home
+            
+        </a>
+    </li>
+
+
+        
+
+        
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/prague/index.html"
+            class="nav-link  "
+        >
+            Prague
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/team/index.html"
+            class="nav-link  "
+        >
+            Team
+            
+        </a>
+    </li>
+
+
+        
+
+        
+    
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../talks/index.html"
+            class="nav-link  "
+        >
+            Talks &amp; Videos
+            
+        </a>
+    </li>
+
+
+
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../workshops/index.html"
+            class="nav-link  "
+        >
+            Workshops
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../schedule/index.html"
+            class="nav-link  "
+        >
+            Schedule
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../board-game-night/index.html"
+            class="nav-link  "
+        >
+            Board Game Night
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../sponsors/index.html"
+            class="nav-link  "
+        >
+            Sponsors
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../sponsors/offer/index.html"
+            class="nav-link  "
+        >
+            Sponsorship
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../proposals/financial-aid/index.html"
+            class="nav-link  "
+        >
+            Financial Aid
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/code/index.html"
+            class="nav-link  "
+        >
+            Code of Conduct
+            
+        </a>
+    </li>
+
+
+        
+
+        
+            
+    
+
+
+
+    <li class="nav-item">
+        <a
+            href="../../../../about/privacy/index.html"
+            class="nav-link  "
+        >
+            Privacy Policy
+            
+        </a>
+    </li>
+
+
+        
+
+        
+    
+</ul>
+
+            </nav>
+
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
+
+            <p>
+                We’re on <a href="https://twitter.com/pyconcz">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018">GitHub</a>
+            </p>
+
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>.
+            </p>
+
+            <p>Powered by <a href="https://rosti.cz/">Roští.cz</a></p>
+
+            <nav class="nav mt-5">
+                <ul class="nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a href="../../../../../2015/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2015</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../../../2016/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2016</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../../../2017/index.html" class="nav__link nav-link">PyCon&nbsp;CZ 2017</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+
+    </body>
+    </html>
+
+    
+
