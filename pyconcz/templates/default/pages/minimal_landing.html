@@ -1,1 +1,74 @@
-<h1>batteries not included</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>PyCon CZ 2019</title>
+
+    <link href="https://cz.pycon.org/2018/static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    {% if not debug %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag(){
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'UA-81705668-1');
+        </script>
+    {% endif %}
+</head>
+<body class="bg-black">
+    <main role="main">
+        <h1 class="mt-5">PyCon&nbsp;CZ 2019</h1>
+        <p class="lead">More info soon!!!</p>
+    </main>
+
+    <footer class="text-center mt-2 mt-md-3 mt-lg-5 p-3 small bg-white text-black">
+        <div class="container">
+
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz" class="text-black">Contact us!</a></p>
+
+            <p>
+                We’re on <a href="https://twitter.com/pyconcz" class="text-black">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/" class="text-black">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018" class="text-black">GitHub</a>
+            </p>
+
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/" class="text-black">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by
+                <a href="https://www.python.org/psf-landing/" class="text-black">Python Software Foundation</a>.
+            </p>
+
+            <p>Powered by <a href="https://rosti.cz/" class="text-black">Roští.cz</a></p>
+
+            <nav class="nav mt-5">
+                <ul class="nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a href="/2015/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2015</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2016/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2016</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2017/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2017</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/2018/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2018</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </footer>
+</body>
+</html>
