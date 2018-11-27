@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView, RedirectView
 
-from pyconcz.common.views import homepage, minimal_landing
+from pyconcz.common.views import homepage
 
 '''
 prefixed_urlpatterns = [
