@@ -8,7 +8,3 @@ def homepage(request):
                                        talks__is_backup=False)
 
     return TemplateResponse(request, 'pages/homepage.html', {'keynoters': keynoters})
-
-
-def minimal_landing(request):
-    return TemplateResponse(request, 'pages/minimal_landing.html', {})

@@ -48,7 +48,11 @@ prefixed_urlpatterns = [
 ]
 '''
 
-prefixed_urlpatterns = [url(r'^$', minimal_landing, name='minimal_landing')]
+prefixed_urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name='pages/minimal_landing.html'), name='minimal_landing'),
+    url(r'about/coc/$', TemplateView.as_view(template_name='pages/minimal_coc.html'), name='minimal_coc'),
+    url(r'about/team/$', TemplateView.as_view(template_name='pages/minimal_team.html'), name='minimal_team'),
+]
 
 urlpatterns = (
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
