@@ -4,8 +4,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView, RedirectView
 
-from pyconcz.common.views import homepage
+from pyconcz.common.views import homepage, minimal_landing
 
+'''
 prefixed_urlpatterns = [
     url(r'^$', homepage, name='homepage'),
     #url(r'^announcements/', include('pyconcz.announcements.urls')),
@@ -45,6 +46,9 @@ prefixed_urlpatterns = [
         TemplateView.as_view(template_name='pages/pattern-lib.html'),
         name='pattern_lib'),
 ]
+'''
+
+prefixed_urlpatterns = [url(r'^$', minimal_landing, name='minimal_landing')]
 
 urlpatterns = (
     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
