@@ -1,7 +1,7 @@
 
 
-    
-        
+
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -10,29 +10,29 @@
 
         <title>Build your own serverless image sharing web-site with Lambda, API Gateway, DynamoDB and S3 – a workshop with Justyna Janczyszyn – PyCon CZ 2018</title>
 
-        
+
             <meta property="og:type" content="website">
             <meta property="og:site_name" content="PyCon CZ 2018">
             <meta name="twitter:site" content="@pyconcz">
             <meta property="og:url" content="https://cz.pycon.org/2018/programme/detail/workshop/3/">
-            
+
     <meta property="og:title" content="PyCon CZ – Build your own serverless image sharing web-site with Lambda, API Gateway, DynamoDB and S3 – a workshop by Justyna Janczyszyn">
     <meta property="og:description" content="Learn how to build your own image sharing website, like Instagram, using serverless technologies. During the workshop, you will build an entire end to end system that’s powered by AWS Lambda, API Gateway, S3, DynamoDB, Auth0 and much more.Serverless lets developers concentrate on the business log...">
-    
+
         <meta property="og:image" content="https://cz.pycon.org/media/programme/pyconcz2018/justyna-janczyszyn-01.jpg">
         <meta property="og:image:width" content="450">
         <meta property="og:image:height" content="450">
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:alt" content="Justyna Janczyszyn">
 
-        
+
 
         <link href="/2018/static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
-        
 
-        
+
+
         <link rel="apple-touch-icon" sizes="180x180" href="/2018/static/img/favicon/apple-touch-icon.878bc7265d52.png">
         <link rel="icon" type="image/png" href="/2018/static/img/favicon/favicon-32x32.fd4111cf727a.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/2018/static/img/favicon/favicon-16x16.aaac3183282d.png" sizes="16x16">
@@ -42,11 +42,11 @@
         <meta name="msapplication-TileColor" content="#002633">
         <meta name="msapplication-config" content="/2018/static/img/favicon/browserconfig.fa1ab1bb361d.xml">
         <meta name="theme-color" content="#002633">
-        
 
-        
 
-        
+
+
+
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
             <script>
@@ -60,17 +60,17 @@
 
                 gtag('config', 'UA-81705668-1');
             </script>
-        
+
     </head>
     <body>
-    
+
     <nav role="navigation" class="navbar navbar-expand">
-        
+
 <ul class="nav w-100 justify-content-center">
-    
-        
-            
-    
+
+
+
+
 
 
 
@@ -80,24 +80,24 @@
             class="nav-link pc-nav-link-hide-active "
         >
             Home
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
-    
+
+
+
+
+
+
+
+
 
 
 
@@ -107,16 +107,16 @@
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -126,16 +126,16 @@
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -145,32 +145,32 @@
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-         
 
-        
 
-        
 
-        
-    
+
+
+
+
+
+
+
+
+
 </ul>
 
     </nav>
 
-    
+
         <header>
             <div class="container mb-3 mb-xl-4">
 
@@ -198,29 +198,29 @@
 
             </div>
         </header>
-    
+
 
 
     <main role="main">
-        
+
     <div class="container">
         <ul class="nav justify-content-center">
-            
+
 <ul class="nav w-100 justify-content-center">
-    
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
-    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -230,16 +230,16 @@
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -249,16 +249,16 @@
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -268,27 +268,27 @@
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
+
+
+
+
+
+
+
+
+
 </ul>
 
         </ul>
@@ -299,10 +299,10 @@
             <small class="pc-talk-detail-note d-md-none">a workshop with Justyna Janczyszyn</small>
         </h1>
 
-        
+
 
         <div class="row justify-content-center align-items-start">
-            
+
             <div
                 class="
                     col-12
@@ -312,7 +312,7 @@
                     
                 ">
 
-                
+
 
                 <div class="mb-3"><p>Learn how to build your own image sharing website, like Instagram, using serverless technologies. During the workshop, you will build an entire end to end system that’s powered by AWS Lambda, API Gateway, S3, DynamoDB, Auth0 and much more.</p>
 <p>Serverless lets developers concentrate on the business logic that makes their application unique without the need to worry about infrastructure and scaling. </p>
@@ -327,27 +327,27 @@
 </ol>
 <p>It's important to set up the AWS account as soon as possible since it will be too late on the workshop day.</p></div>
 
-                
+
                     <p class="p-2 bg-navy text-light">
                         This workshop is suitable for both beginner and advanced Pythonistas.
                     </p>
-                
 
-                
 
-                    
 
-                    
-    
-        
-                        
-                    
-    
 
-                
+
+
+
+
+
+
+
+
+
+
             </div>
 
-            
+
                 <div
                     class="
                     col-12
@@ -361,7 +361,7 @@
 
                     <div class="text-center">
                         <div class="d-inline-block pc-talk-id-3">
-                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="../../../../../media/programme/pyconcz2018/justyna-janczyszyn-01.jpg" alt="">
+                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="/2018/media/programme/pyconcz2018/justyna-janczyszyn-01.jpg" alt="">
                         </div>
                     </div>
 
@@ -370,26 +370,26 @@
 Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API Maps Engineer.</p></div>
 
                     <div class="row justify-content-between small">
-                        
+
                             <div class="col">
                                 GH:
                                 <a href="https://github.com/jjanczyszyn">
                                     jjanczyszyn
                                 </a>
                             </div>
-                        
 
-                        
+
+
                             <div class="col">
                                 TW:
                                 <a href="https://twitter.com/JJanczyszyn">
                                     JJanczyszyn
                                 </a>
                             </div>
-                        
+
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
@@ -399,12 +399,12 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
     <footer class="text-center pc-footer mt-2 mt-md-3 mt-lg-5 py-5 px-3 small">
         <div class="container">
             <nav class="nav mb-4">
-                
+
 <ul class="nav w-100 justify-content-center">
-    
-        
-            
-    
+
+
+
+
 
 
 
@@ -414,20 +414,20 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link pc-nav-link-hide-active "
         >
             Home
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
-            
-    
+
+
+
+
+
+
 
 
 
@@ -437,16 +437,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Prague
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -456,16 +456,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Team
-            
+
         </a>
     </li>
 
 
-        
 
-        
-    
-    
+
+
+
+
 
 
 
@@ -475,16 +475,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -494,16 +494,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -513,16 +513,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -532,16 +532,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Board Game Night
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -551,16 +551,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Sponsors
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -570,16 +570,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Sponsorship
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -589,16 +589,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Financial Aid
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -608,16 +608,16 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Code of Conduct
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -627,15 +627,15 @@ Crazy about dogs, surfing and trampolines. Currently working at Mapbox as an API
             class="nav-link  "
         >
             Privacy Policy
-            
+
         </a>
     </li>
 
 
-        
 
-        
-    
+
+
+
 </ul>
 
             </nav>
