@@ -1,4 +1,4 @@
-PyConCZ 2018
+PyConCZ 2019
 ============
 
 PyCon CZ taking place in Prague for its fourth edition.
