@@ -1,32 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>PyCon CZ 2019</title>
-
-    <link href="https://cz.pycon.org/2018/static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
-
-    {% if not debug %}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag(){
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'UA-81705668-1');
-        </script>
-    {% endif %}
-</head>
-<body class="bg-black">
+{% extends '_base19.html' %}
+{% block body %}
     <main role="main">
         <h1 class="mt-5">PyCon&nbsp;CZ 2019</h1>
         <p class="lead">More info soon!!!</p>
@@ -71,4 +44,4 @@
         </div>
     </footer>
 </body>
-</html>
+{% endblock %}

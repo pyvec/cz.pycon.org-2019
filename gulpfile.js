@@ -27,7 +27,7 @@ gulp.task('runserver', gulp.series(function(done){
 
 // delete all previously generated CSS
 gulp.task('clean-css', gulp.series(function(){
-    return del(['./pyconcz/static/css/pyconcz18.*'], { force: true });
+    return del(['./pyconcz/static/css/pyconcz19.*'], { force: true });
 }));
 
 
@@ -55,7 +55,7 @@ gulp.task('copy-img', gulp.series('clean-img', function(){
 // compile CSS
 gulp.task('compile-css', gulp.series('clean-css', function(){
     return gulp
-        .src('./pyconcz/static_src/scss/pyconcz18/pyconcz18.scss') // scss source
+        .src('./pyconcz/static_src/scss/pyconcz19/pyconcz19.scss') // scss source
         .pipe(plumber())
         .pipe(sourcemaps.init()) // initalizes a sourcemap
         .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
@@ -86,9 +86,9 @@ gulp.task('compile-css', gulp.series('clean-css', function(){
             require('postcss-flexbugs-fixes') // fixes flex bugs if possible: see https://github.com/philipwalton/flexbugs
         ])) // add vendor prefixes, fix flexbox bugs
         .pipe(csso()) // compresses CSS
-        .pipe(rename('pyconcz18.min.css'))
+        .pipe(rename('pyconcz19.min.css'))
         .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS without sourcemap
-        .pipe(rename('pyconcz18.css'))
+        .pipe(rename('pyconcz19.css'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS with sourcemap
         .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
