@@ -1,0 +1,11 @@
+footer {
+    background-color: $white;
+    background:
+        url(/2019/static/img/footer/footer-bg.svg);
+    margin: 0;
+    padding-top: 70px;
+    color: $black;
+    a, a:hover, a:active {
+        color: $pc-color-old-rust;
+    }
+}

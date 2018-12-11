@@ -11,6 +11,7 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="homepage" link_text="Home" class="pc-nav-link-hide-active" %}
         {% endblock %}
 
+{% comment %}
         {% block link_about %}
             {% include "__nav-link.html" with url="about" link_text="About" %}
         {% endblock %}
@@ -66,5 +67,6 @@ If you want to remove menu item globally, comment it out here.
         {% block link_call_for_papers %}
             {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
         {% endblock %}
+{% endcomment %}
     {% endblock %}
 </ul>

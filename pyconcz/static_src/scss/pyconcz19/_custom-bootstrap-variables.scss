@@ -41,17 +41,17 @@
     //
 
     // stylelint-disable
-    // $white: #fff; $white: $white !global;
-    // $gray-100: #f8f9fa; $gray-100: $gray-100 !global;
-    // $gray-200: #e9ecef; $gray-200: $gray-200 !global;
-    // $gray-300: #dee2e6; $gray-300: $gray-300 !global;
-    // $gray-400: #ced4da; $gray-400: $gray-400 !global;
-    // $gray-500: #adb5bd; $gray-500: $gray-500 !global;
-    // $gray-600: #6c757d; $gray-600: $gray-600 !global;
-    // $gray-700: #495057; $gray-700: $gray-700 !global;
-    // $gray-800: #343a40; $gray-800: $gray-800 !global;
-    // $gray-900: #212529; $gray-900: $gray-900 !global;
-    $black: mix($black, $pc-color-blue, 80%); $black: $black !global; // #000
+    $white: $pc-color-white; $white: $white !global;
+    $black: $pc-color-black; $black: $black !global; // #000
+    $gray-100: mix($white, $black, 10%); $gray-100: $gray-100 !global;
+    $gray-200: mix($white, $black, 20%); $gray-200: $gray-200 !global;
+    $gray-300: mix($white, $black, 30%); $gray-300: $gray-300 !global;
+    $gray-400: mix($white, $black, 40%); $gray-400: $gray-400 !global;
+    $gray-500: mix($white, $black, 50%); $gray-500: $gray-500 !global;
+    $gray-600: mix($white, $black, 60%); $gray-600: $gray-600 !global;
+    $gray-700: mix($white, $black, 70%); $gray-700: $gray-700 !global;
+    $gray-800: mix($white, $black, 80%); $gray-800: $gray-800 !global;
+    $gray-900: mix($white, $black, 90%); $gray-900: $gray-900 !global;
 
     // $grays: (
     //         "100": $gray-100,
@@ -65,16 +65,16 @@
     //         "900": $gray-900
     // ); $grays: $grays !global;
 
-    $blue: $pc-color-navy; $blue: $blue !global; // #00s7bff
+    //$blue: $pc-color-navy; $blue: $blue !global; // #00s7bff
     // $indigo: #6610f2; $indigo: $indigo !global;
-    $purple: $pc-color-orchid; $purple: $purple !global; // #6f42c1
-    $pink: $pc-color-orchidred; $pink: $pink !global; // #e83e8c
-    $red: $pc-color-red; $red: $red !global; // #dc3545
-    $orange: $pc-color-orange; $orange: $orange !global; // #fd7e14
-    $yellow: $pc-color-yellow; $yellow: $yellow !global; // #ffc107
-    $green: $pc-color-lime; $green: $green !global; // #28a745
-    $teal: $pc-color-mint; $teal: $teal !global; // #20c997
-    $cyan: $pc-color-blue; $cyan: $cyan !global; // #17a2b8
+    //$purple: $pc-color-orchid; $purple: $purple !global; // #6f42c1
+    //$pink: $pc-color-orchidred; $pink: $pink !global; // #e83e8c
+    //$red: $pc-color-red; $red: $red !global; // #dc3545
+    //$orange: $pc-color-orange; $orange: $orange !global; // #fd7e14
+    //$yellow: $pc-color-yellow; $yellow: $yellow !global; // #ffc107
+    //$green: $pc-color-lime; $green: $green !global; // #28a745
+    //$teal: $pc-color-mint; $teal: $teal !global; // #20c997
+    //$cyan: $pc-color-blue; $cyan: $cyan !global; // #17a2b8
 
     // $colors: (
     //         "blue": $blue,
@@ -110,20 +110,21 @@
         //         "danger": $danger,
         //         "light": $light,
         //         "dark": $dark
-        "navy": $pc-color-navy,
-        "blue": $pc-color-blue,
-        "cyan": $pc-color-cyan,
-        "mint": $pc-color-mint,
-        "lime": $pc-color-lime,
-        "yellow": $pc-color-yellow,
-        "violetred": $pc-color-violetred,
-        "ginger": $pc-color-ginger,
-        "orange": $pc-color-orange,
-        "red": $pc-color-red,
-        "orchidred": $pc-color-orchidred,
-        "orchid": $pc-color-orchid,
-        "orchidlight": lighten($pc-color-orchid, 5%),
-        "black": #000
+        //"navy": $pc-color-navy,
+        //"blue": $pc-color-blue,
+        //"cyan": $pc-color-cyan,
+        //"mint": $pc-color-mint,
+        //"lime": $pc-color-lime,
+        //"yellow": $pc-color-yellow,
+        //"violetred": $pc-color-violetred,
+        //"ginger": $pc-color-ginger,
+        //"orange": $pc-color-orange,
+        //"red": $pc-color-red,
+        //"orchidred": $pc-color-orchidred,
+        //"orchid": $pc-color-orchid,
+        //"orchidlight": lighten($pc-color-orchid, 5%),
+        "white": $pc-color-white,
+        "black": $pc-color-black,
     ); $theme-colors: $theme-colors !global;
     // stylelint-enable
 
@@ -181,13 +182,13 @@
     // Settings for the `<body>` element.
 
     $body-bg: $black; $body-bg: $body-bg !global; // $white
-    $body-color: mix($white, $pc-color-navy, 90%); $body-color: $body-color !global; // $black
+    //$body-color: mix($white, $pc-color-navy, 90%); $body-color: $body-color !global; // $black
 
     // Links
     //
     // Style anchor elements.
 
-    $link-color: $pc-color-yellow; $link-color: $link-color !global; // theme-color("primary")
+    $link-color: $pc-color-new-rust; $link-color: $link-color !global; // theme-color("primary")
     $link-decoration: underline; $link-decoration: $link-decoration !global;
     // $link-hover-color: darken($link-color, 15%); $link-hover-color: $link-hover-color !global;
     // $link-hover-decoration: underline; $link-hover-decoration: $link-hover-decoration !global;

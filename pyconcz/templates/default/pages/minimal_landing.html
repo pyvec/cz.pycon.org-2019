@@ -1,42 +1,107 @@
 {% extends '_base19.html' %}
+{% load static %}
 {% block body %}
-    <main role="main">
-        <h1 class="mt-5">PyCon&nbsp;CZ 2019</h1>
-        <p class="lead">More info soon!!!</p>
+    <nav role="navigation" class="navbar navbar-expand">
+        {% include '_menu_top.html' with pc_alignment='center' %}
+    </nav>
+
+    <main role="main" class="homepage">
+        <div class="main-logo">
+            <img src="{% static "img/pyconlogo.svg" %}">
+        </div>
+        <div class="main-lead">
+            <div class="insert">
+                <h1>PyCon CZ 2019</h1>
+                <div>Ostrava</div>
+                <div>June 14–16</div>
+            </div>
+        </div>
+        <div class="odd-section">
+            <div class="container">
+                <p>
+                    After two years in Brno and two in Prague, PyCon CZ is
+                    coming to Ostrava!
+                </p>
+                <p>
+                    Expect the call for proposals to open in January 2019.
+                </p>
+            </div>
+        </div>
+        <div class="even-section">
+            <div class="container">
+                <h2><span>About PyCon CZ</span></h2>
+                <p class="key">
+                    PyCon CZ is the Czech Republic edition of the well-known and valued PyCon conference devoted to the Free and Open Source <a href="https://python.org">Python programming language</a>.
+                </p>
+                <p>
+                    It is organized already for the fifth time by passionate members of Czech Python community,
+                    with cooperation and underwriting by the <a href="http://pyvec.org">Pyvec.org</a>, 
+                    a local non-profit organization that focuses on supporting the Python community in the Czech Republic.
+                </p>
+                <p>
+                    To get a better idea of our previous year's events, check out our short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk">promotional video</a> or watch our keynotes from last year:
+                    <a href="https://cz.pycon.org/2018/programme/detail/talk/30/">Van Lindberg</a>,
+                    <a href="https://cz.pycon.org/2018/programme/detail/talk/32/">Karen M. Sandler</a>,
+                    <a href="https://cz.pycon.org/2018/programme/detail/talk/33/">Sam Trojan</a>,
+                    <a href="https://cz.pycon.org/2018/programme/detail/talk/31/">Flavio Percoco and Nick Lang</a>.
+                </p>
+                <p>
+                    The objective of the PyCon conference is to raise participants' <em>qualifications</em>, and overall <em>integration</em>
+                    of the Python programmers' community in the Czech Republic and surrounding area, <em>popularisation</em> of new applications of the language as well as to spread good programming practices and exchange of <em>experiences</em> between professionals, novices, students and hobbyist Python programmers.
+                </p>
+            </div>
+        </div>
+        <div class="odd-section">
+            <div class="container">
+                <h2><span>Venue</span></h2>
+                <p>
+                    Dolní Vítkovice is a gorgeous place a national site of industrial heritage located in the centre of Ostrava. It includes an extensive industrial ironworks with former coal mine, coke ovens and blast furnace operations with exceptional technology flow
+                    and specialized machines as well as a unique collection 
+                    of industrial architecture. Part of the complex is also Science 
+                    and technology center or Bolt Tower.
+                    Since 2007 site is reopened and the manufacturing complex has been transformed into a unique educational, social and cultural centre of a significance reaching beyond the region.
+                </p>
+                <p>
+                    More info at the
+                    <a href="http://www.dolnivitkovice.cz/">venue’s official website</a>.
+                </p>
+            </div>
+        </div>
     </main>
 
-    <footer class="text-center mt-2 mt-md-3 mt-lg-5 p-3 small bg-white text-black">
+    <footer class="text-center">
         <div class="container">
 
-            <p>Do you have any questions? <a href="mailto:info@pycon.cz" class="text-black">Contact us!</a></p>
+            <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact us!</a></p>
 
             <p>
-                We’re on <a href="https://twitter.com/pyconcz" class="text-black">Twitter</a>,
-                <a href="https://www.facebook.com/events/1271690599641233/" class="text-black">Facebook</a>
-                and <a href="https://github.com/pyvec/cz.pycon.org-2018" class="text-black">GitHub</a>
+                We’re on <a href="https://twitter.com/pyconcz">Twitter</a>,
+                <a href="https://www.facebook.com/events/1271690599641233/">Facebook</a>
+                and <a href="https://github.com/pyvec/cz.pycon.org-2018">GitHub</a>
             </p>
 
             <p>
-                <a href="https://www.python.org/psf/trademarks/pycon/" class="text-black">PyCon</a>™
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
                 is a trademark for worldwide conference activities claimed by
-                <a href="https://www.python.org/psf-landing/" class="text-black">Python Software Foundation</a>.
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a>.
             </p>
 
-            <p>Powered by <a href="https://rosti.cz/" class="text-black">Roští.cz</a></p>
+            <p>Powered by <a href="https://rosti.cz/">Roští.cz</a></p>
 
             <nav class="nav mt-5">
+                <p>Previous years:</p>
                 <ul class="nav w-100 justify-content-center">
                     <li class="nav-item">
-                        <a href="/2015/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2015</a>
+                        <a href="/2015/" class="nav__link nav-link">2015</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/2016/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2016</a>
+                        <a href="/2016/" class="nav__link nav-link">2016</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/2017/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2017</a>
+                        <a href="/2017/" class="nav__link nav-link">2017</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/2018/" class="nav__link nav-link text-black">PyCon&nbsp;CZ 2018</a>
+                        <a href="/2018/" class="nav__link nav-link">2018</a>
                     </li>
                 </ul>
             </nav>
