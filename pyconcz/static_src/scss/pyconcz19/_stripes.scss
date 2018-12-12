@@ -1,8 +1,9 @@
-.odd-section {
+.pc-odd-section {
+    /* Normal background: white on black */
     background-color: $black;
     color: $white;
     padding: 1rem;
-    h2>span {
+    h1>span, h2>span {
         background: linear-gradient(
             0deg,
             mix($pc-color-old-rust, $black, 70%) 50%,
@@ -13,14 +14,18 @@
         padding-right: 1rem;
     }
 }
-.even-section {
+.pc-even-section {
+    /* Alternate bg is black on white */
     background-color: $white;
     color: $black;
     padding: 1rem;
     h1, h2 {
         color: $pc-color-old-rust;
     }
-    a, a:hover, a:active {
+    a {
         color: $pc-color-old-rust;
+    }
+    a:hover, a:active {
+        color: $pc-color-new-rust;
     }
 }

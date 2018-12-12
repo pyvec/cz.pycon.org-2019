@@ -100,7 +100,7 @@ PHASE = [
     '170-videos-published',
 ]
 
-PHASE_CURRENT = 17
+PHASE_CURRENT = 0
 
 TEMPLATES = [
     {

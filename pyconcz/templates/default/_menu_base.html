@@ -56,9 +56,11 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="proposal_about" key='financial-aid' link_text="Financial Aid" %}
         {% endblock %}
 
+{% endcomment %}
         {% block link_coc %}
             {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
         {% endblock %}
+{% comment %}
 
         {% block link_privacy_policy %}
             {% include "__nav-link.html" with url="about_privacy" link_text="Privacy Policy" %}

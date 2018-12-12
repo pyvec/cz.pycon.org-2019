@@ -181,8 +181,10 @@
     //
     // Settings for the `<body>` element.
 
+    /* (see _stripes.scss for alternating color scheme) */
+
     $body-bg: $black; $body-bg: $body-bg !global; // $white
-    //$body-color: mix($white, $pc-color-navy, 90%); $body-color: $body-color !global; // $black
+    $body-color: $white; $body-color: $body-color !global; // $black
 
     // Links
     //
@@ -190,7 +192,7 @@
 
     $link-color: $pc-color-new-rust; $link-color: $link-color !global; // theme-color("primary")
     $link-decoration: underline; $link-decoration: $link-decoration !global;
-    // $link-hover-color: darken($link-color, 15%); $link-hover-color: $link-hover-color !global;
+    $link-hover-color: $pc-color-mid-rust; $link-hover-color: $link-hover-color !global;
     // $link-hover-decoration: underline; $link-hover-decoration: $link-hover-decoration !global;
 
     // Paragraphs
