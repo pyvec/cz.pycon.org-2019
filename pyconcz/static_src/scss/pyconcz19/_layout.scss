@@ -9,6 +9,8 @@ html, body {
     color: $black;
     font-size: 1.5em;
     text-align: center;
+    width: 100%;
+    overflow: hidden;
 }
 .pc-main-header-text {
     display: inline-block;

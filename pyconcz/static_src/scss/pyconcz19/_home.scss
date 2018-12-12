@@ -20,6 +20,8 @@
     text-align: center;
     padding: 0;
     margin-bottom: 2em;
+    width: 100%;
+    overflow: hidden;
     &:after {
         content: '\A';
         position: absolute;
