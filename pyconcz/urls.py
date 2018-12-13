@@ -12,7 +12,6 @@ prefixed_urlpatterns = [
     #url(r'^announcements/', include('pyconcz.announcements.urls')),
     url(r'^proposals/', include('pyconcz.proposals.urls')),
 
-    url(r'^about/team/', include('pyconcz.team.urls')),
     url(r'^programme/', include('pyconcz.programme.urls')),
     url(r'^sponsors/', include('pyconcz.sponsors.urls')),
     url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
@@ -51,7 +50,7 @@ prefixed_urlpatterns = [
 prefixed_urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/minimal_landing.html'), name='homepage'),
     url(r'about/coc/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
-    url(r'about/team/$', TemplateView.as_view(template_name='pages/minimal_team.html'), name='minimal_team'),
+    url(r'^about/team/', include('pyconcz.team.urls')),
 ]
 
 urlpatterns = (

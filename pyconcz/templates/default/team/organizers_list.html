@@ -6,23 +6,24 @@
 
 
 {% block main %}
-    <div class="container">
-        <h1>PyCon&nbsp;CZ Team</h1>
+<div class="pc-odd-section">
+<div class="container">
+        <h1><span>PyCon&nbsp;CZ Team</span></h1>
 
-        <p>PyCon is a community event. There are more than 30 people on our Slack channel and even more volunteers helped us by sending PR on GitHub. If you drew the organization structure of the PyCon CZ team, <strong>you — the attendee</strong> would be at the top. The incredible amount of volunteers would follow. There's little or no difference between organizers and volunteers, because we all do it in our free time without any claim for wage. Below is a list of our core team members.</p>
+        <p>PyCon is a community event. There are more than 30 people on our Slack channel and even more volunteers helped us by sending pull requests on GitHub. If you drew the organization structure of the PyCon CZ team, <strong>you — the attendee</strong> would be at the top. The incredible amount of volunteers would follow. There's little or no difference between organizers and volunteers, because we all do it in our free time without any claim for wage. Below is a list of our core team members.</p>
 
-        <p class="h3 my-5">We are here for <strong>you</strong>!</p>
+        <p class="h3">We are here for <strong>you</strong>!</p>
 
-        <p class="h3 my-5">Main contact is <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+        <p>The main contact is <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
 
-        <div class="pc-team">
+        <div class="row">
             {% for organizer in organizers %}
-                <div class="card pc-team-card">
-                    <img class="card-img-top" src="{{ organizer.photo.url }}" alt="">
-                    <div class="card-body p-1 d-flex justify-content-center align-items-center">
-                        <h6 class="card-title mt-1 mb-1">{{ organizer.full_name }}</h6>
+                <div class="col pc-team-col">
+                    <img src="{{ organizer.photo.url }}" alt="" class="pc-team-photo">
+                    <div class="pc-team-name">
+                        {{ organizer.full_name }}
                     </div>
-                    <p class="card-footer border-0 bg-transparent small m-0 pt-0">
+                    <p class="pc-team-contact">
                         {% if organizer.twitter %}
                             TW:&nbsp;<a href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
                         {% endif %}
@@ -35,4 +36,6 @@
         </div>
 
     </div>
+</div>
+</div>
 {% endblock %}

@@ -24,9 +24,11 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="about_city" link_text="Prague" %}
         {% endblock %}
 
+{% endcomment %}
         {% block link_team %}
             {% include "__nav-link.html" with url="team_list" link_text="Team" %}
         {% endblock %}
+{% comment %}
 
         {% block link_talks %}
             {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}

@@ -1,0 +1,15 @@
+.pc-team-col {
+    max-width: 20em;
+    min-width: 10em;
+    text-align: center;
+}
+.pc-team-photo {
+    width: 100%;
+    border: 10px solid $pc-color-new-rust;
+}
+.pc-team-name {
+    font-family: $font-family-monospace;
+}
+.pc-team-contact {
+    font-size: 70%;
+}
