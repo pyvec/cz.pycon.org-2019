@@ -4,7 +4,7 @@
     color: $black;
     background-color: $white;
     background:
-        url(/2019/static/img/footer/footer-repeat.svg) 0 81px;
+        url(/2019/static/img/footer/footer-repeat.png) $white 0 81px;
     text-align: center;
     a {
         color: $pc-color-old-rust;
@@ -22,11 +22,11 @@
     padding: 0;
     background-color: $white;
     background:
-        url(/2019/static/img/footer/footer-top.svg) $black;
+        url(/2019/static/img/footer/footer-top.png) $black;
 }
 .pc-odd-footer:before {
     background:
-        url(/2019/static/img/footer/footer-top.svg) $white;
+        url(/2019/static/img/footer/footer-top.png) $white;
 }
 .pc-footer-section {
     margin-bottom: $paragraph-margin-bottom;
