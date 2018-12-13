@@ -57,6 +57,36 @@ You can run your dev server manually on [http://localhost:8000]() with:
 `./manage.py runserver --settings=pyconcz.settings.local`
 
 
+#### HTML
+
+We have some non-semantic HTML to accomodate the design.
+Hopefully this is temporary, until a CSS wizard tames the madness.
+Things to watch out for:
+
+* Headers `<h1>` and `<h2>` need an extra `<span>` inside for the content:
+
+  ```html
+      <h1><span>PyCon CZ Team</span></h1>
+  ```
+
+* Sections (with the headers above) need to be wrapped in double `<div>`.
+  Alternate between `pc-odd-section` and `pc-even-section` classes:
+
+  ```html
+      <div class="pc-odd-section">
+          <div class="container">
+              ...
+          </div>
+      </div>
+  ```
+
+* If you end with `pc-even-section`, adjust the footer by adding the
+  following block:
+
+    ```html
+        {% block footer-class %}pc-odd-footer{% endblock %}
+    ```
+
 #### Static files
 
 To start development with static files being processed run `gulp`. It will also start dev server for you.
