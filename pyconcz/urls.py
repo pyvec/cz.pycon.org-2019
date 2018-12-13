@@ -49,7 +49,7 @@ prefixed_urlpatterns = [
 
 prefixed_urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/minimal_landing.html'), name='homepage'),
-    url(r'about/coc/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
+    url(r'about/code/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
     url(r'^about/team/', include('pyconcz.team.urls')),
 ]
 
