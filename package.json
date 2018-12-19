@@ -1,7 +1,7 @@
 {
-  "name": "cz.pycon.org-2018",
-  "version": "0.0.3",
-  "description": "Frontend of PyCon CZ 2018 website",
+  "name": "cz.pycon.org-2019",
+  "version": "1.0.0",
+  "description": "Frontend of PyCon CZ 2019 website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pyvec/cz.pycon.org-2018.git"
+    "url": "git+https://github.com/pyvec/cz.pycon.org-2019.git"
   },
   "author": "Pyvec",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pyvec/cz.pycon.org-2018/issues"
+    "url": "https://github.com/pyvec/cz.pycon.org-2019/issues"
   },
-  "homepage": "https://github.com/pyvec/cz.pycon.org-2018#readme",
+  "homepage": "https://github.com/pyvec/cz.pycon.org-2019#readme",
   "devDependencies": {
     "autoprefixer": "^9.4.3",
     "bootstrap": "^4.1.3",
