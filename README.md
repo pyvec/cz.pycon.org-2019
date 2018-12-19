@@ -16,12 +16,9 @@ bundling frontend assets and Postgresql as a database.
 
 Run following commands to setup project for local development:
 
-1.	You can either use sqlite database, if you only need to work with
-	static pages and styles, in which case, you don't need to setup
-	anything. Or, if you need to work with dynamic apps, you need to
-	use postgresql.
-
-    Create role and db via cli:
+1.  You can use sqlite database if you only need to work with static pages and styles. 
+    
+    In a case you need to work with dynamic apps setup postgresql create role and db via CLI:
 
     ```
     # su -c psql postgres
@@ -34,7 +31,7 @@ Run following commands to setup project for local development:
 
 1.  `python3 -m venv env` _note: Use exactly Python 3.5.2 on Windows (otherwise Pillow won't install with pip) so you might want to `py -3.5 -m venv env`_
 1.  `pip install -r requirements-dev.txt`
-1.	copy `pyconcz/settings/local_template_dev.py` to `pyconcz/settings/local.py`
+1.  copy `pyconcz/settings/local_template_dev.py` to `pyconcz/settings/local.py`
     and don't forget to set DATABASES and SECRET_KEY settings.
 1.  `./manage.py migrate`
 
@@ -43,9 +40,9 @@ Run following commands to setup project for local development:
 
 **You only need this if you work with styles or images**. 
 
-For styles and images processing to work, you need to have `node.js` and _gulp-cli_ installed globally (`sudo npm install gulp-cli -g`)
+For styles and images processing to work, you need to have `node.js` installed.
 
-Inside root directory (the same directory where `manage.py` is) run `npm install`
+In root directory (the same directory where `manage.py` is) run `npm install`
 
 
 ### Development
@@ -89,15 +86,14 @@ Things to watch out for:
 
 #### Static files
 
-To start development with static files being processed run `gulp`. It will also start dev server for you.
+To start development with static files being processed run `npm start`. It will also start Django dev server for you.
 
 Open [http://localhost:3838]() and you should see development version of website with automatic compiling and reloading.
 
 You can also set your hosts to map 127.0.0.1 to `pycon.test` and it will work on [http://pycon.test:3838]().
 
 Everything in `/static/css` and `/static/img` is replaced with 
-processed content of `/static_src/css` and `/static_src/img` respectively.
-So don't edit anything inside `/static/css` and `/static/img` manually.
+processed content of `/static_src/css` and `/static_src/img` respectively so don't edit anything inside `/static/css` and `/static/img` manually.
 
 Same would go for own JavaScript but we don’t have any.
 
