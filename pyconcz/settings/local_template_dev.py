@@ -25,8 +25,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': '127.0.0.1',
-        'NAME': 'pyconcz2019',
-        'USER': 'pyconcz',
+        'NAME': 'pycon2019',
+        'USER': 'pycon2019',
         'PASSWORD': '',  # fill in please
         'PORT': 5432,
         }
