@@ -23,7 +23,7 @@ Run following commands to setup project for local development:
     ```
     # su -c psql postgres
     postgres=# CREATE ROLE pyconcz LOGIN ENCRYPTED PASSWORD 'your fancy password';
-    postgres=# CREATE DATABASE "pycon2019" WITH ENCODING='UTF8' OWNER=pyconcz;
+    postgres=# CREATE DATABASE "pyconcz2019" WITH ENCODING='UTF8' OWNER=pyconcz;
     ```
 
     You can also use PostgreSQL localy in Docker container:
