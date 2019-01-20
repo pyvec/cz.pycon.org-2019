@@ -51,6 +51,12 @@ prefixed_urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/minimal_landing.html'), name='homepage'),
     url(r'about/code/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
     url(r'^about/team/', include('pyconcz.team.urls')),
+    url(r'^proposals/', include('pyconcz.proposals.urls')),
+    
+    # static pages
+    url(r'^proposals/$',
+        TemplateView.as_view(template_name='proposals/talks_about.html'),
+        name='proposals'),
 ]
 
 urlpatterns = (
