@@ -116,7 +116,7 @@ class Talk(EntryBase):
         verbose_name='GitHub username', help_text='Optional. Write it without the @.'
     )
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2018/talks/',
+        upload_to='proposals/pyconcz2019/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='It will be published on the website.'
                   '\nIdeal photo is as large (really there is no limit, please no'
@@ -233,7 +233,7 @@ class Workshop(EntryBase):
         verbose_name='GitHub username', help_text='Optional. Write it without the @.'
     )
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2018/talks/',
+        upload_to='proposals/pyconcz2019/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='It will be published on the website.'
                   '\nIdeal photo is as large (really there is no limit, please no'
