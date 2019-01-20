@@ -77,7 +77,7 @@ class Talk(EntryBase):
     )
 
     LANGUAGES = (
-        ('en', 'English (preferred)'),
+        ('en', 'English (preferred by PyCon CZ)'),
         ('cs', 'Czech or Slovak'),
     )
 
@@ -102,8 +102,9 @@ class Talk(EntryBase):
     referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
-        help_text='If you already have a recording of you giving a talk,'
-                  ' you can paste the link here.'
+        help_text='If you have a link to a publicly available recording of you'
+                  ' giving a talk or leading a workshop, you can paste the link'
+                  ' here. Will be used in the decision process.'
     )
 
     twitter = models.CharField(
@@ -118,10 +119,11 @@ class Talk(EntryBase):
         upload_to='proposals/pyconcz2018/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='It will be published on the website.'
-                  '\nIdeal photo is: a head shot, shows only you, has no “filters”'
-                  ' applied and is as large and uncompressed as possible.'
-                  '\nWe might crop it and change contrast, brightness etc.'
-                  ' to fit PyCon CZ visual style.'
+                  '\nIdeal photo is as large (really there is no limit, please no'
+                  ' 128 × 128 px, even 1000 × 1000 px isn’t too much) and as'
+                  ' uncompressed as possible, is a head shot, doesn’t show other'
+                  ' people and has no “filters” applied. We might crop it and'
+                  ' change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
     # Public talk info
@@ -192,7 +194,7 @@ class Workshop(EntryBase):
     )
 
     LANGUAGES = (
-        ('en', 'English (preferred)'),
+        ('en', 'English (preferred by PyCon CZ)'),
         ('cs', 'Czech or Slovak'),
     )
 
@@ -218,8 +220,9 @@ class Workshop(EntryBase):
     referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
-        help_text='If you have a recording of you giving a talk or'
-                  ' leading a workshop, you can paste the link here.'
+        help_text='If you have a link to a publicly available recording of you'
+                  ' giving a talk or leading a workshop, you can paste the link'
+                  ' here. Will be used in the decision process.'
     )
     twitter = models.CharField(
         max_length=255, blank=True,
@@ -233,10 +236,11 @@ class Workshop(EntryBase):
         upload_to='proposals/pyconcz2018/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='It will be published on the website.'
-                  '\nIdeal photo is: a head shot, shows only you, has no “filters”'
-                  ' applied and is as large and uncompressed as possible.'
-                  '\nWe might crop it and change contrast, brightness etc.'
-                  ' to fit PyCon CZ visual style.'
+                  '\nIdeal photo is as large (really there is no limit, please no'
+                  ' 128 × 128 px, even 1000 × 1000 px isn’t too much) and as'
+                  ' uncompressed as possible, is a head shot, doesn’t show other'
+                  ' people and has no “filters” applied. We might crop it and'
+                  ' change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
     # Public talk info
