@@ -111,8 +111,8 @@ class Talk(EntryBase):
         max_length=255, blank=True,
         verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
-    github = models.CharField(
-        max_length=255, blank=True,
+    github = models.URLField(
+        default='', blank=True,
         verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(
@@ -178,7 +178,9 @@ class Talk(EntryBase):
     )
     gdpr_consent = models.BooleanField(
         default=False, blank=False,
-        verbose_name='I consent to storing data TODO'
+        verbose_name='I have read and agree to the PyCon CZ Privacy Policy and Code of Conduct',
+        # Please change this, if you know how to do it better (place HTML tags to verbose_name?)
+        help_text='<a href="2019/about/privacy/">Privacy policy</a> and <a href="2019/about/code/">Code of Conduct</a>',
     )
     is_backup = models.BooleanField(default=False)
     is_keynote = models.BooleanField(default=False)
@@ -241,8 +243,8 @@ class Workshop(EntryBase):
         max_length=255, blank=True,
         verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
-    github = models.CharField(
-        max_length=255, blank=True,
+    github = models.URLField(
+        default='', blank=True,
         verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(

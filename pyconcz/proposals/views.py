@@ -28,6 +28,8 @@ def proposal_create(request, *, key):
                                               'is_public', 'is_backup',
                                               'is_keynote'])
 
+    ProposalForm.base_fields['gdpr_consent'].required = True
+
     if request.method.lower() == 'post':
         form = ProposalForm(request.POST, request.FILES)
 
