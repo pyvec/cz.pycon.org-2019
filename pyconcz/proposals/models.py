@@ -180,7 +180,7 @@ class Talk(EntryBase):
         default=False, blank=False,
         verbose_name='I have read and agree to the PyCon CZ Privacy Policy and Code of Conduct',
         # Please change this, if you know how to do it better (place HTML tags to verbose_name?)
-        help_text='<a href="2019/about/privacy/">Privacy policy</a> and <a href="2019/about/code/">Code of Conduct</a>',
+        help_text='<a href="/2019/about/privacy/">Privacy Policy</a> and <a href="/2019/about/code/">Code of Conduct</a>',
     )
     is_backup = models.BooleanField(default=False)
     is_keynote = models.BooleanField(default=False)
@@ -337,7 +337,7 @@ class Workshop(EntryBase):
         default=False, blank=False,
         verbose_name='I have read and agree to the PyCon CZ Privacy Policy and Code of Conduct',
         # Please change this, if you know how to do it better (place HTML tags to verbose_name?)
-        help_text='<a href="2019/about/privacy/">Privacy policy</a> and <a href="2019/about/code/">Code of Conduct</a>',
+        help_text='<a href="/2019/about/privacy/">Privacy Policy</a> and <a href="/2019/about/code/">Code of Conduct</a>',
     )
     is_backup = models.BooleanField(default=False)
 
