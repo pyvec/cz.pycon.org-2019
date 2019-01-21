@@ -111,8 +111,8 @@ class Talk(EntryBase):
         max_length=255, blank=True,
         verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
-    github = models.CharField(
-        max_length=255, blank=True,
+    github = models.URLField(
+        default='', blank=True,
         verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(
@@ -241,8 +241,8 @@ class Workshop(EntryBase):
         max_length=255, blank=True,
         verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
-    github = models.CharField(
-        max_length=255, blank=True,
+    github = models.URLField(
+        default='', blank=True,
         verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(
