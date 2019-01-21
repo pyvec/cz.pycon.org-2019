@@ -73,82 +73,93 @@ class EntryBase(models.Model):
 class Talk(EntryBase):
     DIFFICULTY = (
         ('beginner', 'Beginner  (suitable for everyone)'),
-        ('advanced', 'Advanced  (requires a high level of Python knowledge)'),
+        ('advanced', 'Advanced  (requires a higher level of Python knowledge)'),
     )
 
     LANGUAGES = (
-        ('en', 'English (preferred)'),
+        ('en', 'English (preferred at PyCon CZ)'),
         ('cs', 'Czech or Slovak'),
     )
 
     # Public speaker info
     full_name = models.CharField(
         max_length=200, verbose_name='What’s your name?',
-        help_text='This will be published in the schedule,'
-                  ' so use a name that you’re comfortable with, or a nickname.'
+        help_text='Use a name that you’re comfortable with, or a nickname.'
+                  '\nFeel free to use Unicode characters.'
     )
     email = models.EmailField(
         verbose_name='Your email address',
-        help_text='We’ll keep it secret, for internal use only.'
+        help_text='We’ll keep it secret and use only to contact you.'
     )
     bio = models.TextField(
-        verbose_name='Why are you the right person to talk about the topic you chose?',
-        help_text='Tell your audience in first person about anything relevant about you,'
-                  ' whether it’s your background, education, experience,'
-                  ' current or former employer, hobbies or opensource software you maintain.'
-                  '\nTry keeping it between between 50 and 90 words.'
+        verbose_name='Why are you the right person to talk about the topic you chose?'
+                     ' (between 50 and 90 words)',
+        help_text='Tell your audience in first person (e.g. „I write…“ not „Alex writes…“ ) '
+                  'about anything relevant about you, whether it’s your background, '
+                  'education, experience, current or former employer, hobbies '
+                  'or opensource software you maintain.'
                   '\nYou can of course include anything fun or quirky about yourself.'
     )
     referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
-        help_text='If you already have a recording of you giving a talk,'
-                  ' you can paste the link here.'
+        help_text='If you have a link to a publicly available recording of you'
+                  ' giving a talk or leading a workshop, you can paste the link here. '
+                  '\nWill be used in the decision process.'
     )
-
     twitter = models.CharField(
         max_length=255, blank=True,
-        verbose_name='Twitter handle', help_text='Optional. Write it without the @.'
+        verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
     github = models.CharField(
         max_length=255, blank=True,
-        verbose_name='GitHub username', help_text='Optional. Write it without the @.'
+        verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2018/talks/',
+        upload_to='proposals/pyconcz2019/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
-        help_text='It will be published on the website.'
-                  '\nIdeal photo is: a head shot, shows only you, has no “filters”'
-                  ' applied and is as large and uncompressed as possible.'
-                  '\nWe might crop it and change contrast, brightness etc.'
-                  ' to fit PyCon CZ visual style.'
+        help_text='If you don’t have a photo according to specs below, we will ask you for one if your talk is selected.'
+                  '\nIdeal photo is:'
+                  '\n– as large as possible'
+                  ' (128 × 128 px, there is no upper limit, even 1000 × 1000 px isn’t too much),'
+                  '\n– as uncompressed as possible (JPEGs are ok),'
+                  '\n– doesn’t show other people'
+                  '\n– is a head shot (not you in front of a pyramid)'
+                  '\n– and has no “creative filters” applied.'
+                  '\nWe might crop it and change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
     # Public talk info
     title = models.CharField(
-        max_length=200, verbose_name='What is the title of your talk?',
-        help_text='This will be published everywhere!'
-                  ' Make up some catchy title which will attract the audience.'
+        max_length=200, verbose_name='Title of your talk',
+        help_text='The shortest way to say what it will be about.'
     )
     abstract = models.TextField(
-        verbose_name='Tell the audience about your talk in 1–3 paragraphs (90–200 words)',
-        help_text='Introduce the problem your talk will bring a solution to.'
-                  ' Then explain why it’s a problem worth solving and use the last paragraph'
-                  ' to tell your audience what is your approach to solving it.'
+        verbose_name='Tell the audience more about your talk in 1–3 paragraphs (90–200 words total)',
+        help_text='Try to write as if you’re talking to a real person.'
+                  '\nUse plain text or Markdown.'
+                  '\n\nYou might want to follow these guidelines:'
+                  '\nFirst introduce the problem your talk will bring a solution to.'
+                  '\nThen explain why it’s a problem worth solving.'
+                  '\nUse the last paragraph to tell your audience what is your '
+                  'approach to solving it.'
+
     )
     language = models.CharField(
-        max_length=2, choices=LANGUAGES, default='en',
+        max_length=2, verbose_name='Talk language',
+        choices=LANGUAGES, default='en',
         help_text='English is preferred, but if you feel uncomfortable with it,'
                   ' you can give your talk in Czech or Slovak'
     )
     difficulty = models.CharField(
-        max_length=10, choices=DIFFICULTY, default='beginner'
+        max_length=10, verbose_name='Talk difficulty',
+        choices=DIFFICULTY, default='beginner'
     )
     needs_finaid = models.BooleanField(
         default=False,
         verbose_name='I need financial aid to make this talk possible',
         help_text='Covering travel or accommodation costs etc.'
-                  ' Please specify this here and now, otherwise we might'
+                  '\nPlease specify this here and now, otherwise we might'
                   ' not be able to grant you the aid.'
     )
     finaid_details = models.TextField(
@@ -165,6 +176,10 @@ class Talk(EntryBase):
         null=True, blank=True,
         verbose_name='Anything else you want to tell us?'
     )
+    gdpr_consent = models.BooleanField(
+        default=False, blank=False,
+        verbose_name='I consent to storing data TODO'
+    )
     is_backup = models.BooleanField(default=False)
     is_keynote = models.BooleanField(default=False)
 
@@ -175,7 +190,7 @@ class Talk(EntryBase):
 class Workshop(EntryBase):
     DIFFICULTY = (
         ('beginner', 'Beginner  (suitable for everyone)'),
-        ('advanced', 'Advanced  (requires a high level of Python knowledge)'),
+        ('advanced', 'Advanced  (requires a higher level of Python knowledge)'),
     )
 
     TYPE = (
@@ -192,82 +207,93 @@ class Workshop(EntryBase):
     )
 
     LANGUAGES = (
-        ('en', 'English (preferred)'),
+        ('en', 'English (preferred at PyCon CZ)'),
         ('cs', 'Czech or Slovak'),
     )
 
     # Public speaker info
-
     full_name = models.CharField(
         max_length=200, verbose_name='What’s your name?',
-        help_text='This will be published in the schedule,'
-                  ' so use a name that you’re comfortable with, or a nickname.'
+        help_text='Use a name that you’re comfortable with, or a nickname.'
+                  '\nFeel free to use Unicode characters.'
     )
     email = models.EmailField(
         verbose_name='Your email address',
-        help_text='We’ll keep it secret, for internal use only.'
+        help_text='We’ll keep it secret and use only to contact you.'
     )
     bio = models.TextField(
-        verbose_name='Why are you the right person to talk about the topic you chose?',
-        help_text='Tell your audience in first person about anything relevant about you,'
-                  ' whether it’s your background, education, experience,'
-                  ' current or former employer, hobbies or opensource software you maintain.'
-                  '\nTry keeping it between between 50 and 90 words.'
+        verbose_name='Why are you the right person to lead a workshop about the topic you chose?'
+                     ' (between 50 and 90 words)',
+        help_text='Tell your audience in first person (e.g. „I write…“ not „Alex writes…“ ) '
+                  'about anything relevant about you, whether it’s your background, '
+                  'education, experience, current or former employer, hobbies '
+                  'or opensource software you maintain.'
                   '\nYou can of course include anything fun or quirky about yourself.'
     )
     referral_link = models.URLField(
         default='', blank=True,
         verbose_name='Got a video?',
-        help_text='If you have a recording of you giving a talk or'
-                  ' leading a workshop, you can paste the link here.'
+        help_text='If you have a link to a publicly available recording of you'
+                  ' giving a talk or leading a workshop, you can paste the link'
+                  ' here. Will be used in the decision process.'
     )
     twitter = models.CharField(
         max_length=255, blank=True,
-        verbose_name='Twitter handle', help_text='Optional. Write it without the @.'
+        verbose_name='Your Twitter handle', help_text='Optional. Write it without the @.'
     )
     github = models.CharField(
         max_length=255, blank=True,
-        verbose_name='GitHub username', help_text='Optional. Write it without the @.'
+        verbose_name='Your public code repository (GitHub, GitLab, …)', help_text='Optional. The whole URL.'
     )
     photo = models.ImageField(
-        upload_to='proposals/pyconcz2018/talks/',
+        upload_to='proposals/pyconcz2019/talks/',
         verbose_name='Your photo (not an illustration nor avatar)',
-        help_text='It will be published on the website.'
-                  '\nIdeal photo is: a head shot, shows only you, has no “filters”'
-                  ' applied and is as large and uncompressed as possible.'
-                  '\nWe might crop it and change contrast, brightness etc.'
-                  ' to fit PyCon CZ visual style.'
+        help_text='If you don’t have a photo according to specs below, we will ask you for one if your workshop is selected.'
+                  '\nIdeal photo is:'
+                  '\n– as large as possible'
+                  ' (128 × 128 px, there is no upper limit, even 1000 × 1000 px isn’t too much),'
+                  '\n– as uncompressed as possible (JPEGs are ok),'
+                  '\n– doesn’t show other people'
+                  '\n– is a head shot (not you in front of a pyramid)'
+                  '\n– and has no “creative filters” applied.'
+                  '\nWe might crop it and change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
     # Public talk info
     type = models.CharField(
-        max_length=10, choices=TYPE, default='sprint',
+        max_length=10, choices=TYPE, default='workshop',
+        verbose_name='Choose a type',
         help_text='At a workshop, you should present hands-on exercises'
-                  ' for participants to learn from. You’ll get a room and'
-                  ' a slot in the agenda, and participants will need to register.'
+                  ' for participants to learn from. You’ll have a room and'
+                  ' a limited number of participants.'
                   '\nAt a sprint, participants help an open-source project – usually by'
                   ' cloning the repo and trying to fix beginner-level issues,'
                   ' while you’ll provide one-to-one mentorship. If several experienced'
                   ' developers are around, sprints are also a good place for serious'
                   ' design discussions. Sprinters only need a table to sit around,'
-                  ' reliable wifi, and dedication to do great things!'
+                  ' reliable wifi and dedication to do great things!'
     )
     title = models.CharField(
         max_length=200, verbose_name='What is the title of your workshop or sprint?',
-        help_text='Public title. What topic/project is it all about?'
+        help_text='The shortest way to say what it will be about.'
     )
     abstract = models.TextField(
-        verbose_name='Tell the audience about your talk in 1–3 paragraphs (90–200 words)',
-        help_text='Describe your workshop or sprint.'
-                  '\nPlease include the requirements: libraries and'
-                  ' Python version to be installed, required experience'
-                  ' with topics/libraries, etc.'
+        verbose_name='Tell the audience about your workshop or sprint in 1–3 paragraphs (90–200 words)',
+        help_text='Try to write as if you’re talking to a real person.'
+                  '\nPlease include any requirements: hardware to bring (including laptops),'
+                  ' libraries and Python version to be installed,'
+                  ' expected experience with topics/libraries, etc.'
+                  '\nUse plain text or Markdown.'
     )
     language = models.CharField(
-        max_length=2, choices=LANGUAGES, default='en'
+        max_length=2, verbose_name='Workshop or sprint language',
+        choices=LANGUAGES, default='en',
+        help_text='English is preferred, but if you feel uncomfortable with it,'
+                  ' you can hold your workshop in Czech or Slovak'
     )
     difficulty = models.CharField(
-        max_length=10, choices=DIFFICULTY, default='beginner'
+        max_length=10, verbose_name='Workshop difficulty',
+        choices=DIFFICULTY, default='beginner'
     )
     length = models.CharField(
         max_length=2, choices=LENGTH, blank=True,
@@ -277,12 +303,11 @@ class Workshop(EntryBase):
                   ' You can also have a full-day workshop with lunch break,'
                   ' but keep in mind that the length could discourage attendees.'
     )
-
     needs_finaid = models.BooleanField(
         default=False,
         verbose_name='I need financial aid to make this workshop possible',
         help_text='Covering travel or accommodation costs etc.'
-                  ' Please specify this here and now, otherwise we might'
+                  '\nPlease specify this here and now, otherwise we might'
                   ' not be able to grant you the aid.'
     )
     finaid_details = models.TextField(
@@ -291,21 +316,24 @@ class Workshop(EntryBase):
         help_text='Please state explicitly:'
                   '\n1) why you need it,'
                   '\n2) what for and'
-                  '\n3) how much in Euros.'
-                  '\nIf you require help for more items (accomodation, travel costs etc.) '
+                  '\n3) how much in EUR or CZK.'
+                  '\nIf you require aid for more items (accommodation, travel costs etc.) '
                   'please state the amount for each item.'
     )
     requirements = models.TextField(
         null=True, blank=True,
         verbose_name='Extra requirements',
-        help_text='Do you have any special requirements?'
-                  ' What do attendees need to bring?'
-                  ' Do you need anything more than a room with wifi,'
+        help_text='Do you have any special requirements that you expect us to fullfill?'
+                  '\nDo you need anything more than a room with chairs, desks, wifi,'
                   ' standard euro sockets and a projector?'
     )
     final_note = models.TextField(
         null=True, blank=True,
         verbose_name='Anything else you want to tell us?'
+    )
+    gdpr_consent = models.BooleanField(
+        default=False, blank=False,
+        verbose_name='I consent to storing data TODO'
     )
     is_backup = models.BooleanField(default=False)
 

@@ -1,13 +1,11 @@
 {% extends "_layout.html" %}
 
-{% load widget_tweaks %}
-
 
 {% block meta_title %}{{ proposal_config.cfp_title|safe }} – {{ block.super }}{% endblock %}
 
 
 {% block main %}
-    <div class="container">
+    <div class="container mb-4">
 
         <h1>{{ proposal_config.cfp_title|safe }}</h1>
 
@@ -19,63 +17,79 @@
             </p>
         {% else %}
             <p class="text-center">
-                The Call for Proposals will close on {% block deadline %}February 28, 2018{% endblock %}.
+                The Call for Proposals will close on {% block deadline %}February 17, 2019{% endblock %}.
             </p>
-            <p class="text-center">If you are a speaker pair, just write information about both of you in one field.</p>
         {% endif %}
+    </div>
 
-        <form class="mt-4" action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
-            {% csrf_token %}
+    <form class="" action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+        {% csrf_token %}
 
-            {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+        {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
 
-            {% if form.non_field_errors %}
+        {% if form.non_field_errors %}
+            <div class="container">
                 <div class="alert alert-danger" role="alert">
                     {% for error in form.non_field_errors %}
                         <p>{{ error }}</p>
                     {% endfor %}
                 </div>
-            {% endif %}
+            </div>
+        {% endif %}
 
-            {% for field in form.visible_fields %}
-                <div class="form-group pc-field-name--{{ field.html_name }}">
+        <div class="pc-even-section">
+            <div class="container">
 
-                    {% if field.field.widget.input_type == 'checkbox' %}
-                        <div class="form-check">
-                            {% render_field field class="form-check-input" %}
-                            {{ field.label_tag }}
-                        </div>
-                    {% else %}
-                        {{ field.label_tag }}
+                <h2>Public information</h2>
+                <p class="text-center mb-3">The following information will be displayed publicly if your proposal is selected. <strong>We check and proofread everything before publishing but please make our volunteer jobs easier and make sure we don’t have much to do.</strong></p>
 
-                        {% if form.is_bound %}
-                            {% if field.errors %}
-                                {% render_field field class="form-control is-invalid" %}
-                                {% for error in field.errors %}
-                                    <div class="invalid-feedback">
-                                        {{ error }}
-                                    </div>
-                                {% endfor %}
-                            {% else %}
-                                {% render_field field class="form-control is-valid" %}
-                            {% endif %}
-                        {% else %}
-                            {% render_field field class="form-control" %}
-                        {% endif %}
-                    {% endif %}
+                {% include 'proposals/__form-field.html' with field_obj=form.language %}
+                {% if proposal_config.key == 'workshops' %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.type %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.length %}
+                {% endif %}
+                {% include 'proposals/__form-field.html' with field_obj=form.title %}
+                {% include 'proposals/__form-field.html' with field_obj=form.abstract %}
+                {% include 'proposals/__form-field.html' with field_obj=form.difficulty %}
 
+                {% if proposal_config.key != "financial-aid" %}
+                    <p class="font-italic small">If you are a speaker pair, write information about both of you in one field.</p>
+                {% endif %}
+                {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
+                {% include 'proposals/__form-field.html' with field_obj=form.bio %}
+                {% include 'proposals/__form-field.html' with field_obj=form.photo %}
+                {% include 'proposals/__form-field.html' with field_obj=form.twitter %}
+                {% include 'proposals/__form-field.html' with field_obj=form.github %}
+            </div>
+        </div>
 
-                    {% if field.help_text %}
-                        <small class="form-text">{{ field.help_text|safe|linebreaksbr }}</small>
-                    {% endif %}
-                </div>
-            {% endfor %}
+        <div class="pc-odd-section">
+            <div class="container">
+                <h2>Private information</h2>
+                <p class="text-center">The following information will <b>not</b> be displayed publicly.</p>
 
-            <button type="submit" class="btn btn-lg btn-primary">
-                Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
-            </button>
+                {% include 'proposals/__form-field.html' with field_obj=form.email %}
+                {% include 'proposals/__form-field.html' with field_obj=form.referral_link %}
+                {% include 'proposals/__form-field.html' with field_obj=form.needs_finaid %}
+                {% include 'proposals/__form-field.html' with field_obj=form.finaid_details %}
+                {% if proposal_config.key == 'workshops' %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.requirements %}
+                {% endif %}
+                {% include 'proposals/__form-field.html' with field_obj=form.final_note %}
+                {% include 'proposals/__form-field.html' with field_obj=form.gdpr_consent %}
 
-        </form>
+                <p>Please note that you won’t receive any copy of your proposal to your mailbox.</p>
+                <button type="submit" class="btn btn-lg btn-primary mb-4">
+                    Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
+                </button>
+            </div>
+        </div>
+
+        {% comment %}{% for field in form.visible_fields %}
+            {% include 'proposals/__form-field.html' with field_obj=field %}
+        {% endfor %}
+{% endcomment %}
+    </form>
 
     </div>
 

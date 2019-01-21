@@ -5,101 +5,127 @@
 {% endblock %}
 
 {% block main %}
-        <div class="pc-main-logo">
-            <img src="{% static "img/pyconlogo.svg" %}">
+    <div class="pc-main-logo">
+        <img src="{% static "img/pyconlogo.svg" %}">
+    </div>
+
+    <div class="pc-odd-section">
+        <div class="container">
+            <h2>Call for Papers is open!</h2>
+            <p class="text-center">
+                Are you thinking about having a talk or a workshop at PyCon CZ 2019? Great!
+                <br>We’re looking for diverse speakers and topics aimed at both beginners and seasoned profesionals.
+            </p>
+            <p class="text-center">
+                Let us know by sending
+                <br class="d-lg-none">
+                <a class="btn btn-outline-white btn-lg" href="{% url 'proposals' %}">
+                    <i>Call for Papers</i>
+                    <br class="d-md-none">
+                    submission
+                </a>
+                <br class="d-lg-none">
+                before February&nbsp;17,&nbsp;2019.
+            </p>
         </div>
-        <div class="pc-main-lead">
-            <div class="insert">
-                <h1>PyCon CZ 2019</h1>
-                <div>Ostrava</div>
-                <div>June 14–16</div>
-            </div>
-            <div class="pc-image-copyright">Photo by <a href="https://www.flickr.com/photos/kubajs/20958638705/">Jakub Souček</a></div>
+    </div>
+
+    <div class="pc-main-lead">
+        <div class="insert">
+            <h1>PyCon CZ 2019</h1>
+            <div>Ostrava</div>
+            <div>June 14–16</div>
         </div>
-        <div class="pc-odd-section">
-            <div class="container">
-                <p>
-                    After two years in Brno and two in Prague, PyCon CZ is
-                    coming to <em>Ostrava</em>!
-                </p>
-                <p>
-                    Expect the call for proposals to open in January 2019.
-                </p>
-            </div>
+        <div class="pc-image-copyright">Photo by <a href="https://www.flickr.com/photos/kubajs/20958638705/">Jakub Souček</a></div>
+    </div>
+
+    <div class="pc-odd-section">
+        <div class="container">
+            <p class="text-center">
+                After two years in Brno and two in Prague, PyCon CZ is
+                coming to <em>Ostrava</em>!
+            </p>
+            <p class="text-center">
+                Expect the call for proposals to open in January 2019.
+            </p>
         </div>
-        <div class="pc-even-section">
-            <div class="container">
-                <h2><span>About PyCon CZ</span></h2>
-                <p class="key">
-                    <em>PyCon CZ</em> is the Czech Republic edition of the well-known and valued PyCon conference devoted to the Free and Open Source <a href="https://python.org">Python programming language</a>.
-                </p>
-                <p>
-                    It is organized for the <em>fifth time</em> by passionate members of the Czech Python community,
-                    with cooperation and underwriting by <a href="http://pyvec.org">Pyvec.org</a>,
-                    a local non-profit organization that focuses on supporting the Python community in the Czech Republic.
-                </p>
-                <p>
-                    The objective of PyCon CZ is to raise participants' <em>qualifications</em>, overall <em>integration</em>
-                    of the Python programmers' community in the Czech Republic and surrounding area, <em>popularisation</em> of new applications of the language as well as to spread good programming practices and exchange of <em>experiences</em> between professionals, novices, students and hobbyist Python programmers.
-                </p>
-                <p>
-                    To get a better idea of what PyCon CZ is about, check out the short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk">promotional video</a> from the first year, or watch last year's keynotes from
-                    <a href="https://cz.pycon.org/2018/programme/detail/talk/30/">Van Lindberg</a>,
-                    <a href="https://cz.pycon.org/2018/programme/detail/talk/32/">Karen M. Sandler</a>,
-                    <a href="https://cz.pycon.org/2018/programme/detail/talk/33/">Sam Trojan</a>,
-                    <a href="https://cz.pycon.org/2018/programme/detail/talk/31/">Flavio Percoco and Nick Lang</a>.
-                </p>
-            </div>
+    </div>
+
+    <div class="pc-even-section">
+        <div class="container">
+            <h2><span>About PyCon CZ</span></h2>
+            <p class="key">
+                <em>PyCon CZ</em> is the Czech Republic edition of the well-known and valued PyCon conference devoted to the Free and Open Source <a href="https://python.org">Python programming language</a>.
+            </p>
+            <p>
+                It is organized for the <em>fifth time</em> by passionate members of the Czech Python community,
+                with cooperation and underwriting by <a href="http://pyvec.org">Pyvec.org</a>,
+                a local non-profit organization that focuses on supporting the Python community in the Czech Republic.
+            </p>
+            <p>
+                The objective of PyCon CZ is to raise participants' <em>qualifications</em>, overall <em>integration</em>
+                of the Python programmers' community in the Czech Republic and surrounding area, <em>popularisation</em> of new applications of the language as well as to spread good programming practices and exchange of <em>experiences</em> between professionals, novices, students and hobbyist Python programmers.
+            </p>
+            <p>
+                To get a better idea of what PyCon CZ is about, check out the short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk">promotional video</a> from the first year, or watch last year's keynotes from
+                <a href="https://cz.pycon.org/2018/programme/detail/talk/30/">Van Lindberg</a>,
+                <a href="https://cz.pycon.org/2018/programme/detail/talk/32/">Karen M. Sandler</a>,
+                <a href="https://cz.pycon.org/2018/programme/detail/talk/33/">Sam Trojan</a>,
+                <a href="https://cz.pycon.org/2018/programme/detail/talk/31/">Flavio Percoco and Nick Lang</a>.
+            </p>
         </div>
-        <div class="pc-odd-section">
-            <div class="container">
-                <h2><span>Venue</span></h2>
-                <p>
-                    <em><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a></em> (DOV) is a national site of industrial heritage located in the centre of Ostrava. It includes extensive <em>industrial ironworks</em> with a former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a unique collection
-                    of industrial architecture.
-                    <br>
-                    The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre.
-                    Its significance now reaches beyond the boundaries of the region.
-                    <br>
-                    DOV now includes attractions such as the
-                    <a href="http://stcostrava.cz/hlavni-stranka">Science and technology center</a>,
-                    a
-                    <a href="http://www.dolnivitkovice.cz/gong">multifunctional auditorium</a>,
-                    and the
-                    <a href="http://www.dolnivitkovice.cz/bolt-tower-maly-okruh">Bolt Tower</a>.
-                    See more info at the
-                    <a href="http://www.dolnivitkovice.cz/">venue’s official website</a>. (Use the language switcher for English.)
-                </p>
-                <p>
-                    PyCon CZ will take place at <a href="http://www.dolnivitkovice.cz/akce-v-dovu-hlubina">Hlubina</a> – the coal mine complex re-made into a cozy conference center.
-                    We're pretty excited about the place, and hope you'll be as well!
-                </p>
-                <div class="pc-mini-gallery row">
-                    {% with 'stare_koupelny_exterier_brick_house.jpg 20150413_zer_hlubina_044.jpg 20150413_zer_hlubina_014.jpg' as images %}
+    </div>
+
+    <div class="pc-odd-section">
+        <div class="container">
+            <h2><span>Venue</span></h2>
+            <p>
+                <em><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a></em> (DOV) is a national site of industrial heritage located in the centre of Ostrava. It includes extensive <em>industrial ironworks</em> with a former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a unique collection
+                of industrial architecture.
+                <br>
+                The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre.
+                Its significance now reaches beyond the boundaries of the region.
+                <br>
+                DOV now includes attractions such as the
+                <a href="http://stcostrava.cz/hlavni-stranka">Science and technology center</a>,
+                a
+                <a href="http://www.dolnivitkovice.cz/gong">multifunctional auditorium</a>,
+                and the
+                <a href="http://www.dolnivitkovice.cz/bolt-tower-maly-okruh">Bolt Tower</a>.
+                See more info at the
+                <a href="http://www.dolnivitkovice.cz/">venue’s official website</a>. (Use the language switcher for English.)
+            </p>
+            <p>
+                PyCon CZ will take place at <a href="http://www.dolnivitkovice.cz/akce-v-dovu-hlubina">Hlubina</a> – the coal mine complex re-made into a cozy conference center.
+                We're pretty excited about the place, and hope you'll be as well!
+            </p>
+            <div class="pc-mini-gallery row">
+                {% with 'stare_koupelny_exterier_brick_house.jpg 20150413_zer_hlubina_044.jpg 20150413_zer_hlubina_014.jpg' as images %}
                     {% for img in images.split %}
                         <div class="col-md-4">
-                        <a href="{% get_static_prefix %}img/ostrava/{{ img }}">
-                            <img src="{% get_static_prefix %}img/ostrava/{{ img }}">
-                        </a>
+                            <a href="{% get_static_prefix %}img/ostrava/{{ img }}">
+                                <img src="{% get_static_prefix %}img/ostrava/{{ img }}">
+                            </a>
                         </div>
                     {% endfor %}
-                    {% endwith %}
-                </div>
-                <div class="pc-image-copyright">Photos © <a href="https://www.zerzon.cz/">Jiří Zerzoň</a></div>
+                {% endwith %}
             </div>
+            <div class="pc-image-copyright">Photos © <a href="https://www.zerzon.cz/">Jiří Zerzoň</a></div>
         </div>
-        <div class="pc-even-section">
-            <div class="container">
-                <h2><span>Sponsors</span></h2>
-                <p>
-                    PyCon CZ relies on sponsors to keep ticket prices affordable.
-                    Last year, PyCon CZ sponsors and partners included <a href="https://cz.pycon.org/2018/sponsors/">18 companies and organizations</a>.
-                    <br>
-                    If you would like to sponsor the conference, please see our
-                    <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
-                </p>
-            </div>
+    </div>
+
+    <div class="pc-even-section">
+        <div class="container">
+            <h2><span>Sponsors</span></h2>
+            <p>
+                PyCon CZ relies on sponsors to keep ticket prices affordable.
+                Last year, PyCon CZ sponsors and partners included <a href="https://cz.pycon.org/2018/sponsors/">18 companies and organizations</a>.
+                <br>
+                If you would like to sponsor the conference, please see our
+                <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
+            </p>
         </div>
+    </div>
 {% endblock %}
 
 {% block footer-class %}pc-odd-footer{% endblock %}
