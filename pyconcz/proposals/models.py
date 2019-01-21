@@ -178,7 +178,9 @@ class Talk(EntryBase):
     )
     gdpr_consent = models.BooleanField(
         default=False, blank=False,
-        verbose_name='I consent to storing data TODO'
+        verbose_name='I have read and agree to the PyCon CZ Privacy Policy and Code of Conduct',
+        # Please change this, if you know how to do it better (place HTML tags to verbose_name?)
+        help_text='<a href="2019/about/privacy/">Privacy policy</a> and <a href="2019/about/code/">Code of Conduct</a>',
     )
     is_backup = models.BooleanField(default=False)
     is_keynote = models.BooleanField(default=False)
