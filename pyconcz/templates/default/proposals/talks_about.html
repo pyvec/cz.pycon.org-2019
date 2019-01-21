@@ -10,32 +10,20 @@
     <div class="container">
         <h1>Call for Papers</h1>
 
-        <p class="lead text-center">
-            PyCon CZ (Czech Republic) 2018 is pleased to announce that its Call for Proposals is now open!
-            The conference will be held from Friday, June 1 to Sunday, June 3.
-            Talks will be on Friday and Saturday. Sunday will host developer sprints and workshops.
-        </p>
-
-        <div class="row">
-            <div class="col mb-2">
-                <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="talks" %}">Submit your talk</a>
-            </div>
-            <div class="col">
-                <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="workshops" %}">Submit your workshop</a>
-            </div>
-        </div>
-
-
         <h2>Important dates</h2>
 
-        <p class="text-center">
-            Call for Proposals opened: Wednesday, January 17
-            {% block deadline %}
-                <br>
-                Proposal submission deadline: Wednesday, February 28
-            {% endblock %}
-
+        <p>
+            The conference will be held from Friday, June 14 to Sunday, June 16.
+            <br>Talks will be on Friday and Saturday. Sunday will host developer sprints and workshops.
         </p>
+
+        <p>
+            Call for Proposals opened on Monday, January 21 and
+            {% block deadline %}
+                proposal submission deadline is on <b>Sunday,&nbsp;February&nbsp;17,&nbsp;23:59&nbsp;CET</b>.
+            {% endblock %}
+        </p>
+
         {% block acceptance %}
             {% comment %}<p>Proposal acceptance: Sunday, March 11</p>{% endcomment %}
         {% endblock %}
@@ -47,10 +35,14 @@
 
         <p>Presentation subjects may range from reports on open source, academic or commercial projects, or even tutorials and case studies. If a presentation is interesting and useful to the Python community, it will be considered for inclusion in the program. We're especially interested in short presentations that will teach conference-goers something new and useful. Can you show attendees how to use a module? Explore a Python language feature? Package an application? Do you have inspiring lessons learned to share?</p>
 
+        <h2>Data track</h2>
+
+        <p>This year, for the first time, the teams at PyCon CZ and members of Prague PyData community are joining forces to deliver a data science focused track at the conference. If we will have enough content related to data science, machine learning, artificial intelligence, etc. we will open a dedicated Data track.</p>
 
         <h2>First-time speakers</h2>
 
         <p>We welcome first-time speakers; we are a community conference eager to hear about your experience. If you have friends or colleagues who have something valuable to contribute, twist their arms to tell us about it! Also, please forward this Call for Proposals to anyone that you feel may be interested.</p>
+
 
         <h2>Speaker benefits</h2>
 
@@ -79,13 +71,28 @@
 
 
         <h2>How to submit</h2>
-
         <p>
-            Please use the following forms to
+            Please use the following forms:
+        {% comment %}
             <a href="{% url "proposal_form" key="talks" %}">submit talk proposal</a> and separate to
             <a href="{% url "proposal_form" key="workshops" %}">submit workshop proposal</a>.
-            Feel free to submit multiple proposals.
+        {% endcomment %}
         </p>
 
+
+        <div class="row">
+            <div class="col mb-2">
+                <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="talks" %}">
+                    Submit your talk
+                </a>
+            </div>
+            <div class="col">
+                <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="workshops" %}">
+                    Submit your workshop
+                </a>
+            </div>
+        </div>
+
+        <p class="text-center">Feel free to submit multiple proposals.</p>
     </div>
 {% endblock %}

@@ -92,7 +92,7 @@
     //         "gray-dark": $gray-800
     // ); $colors: $colors !global;
 
-    // $primary: $blue; $primary: $primary !global;
+     $primary: $pc-color-old-rust; $primary: $primary !global;
     // $secondary: $gray-600; $secondary: $secondary !global;
     // $success: $green; $success: $success !global;
     // $info: $cyan; $info: $info !global;
@@ -432,7 +432,7 @@
     // $input-bg: $white; $input-bg: $input-bg !global;
     // $input-disabled-bg: $gray-200; $input-disabled-bg: $input-disabled-bg !global;
 
-    // $input-color: $gray-700; $input-color: $input-color !global;
+     $input-color: $pc-color-black; $input-color: $input-color !global;
     // $input-border-color: $gray-400; $input-border-color: $input-border-color !global;
     // $input-border-width: $input-btn-border-width; $input-border-width: $input-border-width !global;
     // $input-box-shadow: inset 0 1px 1px rgba($black, .075); $input-box-shadow: $input-box-shadow !global;
@@ -471,7 +471,7 @@
     // $form-check-inline-margin-x: .75rem; $form-check-inline-margin-x: $form-check-inline-margin-x !global;
     // $form-check-inline-input-margin-x: .3125rem; $form-check-inline-input-margin-x: $form-check-inline-input-margin-x !global;
 
-    $form-group-margin-bottom: 3*$spacer; $form-group-margin-bottom: $form-group-margin-bottom !global;
+    $form-group-margin-bottom: 2*$spacer; $form-group-margin-bottom: $form-group-margin-bottom !global;
 
     // $input-group-addon-color: $input-color; $input-group-addon-color: $input-group-addon-color !global;
     // $input-group-addon-bg: $gray-200; $input-group-addon-bg: $input-group-addon-bg !global;

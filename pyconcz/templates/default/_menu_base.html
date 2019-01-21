@@ -11,6 +11,22 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="homepage" link_text="Home" class="pc-nav-link-hide-active" %}
         {% endblock %}
 
+        {% block link_call_for_papers %}
+            {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
+        {% endblock %}
+
+        {% block link_team %}
+            {% include "__nav-link.html" with url="team_list" link_text="Team" %}
+        {% endblock %}
+
+        {% block link_coc %}
+            {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
+        {% endblock %}
+
+        {% block link_privacy_policy %}
+            {% include "__nav-link.html" with url="about_privacy" link_text="Privacy Policy" %}
+        {% endblock %}
+
 {% comment %}
         {% block link_about %}
             {% include "__nav-link.html" with url="about" link_text="About" %}
@@ -23,12 +39,6 @@ If you want to remove menu item globally, comment it out here.
         {% block link_about_city %}
             {% include "__nav-link.html" with url="about_city" link_text="Prague" %}
         {% endblock %}
-
-{% endcomment %}
-        {% block link_team %}
-            {% include "__nav-link.html" with url="team_list" link_text="Team" %}
-        {% endblock %}
-{% comment %}
 
         {% block link_talks %}
             {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
@@ -58,19 +68,6 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="proposal_about" key='financial-aid' link_text="Financial Aid" %}
         {% endblock %}
 
-{% endcomment %}
-        {% block link_coc %}
-            {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
-        {% endblock %}
-{% comment %}
-
-        {% block link_privacy_policy %}
-            {% include "__nav-link.html" with url="about_privacy" link_text="Privacy Policy" %}
-        {% endblock %}
-
-        {% block link_call_for_papers %}
-            {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
-        {% endblock %}
 {% endcomment %}
     {% endblock %}
 </ul>

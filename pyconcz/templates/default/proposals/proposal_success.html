@@ -21,9 +21,33 @@
         {% else %}
             <h1>Proposal sent</h1>
 
-            <p class="lead">Thank you! We’ve received your proposal. If you have any questions, don’t hesitate to write us at <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
+            <p class="lead text-center">Thank you! <br>We’ve received your proposal.</p>
+            <p class="text-center">
+                All submissions will be scored after Call for Papers ends.
+                <br>The whole process takes some time and after it ends we let you know to the e-mail you’ve provided.
+            </p>
+            <p class="text-center">If you have any questions, don’t hesitate to write us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
 
-            <p><a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key=proposal_config_key %}">Send another</a></p>
+            <div class="row">
+                    <div class="col mb-2">
+                        <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="talks" %}">
+                            {% if proposal_config_key == "talks" %}
+                                Submit another talk
+                            {% else %}
+                                Submit your talk
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-lg btn-primary btn-block" href="{% url "proposal_form" key="workshops" %}">
+                            {% if proposal_config_key == "workshops" %}
+                                Submit another workshop
+                            {% else %}
+                                Submit your workshop
+                            {% endif %}
+                        </a>
+                    </div>
+            </div>
         {% endif %}
     </div>
 {% endblock %}
