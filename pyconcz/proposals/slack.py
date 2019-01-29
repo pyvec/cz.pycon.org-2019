@@ -31,7 +31,7 @@ def notify_slack(sender, instance, created, *args, **kwargs):
                 "author_name": author,
                 "title": title,
                 "title_link": title_link,
-                "footer": "PyCon CZ 2018",
+                "footer": "PyCon CZ 2019",
                 "ts": now().timestamp()
             }
         ]
