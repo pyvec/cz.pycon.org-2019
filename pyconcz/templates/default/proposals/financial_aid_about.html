@@ -10,7 +10,7 @@
         <h1>Financial Aid</h1>
 
         <p class="lead">
-            We want PyCon CZ to be as accessible as possible.
+            We want PyCon CZ to be as accessible as possible to everyone.
             <br>Financial Aid is meant for anyone who is not able to attend PyCon CZ because of their financial situation. It may cover ticket and/or accommodation and/or travel costs.
         </p>
 
@@ -20,9 +20,10 @@
         <h2>Timeline</h2>
 
         <p class="lead">
-            Financial aid applications open on 15 April and <b>close on 26 April</b>.
+            Financial aid applications open on {{ proposal_config.date_start | date:'d F' }} and
+            <b>close on {{ proposal_config.date_end | date:'d F' }}</b>.
             <br>After that we will carefully examine each application and
-            <br>inform all applicants privately before the end of April about the result.
+            <br>inform all applicants privately before the end of {{ proposal_config.date_end | date:'F' }} about the result.
         </p>
 
         {% block info_text %}

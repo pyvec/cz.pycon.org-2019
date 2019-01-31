@@ -13,7 +13,7 @@
 
         {% if proposal_config.key == "financial-aid" %}
             <p class="lead">
-                Financial aid applications <b>closed on 26 April</b>.
+                Financial aid applications <b>closed on {{ proposal_config.date_end | date:'d F' }}</b>.
                 <br>More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.
             </p>
         {% endif %}
