@@ -22,6 +22,14 @@ ADMINS = [
     ('admins', 'admin@pycon.cz'),
 ]
 
+# Emails
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = ""
+EMAIL_PORT = ""
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+
+
 DEFAULT_FROM_EMAIL = 'admin@pycon.cz'
 
 # SECURITY WARNING: don't run with debug turned on in production!

@@ -1,8 +1,9 @@
+from django.conf import settings
+from django.core.mail import send_mail
 from django.forms import modelform_factory
 from django.http import Http404
 from django.shortcuts import redirect
-from django.template import RequestContext
-from django.template.response import TemplateResponse
+from django.template.response import TemplateResponse, get_template
 from django.utils.timezone import now
 
 from pyconcz.proposals.config import proposals
@@ -34,7 +35,13 @@ def proposal_create(request, *, key):
         form = ProposalForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            proposal = form.save()
+            send_mail(
+                config.email_subject,
+                get_template(config.template_email).render({"proposal": proposal}),
+                settings.DEFAULT_FROM_EMAIL,
+                (proposal.email, ),
+            )
             return redirect(to='proposal_success', key=key)
 
     else:
