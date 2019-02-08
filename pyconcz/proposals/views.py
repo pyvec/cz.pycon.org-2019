@@ -45,7 +45,13 @@ def proposal_create(request, *, key):
 
 
 def proposal_success(request, *, key):
-    context = {'proposal_config_key': key}
+    try:
+        config = proposals.get_config(key)
+    except KeyError:
+        raise Http404
+
+    context = {'proposal_config_key': key, 'proposal_config': config}
+
     return TemplateResponse(request, 'proposals/proposal_success.html', context)
 
 

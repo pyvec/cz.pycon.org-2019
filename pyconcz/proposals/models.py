@@ -377,7 +377,13 @@ class FinancialAid(EntryBase):
         help_text='If you require just a free ticket, please state “ticket”.'
                   '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.23',
     )
-
+    gdpr_consent = models.BooleanField(
+        default=False, blank=False,
+        verbose_name='I have read and agree to the PyCon CZ Privacy Policy and Code of Conduct',
+        # Please change this, if you know how to do it better (place HTML tags to verbose_name?)
+        help_text=('<a href="/2019/about/privacy/">Privacy Policy</a> and '
+                   '<a href="/2019/about/code/">Code of Conduct</a>'),
+    )
     def __str__(self):
         return self.full_name
 
