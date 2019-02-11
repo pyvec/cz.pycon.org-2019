@@ -1,9 +1,26 @@
+{% load verbose_names %}
 Dear {{ proposal.full_name }}!
 
-Thank you for sending us your financial aid application.
-We will look into it and if possible, contact you with further information.
+We’ve received your Financial Aid application.
 
-We are looking forward to meeting you!
+We’ll inform you by e-mail about the result before the end of May whether your application will be successfull or not.
+
+While we might not be able cover all expenses for everyone, we’ll try our best to help you as much as our budget will allow.
+
+If you have any questions, don’t hesitate to contact us at info@pycon.cz
+
+
+Copy of your request is included bellow:
+
+{{ proposal.amount|verbose_name }}
+{{ proposal.amount }}
+
+{{ proposal.purpose|verbose_name }}
+{{ proposal.purpose }}
+
+{{ proposal.python_involvement|verbose_name }}
+{{ proposal.python_involvement }}
+
 
 Take care,
-PyCon CZ 2019 organisers team
+PyCon CZ 2019 team
