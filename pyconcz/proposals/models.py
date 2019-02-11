@@ -369,13 +369,13 @@ class FinancialAid(EntryBase):
         help_text='If you require help for more items (accomodation, travel costs etc.) '
                   'please state the amount for each of them in Euros.'
                   '\nYou don’t need to specify the price of a ticket.'
-                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.23',
+                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.13',
     )
     amount = models.CharField(
         max_length=255,
         verbose_name='How much total money would you like to receive (in Euros)',
         help_text='If you require just a free ticket, please state “ticket”.'
-                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.23',
+                  '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.13',
     )
     gdpr_consent = models.BooleanField(
         default=False, blank=False,
