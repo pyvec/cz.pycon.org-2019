@@ -21,6 +21,9 @@ Copy of your request is included bellow:
 {{ proposal.python_involvement|verbose_name }}
 {{ proposal.python_involvement }}
 
+{{ proposal.community_involvement|verbose_name }}
+{{ proposal.community_involvement|default:"not provided" }}
+
 
 Take care,
 PyCon CZ 2019 team
