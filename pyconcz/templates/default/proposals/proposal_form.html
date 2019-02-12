@@ -93,10 +93,12 @@
             </div>
         </div>
 
-        {% comment %}{% for field in form.visible_fields %}
+        {% comment %}
+        {# iterate over all fields #}
+        {% for field in form.visible_fields %}
             {% include 'proposals/__form-field.html' with field_obj=field %}
         {% endfor %}
-{% endcomment %}
+        {% endcomment %}
     </form>
 
     </div>
