@@ -10,10 +10,12 @@
         <h1>{{ proposal_config.cfp_title|safe }}</h1>
 
         {% if proposal_config.key == "financial-aid" %}
-            <p>Financial aid applications <b>close on {{ proposal_config.date_end | date:'d F' }}</b>. More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.</p>
-            <p class="bg-info p-2 font-weight-bold">
-                All answers will be used only to evaluate eligibility for Financial Aid.
-                <br>They’ll be deleted forever after the evaluation.
+            <p class="text-center">
+                Financial aid applications <b>close on {{ proposal_config.date_end | date:'d F' }}</b>.
+                <br>More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.
+            </p>
+            <p class="bg-info p-2 font-weight-bold text-center">
+                All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a class="text-white" href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.
             </p>
         {% else %}
             <p class="text-center">
@@ -63,8 +65,10 @@
         {% endif %}
         <div class="pc-odd-section">
             <div class="container">
-                <h2>Private information</h2>
-                <p class="text-center">The following information will <b>not</b> be displayed publicly.</p>
+                {% if proposal_config.key != "financial-aid" %}
+                    <h2>Private information</h2>
+                    <p class="text-center">The following information will <b>not</b> be displayed publicly.</p>
+                {% endif %}
 
                 {% if proposal_config.key == "financial-aid" %}
                     {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
@@ -86,7 +90,8 @@
                 {% include 'proposals/__form-field.html' with field_obj=form.final_note %}
                 {% include 'proposals/__form-field.html' with field_obj=form.gdpr_consent %}
 
-                <p>Please note that you won’t receive any copy of your proposal to your mailbox.</p>
+                <p>Please note that you won’t receive any copy of your {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %} to your mailbox.</p>
+
                 <button type="submit" class="btn btn-lg btn-primary mb-4">
                     Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
                 </button>
