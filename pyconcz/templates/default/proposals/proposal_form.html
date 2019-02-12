@@ -38,29 +38,28 @@
         {% endif %}
 
         {% if proposal_config.key != "financial-aid" %}
-        <div class="pc-even-section">
-            <div class="container">
+            <div class="pc-even-section">
+                <div class="container">
+                    <h2>Public information</h2>
+                    <p class="text-center mb-3">The following information will be displayed publicly if your proposal is selected. <strong>We check and proofread everything before publishing but please make our volunteer jobs easier and make sure we don’t have much to do.</strong></p>
 
-                <h2>Public information</h2>
-                <p class="text-center mb-3">The following information will be displayed publicly if your proposal is selected. <strong>We check and proofread everything before publishing but please make our volunteer jobs easier and make sure we don’t have much to do.</strong></p>
+                    {% include 'proposals/__form-field.html' with field_obj=form.language %}
+                    {% if proposal_config.key == 'workshops' %}
+                        {% include 'proposals/__form-field.html' with field_obj=form.type %}
+                        {% include 'proposals/__form-field.html' with field_obj=form.length %}
+                    {% endif %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.title %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.abstract %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.difficulty %}
 
-                {% include 'proposals/__form-field.html' with field_obj=form.language %}
-                {% if proposal_config.key == 'workshops' %}
-                    {% include 'proposals/__form-field.html' with field_obj=form.type %}
-                    {% include 'proposals/__form-field.html' with field_obj=form.length %}
-                {% endif %}
-                {% include 'proposals/__form-field.html' with field_obj=form.title %}
-                {% include 'proposals/__form-field.html' with field_obj=form.abstract %}
-                {% include 'proposals/__form-field.html' with field_obj=form.difficulty %}
-
-                <p class="font-italic small">If you are a speaker pair, write information about both of you in one field.</p>
-                {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
-                {% include 'proposals/__form-field.html' with field_obj=form.bio %}
-                {% include 'proposals/__form-field.html' with field_obj=form.photo %}
-                {% include 'proposals/__form-field.html' with field_obj=form.twitter %}
-                {% include 'proposals/__form-field.html' with field_obj=form.github %}
+                    <p class="font-italic small">If you are a speaker pair, write information about both of you in one field.</p>
+                    {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.bio %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.photo %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.twitter %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.github %}
+                </div>
             </div>
-        </div>
         {% endif %}
         <div class="pc-odd-section">
             <div class="container">
