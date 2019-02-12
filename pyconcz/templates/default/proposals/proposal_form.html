@@ -74,9 +74,13 @@
                 {% include 'proposals/__form-field.html' with field_obj=form.amount %}
                 {% include 'proposals/__form-field.html' with field_obj=form.purpose %}
                 {% include 'proposals/__form-field.html' with field_obj=form.python_involvement %}
+                {% if proposal_config.key == "financial-aid" %}
+                    {% include 'proposals/__form-field.html' with field_obj=form.community_involvement %}
+                {% endif %}
                 {% include 'proposals/__form-field.html' with field_obj=form.referral_link %}
                 {% include 'proposals/__form-field.html' with field_obj=form.needs_finaid %}
                 {% include 'proposals/__form-field.html' with field_obj=form.finaid_details %}
+
                 {% if proposal_config.key == 'workshops' %}
                     {% include 'proposals/__form-field.html' with field_obj=form.requirements %}
                 {% endif %}
