@@ -8,13 +8,11 @@ Contributing
 
 ### Workflow
 
-While we can accept pull requests from outside repositiories it’s probably easier if you just ask us to be a contributor.
-
 - `master` branch is manually deployed to https://cz.pycon.org/
     - commit directly to `master` only if it’s a _hotfix_ 
 - create _feature_ branches (named whatever you want) for your work
     - create PR’s to merge into `master`
-    - you can merge `master` freely into a feature branch to keep it current
+    - rebase feature branch on top of the `master` to keep it current (it’s preferred to merging)
 - `beta` branch is manually deployed to beta (URL and credentials available at Pyvec Slack).
     - freely merge into `beta` anything you need to preview including work in progress
     - never merge from `beta` to anywhere
