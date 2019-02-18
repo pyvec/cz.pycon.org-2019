@@ -307,7 +307,7 @@
     // $display4-weight: 300; $display4-weight: $display4-weight !global;
     // $display-line-height: $headings-line-height; $display-line-height: $display-line-height !global;
 
-    $lead-font-size: $font-size-base*$pc-font-size-scale; $lead-font-size: $lead-font-size !global;
+    $lead-font-size: $font-size-base*1.2; $lead-font-size: $lead-font-size !global;
     $lead-font-weight: 400; $lead-font-weight: $lead-font-weight !global;
 
     // $small-font-size: 80%; $small-font-size: $small-font-size !global;

@@ -2,7 +2,7 @@ h1,
 h2 {
     text-transform: uppercase;
     text-align: center;
-    padding-top: 2*$spacer;
+    padding-top: $spacer;
     padding-bottom: $spacer;
     margin: 0;
     font-weight: $font-weight-bold;
@@ -20,3 +20,23 @@ em {
 }
 
 
+.pc-text-page {
+
+    h1,
+    h2 {
+        padding-top: 2*$spacer;
+    }
+
+    li {
+        padding-bottom: 0.5*$spacer;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+    }
+
+}
+
+.pc-lead-ostrava {
+    max-width: 60rem;
+}
