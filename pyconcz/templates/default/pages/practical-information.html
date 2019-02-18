@@ -1,0 +1,86 @@
+{% extends "_layout.html" %}
+
+{% load static %}
+
+
+
+{% block meta_title %}Travel, Accommodation and other practical information – {{ block.super }}{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <h1><a href="#travelling-to-ostrava">Travel</a>, <a href="#accommodation">Accommodation</a> and other practical information</h1>
+
+        <section id="the-czech-republic">
+            <h2>The Czech Republic</h2>
+            <p class="lead">
+                Never been to the <i>Czech Republic</i> or <i>Czechia</i>*? Here are a few useful facts.
+            </p>
+
+            <p>*Czechia is Czech Republic’s new official alternative name. Also country named <i>Czechoslovakia </i> doesn’t exist for 26 years now.</p>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <h3>Money</h3>
+                    <p>
+                        We pay with <strong>CZK</strong> (abbr. Kč, “koruna”).
+                        <br>ATMs are omnipresent but avoid <i>Euronet</i> because of their high fees.
+                        <br>Money exchange booths sometimes offer better deals than banks and no fees, but be cautious which you choose.
+                        <br>The exchange rate is approximately 1&nbsp;EUR&nbsp;=&nbsp;25&nbsp;CZK.
+                    </p>
+                    <p>Cards (mostly Visa and Mastercard) are accepted in chains and larger places, but not so often in smaller shops, coffee places, pubs.</p>
+                    <p>It’s useful to carry around some cash.</p>
+                </div>
+                <div class="col-md">
+                    <h3>Language</h3>
+                    <p>We speak Czech and understand Slovak perfectly.</p>
+                    <p><b>English</b> should be well understood, especially among younger people.</p>
+                    <p><b>German</b> can work as a fallback, as well as any other Slavic language.</p>
+                </div>
+                <div class="col-md">
+                    <h3>Weather</h3>
+                    <p>While June is usually sunny and can bring very warm days to Ostrava, it’s good to be also ready for chilly, rainy days. It can be 30°C with clear blue sky as well as 15°C with heavy, London-like rain.</p>
+                </div>
+                <div class="col-md">
+                    <h3>Electricity</h3>
+                    <p>We use 230&nbsp;V electric plugs, <a href="http://www.power-plugs-sockets.com/czech-republic/">type E power sockets</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="travelling-to-ostrava">
+            <h2 class="pb-0">Travelling to Ostrava</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>By train</h3>
+                    <p>There are direct trains to Ostrava from Prague, Warsaw, Bratislava and other cities.</p>
+                    <p>Three main carriers are: <a href="https://www.cd.cz/azak/setlang?lang=en&amp;sourceapp=https%3a%2f%2fwww.cd.cz%2feshop%2fdefault.aspx">ČD</a> (national), <a href="https://bustickets.regiojet.com/">RegioJet</a>, and <a href="http://www.le.cz/">LeoExpress</a>. If you struggle to find connection from a more distant place, try the <a href="http://reiseauskunft.bahn.de/bin/query2.exe/en?ld=15049&amp;seqnr=1&amp;ident=jp.02561349.1476542837&amp;rt=1&amp;newrequest=yes&amp;&amp;country=USA">DB search engine</a>.</p>
+                    <p>The main train station is <i>Ostrava hlavní nádraží</i> or <i>Ostrava hl. n.</i></p>
+                    {% comment %}<p>From there, take 10 stops by tram no. 1 or 2 to stop <i>Dolní Vítkovice Hlubina</i>.</p>{% endcomment %}
+                </div>
+                <div class="col-md-4">
+                    <h3>By plane</h3>
+                    <p>If you come by plane, you can choose several airports in the country, the nearest one is Ostrava airport.</p>
+                    <p>After you arrive at <i>Leoš Janáček Airport Ostrava</i>, go to the train station <a href="https://www.cd.cz/stanice/34603/"><i>Mošnov, Ostrava Airport</i></a> located just next to it and take a train to the main train station: <i>Ostrava hlavní nádraží</i>.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>By car</h3>
+                    <p>Check out <a href="http://www.czechtourism.com/a/transport/">Czech driving regulations</a>.</p>
+                    <p>Highway sticker costs 310 CZK (10 days) and can be bought at gas stations or post offices.</p>
+                </div>
+            </div>
+            <p class="mt-2">Check also information about <a href="{% url "city" %}#travelling-around-ostrava">travelling around Ostrava</a> and about <a href="{% url "venue" %}#getting-to-the-venue">getting to the PyCon&nbsp;CZ venue</a>.</p>
+        </section>
+
+        <section id="accommodation">
+            <h2>Accommodation in Ostrava</h2>
+            <p>You can find a lot of possibilities on <a href="https://booking.com/">Booking.com</a> and <a href="https://airbnb.com/">AirBnB</a>. We recommend places close to <a href="https://goo.gl/maps/RpWLqCjrYry">Forum Nová Karolina</a> mall because it’s best to stay in the city centre so that you will never get lost in the middle of the night. To name a few:</p>
+            <ul>
+                <li><a href="http://www.kampuspalace.cz/?lang=en">Kampus Palace</a> is a student accommodation with a hotel part for tourists</li>
+                <li><a href="http://hotelrubyblue.cz/en/">Ruby Blue</a> can be a little noisy during the night</li>
+                <li><a href="https://www.hotel-maria.cz/en/">Hotel Maria</a> offers decent accommodation and affordable price</li>
+                <li><a href="http://www.palac-elektra.cz/">Hotel Palace Electra</a> a little expensive but very good quality</li>
+            </ul>
+        </section>
+    </div>
+{% endblock %}
