@@ -41,9 +41,6 @@ prefixed_urlpatterns = [
     url(r'^about/prague/$',
         TemplateView.as_view(template_name='pages/prague.html'),
         name='about_city'),
-    url(r'^pattern-lib/$',
-        TemplateView.as_view(template_name='pages/pattern-lib.html'),
-        name='pattern_lib'),
 ]
 '''
 
@@ -60,9 +57,18 @@ prefixed_urlpatterns = [
     url(r'^proposals/$',
         TemplateView.as_view(template_name='proposals/talks_about.html'),
         name='proposals'),
+    url(r'^pattern-lib/$',
+        TemplateView.as_view(template_name='pages/pattern-lib.html'),
+        name='pattern_lib'),
     url(r'^ostrava/$',
         TemplateView.as_view(template_name='pages/ostrava.html'),
-        name='about_city'),
+        name='city'),
+    url(r'^venue/$',
+        TemplateView.as_view(template_name='pages/venue.html'),
+        name='venue'),
+    url(r'^practical-information/$',
+        TemplateView.as_view(template_name='pages/practical-information.html'),
+        name='practical_info'),
 ]
 
 urlpatterns = (
