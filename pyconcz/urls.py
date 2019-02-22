@@ -66,9 +66,6 @@ prefixed_urlpatterns = [
     url(r'^venue/$',
         TemplateView.as_view(template_name='pages/venue.html'),
         name='venue'),
-    url(r'^practical-information/$',
-        TemplateView.as_view(template_name='pages/practical-information.html'),
-        name='practical_info'),
 ]
 
 urlpatterns = (
