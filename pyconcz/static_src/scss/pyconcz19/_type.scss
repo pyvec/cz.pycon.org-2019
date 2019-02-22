@@ -40,3 +40,13 @@ em {
 .pc-lead-ostrava {
     max-width: 60rem;
 }
+
+@include media-breakpoint-up(md) {
+    .sticky-top-md {
+        @supports (position: sticky) {
+            position: sticky;
+            top: 0;
+            z-index: $zindex-sticky;
+        }
+    }
+}
