@@ -25,12 +25,12 @@
             <h1>Tickets</h1>
 
             {% if total_sold_out %}
-                <p class="lead p-2 bg-red text-yellow">We’re sorry but all available tickets have been sold out.</p>
+                <p class="lead">We’re sorry but all available tickets have been sold out.</p>
                 {% block workshop_registration_tip %}{% endblock %}
             {% elif today < last_day_regular %}
                 <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
             {% elif today == last_day_regular %}
-                <p class="lead pc-gradient-orchid-violetred p-2" style="font-size: 2rem;">Today is the last chance to buy tickets for the regular price!</p>
+                <p class="lead" style="font-size: 2rem;">Today is the last chance to buy tickets for the regular price!</p>
             {% else %}
                 <p class="lead">Good news!<br>You can still get your ticket at a late bird price.</p>
             {% endif %}
@@ -58,22 +58,22 @@
 
                 <h2 class="sr-only">Ticket types</h2>
 
-                <div class="card-deck pc-tickets">
+                <div class="card-decks">
 
-                    <div class="card pc-ticket mt-3 bg-dark">
+                    <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title mt-2 text-orchid">Educational</h3>
+                            <h3 class="card-title">Educational</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">Are you a student, a teacher or have you attended PyLadies courses?</p>
-                            <div class="card-text font-italic">Students need to bring a student ID to the registration.</div>
+                            <div class="card-text >Students need to bring a student ID to the registration.</div>
                         </div>
                         {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=500 regular_price=800 late_price=1500 %}
                     </div>
 
-                    <div class="card pc-ticket mt-3 bg-dark">
+                    <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title mt-2 text-cyan">Individual</h3>
+                            <h3 class="card-title">Individual</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
@@ -82,9 +82,9 @@
                         {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=1400 regular_price=1900 late_price=2900 %}
                     </div>
 
-                    <div class="card pc-ticket mt-3 bg-dark">
+                    <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title mt-2 text-yellow">Company</h3>
+                            <h3 class="card-title">Company</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">Is your company paying for the ticket?</p>
@@ -93,9 +93,9 @@
                         {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=2300 regular_price=2900 late_price=3800 %}
                     </div>
 
-                    <div class="card pc-ticket mt-3 border">
-                        <div class="card-header bg-black">
-                            <h3 class="card-title mt-2 text-white">VIP</h3>
+                    <div class="card border">
+                        <div class="card-header">
+                            <h3 class="card-title">VIP</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">Do you want to have the best PyCon&nbsp;CZ experience?</p>
@@ -106,27 +106,27 @@
 
                 </div>
 
-                <p class="text-center mt-1 mb-4 small">We’re not VAT payers, all prices are final.</p>
+                <p class=" small">We’re not VAT payers, all prices are final.</p>
 
-                <p class="text-center my-4">
+                <p>
                     By buying a ticket you accept PyCon&nbsp;CZ’s
                     <a href="{% url 'about_code' %}">Code&nbsp;of&nbsp;Conduct</a>
                     and <a href="{% url 'about_privacy' %}">Privacy&nbsp;Policy</a>.
                 </p>
 
                 <div class="row justify-content-center">
-                    <a href="https://ti.to/pyvec/pycon-cz-2018" class="pc-tito-link">
-                        <tito-button event="pyvec/pycon-cz-2018">
+                    <a href="https://ti.to/pyvec/pycon-cz-2019">
+                        <tito-button event="pyvec/pycon-cz-2019">
                             Buy your<br class="d-sm-none"> ticket<br class="d-sm-none"> now!
                         </tito-button>
                     </a>
                 </div>
 
                 {% block finaid_info %}
-                    <div class="row justify-content-center mt-4">
-                        <div class="text-center col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
                             {% block finaid_info_text %}
-                                If money is the only factor stopping you from attending PyCon&nbsp;CZ you will have an&nbsp;opportunity to apply for Financial Aid to cover your expenses&nbsp;soon.
+                                If money is the <b>only factor</b> stopping you from attending PyCon&nbsp;CZ you&nbsp;can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your&nbsp;expenses.
                             {% endblock %}
                         </div>
                     </div>

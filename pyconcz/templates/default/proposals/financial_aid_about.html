@@ -14,7 +14,7 @@
             <br>Financial Aid is meant for anyone who is not able to attend PyCon CZ because of their financial situation. It may cover ticket and/or accommodation and/or travel costs.
         </p>
 
-        <p class="lead font-weight-bold">While we can’t cover all expenses for everyone, we try our best to help as much as our budget allows.</p>
+        <p class="lead >While we can’t cover all expenses for everyone, we try our best to help as much as our budget allows.</p>
 
 
         <h2>Timeline</h2>
@@ -26,6 +26,13 @@
         </p>
 
         {% block info_text %}
+
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    Apply for a grant
+                </a>
+            </p>
+
             <h2>Philosophy &amp;&nbsp;Outreach</h2>
 
             <p>Our primary goal is to make PyCon CZ accessible to everyone, irrespective of their financial situation. For this reason, we provide multiple tiers of ticket prices, Early-Bird, Educational, Individual and Company. This is based on the principle that those who can afford to pay for tickets subsidize those who cannot. This structure enables us to include major diversity and outreach programmes such as DjangoGirls, reward and encourage active participation in the PyCon CZ event organization, and fund PyCon CZ’s Financial Aid programme.</p>
@@ -47,6 +54,12 @@
             <p>Note well that our <a href="{% url "about_code" %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
 
             <p>Please do not hesitate to email us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    Apply for a grant
+                </a>
+            </p>
         {% endblock %}
 
     </div>

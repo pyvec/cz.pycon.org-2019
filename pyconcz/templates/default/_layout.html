@@ -6,30 +6,23 @@
 
 {% block body %}
     <nav role="navigation" class="navbar navbar-expand">
-        {% include '_menu_top.html' with pc_alignment='center' %}
+        {% include '_menu_top.html' %}
     </nav>
 
     {% block header %}
-        <header class="pc-main-header">
+        <header>
             <div class="container">
 
                 <div class="row align-items-center justify-content-center">
 
-                    <div class="
-                        col-12 {% block header_logo_classes %}col-sm-5 col-md-5{% endblock %}
-                    ">
+                    <div class="col-12">
                         <a href="{% url "homepage" %}">
                             <img class="img-fluid" src="{% static "img/pyconlogo.svg" %}" alt="PyCon CZ">
                         </a>
                     </div>
 
-                    <div class="
-                        col-12
-                        {% block header_text_classes %}col-sm-7 col-md-5{% endblock %}
-                    ">
-                        <div class="pc-main-header-text">
-                            PyCon CZ 2019<br>Ostrava<br>June 14–16
-                        </div>
+                    <div class="col-12">
+                        PyCon CZ 2019<br>Ostrava<br>June 14–16
                     </div>
 
                 </div>
@@ -44,60 +37,54 @@
     </main>
 
 
-    <footer class="pc-footer {% block footer-class %}{% endblock %}">
+    <footer>
         <div class="container">
 
-            <nav role="navigation" class="pc-footer-section nav">
-                {% include '_menu_footer.html' with pc_alignment='center' %}
+            <nav role="navigation" class="nav">
+                {% include '_menu_footer.html' %}
             </nav>
 
-            <nav class="pc-footer-section">
-                <p>
-                    Do you have any questions?
-                    <a href="mailto:info@pycon.cz">Contact us!</a>
-                </p>
-                <div class="pc-footer-heading">We're also on:</div>
-                <ul>
-                    <li>
-                        <a href="https://twitter.com/pyconcz">Twitter</a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/events/2070764789904992/">Facebook</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/pyvec/cz.pycon.org-2019">GitHub</a>
-                    </li>
-                </ul>
-            </nav>
+            <p>
+                Do you have any questions?
+                <a href="mailto:info@pycon.cz">Contact us!</a>
+            </p>
+            <p>We're also on:</p>
+            <ul>
+                <li>
+                    <a href="https://twitter.com/pyconcz">Twitter</a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/events/2070764789904992/">Facebook</a>
+                </li>
+                <li>
+                    <a href="https://github.com/pyvec/cz.pycon.org-2019">GitHub</a>
+                </li>
+            </ul>
 
-            <nav class="pc-footer-section">
-                <div class="pc-footer-heading">Previous editions:</div>
-                <ul>
-                    <li>
-                        <a href="/2015/">2015</a>
-                    </li>
-                    <li>
-                        <a href="/2016/">2016</a>
-                    </li>
-                    <li>
-                        <a href="/2017/">2017</a>
-                    </li>
-                    <li>
-                        <a href="/2018/">2018</a>
-                    </li>
-                </ul>
-            </nav>
+            <h4>Previous editions:</h4>
+            <ul>
+                <li>
+                    <a href="/2015/">2015</a>
+                </li>
+                <li>
+                    <a href="/2016/">2016</a>
+                </li>
+                <li>
+                    <a href="/2017/">2017</a>
+                </li>
+                <li>
+                    <a href="/2018/">2018</a>
+                </li>
+            </ul>
 
-            <nav class="pc-footer-section small">
-                <p>
-                    <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
-                    is a trademark for worldwide conference activities claimed by the
-                    <a href="https://www.python.org/psf-landing/">Python Software Foundation</a> and used with permission.
-                    <br>
-                    Site hosted by <a href="https://rosti.cz/">Roští.cz</a>.
-                    Thank you!
-                </p>
-            </nav>
+            <p>
+                <a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™
+                is a trademark for worldwide conference activities claimed by the
+                <a href="https://www.python.org/psf-landing/">Python Software Foundation</a> and used with permission.
+                <br>
+                Site hosted by <a href="https://rosti.cz/">Roští.cz</a>.
+                Thank you!
+            </p>
         </div>
     </footer>
 {% endblock %}

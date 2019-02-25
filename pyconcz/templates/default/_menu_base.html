@@ -2,13 +2,13 @@
 This is a base menu template containing all items,
 other menus mostly remove these links when not needed.
 
-If you want to remove menu item globally, comment it out here.
+If you want to remove a menu item globally, comment it out here.
 
 {% endcomment %}
-<ul class="nav w-100 justify-content-{{ pc_alignment }}">
+<ul class="nav w-100 justify-content-center">
     {% block menu_items %}
         {% block link_home %}
-            {% include "__nav-link.html" with url="homepage" link_text="Home" class="pc-nav-link-hide-active" %}
+            {% include "__nav-link.html" with url="homepage" link_text="Home" %}
         {% endblock %}
 
         {% block link_about_city %}
@@ -45,7 +45,7 @@ If you want to remove menu item globally, comment it out here.
         {% endblock %}
 
         {% block link_tickets %}
-            {% include "__nav-link.html" with url="tickets" link_text="Tickets" class="pc-nav-link-highlight" %}
+            {% include "__nav-link.html" with url="tickets" link_text="Tickets" %}
         {% endblock %}
 
         {% block link_talks %}

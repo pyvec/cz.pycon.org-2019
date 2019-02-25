@@ -27,18 +27,18 @@
 {% block main %}
     <div class="container">
         <ul class="nav justify-content-center">
-            {% include '_menu_programme.html' with pc_alignment='center' %}
+            {% include '_menu_programme.html' %}
         </ul>
 
-        <h1 class="pc-talk-detail-title h2 mt-2 mt-lg-3 mt-xl-4">
+        <h1>
             {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
             <br class="d-md-none">
-            <small class="pc-talk-detail-note d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
+            <small class="d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
         </h1>
 
         {% if talk.video_id %}
             <div class="row justify-content-center">
-                <div class="col-12 mb-3">
+                <div class="col-12">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="{{ talk.video_embed_url }}?rel=0" allowfullscreen></iframe>
                     </div>
@@ -50,7 +50,7 @@
             {% block registration_info %}
                 {% if talk.registration %}
                     <div class="col-12">
-                        <p class="h5 mt-0 mb-3">
+                        <p class="h5">
                             {% if talk.registration == 'without' %}
                                 No registration required.
                             {% elif talk.registration == 'free' %}
@@ -73,10 +73,10 @@
                     {% else %}
                         col-md-4
                     {% endif %}
-                ">
+               ">
 
                 {% if talk.language == 'cs' %}
-                    <p class="p-2 pc-gradient-orchidred-navy text-white d-flex align-items-center">
+                    <p class=" d-flex align-items-center">
                         <svg class="mr-2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
                             <rect width="90" height="60" fill="#d7141a" />
                             <rect width="90" height="30" fill="#fff" />
@@ -86,15 +86,15 @@
                     </p>
                 {% endif %}
 
-                <div class="mb-3">{{ talk.abstract|markdown }}</div>
+                <div>{{ talk.abstract|markdown }}</div>
 
                 {% if talk.difficulty == 'advanced' %}
-                    <p class="p-2 pc-gradient-yellow-lime text-dark">
+                    <p>
                         <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
                         (While it might be interesting for beginners we recommend them to choose another {{ session_type }}.)
                     </p>
                 {% else %}
-                    <p class="p-2 bg-navy text-light">
+                    <p>
                         This {{ session_type }} is suitable for both beginner and advanced Pythonistas.
                     </p>
                 {% endif %}
@@ -119,7 +119,7 @@
 
                     {% block other_sessions %}
                         {% for other_session in other_sessions %}
-                            <h2 class="h3 mt-0 pc-talk-detail-title">
+                            <h2>
                                 {{ speaker.full_name }} also
                                 {% if other_session_type == 'workshop' %}leads a workshop:{% endif %}
                                 {% if other_session_type == 'talk' %}has a talk:{% endif %}
@@ -136,26 +136,12 @@
             </div>
 
             {% for speaker in talk.speakers %}
-                <div
-                    class="
-                    col-12
-                    {% if talk.speakers|length_is:"1" %}
-                        col-md-6 col-lg-5 col-xl-4
-                    {% else %}
-                        col-sm-6 col-md-4
-                    {% endif %}
-                    pc-gradient-{% if not forloop.counter|divisibleby:'2' %}orchidred-navy-reversed{% else %}orchid-blue{% endif %}
-                    py-2
-                ">
-                    <h3 class="mt-0 mb-2">{{ speaker.full_name }}</h3>
+                <div>
+                    <h3>{{ speaker.full_name }}</h3>
 
-                    <div class="text-center">
-                        <div class="d-inline-block pc-talk-id-{{ talk.id }}">
-                            <img class="img-fluid pc-talk-detail-image d-block mx-auto" src="{{ speaker.photo.url }}" alt="">
-                        </div>
-                    </div>
+                    <img class="img-fluid" src="{{ speaker.photo.url }}" alt="">
 
-                    <div class="mt-2 small">{{ speaker.bio|markdown }}</div>
+                    <div class=" small">{{ speaker.bio|markdown }}</div>
 
                     <div class="row justify-content-between small">
                         {% if speaker.github %}

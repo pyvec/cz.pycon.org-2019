@@ -5,24 +5,24 @@
 
 
 {% block main %}
-    <div class="container mb-4">
+    <div class="container">
 
         <h1>{{ proposal_config.cfp_title|safe }}</h1>
 
         {% if proposal_config.key == "financial-aid" %}
             <p>Financial aid applications <b>close on {{ proposal_config.date_end | date:'d F' }}</b>. More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.</p>
-            <p class="bg-info p-2 font-weight-bold">
+            <p class=" >
                 All answers will be used only to evaluate eligibility for Financial Aid.
                 <br>They’ll be deleted forever after the evaluation.
             </p>
         {% else %}
-            <p class="text-center">
-                The Call for Proposals will close on {% block deadline %}February&nbsp;28,&nbsp;2019,&nbsp;23:59&nbsp;CET{% endblock %}.
+            <p>
+            The Call for Proposals will close on {% block deadline %}February&nbsp;28,&nbsp;2019,&nbsp;23:59&nbsp;CET{% endblock %}.
             </p>
         {% endif %}
     </div>
 
-    <form class="" action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+    <form action="" method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
         {% csrf_token %}
 
         {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
@@ -38,11 +38,10 @@
         {% endif %}
 
         {% if proposal_config.key != "financial-aid" %}
-        <div class="pc-even-section">
             <div class="container">
 
                 <h2>Public information</h2>
-                <p class="text-center mb-3">The following information will be displayed publicly if your proposal is selected. <strong>We check and proofread everything before publishing but please make our volunteer jobs easier and make sure we don’t have much to do.</strong></p>
+                <p>The following information will be displayed publicly if your proposal is selected. <strong>We check and proofread everything before publishing but please make our volunteer jobs easier and make sure we don’t have much to do.</strong></p>
 
                 {% include 'proposals/__form-field.html' with field_obj=form.language %}
                 {% if proposal_config.key == 'workshops' %}
@@ -60,43 +59,39 @@
                 {% include 'proposals/__form-field.html' with field_obj=form.twitter %}
                 {% include 'proposals/__form-field.html' with field_obj=form.github %}
             </div>
-        </div>
         {% endif %}
-        <div class="pc-odd-section">
-            <div class="container">
-                <h2>Private information</h2>
-                <p class="text-center">The following information will <b>not</b> be displayed publicly.</p>
+        <div class="container">
+            <h2>Private information</h2>
+            <p>The following information will <b>not</b> be displayed publicly.</p>
 
-                {% if proposal_config.key == "financial-aid" %}
-                    {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
-                {% endif %}
-                {% include 'proposals/__form-field.html' with field_obj=form.email %}
-                {% include 'proposals/__form-field.html' with field_obj=form.amount %}
-                {% include 'proposals/__form-field.html' with field_obj=form.purpose %}
-                {% include 'proposals/__form-field.html' with field_obj=form.python_involvement %}
-                {% include 'proposals/__form-field.html' with field_obj=form.referral_link %}
-                {% include 'proposals/__form-field.html' with field_obj=form.needs_finaid %}
-                {% include 'proposals/__form-field.html' with field_obj=form.finaid_details %}
-                {% if proposal_config.key == 'workshops' %}
-                    {% include 'proposals/__form-field.html' with field_obj=form.requirements %}
-                {% endif %}
-                {% include 'proposals/__form-field.html' with field_obj=form.final_note %}
-                {% include 'proposals/__form-field.html' with field_obj=form.gdpr_consent %}
+            {% if proposal_config.key == "financial-aid" %}
+                {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
+            {% endif %}
+            {% include 'proposals/__form-field.html' with field_obj=form.email %}
+            {% include 'proposals/__form-field.html' with field_obj=form.amount %}
+            {% include 'proposals/__form-field.html' with field_obj=form.purpose %}
+            {% include 'proposals/__form-field.html' with field_obj=form.python_involvement %}
+            {% include 'proposals/__form-field.html' with field_obj=form.referral_link %}
+            {% include 'proposals/__form-field.html' with field_obj=form.needs_finaid %}
+            {% include 'proposals/__form-field.html' with field_obj=form.finaid_details %}
+            {% if proposal_config.key == 'workshops' %}
+                {% include 'proposals/__form-field.html' with field_obj=form.requirements %}
+            {% endif %}
+            {% include 'proposals/__form-field.html' with field_obj=form.final_note %}
+            {% include 'proposals/__form-field.html' with field_obj=form.gdpr_consent %}
 
-                <p>Please note that you won’t receive any copy of your proposal to your mailbox.</p>
-                <button type="submit" class="btn btn-lg btn-primary mb-4">
-                    Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
-                </button>
-            </div>
+            <p>Please note that you won’t receive any copy of your proposal to your mailbox.</p>
+            <button type="submit" class="btn btn-lg btn-primary">
+                Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
+            </button>
         </div>
 
-        {% comment %}{% for field in form.visible_fields %}
+        {% comment %}
+        {% for field in form.visible_fields %}
             {% include 'proposals/__form-field.html' with field_obj=field %}
         {% endfor %}
-{% endcomment %}
+        {% endcomment %}
     </form>
-
-    </div>
 
     {% if proposal_config.key != "financial-aid" %}
         <script>
