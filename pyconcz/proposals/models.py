@@ -367,7 +367,8 @@ class FinancialAid(EntryBase):
     purpose = models.TextField(
         verbose_name='What do you need the money for exactly?',
         help_text='If you require help for more items (accomodation, travel costs etc.) '
-                  'please state the amount for each of them in Euros.'
+                  'please state the amount for each of them in Euros separately.'
+                  '\nKeep in mind that financial aid can’t cover your food costs.'
                   '\nYou don’t need to specify the price of a ticket.'
                   '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.13',
     )
