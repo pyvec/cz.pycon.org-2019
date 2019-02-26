@@ -4,7 +4,7 @@
     from {{ slot.date|date:"H:i" }}
 </h1>
 
-<h2 class=" h1">
+<h2 class="h1">
     {{ slot.content_object.title }}
 </h2>
 
@@ -12,7 +12,7 @@
     {% for speaker in slot.content_object.speakers %}
         <div>
             <h3 class="h2">{{ speaker }}</h3>
-            <div class=" {{ pc_gradient }}">
+            <div class="{{ pc_gradient }}">
                 <img class="pc-intermission-picture d-block mx-auto" src="{{ speaker.photo.url }}">
             </div>
         </div>
