@@ -29,7 +29,7 @@ class SiteFlag(models.Model):
             return False
 
         if self.switch_time:
-            switched = self.switch_time >= now
+            switched = self.switch_time <= now
         else:
             switched = False
 
@@ -49,6 +49,6 @@ class SiteFlag(models.Model):
         now = timezone.now()
         return [obj.name for obj in (
             *cls.objects.filter(value_type="on"),
-            *cls.objects.filter(value_type="on_at", switch_time__gte=now),
-            *cls.objects.filter(value_type="off_at", switch_time__lt=now),
+            *cls.objects.filter(value_type="on_at", switch_time__lte=now),
+            *cls.objects.filter(value_type="off_at", switch_time__gt=now),
         )]
