@@ -57,11 +57,13 @@ If you want to remove menu item globally, comment it out here.
         {% block link_workshops %}
             {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
         {% endblock %}
+{% endcomment %}
 
-        {% block link_schedule %}
+        {% if 'schedule_published' in site_flags %}
             {% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}
-        {% endblock %}
+        {% endif %}
 
+{% comment %}
         {% block link_board_game_night %}
             {% include "__nav-link.html" with url="board_game_night" link_text="Board Game Night" %}
         {% endblock %}
