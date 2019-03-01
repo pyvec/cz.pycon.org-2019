@@ -25,6 +25,8 @@ class SiteFlag(models.Model):
         now = timezone.now()
         if self.value_type == "on":
             return True
+        if self.value_type == "off":
+            return False
 
         if self.switch_time:
             switched = self.switch_time >= now
