@@ -1,0 +1,27 @@
+<table class="results">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Active since</th>
+  </tr>
+{% for value in values %}
+  <tr>
+    <td>
+      <small>
+      {% if value == current_value %}→{% endif %}
+      {% if not value.enabled %}×{% endif %}
+      </small>
+    </td>
+    <td>
+      {% if value == current %}
+        <strong>{{ value }}</strong>
+      {% else %}
+        <small>{{ value }}</small>
+      {% endif %}
+    </td>
+    <td>
+      <small>{{ value.active_since | date:'Y-m-d H:i' }}</small>
+    </td>
+  </tr>
+{% endfor %}
+</table>
