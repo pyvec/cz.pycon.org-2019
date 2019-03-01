@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             name='SiteFlag',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
+                ('name', models.CharField(max_length=200, unique=True)),
                 ('value_type', models.CharField(choices=[('on', 'on'), ('off', 'off'), ('on_at', 'on_at'), ('off_at', 'off_at')], max_length=200)),
                 ('switch_time', models.DateTimeField(blank=True, null=True)),
             ],

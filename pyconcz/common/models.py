@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 class SiteFlag(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     value_type = models.CharField(
         max_length=200,
         choices=[
