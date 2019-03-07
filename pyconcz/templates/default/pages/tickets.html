@@ -1,6 +1,5 @@
 {% extends "_layout.html" %}
 
-
 {% block meta_title %}Tickets – {{ block.super }}{% endblock %}
 
 
@@ -19,16 +18,16 @@
 
 {% block main %}
     {% now "nd" as today %}
-    {% with last_day_regular=520 today=today|add:0 %}
+    {% with last_day_regular=tickets.last_day_regular today=today|add:0 %}
         <div class="container">
 
             <h1>Tickets</h1>
 
-            {% if total_sold_out %}
+            {% if tickets.sold == tickets.capacity %}
                 <p class="lead p-2 bg-red text-yellow">We’re sorry but all available tickets have been sold out.</p>
                 {% block workshop_registration_tip %}{% endblock %}
             {% elif today < last_day_regular %}
-                <p class="lead">Get your tickets before May&nbsp;20 to get regular price!</p>
+                <p class="lead">Get your tickets before {{ tickets.last_day_regular_date | date:'j F' }} to get regular price!</p>
             {% elif today == last_day_regular %}
                 <p class="lead pc-gradient-orchid-violetred p-2" style="font-size: 2rem;">Today is the last chance to buy tickets for the regular price!</p>
             {% else %}
@@ -38,7 +37,7 @@
             {% block workshop_registration %}{% endblock %}
         </div>
 
-        {% if not total_sold_out %}
+        {% if tickets.sold < tickets.capacity %}
 
             <div class="container">
                 <h2>Each ticket includes</h2>
@@ -68,7 +67,7 @@
                             <p class="card-text">Are you a student, a teacher or have you attended PyLadies courses?</p>
                             <div class="card-text font-italic">Students need to bring a student ID to the registration.</div>
                         </div>
-                        {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=500 regular_price=800 late_price=1500 %}
+                        {% include 'pages/_ticket-pricing.html' with ticket_md=tickets.educational last_day_regular=tickets.last_day_regular regular_date=tickets.last_day_regular_date %}
                     </div>
 
                     <div class="card pc-ticket mt-3 bg-dark">
@@ -79,7 +78,7 @@
                             <p class="card-text">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
                             <p class="card-text">Then these tickets are exactly for you. Please respect that and buy a Company ticket if this is not true.</p>
                         </div>
-                        {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=1400 regular_price=1900 late_price=2900 %}
+                        {% include 'pages/_ticket-pricing.html' with ticket_md=tickets.individual last_day_regular=tickets.last_day_regular regular_date=tickets.last_day_regular_date %}
                     </div>
 
                     <div class="card pc-ticket mt-3 bg-dark">
@@ -90,7 +89,7 @@
                             <p class="card-text">Is your company paying for the ticket?</p>
                             <p class="card-text">Choose this ticket if your company is paying or if you are getting reimbursed. This is the right choice to support PyCon CZ, so please respect the rule.</p>
                         </div>
-                        {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=2300 regular_price=2900 late_price=3800 %}
+                        {% include 'pages/_ticket-pricing.html' with ticket_md=tickets.company last_day_regular=tickets.last_day_regular regular_date=tickets.last_day_regular_date %}
                     </div>
 
                     <div class="card pc-ticket mt-3 border">
@@ -101,7 +100,7 @@
                             <p class="card-text">Do you want to have the best PyCon&nbsp;CZ experience?</p>
                             <div class="card-text">VIP ticket will get you a seat at the speakers’ dinner on May&nbsp;31. You will meet PyCon&nbsp;CZ speakers over great food and beer which is included in the price.</div>
                         </div>
-                        {% include 'pages/_ticket-pricing.html' with early_soldout=1 early_price=3000 regular_price=4000 late_price=5000 %}
+                        {% include 'pages/_ticket-pricing.html' with ticket_md=tickets.vip last_day_regular=tickets.last_day_regular regular_date=tickets.last_day_regular_date %}
                     </div>
 
                 </div>

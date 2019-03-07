@@ -49,7 +49,7 @@ prefixed_urlpatterns = [
     url(r'about/code/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
     url(r'^about/team/', include('pyconcz.team.urls')),
     url(r'^proposals/', include('pyconcz.proposals.urls')),
-    
+
     # static pages
     url(r'^about/privacy/$',
         TemplateView.as_view(template_name='pages/privacy.html'),
@@ -66,6 +66,7 @@ prefixed_urlpatterns = [
     url(r'^venue/$',
         TemplateView.as_view(template_name='pages/venue.html'),
         name='venue'),
+    url(r'^tickets/$', include('pyconcz.common.urls')),
 ]
 
 urlpatterns = (
