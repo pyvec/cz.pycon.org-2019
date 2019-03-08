@@ -5,8 +5,8 @@
             <span class="mr-2">
                 Early-bird
                 <br>
-                <small {% if ticket_md.early_bird.quantity <= 3 %}class="text-danger font-weight-bold"{% endif %}>
-                    ({{ ticket_md.early_bird.quantity }}&nbsp;left)
+                <small {% if ticket_md.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
+                    ({{ ticket_md.early_bird.tickets_left }}&nbsp;left)
                 </small>
             </span>
             <span class="pc-ticket-price text-right">{{ ticket_md.early_bird.price|floatformat:"0" }}&nbsp;CZK</span>
