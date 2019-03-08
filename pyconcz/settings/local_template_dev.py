@@ -41,3 +41,7 @@ STATICFILES_DIRS = [
 ]
 
 SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications
+
+TITO_ACCOUNT_NAME = 'pyvec'
+TITO_EVENT_NAME = 'pycon-cz-2019'
+TITO_SECRET_KEY = 'ti.to-secret-key-here'
