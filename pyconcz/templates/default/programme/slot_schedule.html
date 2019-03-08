@@ -224,7 +224,7 @@
                                                             </a>
                                                             {% comment %}<span>{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>{% endcomment %}
                                                         {% elif slot_item.description == 'Sprints' %}
-                                                            <div class="-serif">{{ slot_item.description }}</div>
+                                                            <div>{{ slot_item.description }}</div>
                                                             <div>freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</div>
                                                         {% endif %}
                                                         <span class="d-block">{{ slot_item.content_object.speakers|join:" &amp; " }}</span>

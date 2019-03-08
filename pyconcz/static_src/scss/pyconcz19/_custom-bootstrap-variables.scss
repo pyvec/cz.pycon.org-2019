@@ -36,6 +36,8 @@
     @import "./node_modules/bootstrap/scss/functions";
     @import "./node_modules/bootstrap/scss/variables";
 
+    $enable-rounded: false !global;
+
     // Variables
     //
     // Variables should follow the `$component-state-property-size` formula for
@@ -54,7 +56,7 @@
     // $gray-600: #6c757d; $gray-600: $gray-600 !global; // #6c757d
     // $gray-700: #495057; $gray-700: $gray-700 !global; // #495057
     // $gray-800: #343a40; $gray-800: $gray-800 !global; // #343a40
-    // $gray-900: #212529; $gray-900: $gray-900 !global; // #212529
+    $gray-900: $pc-dark; $gray-900: $gray-900 !global; // #212529
     // $black: #000; $black: $black !global; // #000
 
     /*
@@ -72,12 +74,12 @@
     //        "900": $gray-900
     ); $grays: $grays !global; ;
     */
-    // $blue: #007bff; $blue: $blue !global; // #007bff
+    $blue: $pc-blue; $blue: $blue !global; // #007bff
     // $indigo: #6610f2; $indigo: $indigo !global; // #6610f2
     // $purple: #6f42c1; $purple: $purple !global; // #6f42c1
     // $pink: #e83e8c; $pink: $pink !global; // #e83e8c
-    // $red: #dc3545; $red: $red !global; // #dc3545
-    // $orange: #fd7e14; $orange: $orange !global; // #fd7e14
+    $red: $pc-red; $red: $red !global; // #dc3545
+    $orange: $pc-orange; $orange: $orange !global; // #fd7e14
     // $yellow: #ffc107; $yellow: $yellow !global; // #ffc107
     // $green: #28a745; $green: $green !global; // #28a745
     // $teal: #20c997; $teal: $teal !global; // #20c997
@@ -103,29 +105,30 @@
     ); $colors: $colors !global;
     */
 
-    // $primary: $blue; $primary: $primary !global; // $blue
+    $primary: $orange; $primary: $primary !global; // $blue
     // $secondary: $gray-600; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
     // $info: $cyan; $info: $info !global; // $cyan
     // $warning: $yellow; $warning: $warning !global; // $yellow
     // $danger: $red; $danger: $danger !global; // $red
     // $light: $gray-100; $light: $light !global; // $gray-100
-    // $dark: $gray-800; $dark: $dark !global; // $gray-800
-    /*
+    $dark: $gray-900; $dark: $dark !global; // $gray-800
+
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
     $theme-colors: (
-    //        "primary": $primary,
-    //        "secondary": $secondary,
-    //        "success": $success,
-    //        "info": $info,
-    //        "warning": $warning,
-    //        "danger": $danger,
-    //        "light": $light,
-    //        "dark": $dark
+        //        "primary": $primary,
+        //        "secondary": $secondary,
+        //        "success": $success,
+        //        "info": $info,
+        //        "warning": $warning,
+        //        "danger": $danger,
+        //        "light": $light,
+        //        "dark": $dark
+        "black": $pc-black,
+        "beige": $pc-beige
     ); $theme-colors: $theme-colors !global;
 
-    */
 
     // Set a specific jump point for requesting color jumps
     // $theme-color-interval: 8%; $theme-color-interval: $theme-color-interval !global; // 8%
@@ -157,20 +160,19 @@
     // You can add more entries to the $spacers map, should you need more variation.
 
 
-    // $spacer: 1rem; $spacer: $spacer !global; // 1rem
-    /*
+    $spacer: 1.125rem; $spacer: $spacer !global; // 1rem
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
     $spacers: ();
     $spacers: (
-    //        0: 0,
-    //        1: ($spacer * .25),
-    //        2: ($spacer * .5),
-    //        3: $spacer,
-    //        4: ($spacer * 1.5),
-    //        5: ($spacer * 3)
+        //0: 0,
+        //1: ($spacer * .25),
+        //2: ($spacer * .5),
+        //3: $spacer,
+        4: ($spacer * 1.333),
+        5: ($spacer * 2.666),
+        6: ($spacer * 4)
     ); $spacers: $spacers !global;
-    */
     // the following variable affects the `.h-*` and `.w-*` classes.
     /*
     // uncomment whole block, the following variable uses map-merge(),
@@ -190,15 +192,15 @@
     //
     // Settings for the `<body>` element.
 
-    // $body-bg: $white; $body-bg: $body-bg !global; // $white
-    // $body-color: $gray-900; $body-color: $body-color !global; // $gray-900
+    $body-bg: $black; $body-bg: $body-bg !global; // $white
+    $body-color: $white; $body-color: $body-color !global; // $gray-900
 
     // Links
     //
     // Style anchor elements.
 
     // $link-color: theme-color("primary"); $link-color: $link-color !global; // theme-color("primary")
-    // $link-decoration: none; $link-decoration: $link-decoration !global; // none
+    $link-decoration: underline; $link-decoration: $link-decoration !global; // none
     // $link-hover-color: darken($link-color, 15%); $link-hover-color: $link-hover-color !global; // darken($link-color, 15%)
     // $link-hover-decoration: underline; $link-hover-decoration: $link-hover-decoration !global; // underline
 
@@ -212,35 +214,33 @@
     //
     // Define the minimum dimensions at which your layout will change,
     // adapting to different screen sizes, for use in media queries.
-    /*
     $grid-breakpoints: (
-            xs: 0,
-            sm: 576px,
-            md: 768px,
-            lg: 992px,
-            xl: 1200px
+        xxs: 0,
+        xs: 480px,
+        sm: 630px,
+        md: 850px,
+        lg: 1090px,
+        xl: 1440px
     ); $grid-breakpoints: $grid-breakpoints !global;
-    */
 
     // Grid containers
     //
     // Define the maximum width of `.container` for different screen sizes.
 
-    /*
     $container-max-widths: (
-            sm: 540px,
-            md: 720px,
-            lg: 960px,
-            xl: 1140px
+        xs: 460px,
+        sm: 600px,
+        md: 790px,
+        lg: 1060px,
+        xl: 1380px
     ); $container-max-widths: $container-max-widths !global;
-    */
 
     // Grid columns
     //
     // Set the number of columns and specify the width of the gutters.
 
     // $grid-columns: 12; $grid-columns: $grid-columns !global; // 12
-    // $grid-gutter-width: 30px; $grid-gutter-width: $grid-gutter-width !global; // 30px
+    $grid-gutter-width: 60px; $grid-gutter-width: $grid-gutter-width !global; // 30px
 
     // Components
     //
@@ -274,8 +274,8 @@
     // Font, line-height, and color for body text, headings, and more.
 
 
-    // $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global; // -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-    // $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; $font-family-monospace: $font-family-monospace !global; // SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    $font-family-sans-serif: "Roboto Slab", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; $font-family-sans-serif: $font-family-sans-serif !global; // -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+    $font-family-monospace: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; $font-family-monospace: $font-family-monospace !global; // SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
     // $font-family-base: $font-family-sans-serif; $font-family-base: $font-family-base !global; // $font-family-sans-serif
 
 
@@ -290,32 +290,32 @@
     // $font-weight-base: $font-weight-normal; $font-weight-base: $font-weight-base !global; // $font-weight-normal
     // $line-height-base: 1.5; $line-height-base: $line-height-base !global; // 1.5
 
-    // $h1-font-size: $font-size-base * 2.5; $h1-font-size: $h1-font-size !global; // $font-size-base * 2.5
-    // $h2-font-size: $font-size-base * 2; $h2-font-size: $h2-font-size !global; // $font-size-base * 2
-    // $h3-font-size: $font-size-base * 1.75; $h3-font-size: $h3-font-size !global; // $font-size-base * 1.75
-    // $h4-font-size: $font-size-base * 1.5; $h4-font-size: $h4-font-size !global; // $font-size-base * 1.5
-    // $h5-font-size: $font-size-base * 1.25; $h5-font-size: $h5-font-size !global; // $font-size-base * 1.25
+    $h1-font-size: $font-size-base * 3; $h1-font-size: $h1-font-size !global; // $font-size-base * 2.5
+    $h2-font-size: $font-size-base * 2; $h2-font-size: $h2-font-size !global; // $font-size-base * 2
+    $h3-font-size: $font-size-base * 1.5; $h3-font-size: $h3-font-size !global; // $font-size-base * 1.75
+    $h4-font-size: $font-size-base * 1.25; $h4-font-size: $h4-font-size !global; // $font-size-base * 1.5
+    $h5-font-size: $font-size-base; $h5-font-size: $h5-font-size !global; // $font-size-base * 1.25
     // $h6-font-size: $font-size-base; $h6-font-size: $h6-font-size !global; // $font-size-base
 
-    // $headings-margin-bottom: ($spacer / 2); $headings-margin-bottom: $headings-margin-bottom !global; // ($spacer / 2)
-    // $headings-font-family: inherit; $headings-font-family: $headings-font-family !global; // inherit
-    // $headings-font-weight: 500; $headings-font-weight: $headings-font-weight !global; // 500
-    // $headings-line-height: 1.2; $headings-line-height: $headings-line-height !global; // 1.2
-    // $headings-color: inherit; $headings-color: $headings-color !global; // inherit
+    $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global; // ($spacer / 2)
+    $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global; // inherit
+    $headings-font-weight: $pc-font-weight-mono-medium; $headings-font-weight: $headings-font-weight !global; // 500
+    $headings-line-height: 1.2; $headings-line-height: $headings-line-height !global; // 1.2
+    $headings-color: inherit; $headings-color: $headings-color !global; // inherit
 
     // $display1-size: 6rem; $display1-size: $display1-size !global; // 6rem
     // $display2-size: 5.5rem; $display2-size: $display2-size !global; // 5.5rem
     // $display3-size: 4.5rem; $display3-size: $display3-size !global; // 4.5rem
     // $display4-size: 3.5rem; $display4-size: $display4-size !global; // 3.5rem
 
-    // $display1-weight: 300; $display1-weight: $display1-weight !global; // 300
-    // $display2-weight: 300; $display2-weight: $display2-weight !global; // 300
-    // $display3-weight: 300; $display3-weight: $display3-weight !global; // 300
-    // $display4-weight: 300; $display4-weight: $display4-weight !global; // 300
+    $display1-weight: $pc-font-weight-mono-regular; $display1-weight: $display1-weight !global; // 300
+    $display2-weight: $pc-font-weight-mono-regular; $display2-weight: $display2-weight !global; // 300
+    $display3-weight: $pc-font-weight-mono-regular; $display3-weight: $display3-weight !global; // 300
+    $display4-weight: $pc-font-weight-mono-regular; $display4-weight: $display4-weight !global; // 300
     // $display-line-height: $headings-line-height; $display-line-height: $display-line-height !global; // $headings-line-height
 
-    // $lead-font-size: ($font-size-base * 1.25); $lead-font-size: $lead-font-size !global; // ($font-size-base * 1.25)
-    // $lead-font-weight: 300; $lead-font-weight: $lead-font-weight !global; // 300
+    $lead-font-size: ($font-size-base * 1.125); $lead-font-size: $lead-font-size !global; // ($font-size-base * 1.25)
+    $lead-font-weight: $pc-font-weight-base-regular; $lead-font-weight: $lead-font-weight !global; // 300
 
     // $small-font-size: 80%; $small-font-size: $small-font-size !global; // 80%
 
@@ -372,9 +372,9 @@
     //
     // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-    // $input-btn-padding-y: .375rem; $input-btn-padding-y: $input-btn-padding-y !global; // .375rem
-    // $input-btn-padding-x: .75rem; $input-btn-padding-x: $input-btn-padding-x !global; // .75rem
-    // $input-btn-line-height: $line-height-base; $input-btn-line-height: $input-btn-line-height !global; // $line-height-base
+     $input-btn-padding-y: 1rem; $input-btn-padding-y: $input-btn-padding-y !global; // .375rem
+     $input-btn-padding-x: 3rem; $input-btn-padding-x: $input-btn-padding-x !global; // .75rem
+     $input-btn-line-height: 1; $input-btn-line-height: $input-btn-line-height !global; // $line-height-base
 
     // $input-btn-focus-width: .2rem; $input-btn-focus-width: $input-btn-focus-width !global; // .2rem
     // $input-btn-focus-color: rgba($component-active-bg, .25); $input-btn-focus-color: $input-btn-focus-color !global; // rgba($component-active-bg, .25)
@@ -428,7 +428,7 @@
 
     // Forms
 
-    // $label-margin-bottom: .5rem; $label-margin-bottom: $label-margin-bottom !global; // .5rem
+     $label-margin-bottom: .2rem; $label-margin-bottom: $label-margin-bottom !global; // .5rem
 
     // $input-padding-y: $input-btn-padding-y; $input-padding-y: $input-padding-y !global; // $input-btn-padding-y
     // $input-padding-x: $input-btn-padding-x; $input-padding-x: $input-padding-x !global; // $input-btn-padding-x
@@ -485,7 +485,7 @@
     // $form-check-inline-margin-x: .75rem; $form-check-inline-margin-x: $form-check-inline-margin-x !global; // .75rem
     // $form-check-inline-input-margin-x: .3125rem; $form-check-inline-input-margin-x: $form-check-inline-input-margin-x !global; // .3125rem
 
-    // $form-group-margin-bottom: 1rem; $form-group-margin-bottom: $form-group-margin-bottom !global; // 1rem
+     $form-group-margin-bottom: 2*$spacer; $form-group-margin-bottom: $form-group-margin-bottom !global; // 1rem
 
     // $input-group-addon-color: $input-color; $input-group-addon-color: $input-group-addon-color !global; // $input-color
     // $input-group-addon-bg: $gray-200; $input-group-addon-bg: $input-group-addon-bg !global; // $gray-200
@@ -643,7 +643,7 @@
     // Navs
 
     // $nav-link-padding-y: .5rem; $nav-link-padding-y: $nav-link-padding-y !global; // .5rem
-    // $nav-link-padding-x: 1rem; $nav-link-padding-x: $nav-link-padding-x !global; // 1rem
+    $nav-link-padding-x: 1*$spacer; $nav-link-padding-x: $nav-link-padding-x !global; // 1rem
     // $nav-link-disabled-color: $gray-600; $nav-link-disabled-color: $nav-link-disabled-color !global; // $gray-600
 
     // $nav-tabs-border-color: $gray-300; $nav-tabs-border-color: $nav-tabs-border-color !global; // $gray-300
@@ -679,9 +679,9 @@
     // $navbar-toggler-font-size: $font-size-lg; $navbar-toggler-font-size: $navbar-toggler-font-size !global; // $font-size-lg
     // $navbar-toggler-border-radius: $btn-border-radius; $navbar-toggler-border-radius: $navbar-toggler-border-radius !global; // $btn-border-radius
 
-    // $navbar-dark-color: rgba($white, .5); $navbar-dark-color: $navbar-dark-color !global; // rgba($white, .5)
-    // $navbar-dark-hover-color: rgba($white, .75); $navbar-dark-hover-color: $navbar-dark-hover-color !global; // rgba($white, .75)
-    // $navbar-dark-active-color: $white; $navbar-dark-active-color: $navbar-dark-active-color !global; // $white
+    $navbar-dark-color: $white; $navbar-dark-color: $navbar-dark-color !global; // rgba($white, .5)
+    $navbar-dark-hover-color: $orange; $navbar-dark-hover-color: $navbar-dark-hover-color !global; // rgba($white, .75)
+    $navbar-dark-active-color: $orange; $navbar-dark-active-color: $navbar-dark-active-color !global; // $white
     // $navbar-dark-disabled-color: rgba($white, .25); $navbar-dark-disabled-color: $navbar-dark-disabled-color !global; // rgba($white, .25)
     // $navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"); $navbar-dark-toggler-icon-bg: $navbar-dark-toggler-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
     // $navbar-dark-toggler-border-color: rgba($white, .1); $navbar-dark-toggler-border-color: $navbar-dark-toggler-border-color !global; // rgba($white, .1)
@@ -737,7 +737,7 @@
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global; // rgba($black, .125)
     // $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}); $card-inner-border-radius: $card-inner-border-radius !global; // calc(#{$card-border-radius} - #{$card-border-width})
     // $card-cap-bg: rgba($black, .03); $card-cap-bg: $card-cap-bg !global; // rgba($black, .03)
-    // $card-bg: $white; $card-bg: $card-bg !global; // $white
+    $card-bg: $dark; $card-bg: $card-bg !global; // $white
 
     // $card-img-overlay-padding: 1.25rem; $card-img-overlay-padding: $card-img-overlay-padding !global; // 1.25rem
 
@@ -919,10 +919,10 @@
     // $carousel-control-width: 15%; $carousel-control-width: $carousel-control-width !global; // 15%
     // $carousel-control-opacity: .5; $carousel-control-opacity: $carousel-control-opacity !global; // .5
 
-    // $carousel-indicator-width: 30px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
-    // $carousel-indicator-height: 3px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
-    // $carousel-indicator-spacer: 3px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
-    // $carousel-indicator-active-bg: $white; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
+    $carousel-indicator-width: 5px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
+    $carousel-indicator-height: 5px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
+    $carousel-indicator-spacer: 5px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
+    $carousel-indicator-active-bg: $orange; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
 
     // $carousel-caption-width: 70%; $carousel-caption-width: $carousel-caption-width !global; // 70%
     // $carousel-caption-color: $white; $carousel-caption-color: $carousel-caption-color !global; // $white

@@ -1,0 +1,23 @@
+@include media-breakpoint-up(md) {
+    .sticky-top-md {
+        @supports (position: sticky) {
+            position: sticky;
+            top: 0;
+            z-index: $zindex-sticky;
+        }
+    }
+}
+
+/* switch of margin-collapsing */
+.container,
+section {
+    column-span: all;
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    span{
+        background-color: red;
+    }
+}

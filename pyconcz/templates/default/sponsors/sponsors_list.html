@@ -18,7 +18,7 @@
         {% for level in sponsor_levels %}
             <h2>{{ level.grouper }}</h2>
             {% for sponsor in level.list %}
-                <h3 class="-left">{{ sponsor.name }}</h3>
+                <h3>{{ sponsor.name }}</h3>
                 <div class="row align-items-start">
                     <div class="col-12 col-md-6 col-lg-4 justify-content-center   justify-content-center">
                         <a href="{{ sponsor.link_url }}" class="d-block">

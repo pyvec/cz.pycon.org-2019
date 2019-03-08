@@ -6,95 +6,142 @@
 {% load emojificate %}
 
 
-{% block main %}
-    <div class="container">
-        <p class="lead">
-            <strong>PyCon CZ</strong> aims to be the largest annual gathering for the <strong>Python community</strong> in the <strong>Czech&nbsp;Republic</strong>.
-            <br>It’s focused on honoring and supporting <strong>awesome people</strong> teaching, learning and innovating with Python in Czech Republic and <strong>surrounding EU</strong>.
-        </p>
-    </div>
+{% block header %}
+    <div class="pc-homepage-header">
+        <div class="container-fluid">
+            <header class="pc-header pc-header--homepage">
+                <div class="pc-header-link pc-header-link--homepage">
+                    <img class="img-fluid pc-header-image pc-header-image--homepage" src="{% static "img/pycon19-logo.svg" %}" alt="PyCon CZ 2019">
+                </div>
+                <div class="pc-header-text pc-header-text--homepage">
+                    <p class="pc-header-year pc-header-year--homepage">2019</p>
+                    <p class="pc-header-city-date pc-header-city-date--homepage">June 14–16, Ostrava</p>
+                </div>
+            </header>
 
-    {% block thanks %}{% endblock %}
+            <div class="row">
+                <div class="col-xs-10 col-sm-7 col-md-5 col-lg-4 text-black">
+                    <p class="lead">Join more than 400 conference attendees for 3&nbsp;days full of&nbsp;Python and fun at former coal mine complex&nbsp;<a href="{% url "venue" %}">Hlubina</a>.</p>
 
-    {% block video %}{% endblock %}
+                    <p><a class="btn btn-primary" href="{% url 'tickets' %}">Buy Ticket</a></p>
 
-    {% block tickets %}
-        <div class="container">
-            <p>
-                <a class="btn btn-lg display-1 btn-yellow" href="{% comment %}{% url 'tickets' %}{% endcomment %}">Tickets are available!</a>
-            </p>
-        </div>
-    {% endblock %}
-
-    {% block venue_dates %}
-
-        {% block venue %}
-            <div>
-                <div class="container">
-                    <h3>Venues and Events</h3>
-
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-sm col-lg-4">
-                            <div>
-                                <address>
-                                    <h4>Meet Factory</h4>
-                                    Ke Sklárně 3213/15, Praha 5 – Smíchov
-                                </address>
-                                <p><a href="https://goo.gl/maps/bPeAGgy9sPx">Map</a></p>
-                                <h5 class="h4">
-                                    <small>1-2&nbsp;June</small>
-                                    <a class="d-block" href="{% comment %}{% url 'speakers_list' type='talks' %}{% endcomment %}">
-                                        Talks
-                                    </a>
-                                </h5>
-                                <h5 class="h4">
-                                    <small>1&nbsp;June</small>
-                                    <a class="d-block" href="{% comment %}{% url 'board_game_night' %}{% endcomment %}">
-                                        Board Game Night
-                                    </a>
-                                </h5>
-                                <h5 class="h4">
-                                    <small>2&nbsp;June</small>
-                                    <span class="d-block">
-                                    Afterparty
-                                </span>
-                                </h5>
-                            </div>
-
-                        </div>
-
-                        <div class="col-12 col-sm col-lg-4">
-                            <div>
-                                <address>
-                                    <h4>FIT CTU</h4>
-                                    Thákurova 9, Praha 6 – Dejvice
-                                </address>
-                                <p><a href="https://goo.gl/maps/ZA3DoxKdt3m">Map</a></p>
-
-                                <h5 class="h4">
-                                    <small>3&nbsp;June</small>
-                                    <a class="d-block" href="{% comment %}{% url 'speakers_list' type='workshops' %}{% endcomment %}">
-                                        Workshops
-                                    </a>
-                                    and Sprints
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <p><a href="{% comment %}{% url 'programme_schedule' %}{% endcomment %}">Complete schedule</a></p>
+                    <ul>
+                        <li>Learn at 30+ <b>talks</b> in 2 parallel tracks during Friday and Saturday</li>
+                        <li>Dive deeper at <b>workshops</b> and <b>sprints</b> on&nbsp;Sunday</li>
+                        {% comment %}<li>Have fun at <b>board game night</b> on&nbsp;Friday</li>{% endcomment %}
+                        <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
+                    </ul>
                 </div>
             </div>
-        {% endblock %}
-
-    {% endblock %}
-
-    {% block city %}
-        <div class="container">
-            <h2>Ostrava</h2>
         </div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
-    {% block keynoters %}
+{% block main_classes %}{% endblock %}
+
+{% block main %}
+    <div class="bg-dark">
+
+        <div class="container pb-4">
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2>Organized by community for community</h2>
+                    <p>5th PyCon CZ is organized by <a href="{% url "team_list" %}">volunteers</a> from <a href="http://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad. Everyone gets a chance to learn, receive support, and connect with others in a friendly atmosphere.</p>
+                </div>
+            </div>
+            {% comment %}<div class="row justify-content-center">
+            <div class="col-8">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel" data-slide-to="1"></li>
+                        <li data-target="#carousel" data-slide-to="2"></li>
+                        <li data-target="#carousel" data-slide-to="3"></li>
+                        <li data-target="#carousel" data-slide-to="4"></li>
+                        <li data-target="#carousel" data-slide-to="5"></li>
+                        <li data-target="#carousel" data-slide-to="6"></li>
+                        <li data-target="#carousel" data-slide-to="7"></li>
+                    </ol>
+                    <div class="carousel-inner justify-content-center">
+                        {% emojified %}
+                            <div class="carousel-item p-4 bg-dark active">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> this year was awesome! Can&#39;t wait to visit next one, thanks to everyone who made it happen and who i got to talk to during the conference :)
+                                    <span class="d-block small">Zue (@FerkiZue) <a href="https://twitter.com/FerkiZue/status/1003311255757697025?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    Thanks <a href="https://twitter.com/pyconcz?ref_src=twsrc%5Etfw">@pyconcz</a> organizers for their enormous effort to create such welcome and friendly community atmosphere and a great conference! Enjoyed it to the last bit. See you sometimes soon... <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>
+                                    <span class="d-block small">Tomáš Hroch (@TomasHroch) <a href="https://twitter.com/TomasHroch/status/1003020014121881602?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    Attended <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> for the first time. It was one of the best tech conferences I’ve ever been to. Inspiring talks, superb venue, perfect organization and — most importantly — really great community of people. Kudos to the organizers and keep on going!
+                                    <span class="d-block small">David Majda (@dmajda) <a href="https://twitter.com/dmajda/status/1003183843858419712?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    Just want to thank <a href="https://twitter.com/pyconcz?ref_src=twsrc%5Etfw">@pyconcz</a> organizers for such great event! Completely well done job! Enjoyed the conference and after party so much! Great people, even better atmosphere! <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a>
+                                    <span class="d-block small">Igor Davydenko (@playpausenstop) <a href="https://twitter.com/playpausenstop/status/1003024502052282368?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> over but I am still looking on a bright side of life <a href="https://t.co/RuMrinYOGi">pic.twitter.com/RuMrinYOGi</a>
+                                    <span class="d-block small">Petr Simecek (@simecek) <a href="https://twitter.com/simecek/status/1003276120710635520?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark" lang="cs">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    Moc děkujeme pořadatelům <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> za profesionální zázemí konference a velké díky patří také retroteamu, že věnovali čas našim dětem a zasvětili je do retrogamesek 😀 Super přátelská atmosféra! <a href="https://t.co/TGVtJWGJc1">pic.twitter.com/TGVtJWGJc1</a>
+                                    <span class="d-block small">Programujeme hrou (@programohrajeme) <a href="https://twitter.com/programohrajeme/status/1002928465367183360?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    I had a lovely time at <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> - thank you, organizers for your hard work!
+                                    <span class="d-block small">Ann (@AE3nn) <a href="https://twitter.com/AE3nn/status/1002854708028067840?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
+                                </div>
+                            </div>
+                            <div class="carousel-item p-4 bg-dark">
+                                <div class="w-75 mx-auto" style="min-height: 10rem;">
+                                    An extremely successful first day at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. To <a href="https://twitter.com/BaraDrb?ref_src=twsrc%5Etfw">@BaraDrb</a> and all the other organizers… Bravo! Well done. 👏
+                                    <span class="d-block small">Justin Mayer (@jmayer) <a href="https://twitter.com/jmayer/status/1002585753795420160?ref_src=twsrc%5Etfw">June 1, 2018</a></span>
+                                </div>
+                            </div>
+                        {% endemojified %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>{% endcomment %}
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p>Check out short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk&t=9">video from the first PyCon CZ</a> for atmosphere, or watch talks on our <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">Youtube channel</a>.</p>
+                </div>
+            </div>
+            {% comment %}<div class="row">
+            <div class="col text-center"><a href="#">Venue</a></div>
+            <div class="col text-center"><a href="#">Ostrava</a></div>
+            <div class="col text-center"><a href="#">Travel</a></div>
+            <div class="col text-center"><a href="#">Accommodation</a></div>
+        </div>{% endcomment %}
+
+        </div>
+    </div>
+
+    {% comment %}{% block keynoters %}
         {% if keynoters %}
             <div class="container">
                 <div class="row">
@@ -133,7 +180,7 @@
                 </div>
             </div>
         {% endif %}
-    {% endblock %}
+    {% endblock %}{% endcomment %}
 
     {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
@@ -145,44 +192,4 @@
         {% sponsors %}
     {% endblock %}
 
-    <div class="container">
-
-        <h2>What attendees said about PyCon&nbsp;CZ 2018</h2>
-
-        {% emojified %}
-            <p>
-                <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> this year was awesome! Can&#39;t wait to visit next one, thanks to everyone who made it happen and who i got to talk to during the conference :)
-                <span class="d-block small">Zue (@FerkiZue) <a href="https://twitter.com/FerkiZue/status/1003311255757697025?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
-            </p>
-            <p>
-                Thanks <a href="https://twitter.com/pyconcz?ref_src=twsrc%5Etfw">@pyconcz</a> organizers for their enormous effort to create such welcome and friendly community atmosphere and a great conference! Enjoyed it to the last bit. See you sometimes soon... <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>
-                <span class="d-block small">Tomáš Hroch (@TomasHroch) <a href="https://twitter.com/TomasHroch/status/1003020014121881602?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
-            </p>
-            <p>
-                Attended <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> for the first time. It was one of the best tech conferences I’ve ever been to. Inspiring talks, superb venue, perfect organization and — most importantly — really great community of people. Kudos to the organizers and keep on going!
-                <span class="d-block small">David Majda (@dmajda) <a href="https://twitter.com/dmajda/status/1003183843858419712?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
-            </p>
-            <p>
-                Just want to thank <a href="https://twitter.com/pyconcz?ref_src=twsrc%5Etfw">@pyconcz</a> organizers for such great event! Completely well done job! Enjoyed the conference and after party so much! Great people, even better atmosphere! <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a>
-                <span class="d-block small">Igor Davydenko (@playpausenstop) <a href="https://twitter.com/playpausenstop/status/1003024502052282368?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
-            </p>
-            <p>
-                <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> over but I am still looking on a bright side of life <a href="https://t.co/RuMrinYOGi">pic.twitter.com/RuMrinYOGi</a>
-                <span class="d-block small">Petr Simecek (@simecek) <a href="https://twitter.com/simecek/status/1003276120710635520?ref_src=twsrc%5Etfw">June 3, 2018</a></span>
-            </p>
-            <p lang="cs">
-                Moc děkujeme pořadatelům <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a> za profesionální zázemí konference a velké díky patří také retroteamu, že věnovali čas našim dětem a zasvětili je do retrogamesek 😀 Super přátelská atmosféra! <a href="https://t.co/TGVtJWGJc1">pic.twitter.com/TGVtJWGJc1</a>
-                <span class="d-block small">Programujeme hrou (@programohrajeme) <a href="https://twitter.com/programohrajeme/status/1002928465367183360?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
-            </p>
-            <p>
-                I had a lovely time at <a href="https://twitter.com/hashtag/pyconcz?src=hash&amp;ref_src=twsrc%5Etfw">#pyconcz</a> - thank you, organizers for your hard work!
-                <span class="d-block small">Ann (@AE3nn) <a href="https://twitter.com/AE3nn/status/1002854708028067840?ref_src=twsrc%5Etfw">June 2, 2018</a></span>
-            </p>
-            <p>
-                An extremely successful first day at <a href="https://twitter.com/hashtag/PyConCZ?src=hash&amp;ref_src=twsrc%5Etfw">#PyConCZ</a>. To <a href="https://twitter.com/BaraDrb?ref_src=twsrc%5Etfw">@BaraDrb</a> and all the other organizers… Bravo! Well done. 👏
-                <span class="d-block small">Justin Mayer (@jmayer) <a href="https://twitter.com/jmayer/status/1002585753795420160?ref_src=twsrc%5Etfw">June 1, 2018</a></span>
-            </p>
-        {% endemojified %}
-
-    </div>
 {% endblock %}

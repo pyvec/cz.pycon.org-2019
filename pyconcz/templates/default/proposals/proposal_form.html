@@ -15,7 +15,7 @@
                 <br>More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.
             </p>
             <p>
-                All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a class="text-white" href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.
+                All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.
             </p>
         {% else %}
             <p>
@@ -92,7 +92,7 @@
 
             <p>Please note that you won’t receive any copy of your {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %} to your mailbox.</p>
 
-            <button type="submit" class="btn btn-lg btn-primary">
+            <button type="submit" class="btn btn-lg btn-primary mb-5">
                 Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
             </button>
         </div>
