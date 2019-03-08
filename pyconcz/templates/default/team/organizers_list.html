@@ -26,12 +26,12 @@
                     <div class="card-body">
                         <h2 class="h5 my-0 card-title">{{ organizer.full_name }}</h2>
                         {% if organizer.twitter or organizer.github %}
-                            <p class="card-text mt-2">
+                            <p class="card-text mt-2 small">
                                 {% if organizer.twitter %}
-                                    Twitter:&nbsp;<a class="mr-2" href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
+                                    <span class="text-nowrap-md">Twitter: <a class="mr-2" href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a></span>
                                 {% endif %}
                                 {% if organizer.github %}
-                                    GitHub:&nbsp;<a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a>
+                                    <span class="text-nowrap-md">GitHub: <a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a></span>
                                 {% endif %}
                             </p>
                         {% endif %}

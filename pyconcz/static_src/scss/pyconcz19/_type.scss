@@ -91,3 +91,9 @@ ul:not(.nav) {
     }
 }
 
+
+@include media-breakpoint-up(md) {
+    .text-nowrap-md {
+        white-space: nowrap;
+    }
+}
