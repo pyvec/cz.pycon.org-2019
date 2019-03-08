@@ -1,28 +1,35 @@
 <div class="card-footer">
     {% if today <= last_day_regular %} {# before late bird #}
-        <div class="row {% if early_soldout %}{% else %}font-weight-bold{% endif %}">
+        <div class="row {% if ticket_md.early_bird.sold_out %}{% else %}font-weight-bold{% endif %}">
             <span class="col-auto">
-                Early-bird <small>({% if not early_soldout %}until {% endif %}sold out)</small>
+                Early-bird
+                <small>
+                    ({% if not ticket_md.early_bird.sold_out %}
+                        {{ ticket_md.early_bird.quantity }} left
+                    {% else %}
+                        sold out
+                    {% endif %})
+                </small>
             </span>
-            <span class="col">{{ early_price }}&nbsp;CZK</span>
+            <span class="col">{{ ticket_md.early_bird.price }}&nbsp;CZK</span>
         </div>
-        <div class="row {% if early_soldout %}font-weight-bold{% else %}{% endif %}">
+        <div class="row {% if ticket_md.early_bird.sold_out %}font-weight-bold{% else %}{% endif %}">
             <span class="col-auto">
                 Regular
                 <small>
-                    {% if today < last_day_regular or not early_soldout %}
-                        (until 20 May)
-                    {% elif early_soldout %}
-                        <span>(last chance today)</span>
+                    {% if today < last_day_regular %}
+                        (until {{ regular_date | date:'j F' }})
+                    {% elif today == last_day_regular %}
+                        <span class="text-warning">(last chance today)</span>
                     {% endif %}
                 </small>
             </span>
-            <span class="col">{{ regular_price }}&nbsp;CZK</span>
+            <span class="col">{{ ticket_md.regular.price }}&nbsp;CZK</span>
         </div>
     {% endif %}
 
     <div class="row {% if today > last_day_regular %}font-weight-bold{% else %}{% endif %}">
         <span class="col-auto">Late bird</span>
-        <span class="col">{{ late_price }}&nbsp;CZK</span>
+        <span class="col">{{ ticket_md.late_bird.price }}&nbsp;CZK</span>
     </div>
 </div>

@@ -30,7 +30,8 @@ prefixed_urlpatterns = [
     url(r'^proposals/', include('pyconcz.proposals.urls')),
     url(r'^announcements/', include('pyconcz.announcements.urls')),
     url(r'^sponsors/', include('pyconcz.sponsors.urls')),
-
+    url(r'^tickets/$', include('pyconcz.common.urls')),
+  
     # static pages
     url(r'about/code/$',
         TemplateView.as_view(template_name='pages/code.html'),
@@ -44,9 +45,9 @@ prefixed_urlpatterns = [
     url(r'^pattern-lib/$',
         TemplateView.as_view(template_name='pages/pattern-lib.html'),
         name='pattern_lib'),
-    url(r'^tickets/$',
-        TemplateView.as_view(template_name='pages/tickets.html'),
-        name='tickets'),
+    # url(r'^tickets/$',
+    #     TemplateView.as_view(template_name='pages/tickets.html'),
+    #     name='tickets'),
     url(r'^ostrava/$',
         TemplateView.as_view(template_name='pages/ostrava.html'),
         name='city'),
