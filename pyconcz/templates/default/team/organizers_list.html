@@ -19,21 +19,23 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="card-columns">
             {% for organizer in organizers %}
-                <div class="col-md-3">
-                    <img src="{{ organizer.photo.url }}" alt="">
-                    <div>
-                        {{ organizer.full_name }}
+                <div class="card border-0 mb-4">
+                    <img src="{{ organizer.photo.url }}" class="card-img-top pc-img-effect" alt="">
+                    <div class="card-body">
+                        <h2 class="h5 my-0 card-title">{{ organizer.full_name }}</h2>
+                        {% if organizer.twitter or organizer.github %}
+                            <p class="card-text mt-2">
+                                {% if organizer.twitter %}
+                                    Twitter:&nbsp;<a class="mr-2" href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
+                                {% endif %}
+                                {% if organizer.github %}
+                                    GitHub:&nbsp;<a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a>
+                                {% endif %}
+                            </p>
+                        {% endif %}
                     </div>
-                    <p>
-                        {% if organizer.twitter %}
-                            TW:&nbsp;<a href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
-                        {% endif %}
-                        {% if organizer.github %}
-                            GH:&nbsp;<a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a>
-                        {% endif %}
-                    </p>
                 </div>
             {% endfor %}
         </div>
