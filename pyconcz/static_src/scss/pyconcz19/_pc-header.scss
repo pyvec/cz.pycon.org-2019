@@ -1,0 +1,171 @@
+/*
+* Header
+*/
+
+.pc-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    flex-direction: column;
+    padding: 1rem 0;
+
+    @include media-breakpoint-up(sm) {
+        flex-direction: row;
+        padding: 2.4rem 0;
+    }
+
+    //background-color: $blue;
+
+    &--homepage {
+        display: block;
+    }
+
+    &-link,
+    &-text {
+        @include media-breakpoint-up(sm) {
+            margin-left: 5%;
+            margin-right: 5%;
+
+            &--homepage {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &-link {
+        flex: 5 5 auto;
+        //background-color: crimson;
+    }
+
+    &-image {
+        width: 100%;
+        max-width: 26rem;
+        margin-left: auto;
+        display: block;
+
+        &--homepage {
+            margin-left: 0;
+            max-width: 18rem;
+            @include media-breakpoint-up(sm) {
+                max-width: 22rem;
+            }
+
+            @include media-breakpoint-up(md) {
+                max-width: 25rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                max-width: 30rem;
+            }
+        }
+    }
+
+    &-text {
+        flex: 3 3 auto;
+        //background-color: blue;
+        align-self: start;
+        text-outline: 1px solid black;
+
+        @include media-breakpoint-up(sm) {
+            align-self: auto;
+        }
+    }
+
+    &-year,
+    &-city-date {
+        margin: 0;
+        font-weight: $pc-font-weight-base-bold;
+        line-height: 1.3;
+    }
+
+    &-year {
+        color: $orange;
+        font-size: 1.8rem;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 2rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: 2.4rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 3rem;
+        }
+
+        &--homepage {
+            text-shadow: transparentize($white, 0.2) 0 0 6px;
+            font-size: 2rem;
+
+            @include media-breakpoint-up(sm) {
+                text-shadow: none;
+                font-size: 3rem;
+            }
+        }
+    }
+
+    &-city-date {
+        white-space: nowrap;
+        font-size: 0.8rem;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 1rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.5rem;
+        }
+
+        &--homepage {
+            color: $dark;
+            font-size: 1.2rem;
+
+            @include media-breakpoint-up(sm) {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+}
+
+.pc-homepage-header {
+    background-color: $pc-beige;
+    background-image: url("/2019/static/img/jakub-soucek-flickr-cc-by-2.jpg");
+    background-repeat: no-repeat;
+    background-size: 510%;
+    background-position: 21% 0;
+    padding-bottom: 30px;
+    background-attachment: fixed;
+
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 1px;
+        background-size: 370%;
+    }
+
+    @include media-breakpoint-up(sm) {
+        background-position: 15% 0;
+        background-size: 240%;
+    }
+
+    @include media-breakpoint-up(md) {
+        background-position: 20% 0;
+        background-size: 180%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        background-position: 30% 0;
+        background-size: 150%;
+    }
+
+    .container-fluid {
+        max-width: 1350px;
+    }
+}

@@ -1,0 +1,15 @@
+.nav-item {
+    text-transform: uppercase;
+    font-family: $font-family-monospace;
+    font-weight: $pc-font-weight-mono-medium;
+    font-size: $font-size-sm;
+
+    a {
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+            color: $orange;
+        }
+    }
+}

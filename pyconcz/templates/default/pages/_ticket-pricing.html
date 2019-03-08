@@ -1,6 +1,6 @@
 <div class="card-footer">
     {% if today <= last_day_regular %} {# before late bird #}
-        <div class="row my-1 {% if ticket_md.early_bird.sold_out %}pc-ticket-unavailable{% else %}font-weight-bold{% endif %}">
+        <div class="row {% if ticket_md.early_bird.sold_out %}{% else %}font-weight-bold{% endif %}">
             <span class="col-auto">
                 Early-bird
                 <small>
@@ -11,9 +11,9 @@
                     {% endif %})
                 </small>
             </span>
-            <span class="col text-right">{{ ticket_md.early_bird.price }}&nbsp;CZK</span>
+            <span class="col">{{ ticket_md.early_bird.price }}&nbsp;CZK</span>
         </div>
-        <div class="row my-1 {% if ticket_md.early_bird.sold_out %}font-weight-bold{% else %}text-muted{% endif %}">
+        <div class="row {% if ticket_md.early_bird.sold_out %}font-weight-bold{% else %}{% endif %}">
             <span class="col-auto">
                 Regular
                 <small>
@@ -24,12 +24,12 @@
                     {% endif %}
                 </small>
             </span>
-            <span class="col text-right">{{ ticket_md.regular.price }}&nbsp;CZK</span>
+            <span class="col">{{ ticket_md.regular.price }}&nbsp;CZK</span>
         </div>
     {% endif %}
 
-    <div class="row my-1 {% if today > last_day_regular %}font-weight-bold{% else %}text-muted{% endif %}">
+    <div class="row {% if today > last_day_regular %}font-weight-bold{% else %}{% endif %}">
         <span class="col-auto">Late bird</span>
-        <span class="col text-right">{{ ticket_md.late_bird.price }}&nbsp;CZK</span>
+        <span class="col">{{ ticket_md.late_bird.price }}&nbsp;CZK</span>
     </div>
 </div>
