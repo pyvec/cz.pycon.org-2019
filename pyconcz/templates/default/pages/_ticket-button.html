@@ -1,0 +1,10 @@
+{% if ticket_md.early_bird.upcoming %}
+    <button class="btn btn-primary disabled px-3 my-3 mx-auto" disabled>Not for sale yet</button>
+{% else %}
+    <a href="https://ti.to/pyvec/pycon-cz-2019" class="my-3 mx-auto">
+        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% endif %}{% if ticket_md.early_bird.quantity <= 3 %},{% if not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}{% endif %}">
+            Buy ticket
+        </tito-button>
+    </a>
+
+{% endif %}
