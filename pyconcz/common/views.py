@@ -47,6 +47,10 @@ def tickets_index(request):
         phase = [phase for phase in ticket_phases
                  if phase in ticket["title"].lower()]
 
+        # Calculate how many tickets left for tickets with limited quantity
+        if ticket["quantity"] is not None:
+            ticket["tickets_left"] = ticket["quantity"] - ticket["tickets_count"]
+
         if name and phase:
             tickets[name[0]][ticket_phases[phase[0]]] = ticket
             # all the regular tickets have the same "end of sale" date so we extract the first
