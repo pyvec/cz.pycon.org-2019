@@ -1,18 +1,11 @@
-label {
-    margin-bottom: 0.1*$spacer;
-    font-weight: $font-weight-bold;
-}
+/*
+* Forms
+*/
 
-label,
-button,
 input,
-optgroup,
+button,
 select,
+optgroup,
 textarea {
     font-family: $font-family-monospace;
-}
-
-.pc-field-name--finaid_details {
-    margin-top: -1.5*$spacer;
-    padding-left: 2ch;
 }

@@ -17,6 +17,7 @@ coverage.xml
 *,cover
 /.cache/
 env/
+venv/
 .env
 .ropeproject
 

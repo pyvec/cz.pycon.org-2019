@@ -1,52 +1,94 @@
-h1,
-h2 {
+//
+// Headings
+//
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: uppercase;
-    text-align: center;
-    padding-top: $spacer;
-    padding-bottom: $spacer;
-    margin: 0;
-    font-weight: $font-weight-bold;
+    margin-top: 1.5em;
 }
 
-h3,
-h4 {
-    margin-top: 2*$spacer;
-    margin-bottom: 0.5*$spacer;
+h1, .h1 {
+    border-top: (1em/6) solid currentColor;
+    padding-top: (1em/3);
+    margin-bottom: 0.5em;
+    margin-top: 1.333em;
 }
 
-em {
-    font-style: $font-weight-base;
-    font-weight: $font-weight-bold;
+.overline {
+    border-top: (1em/6) solid currentColor;
 }
 
+h2, .h2 {
+}
 
-.pc-text-page {
+h3, .h3 {
+}
 
-    h1,
-    h2 {
-        padding-top: 2*$spacer;
+h4, .h4 {
+}
+
+.lead {
+    line-height: $line-height-base / strip-unit($lead-font-size );
+    margin-bottom: 2*$paragraph-margin-bottom;
+}
+
+ol {
+    padding-left: 2.5*$spacer;
+
+    & > li {
+        margin-bottom: $spacer;
     }
-
-    li {
-        padding-bottom: 0.5*$spacer;
-    }
-
-    .nav-item {
-        margin-bottom: 0;
-    }
-
 }
 
-.pc-lead-ostrava {
-    max-width: 60rem;
+li > ol,
+li > ul {
+    margin-top: $spacer;
+    margin-left: $spacer;
 }
 
-@include media-breakpoint-up(md) {
-    .sticky-top-md {
-        @supports (position: sticky) {
-            position: sticky;
-            top: 0;
-            z-index: $zindex-sticky;
+ul:not(.nav) {
+    $pc-bullet-space: 0.75em;
+    list-style-type: none;
+    padding-left: $spacer;
+    text-indent: -$pc-bullet-space;
+
+    & > li:not(.nav-item) {
+        margin-bottom: $spacer;
+
+        &::before {
+            color: $orange;
+            content: "■";
+            transform: scale(0.75);
+            display: inline-block;
+            width: $pc-bullet-space;
+            line-height: 0;
+        }
+
+        .text-black &::before {
+            color: $dark;
         }
     }
 }
+
+.bg-beige {
+    &.border,
+    &.border-top,
+    &.border-right,
+    &.border-bottom,
+    &.border-left {
+        border-color: currentColor !important;
+    }
+}
+
+.text-black {
+    .nav-link,
+    a:not(.btn) {
+        color: $pc-deepblue;
+
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+

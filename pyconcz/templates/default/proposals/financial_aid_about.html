@@ -9,23 +9,34 @@
     <div class="container">
         <h1>Financial Aid</h1>
 
-        <p class="lead">
-            We want PyCon CZ to be as accessible as possible to everyone.
-            <br>Financial Aid is meant for anyone who is not able to attend PyCon CZ because of their financial situation. It may cover ticket and/or accommodation and/or travel costs.
-        </p>
+        <div class="row">
+            <div class="col">
+                <p class="lead">We want PyCon CZ to be as accessible as possible to&nbsp;everyone.</p>
 
-        <p class="lead font-weight-bold">While we can’t cover all expenses for everyone, we try our best to help as much as our budget allows.</p>
+            </div>
+            <div class="col">
+                <p>Financial Aid is meant for anyone who is not able to attend PyCon CZ because of their financial situation. It may cover ticket and/or accommodation and/or travel costs.</p>
+                <p>While we can’t cover all expenses for everyone, we try our best to help as much as our budget allows.</p>
+            </div>
+        </div>
 
 
         <h2>Timeline</h2>
 
-        <p class="lead">
+        <p>
             Financial aid applications open on {{ proposal_config.date_start | date:'j F' }} and
             <b>close on {{ proposal_config.date_end | date:'j F' }}, 23:59 CET</b>.
             After that we will carefully examine each application and inform all applicants privately before the end of {{ proposal_config.date_end | date:'F' }} about the result.
         </p>
 
         {% block info_text %}
+
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    Apply for a grant
+                </a>
+            </p>
+
             <h2>Philosophy &amp;&nbsp;Outreach</h2>
 
             <p>Our primary goal is to make PyCon CZ accessible to everyone, irrespective of their financial situation. For this reason, we provide multiple tiers of ticket prices, Early-Bird, Educational, Individual and Company. This is based on the principle that those who can afford to pay for tickets subsidize those who cannot. This structure enables us to include major diversity and outreach programmes such as DjangoGirls, reward and encourage active participation in the PyCon CZ event organization, and fund PyCon CZ’s Financial Aid programme.</p>
@@ -42,11 +53,17 @@
 
             <p>The financial aid programme supports the community by making it more accessible at PyCon CZ. It is true to the spirit of PyCon to make the information and interactions available to everyone.</p>
 
-            <p>PyCon CZ aims to be the largest annual gathering for the Python community in the Czech Republic, focused on honoring and supporting awesome people teaching, learning and innovating with Python in the Czech Republic and surrounding countries. The Python Software Foundation, the parent PyCon event organizer and sponsor, aims to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. We believe that the financial aid programme is perfectly aligned with these goals.</p>
+            {% comment %}<p>PyCon CZ is the largest annual gathering for the Python community in the Czech Republic, focused on honoring and supporting awesome people teaching, learning and innovating with Python in the Czech Republic and surrounding countries. The Python Software Foundation, the parent PyCon event organizer and sponsor, aims to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. We believe that the financial aid programme is perfectly aligned with these goals.</p>{% endcomment %}
 
             <p>Note well that our <a href="{% url "about_code" %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
 
             <p>Please do not hesitate to email us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    Apply for a grant
+                </a>
+            </p>
         {% endblock %}
 
     </div>

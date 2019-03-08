@@ -1,0 +1,15 @@
+.btn {
+    $pc-shadow-horizontal: 5px;
+    $pc-shadow-vertical: 4px;
+
+    box-shadow: $pc-shadow-vertical $pc-shadow-horizontal 0 $pc-brown;
+    margin-left: $pc-shadow-horizontal;
+    margin-bottom: $pc-shadow-vertical;
+    text-decoration: none;
+    font-family: $font-family-monospace;
+}
+
+.btn-primary {
+    text-transform: uppercase;
+    color: $white;
+}

@@ -16,11 +16,11 @@
         <p>Do you want to sponsor us too? Check out <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact&nbsp;us.</a></p>
 
         {% for level in sponsor_levels %}
-            <h2 class="mt-lg-5 mb-0">{{ level.grouper }}</h2>
+            <h2>{{ level.grouper }}</h2>
             {% for sponsor in level.list %}
-                <h3 class="text-lg-left">{{ sponsor.name }}</h3>
-                <div class="row align-items-start mb-4 mb-lg-5">
-                    <div class="col-12 col-md-6 col-lg-4 justify-content-center bg-light py-2 px-sm-5 px-md-2 mb-2 justify-content-center">
+                <h3>{{ sponsor.name }}</h3>
+                <div class="row align-items-start">
+                    <div class="col-12 col-md-6 col-lg-4 justify-content-center   justify-content-center">
                         <a href="{{ sponsor.link_url }}" class="d-block">
                             <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
                         </a>
