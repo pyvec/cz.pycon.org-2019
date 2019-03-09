@@ -3,7 +3,7 @@
 {% else %}
     {% if tickets.cached %}
         <button disabled class="tito-tickets-button">
-            <div class="loader"></div> Loading
+            <div class="spinner-border spinner-border-sm" role="status"></div> Loading
         </button>
     {% else %}
         <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}">
