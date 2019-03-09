@@ -7,13 +7,18 @@ from django.conf import settings
 from pyconcz.programme.models import Speaker
 
 
+requests_session = requests.Session()
+
+_tickets_data_cache = None
+
+
 def homepage(request):
     keynoters = Speaker.objects.filter(is_public=True, talks__is_keynote=True,
                                        talks__is_backup=False)
 
     return TemplateResponse(request, 'pages/homepage.html', {'keynoters': keynoters})
 
-def tickets_index(request):
+def retrieve_tickets_data():
     secret_key = settings.TITO_SECRET_KEY
     account_id = settings.TITO_ACCOUNT_NAME
     event_id = settings.TITO_EVENT_NAME
@@ -27,11 +32,9 @@ def tickets_index(request):
         "Accept": "application/json",
     }
 
-    res = requests.get(releases_api, headers=headers)
-
+    res = requests_session.get(releases_api, headers=headers)
     res.raise_for_status()
-
-    tickets_md = res.json()
+    releases = res.json()["releases"]
 
     tickets = {
         "vip": {},
@@ -41,11 +44,9 @@ def tickets_index(request):
     }
 
     ticket_phases = {"early bird": "early_bird", "regular": "regular", "late bird": "late_bird"}
-    for ticket in tickets_md["releases"]:
-        name = [name for name in tickets
-                if name in ticket["title"].lower()]
-        phase = [phase for phase in ticket_phases
-                 if phase in ticket["title"].lower()]
+    for ticket in releases:
+        name = [name for name in tickets if name in ticket["title"].lower()]
+        phase = [phase for phase in ticket_phases if phase in ticket["title"].lower()]
 
         # Calculate how many tickets left for tickets with limited quantity
         if ticket["quantity"] is not None:
@@ -74,10 +75,8 @@ def tickets_index(request):
         account_id=account_id,
         event_id=event_id)
 
-    res = requests.get(activities_api, headers=headers)
-
+    res = requests_session.get(activities_api, headers=headers)
     res.raise_for_status()
-
     activities = res.json()
 
     for activity in activities["activities"]:
@@ -87,4 +86,23 @@ def tickets_index(request):
             tickets["capacity"] = activity["capacity"]
             break
 
+    return tickets
+
+def get_cached_tickets_data():
+    global _tickets_data_cache
+    if not _tickets_data_cache:
+        _tickets_data_cache = retrieve_tickets_data()
+    return {**_tickets_data_cache, 'cached': True}
+
+def get_fresh_tickets_data():
+    global _tickets_data_cache
+    _tickets_data_cache = retrieve_tickets_data()
+    return {**_tickets_data_cache, 'cached': False}
+
+def tickets_index(request):
+    tickets = get_cached_tickets_data()
     return TemplateResponse(request, 'pages/tickets.html', {"tickets": tickets})
+
+def tickets_ajax_content(request):
+    tickets = get_fresh_tickets_data()
+    return TemplateResponse(request, 'pages/tickets_ajax_content.html', {"tickets": tickets})
