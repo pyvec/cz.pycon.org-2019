@@ -7,6 +7,9 @@ from django.conf import settings
 from pyconcz.programme.models import Speaker
 
 
+requests_session = requests.Session()
+
+
 def homepage(request):
     keynoters = Speaker.objects.filter(is_public=True, talks__is_keynote=True,
                                        talks__is_backup=False)
@@ -27,7 +30,7 @@ def tickets_index(request):
         "Accept": "application/json",
     }
 
-    res = requests.get(releases_api, headers=headers)
+    res = requests_session.get(releases_api, headers=headers)
 
     res.raise_for_status()
 
@@ -74,7 +77,7 @@ def tickets_index(request):
         account_id=account_id,
         event_id=event_id)
 
-    res = requests.get(activities_api, headers=headers)
+    res = requests_session.get(activities_api, headers=headers)
 
     res.raise_for_status()
 
