@@ -1,8 +1,25 @@
 {% if ticket_md.early_bird.upcoming %}
     <button class="btn btn-primary disabled px-3 my-3 mx-auto" disabled>Not for sale yet</button>
 {% else %}
-    <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}">
-        Buy ticket
-    </tito-button>
-    {% comment %}<a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}" class="pc-tito-link">link to ti.to</a>{% endcomment %}
+    {% if tickets.cached %}
+        <button disabled class="tito-tickets-button d-none display-via-js">
+            <div class="spinner-border spinner-border-sm" role="status"></div> Loading
+        </button>
+        <script>
+            Array.prototype.forEach.call(
+                document.querySelectorAll('.tito-tickets-button.d-none.display-via-js'),
+                function (btn) {
+                    btn.classList.remove("d-none");
+                }
+            );
+        </script>
+        <noscript>
+            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}" class="tito-tickets-button">Buy ticket</a>
+        </noscript>
+    {% else %}
+        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}">
+            Buy ticket
+        </tito-button>
+        {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
+    {% endif %}
 {% endif %}
