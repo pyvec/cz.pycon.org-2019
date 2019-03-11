@@ -29,7 +29,6 @@ h4, .h4 {
 }
 
 .lead {
-    line-height: $line-height-base / strip-unit($lead-font-size );
     margin-bottom: 2*$paragraph-margin-bottom;
 }
 
@@ -92,3 +91,9 @@ ul:not(.nav) {
     }
 }
 
+
+@include media-breakpoint-up(md) {
+    .text-nowrap-md {
+        white-space: nowrap;
+    }
+}
