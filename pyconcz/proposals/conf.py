@@ -24,7 +24,7 @@ class WorkshopsConfig:
     cfp_title = 'Call for Papers: Workshops'
     template_about = 'proposals/workshops_about.html'
     date_start = datetime(year=2019, month=1, day=20, hour=8, minute=0, tzinfo=tz)
-    date_end = datetime(year=2019, month=3, day=7, hour=23, minute=59, second=59, tzinfo=tz)
+    date_end = datetime(year=2019, month=3, day=17, hour=23, minute=57, second=59, tzinfo=tz)
 
 
 class FinancialAidConfig:
