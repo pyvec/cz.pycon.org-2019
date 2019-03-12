@@ -372,9 +372,9 @@
     //
     // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-     $input-btn-padding-y: 1rem; $input-btn-padding-y: $input-btn-padding-y !global; // .375rem
-     $input-btn-padding-x: 3rem; $input-btn-padding-x: $input-btn-padding-x !global; // .75rem
-     $input-btn-line-height: 1; $input-btn-line-height: $input-btn-line-height !global; // $line-height-base
+    // $input-btn-padding-y: .375rem; $input-btn-padding-y: $input-btn-padding-y !global; // .375rem
+    // $input-btn-padding-x: .75rem; $input-btn-padding-x: $input-btn-padding-x !global; // .75rem
+    // $input-btn-line-height: $line-height-base; $input-btn-line-height: $input-btn-line-height !global; // $line-height-base
 
     // $input-btn-focus-width: .2rem; $input-btn-focus-width: $input-btn-focus-width !global; // .2rem
     // $input-btn-focus-color: rgba($component-active-bg, .25); $input-btn-focus-color: $input-btn-focus-color !global; // rgba($component-active-bg, .25)
