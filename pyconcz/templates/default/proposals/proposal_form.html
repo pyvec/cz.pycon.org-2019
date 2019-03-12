@@ -10,16 +10,15 @@
         <h1>{{ proposal_config.cfp_title|safe }}</h1>
 
         {% if proposal_config.key == "financial-aid" %}
-            <p>
-                Financial aid applications <b>close on {{ proposal_config.date_end | date:'d F' }}</b>.
-                <br>More about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid</a> programme.
+            <p class="lead">
+                Financial aid applications <b>close on {{ proposal_config.date_end|date:'F j' }}</b>.
+                Learn more about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid programme</a>.
             </p>
-            <p>
-                All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.
-            </p>
+            <p>All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.</p>
         {% else %}
-            <p>
-            The Call for Proposals will close on {% block deadline %}February&nbsp;28,&nbsp;2019,&nbsp;23:59&nbsp;CET{% endblock %}.
+            <p class="lead">
+                The Call for Proposals for {{ proposal_config.key }}
+                will close on {{ proposal_config.date_end|date:'d F H:i e' }}
             </p>
         {% endif %}
     </div>
