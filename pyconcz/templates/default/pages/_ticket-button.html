@@ -15,12 +15,15 @@
             );
         </script>
         <noscript>
-            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}" class="tito-tickets-button">Buy ticket</a>
+            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.secret or ticket_md.early_bird.tickets_left <= 3 %}{% if not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}{% endif %}" class="tito-tickets-button">
+                Buy ticket
+            </a>
         </noscript>
     {% else %}
-        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.tickets_left <= 3 and not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}">
+        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.secret or ticket_md.early_bird.tickets_left <= 3 %}{% if not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}{% endif %}">
             Buy ticket
         </tito-button>
         {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
     {% endif %}
+
 {% endif %}
