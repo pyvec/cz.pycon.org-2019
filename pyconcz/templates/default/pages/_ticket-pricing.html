@@ -6,11 +6,11 @@
                 Early-bird
                 <br>
                 {% if tickets.cached %}
-                  <small>(loading)</small>
+                    <small>(loading)</small>
                 {% else %}
-                  <small {% if ticket_md.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
+                    <small {% if ticket_md.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
                       ({{ ticket_md.early_bird.tickets_left }}&nbsp;left)
-                  </small>
+                    </small>
                 {% endif %}
             </span>
             <span class="pc-ticket-price text-right">{{ ticket_md.early_bird.price|floatformat:"0" }}&nbsp;CZK</span>

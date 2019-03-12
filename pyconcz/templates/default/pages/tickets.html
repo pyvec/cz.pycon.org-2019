@@ -25,11 +25,11 @@
 
 {% block after_scripts_loaded %}
     <script>
-      $("#tickets-content").load("ajax-content", function() {
-        if (window.console && console.info) {
-          console.info("tickets-content loaded");
-        }
-        TitoWidget.buildWidgets();
-      });
+        $("#tickets-content").load("ajax-content", function(){
+            if (window.console && console.info){
+                console.info("tickets-content loaded");
+            }
+            TitoWidget.buildWidgets();
+        });
     </script>
 {% endblock %}

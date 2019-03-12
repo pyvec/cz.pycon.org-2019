@@ -3,12 +3,13 @@
 {% else %}
     {% if tickets.cached %}
         <button disabled class="tito-tickets-button d-none display-via-js">
-            <div class="spinner-border spinner-border-sm" role="status"></div> Loading
+            <div class="spinner-border spinner-border-sm" role="status"></div>
+            Loading
         </button>
         <script>
             Array.prototype.forEach.call(
                 document.querySelectorAll('.tito-tickets-button.d-none.display-via-js'),
-                function (btn) {
+                function(btn){
                     btn.classList.remove("d-none");
                 }
             );
