@@ -25,11 +25,7 @@
         {% endblock %}
 
         <link href="{% static debug|yesno:"css/pyconcz19.css,css/pyconcz19.min.css" %}" type="text/css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
-        {% comment %}
-    {# all available Roboto font-weights #}
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i&amp;subset=latin-ext" rel="stylesheet">
-    {% endcomment %}
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,500,500i,700,700i|Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
 
         {# favicons #}
         <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicon/apple-touch-icon.png" %}">
@@ -63,6 +59,10 @@
     </head>
     <body>
     {% block body %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {% block after_scripts_loaded %}{% endblock %}
     </body>
     </html>
 {% endblock %}

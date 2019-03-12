@@ -2,18 +2,32 @@
 This is a base menu template containing all items,
 other menus mostly remove these links when not needed.
 
-If you want to remove menu item globally, comment it out here.
+If you want to remove a menu item globally, comment it out here.
 
 {% endcomment %}
-<ul class="nav w-100 justify-content-{{ pc_alignment }}">
+<ul class="nav w-100 justify-content-sm-center">
     {% block menu_items %}
         {% block link_home %}
-            {% include "__nav-link.html" with url="homepage" link_text="Home" class="pc-nav-link-hide-active" %}
+            {% include "__nav-link.html" with url="homepage" link_text="Home" %}
         {% endblock %}
 
+        {% block link_about_city %}
+            {% include "__nav-link.html" with url="city" link_text="Ostrava" %}
+        {% endblock %}
+
+        {% block link_venue %}
+            {% include "__nav-link.html" with url="venue" link_text="Venue" %}
+        {% endblock %}
+
+        {% block link_tickets %}
+            {% include "__nav-link.html" with url="tickets" link_text="Tickets" %}
+        {% endblock %}
+
+        {% comment %}
         {% block link_call_for_papers %}
             {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
         {% endblock %}
+        {% endcomment %}
 
         {% block link_team %}
             {% include "__nav-link.html" with url="team_list" link_text="Team" %}
@@ -36,13 +50,6 @@ If you want to remove menu item globally, comment it out here.
             {% include "__nav-link.html" with url="about" link_text="About" %}
         {% endblock %}
 
-        {% block link_tickets %}
-            {% include "__nav-link.html" with url="tickets" link_text="Tickets" class="pc-nav-link-highlight" %}
-        {% endblock %}
-
-        {% block link_about_city %}
-            {% include "__nav-link.html" with url="about_city" link_text="Prague" %}
-        {% endblock %}
 
         {% block link_talks %}
             {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}

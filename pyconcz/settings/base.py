@@ -87,34 +87,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pyconcz.urls'
 
-PHASE = [
-    '00-init',  # Initial phase
-    '10-date-place',  # Date and place announced
-    '20-cfp-opened',  # Call for papers open
-    '30-cfp-extended',  # Call for papers extended
-    '40-cfp-closed',  # Call for papers is closed
-    '50-cfp-evaluated',  # Papers were evaluated
-    '60-earlybird',  # Early bird ticket sales start
-    '70-finaid-opened',
-    '80-talks-published',  # even if only part of them
-    '90-finaid-closed',
-    '100-tickets-sold-out',
-    '110-schedule-published',
-    '120-workshop-registration-opened',
-    '130-day-1',
-    '140-day-2',
-    '150-day-3',
-    '160-after',
-    '170-videos-published',
-]
-
-PHASE_CURRENT = 7
+# PHASE = [
+#     '00-finaid-opened',
+# ]
+#
+# PHASE_CURRENT = 0
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates' + '/' + PHASE[PHASE_CURRENT]),
+            # os.path.join(BASE_DIR, 'templates' + '/' + PHASE[PHASE_CURRENT]),
             os.path.join(BASE_DIR, 'templates/default/'),
             os.path.join(BASE_DIR, 'templates/old/'),
         ],

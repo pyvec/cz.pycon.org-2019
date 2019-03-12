@@ -6,13 +6,25 @@ PyCon CZ taking place in Ostrava for its fifth edition.
 Contributing
 ------------
 
-PyCon CZ website is using Python 3.5/Django for the backend, NodeJS for
-bundling frontend assets and Postgresql as a database.
+### Workflow
+
+- `master` branch is manually deployed to https://cz.pycon.org/
+    - commit directly to `master` only if it’s a _hotfix_ 
+- create _feature_ branches (named whatever you want) for your work
+    - create PR’s to merge into `master`
+    - rebase feature branch on top of the `master` to keep it current (it’s preferred to merging)
+- `beta` branch is manually deployed to beta (URL and credentials available at Pyvec Slack).
+    - freely merge into `beta` anything you need to preview including work in progress
+    - never merge from `beta` to anywhere
+
 
 ### Setup dev environment
 
-#### Django
+PyCon CZ website is using Python 3.5/Django for the backend, NodeJS for
+bundling frontend assets and Postgresql as a database.
 
+
+#### Django
 
 Run following commands to setup project for local development:
 
@@ -53,36 +65,6 @@ You can run your dev server manually on [http://localhost:8000]() with:
 
 `./manage.py runserver --settings=pyconcz.settings.local`
 
-
-#### HTML
-
-We have some non-semantic HTML to accomodate the design.
-Hopefully this is temporary, until a CSS wizard tames the madness.
-Things to watch out for:
-
-* Headers `<h1>` and `<h2>` need an extra `<span>` inside for the content:
-
-  ```html
-      <h1><span>PyCon CZ Team</span></h1>
-  ```
-
-* Sections (with the headers above) need to be wrapped in double `<div>`.
-  Alternate between `pc-odd-section` and `pc-even-section` classes:
-
-  ```html
-      <div class="pc-odd-section">
-          <div class="container">
-              ...
-          </div>
-      </div>
-  ```
-
-* If you end with `pc-even-section`, adjust the footer by adding the
-  following block:
-
-    ```html
-        {% block footer-class %}pc-odd-footer{% endblock %}
-    ```
 
 #### Static files
 

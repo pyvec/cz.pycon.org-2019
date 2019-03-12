@@ -6,36 +6,39 @@
 
 
 {% block main %}
-<div class="pc-odd-section">
-<div class="container">
-        <h1><span>PyCon&nbsp;CZ Team</span></h1>
+    <div class="container">
+        <h1>PyCon&nbsp;CZ Team</h1>
+        <div class="row">
+            <div class="col-sm">
+                <p class="lead">PyCon is a community event. There are more than 30&nbsp;people on our Slack channel and even more volunteers helped us by sending pull requests on GitHub.</p>
+                <p class="h3">We are here for <strong>you</strong>!</p>
+                <p>The main contact is <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
+            </div>
+            <div class="col-sm">
+                <p>If you drew the organization structure of the PyCon CZ team, <strong>you — the attendee</strong> would be at the top. The incredible amount of volunteers would follow. There's little or no difference between organizers and volunteers, because we all do it in our free time without any claim for wage. {% comment %}Below is a list of our core team members.{% endcomment %}</p>
+            </div>
+        </div>
 
-        <p>PyCon is a community event. There are more than 30 people on our Slack channel and even more volunteers helped us by sending pull requests on GitHub. If you drew the organization structure of the PyCon CZ team, <strong>you — the attendee</strong> would be at the top. The incredible amount of volunteers would follow. There's little or no difference between organizers and volunteers, because we all do it in our free time without any claim for wage. Below is a list of our core team members.</p>
-
-        <p class="h3">We are here for <strong>you</strong>!</p>
-
-        <p>The main contact is <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
-
-        <div class="row pc-team-row">
+        <div class="card-columns">
             {% for organizer in organizers %}
-                <div class="col pc-team-col">
-                    <img src="{{ organizer.photo.url }}" alt="" class="pc-team-photo">
-                    <div class="pc-team-name">
-                        {{ organizer.full_name }}
+                <div class="card border-0 mb-4">
+                    <img src="{{ organizer.photo.url }}" class="card-img-top pc-img-effect" alt="">
+                    <div class="card-body">
+                        <h2 class="h5 my-0 card-title">{{ organizer.full_name }}</h2>
+                        {% if organizer.twitter or organizer.github %}
+                            <p class="card-text mt-2 small">
+                                {% if organizer.twitter %}
+                                    <span class="text-nowrap-md">Twitter: <a class="mr-2" href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a></span>
+                                {% endif %}
+                                {% if organizer.github %}
+                                    <span class="text-nowrap-md">GitHub: <a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a></span>
+                                {% endif %}
+                            </p>
+                        {% endif %}
                     </div>
-                    <p class="pc-team-contact">
-                        {% if organizer.twitter %}
-                            TW:&nbsp;<a href="https://twitter.com/{{ organizer.twitter }}">@{{ organizer.twitter }}</a>
-                        {% endif %}
-                        {% if organizer.github %}
-                            GH:&nbsp;<a href="https://github.com/{{ organizer.github }}">{{ organizer.github }}</a>
-                        {% endif %}
-                    </p>
                 </div>
             {% endfor %}
         </div>
 
     </div>
-</div>
-</div>
 {% endblock %}

@@ -120,12 +120,12 @@ class Talk(EntryBase):
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='If you don’t have a photo according to specs below, we will ask you for one if your talk is selected.'
                   '\nIdeal photo is:'
-                  '\n– as large as possible'
-                  ' (128 × 128 px, there is no upper limit, even 1000 × 1000 px isn’t too much),'
+                  '\n– as large as possible (please no 128 × 128 px,'
+                  ' there is no upper limit, even 1000 × 1000 px isn’t too much),'
                   '\n– as uncompressed as possible (JPEGs are ok),'
                   '\n– doesn’t show other people'
                   '\n– is a head shot (not you in front of a pyramid)'
-                  '\n– and has no “creative filters” applied.'
+                  '\n– is not black and white and has no “creative filters” applied.'
                   '\nWe might crop it and change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
@@ -252,12 +252,12 @@ class Workshop(EntryBase):
         verbose_name='Your photo (not an illustration nor avatar)',
         help_text='If you don’t have a photo according to specs below, we will ask you for one if your workshop is selected.'
                   '\nIdeal photo is:'
-                  '\n– as large as possible'
-                  ' (128 × 128 px, there is no upper limit, even 1000 × 1000 px isn’t too much),'
+                  '\n– as large as possible (please no 128 × 128 px,'
+                  ' there is no upper limit, even 1000 × 1000 px isn’t too much),'
                   '\n– as uncompressed as possible (JPEGs are ok),'
                   '\n– doesn’t show other people'
                   '\n– is a head shot (not you in front of a pyramid)'
-                  '\n– and has no “creative filters” applied.'
+                  '\n– is not black and white and has no “creative filters” applied.'
                   '\nWe might crop it and change contrast, brightness etc. to fit PyCon CZ visual style.'
     )
 
@@ -367,7 +367,8 @@ class FinancialAid(EntryBase):
     purpose = models.TextField(
         verbose_name='What do you need the money for exactly?',
         help_text='If you require help for more items (accomodation, travel costs etc.) '
-                  'please state the amount for each of them in Euros.'
+                  'please state the amount for each of them in Euros separately.'
+                  '\nKeep in mind that financial aid can’t cover your food costs.'
                   '\nYou don’t need to specify the price of a ticket.'
                   '\nPlease use following conversion rates: 1 Euro = 25 Czech Korunas = $1.13',
     )
@@ -384,6 +385,7 @@ class FinancialAid(EntryBase):
         help_text=('<a href="/2019/about/privacy/">Privacy Policy</a> and '
                    '<a href="/2019/about/code/">Code of Conduct</a>'),
     )
+
     def __str__(self):
         return self.full_name
 

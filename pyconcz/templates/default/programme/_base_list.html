@@ -8,56 +8,50 @@
     <div class="container-fluid">
 
         <nav role="navigation" class="d-none d-md-block">
-            {% include '_menu_programme.html' with pc_alignment='center' %}
+            {% include '_menu_programme.html' %}
         </nav>
 
         <h1>{% block speakers_title %}{% endblock %}</h1>
 
         {% block top_info %}{% endblock %}
 
-        <div class="pc-talks">
+        <div>
             {% for speaker in speakers %}
                 {% block item %}
-                    <div class="pc-talk pc-talk-id-{{ session.id }}">
+                    <div>
                         <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}"{% endif %}>
-                            <div class="pc-talk-image" style="background-image: url({{ speaker.photo.url }})"></div>
+                            <div style="background-image: url({{ speaker.photo.url }})"></div>
 
-                            <div class="pc-talk-name">
-                                <h2 class="pc-talk-text h3 my-0">
-                                    {{ speaker.full_name }}
-                                </h2>
-                            </div>
+                            <h2>{{ speaker.full_name }}</h2>
 
-                            <div class="pc-talk-title">
-                                <div class="pc-talk-text">
-                                    {% if session.title == 'TBD' %}
-                                        This {{ session_type }} will be announced later
-                                    {% else %}
-                                        {{ session.title|markdown|cut:"<p>"|cut:"</p>" }}
-                                    {% endif %}
-                                </div>
+                            <div>
+                                {% if session.title == 'TBD' %}
+                                    This {{ session_type }} will be announced later
+                                {% else %}
+                                    {{ session.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                {% endif %}
                             </div>
                         </a>
                     </div>
 
                     {% comment 'uncomment if required' %}
                     {% if user.is_staff %}
-                        <div class="small mt-1">
+                        <div class="small">
                             <div class="alert alert-danger">
-                                <p class="lead font-weight-bold">You are logged in as administrator</p>
+                                <p class="lead >You are logged in as administrator</p>
                                 {% if session.private_note %}
-                                    <h4 class="m-0 text-dark">Private Note</h4>
+                                    <h4>Private Note</h4>
                                     <p>{{ session.private_note }}</p>
                                 {% endif %}
-                                <h4 class="m-0 text-dark">
+                                <h4>
                                     Abstract
                                     <br>
                                     <small>{{ session.abstract|length }} characters</small>
                                 </h4>
                                 {{ session.abstract|markdown }}
-                                <a class="btn btn-block btn-warning mb-4" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
+                                <a class="btn btn-block btn-warning" href="/admin/programme/{{ session_type }}/{{ session.id }}/change/">change in admin</a>
 
-                                <h4 class="m-0 text-dark">
+                                <h4>
                                     Bio
                                     <br>
                                     <small>{{ speaker.bio|length }} characters</small>

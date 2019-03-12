@@ -10,4 +10,5 @@ django-import-export~=0.5.1
 django-widget-tweaks~=1.4.1
 emojificate~=0.2.0
 django-extended-choices~=1.3.0
+requests~=2.21.0
 
