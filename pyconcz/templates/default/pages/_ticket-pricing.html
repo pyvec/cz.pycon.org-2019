@@ -1,12 +1,12 @@
 {% if today <= tickets.last_day_regular %} {# before late bird #}
 
-    {% if not ticket_md.early_bird.sold_out %}
+    {% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}
         <p class="d-flex font-weight-bold mb-3">
             <span class="mr-2">
                 Early-bird
                 <br>
                 {% if tickets.cached %}
-                    <small>(loading)</small>
+                    <small>&nbsp;</small>
                 {% else %}
                     <small {% if ticket_md.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
                       ({{ ticket_md.early_bird.tickets_left }}&nbsp;left)
@@ -17,10 +17,10 @@
         </p>
     {% endif %}
 
-    <p class="d-flex mb-3 {% if ticket_md.early_bird.sold_out %}font-weight-bold{% else %}small text-muted{% endif %}">
+    <p class="d-flex mb-3 {% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
         <span class="mr-2">
             Regular
-            {% if ticket_md.early_bird.sold_out %}
+            {% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}
                 <br>
                 <small>
                     {% if today < tickets.last_day_regular %}
@@ -36,7 +36,7 @@
 
 {% endif %}
 
-{% if ticket_md.early_bird.sold_out %}
+{% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}
     <p class="d-flex small text-muted mb-2">
         <span class="mr-2">Late bird</span>
         <span class="pc-ticket-price text-right">{{ ticket_md.late_bird.price|floatformat:"0" }}&nbsp;CZK</span>
