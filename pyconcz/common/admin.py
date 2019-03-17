@@ -10,6 +10,7 @@ class ValueInline(admin.TabularInline):
     fields = ['name', 'enabled', 'active_since']
     list_display = ['name', 'enabled', 'active_since']
     list_editable = ['name', 'enabled', 'active_since']
+    extra = 1
 
 
 class PhaseAdminForm(forms.ModelForm):

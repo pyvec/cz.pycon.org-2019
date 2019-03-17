@@ -61,7 +61,6 @@ class PhaseValue(models.Model):
         unique_together = ('phase', 'name')
         ordering = (
             'phase__name',
-            'enabled',
             'active_since',
             'name',
         )
