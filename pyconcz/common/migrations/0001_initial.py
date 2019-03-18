@@ -11,16 +11,19 @@ from pyconcz.common.models import Phase, PhaseValue
 
 def create_initial_flag(apps, schema_editor):
     for flag_name, value_names in {
-        'date': ['unknown', 'announced'],
         'city': ['unknown', 'announced'],
-        'venue': ['unknown', 'announced'],
-        'sales_early': ['not_launched', 'opened', 'sold_out', 'timed_out'],
-        'sales_standard': ['not_launched', 'opened', 'sold_out', 'timed_out'],
-        'sales_late': ['not_launched', 'opened', 'sold_out', 'timed_out'],
-        'schedule': ['not_public', 'published'],
+        'date_venue': ['unknown', 'announced'],
+        'ticket_sale': ['not_launched', 'launched', 'sold_out', 'timed_out'],
+        'schedule': ['not_public', 'basic', 'full'],
+        'talks': ['not_public', 'list_public', 'details_public'],
+        'workshops': ['not_public', 'list_public', 'details_public'],
+        'workshops_registration': ['not_launched', 'launched', 'timed_out'],
+        'sponsors': ['not_public', 'list_public', 'details_public'],
+        'cfp': ['not_launched', 'launched', 'closed', 'awarded'],
+        'finaid': ['not_launched', 'launched', 'closed', 'awarded'],
         'city_info': ['not_public', 'published'],
-        'board_games': ['not_public', 'opened', 'sold_out', 'timed_out'],
-        'streams': ['not_public', 'live', 'some_past', 'all_past', 'hidden'],
+        'board_game_night': ['not_public', 'basic_info_public', 'details_public'],
+        'streams': ['not_public', 'day_one_live', 'day_one_end', 'day_two_live', 'day_two_end'],
         'videos': ['non_existent', 'not_public', 'public'],
     }.items():
         flag, new = Phase.objects.get_or_create(name=flag_name)
