@@ -15,9 +15,15 @@ class ValueInline(admin.TabularInline):
 
 class PhaseAdminForm(forms.ModelForm):
     """Form that filters the 'override' field to only one flag's values"""
-    def __init__(self, *args, instance, **kwrags):
-        super().__init__(*args, instance=instance, **kwrags)
-        queryset = PhaseValue.objects.filter(phase=instance)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        instance = kwargs.get('instance')
+        if instance:
+            # Get values only for the current Phase
+            queryset = PhaseValue.objects.filter(phase=instance)
+        else:
+            # No Phase yet (adding a new one): don't show any values
+            queryset = PhaseValue.objects.none()
         self.fields['override'].queryset = queryset
 
     class Meta:
