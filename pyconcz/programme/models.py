@@ -96,7 +96,7 @@ class Workshop(models.Model):
     LENGTH = (
         ('1h', '1 hour'),
         ('2h', '2 hours'),
-        ('2h', '3 hours'),
+        ('3h', '3 hours'),
         ('1d', 'Full day (most sprints go here!)'),
         ('xx', 'Something else! (Please leave a note in the abstract!)')
     )
