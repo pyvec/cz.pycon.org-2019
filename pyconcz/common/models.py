@@ -32,7 +32,7 @@ class Phase(models.Model):
             F('active_since').desc(nulls_last=True),
             'name',
         )
-        print(self.name, values)
+
         try:
             return values[0]
         except IndexError:
