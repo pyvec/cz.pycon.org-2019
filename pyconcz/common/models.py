@@ -5,6 +5,8 @@ from django.db import models
 from django.db.models import Q, F
 from django.utils import timezone
 from django.utils.functional import cached_property
+from django.utils.dateparse import parse_datetime
+from django.core import exceptions
 
 
 class Phase(models.Model):
@@ -16,29 +18,47 @@ class Phase(models.Model):
 
     @cached_property
     def current_value(self):
+        return self.value_for_time(timezone.now())
+
+    def value_for_time(self, time):
         if self.override is not None:
             return self.override
 
-        now = timezone.now()
         values = PhaseValue.objects.filter(phase=self, enabled=True)
         values = values.filter(
-            Q(active_since__lte=now) | Q(active_since__isnull=True)
+            Q(active_since__lte=time) | Q(active_since__isnull=True)
         )
         values = values.order_by(
             F('active_since').desc(nulls_last=True),
             'name',
         )
+
         try:
             return values[0]
         except IndexError:
             return None
 
-    @property
-    def current_name(self):
-        if self.current_value is None:
-            return None
+    def value_for_request(self, request):
+        """Get Phase's value for the given request.
+
+        If a user is logged in (via Django Admin), the "current time"
+        (for the purposes of Phases) can be overridden by adding a GET param
+        to the URL, e.g.:
+            ?override_time=2020-01-01T00:00
+
+        The parameter is ignored for anonymous and non-staff users.
+        """
+        override_time = request.GET.get('override_time', None)
+        if request.user.is_staff and override_time:
+            try:
+                time = parse_datetime(override_time)
+            except ValueError:
+                time = None
+            if time is None:
+                raise exceptions.ValidationError('Bad time')
+            return self.value_for_time(time)
         else:
-            return self.current_value.name
+            return self.current_value
 
     def __str__(self):
         return self.name
