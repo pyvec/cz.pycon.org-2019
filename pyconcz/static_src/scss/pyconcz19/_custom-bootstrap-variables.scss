@@ -80,7 +80,7 @@
     // $pink: #e83e8c; $pink: $pink !global; // #e83e8c
     $red: $pc-red; $red: $red !global; // #dc3545
     $orange: $pc-orange; $orange: $orange !global; // #fd7e14
-    // $yellow: #ffc107; $yellow: $yellow !global; // #ffc107
+    $yellow: lighten($pc-orange, 10%); $yellow: $yellow !global; // #ffc107
     // $green: #28a745; $green: $green !global; // #28a745
     // $teal: #20c997; $teal: $teal !global; // #20c997
     // $cyan: #17a2b8; $cyan: $cyan !global; // #17a2b8
@@ -106,8 +106,8 @@
     $primary: $orange; $primary: $primary !global; // $blue
     $secondary: $pc-beige; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
-    // $info: $cyan; $info: $info !global; // $cyan
-    // $warning: $yellow; $warning: $warning !global; // $yellow
+    $info: lighten($blue, 10%); $info: $info !global; // $cyan
+     $warning: $yellow; $warning: $warning !global; // $yellow
     // $danger: $red; $danger: $danger !global; // $red
     // $light: $gray-100; $light: $light !global; // $gray-100
     $dark: $gray-900; $dark: $dark !global; // $gray-800
@@ -123,8 +123,7 @@
         //        "danger": $danger,
         //        "light": $light,
         //        "dark": $dark
-        "black": $pc-black,
-        "beige": $pc-beige
+        "black": $pc-black
     ); $theme-colors: $theme-colors !global;
 
 
