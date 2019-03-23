@@ -87,7 +87,6 @@
 
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
-    /*
     $colors: (
     //        "blue": $blue,
     //        "indigo": $indigo,
@@ -101,12 +100,11 @@
     //        "cyan": $cyan,
     //        "white": $white,
     //        "gray": $gray-600,
-    //        "gray-dark": $gray-800
+            "gray-dark": $gray-900
     ); $colors: $colors !global;
-    */
 
     $primary: $orange; $primary: $primary !global; // $blue
-    // $secondary: $gray-600; $secondary: $secondary !global; // $gray-600
+    $secondary: $pc-beige; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
     // $info: $cyan; $info: $info !global; // $cyan
     // $warning: $yellow; $warning: $warning !global; // $yellow
@@ -118,7 +116,7 @@
     // so you can define only new ones you need
     $theme-colors: (
         //        "primary": $primary,
-        //        "secondary": $secondary,
+                "secondary": $pc-beige,
         //        "success": $success,
         //        "info": $info,
         //        "warning": $warning,
