@@ -188,8 +188,30 @@
         </div>
     {% endcomment %}
 
-    {% block partners %}
-        {% sponsors %}
+    {% block sponsors_list %}
+        {% if phases.sponsorship != 'not_public' %}
+            <div class="bg-white text-black" id="sponsors">
+                <div class="container pb-4">
+
+                    {% if phases.sponsors == "not_public" %}
+                        <h2 class="h1">Sponsorship</h2>
+                    {% else %}
+                        <h2 class="h1">Sponsors</h2>
+                        {% sponsors %}
+                    {% endif %}
+
+                    <p class="lead">
+                        PyCon CZ relies on sponsors to keep ticket prices affordable.
+                        If you would like to sponsor the conference
+                        {% if phases.sponsorship == "prospectus_available" %}
+                            please see our <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
+                        {% elif phases.sponsorship == "dedicated_page" %}
+                            learn more about <a href="{% url "sponsors_offer" %}">PyCon&nbsp;CZ sponsorship</a>.
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        {% endif %}
     {% endblock %}
 
 {% endblock %}

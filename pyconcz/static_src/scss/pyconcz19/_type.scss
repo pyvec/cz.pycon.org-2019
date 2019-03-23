@@ -15,7 +15,7 @@ h1, .h1 {
     margin-top: 1.333em;
 }
 
-.overline {
+.pc-overline {
     border-top: (1em/6) solid currentColor;
 }
 
@@ -46,26 +46,32 @@ li > ul {
     margin-left: $spacer;
 }
 
+
 ul:not(.nav) {
-    $pc-bullet-space: 0.75em;
+    $pc-bullet-size: 0.5rem;
+    $pc-bullet-distance: 0.5rem;
+
     list-style-type: none;
-    padding-left: 1.35*$spacer;
-    text-indent: -$pc-bullet-space;
+    padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
     & > li:not(.nav-item) {
-        margin-bottom: $spacer;
+        margin-bottom: 0.5*$spacer;
 
         &::before {
-            color: $orange;
-            content: "■";
-            transform: scale(0.75);
             display: inline-block;
-            width: $pc-bullet-space;
-            line-height: 0;
+            content: "\200B";
+            vertical-align: middle;
+            width: $pc-bullet-size;
+            height: $pc-bullet-size;
+            margin-left: -$pc-bullet-distance - $pc-bullet-size;
+            margin-right: $pc-bullet-distance;
+            position: relative;
+            top: -$pc-bullet-size/5;
+            background-color: $orange;
         }
 
         .text-black &::before {
-            color: $dark;
+            background-color: $dark;
         }
     }
 }

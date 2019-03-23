@@ -7,3 +7,10 @@
 {% block link_coc %}{% endblock %}
 
 {% block link_financial_aid %}{% endblock %}
+
+{% block link_sponsorship %}
+    {% if phases.sponsors != "details_public" %} {# hide sponsorship link after sponsors detail are published  #}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+

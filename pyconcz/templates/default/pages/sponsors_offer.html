@@ -6,151 +6,81 @@
 {% block meta_title %}Sponsorship{% endblock %}
 
 
+{% block main_classes %}bg-white text-black{% endblock %}
+
+
 {% block main %}
-    <div class="container">
-        <h1>Sponsors Prospectus</h1>
+    <div class="container pb-4">
+        {% if phases.sponsorship != "dedicated_page" %}
+            {% include "__404.html" %}
+        {% else %}
+            <h1>Sponsor&shy;ship</h1>
 
-        <p><a href="{% static "pycon2018_sponsorship_prospectus.pdf" %}">Download sponsorship prospectus (PDF)</a></p>
+            <div class="row">
 
-        <p class="lead">The PyCon&nbsp;CZ 2018 Community Organizing Committee is pleased to invite your sponsorship and support of the second annual, 3 day PyCon event in Prague, Czech Republic on June 1–3rd, 2018. Sponsorship and recruitment booths present opportunities to connect directly with the attending talents!</p>
+                <div class="col-lg-6">
+                    <p class="lead">
+                        The PyCon&nbsp;CZ 2019 organizers are pleased to invite your sponsorship of the fifth annual, 3-day PyCon event in Ostrava, Czech Republic on 14–16&nbsp;June&nbsp;2018.
+                        <br>Sponsorship presents opportunities connect you with up to 450 expected attendees.
+                    </p>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md">
 
-        <h2 id="the-short-version">What is PyCon&nbsp;CZ?</h2>
+                    <h2 class="mt-2">Sponsorship benefits</h2>
+                    <p>Sponsorship packages are starting from 20000 CZK and depending on the level they include:</p>
+                    <ul>
+                        <li>Partner announced on PyCon CZ official social media channels</li>
+                        <li>Logo on conference website</li>
+                        <li>Logo on intermission slide deck</li>
+                        <li>Roll-up at the venue</li>
+                        <li>Booth at the venue or an option to get one for extra fee</li>
+                        <li>Welcome package inserts / promotions for attendees</li>
+                        <li>Promotional posts</li>
+                        <li>Retweets/reshares on PyCon CZ official social media channels</li>
+                        <li>Free tickets to the conference</li>
+                        <li>Option to be an exclusive lanyard sponsor</li>
+                    </ul>
 
-        <p>This year we expect to host 300–400 professionals, students and hobbyist Pythonistas across 2 days of presentations in 2 tracks, lightning talk sessions, and 1&nbsp;day of sprints and workshops on <strong>Friday June 1st to Sunday June 3rd</strong>.</p>
+                    <p><a class="btn btn-info" href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">Detailed sponsorship information in our prospectus (PDF)</a></p>
 
-        <p>
-            To get a better idea of our previous events, check out our
-            <a href="https://www.youtube.com/watch?v=venjk_cL-Gk">short promotional video from 2015</a>
-            and watch our keynotes from last year:
-            <a href="https://cz.pycon.org/2017/speakers/detail/talk/10/">Anna Ossowski</a>,
-            <a href="https://cz.pycon.org/2017/speakers/detail/talk/34/">Naomi Ceder</a>,
-            <a href="https://cz.pycon.org/2017/speakers/detail/talk/31/">Lilly Ryan</a>.
-        </p>
-
-        <p>The objective of the conference is to raise participants’ qualifications, and overall integration of the Python programmers’ community in the Czech Republic and surrounding area, popularisation of new applications of the language as well as to spread good programming practices and exchange of experiences between professionals, novices, students and hobbyist Python programmers.</p>
-
-
-        <h2 id="the-short-version">Basic Information About PyCon&nbsp;CZ</h2>
-
-        <p>PyCon&nbsp;CZ is the Czech Republic edition of the well known and valued PyCon conference devoted to the Free and Open Source Python programming language. It is organized by passionate members of Czech Python community, with cooperation and underwriting by the <a href="http://pyvec.org/">Pyvec.org</a>, a local non-profit organization that focuses on supporting the Python community in the Czech Republic.</p>
-
-
-        <h2 id="the-short-version">Time and Venue</h2>
-
-        <p>PyCon&nbsp;CZ 2018 will be held from 1st to 3rd of June in Prague, Czech Republic at <a href="http://www.meetfactory.cz/en/">MeetFactory</a>. <strong>MeetFactory</strong> is a non-profit international center for contemporary art founded in 2001 with a mission to to foster a dialogue between individual genres of art and make the current happenings on the art scene accessible to the widest public, to support original projects in the fields of visual arts, theater and music as well as
-            interdisciplinary and experimental platforms and to create a space where art is alive and artists are present, enhancing a direct exchange between international artists and the visitors, as well as between different fields and generations. Address: Ke Sklárně 3213/15, 150 00 Praha 5–Smíchov – Find it on a
-            <a href="https://www.google.cz/maps/place/MeetFactory/@50.0537839,14.4062952,17z/data=!4m13!1m7!3m6!1s0x0:0x0!2zNTDCsDAzJzEzLjIiTiAxNMKwMjQnMzAuNCJF!3b1!8m2!3d50.053653!4d14.408441!3m4!1s0x470b9440f983eb57:0x4d27afd3ca133df5!8m2!3d50.0532378!4d14.4081811">map</a>.</p>
-
-
-        <h2 id="the-short-version">Objective and Mission</h2>
-
-        <p>The objective of the conference is to raise participants’ qualifications, and overall integration of the Python Programmers’ Community in Czech Republic and surrounding area, popularisation of new applications of the language as well as to spread good programming practices and exchange of experiences between professionals, novices, students and hobbyist Python programmers. PyCon&nbsp;CZ events are also fantastic networking opportunities and a great place to find interesting Python jobs or
-            community projects to work on.</p>
+                    <h2>Custom sponsorship</h2>
+                    <p>In the case packages that work for many won’t fill your idea of visibility on PyCon&nbsp;CZ, you can become a diversity sponsor (provide free tickets for a target demographic), host or contribute prizes for a quiz or competition, become a sponsor of a connected event or even suggest your own&nbsp;idea.</p>
 
 
-        <h2 id="the-short-version">Target Audience</h2>
+                </div>
+                <div class="col-md">
+                    <h2 class="mt-2">Event summary</h2>
+                    <ul>
+                        <li>Friday 14 June to Sunday 16 June</li>
+                        <li>Gorgeous industrial venue</li>
+                        <li>Friendly environment</li>
+                        <li>300–450 attendees (professionals, students and hobbyist Pythonistas)</li>
+                        <li>Volunteer community organized</li>
+                        <li>2&nbsp;full conference days with 2&nbsp;tracks (both tracks streamed online)</li>
+                        <li>1&nbsp;full day of workshops and sprints</li>
+                        <li>30+ diverse, international speakers</li>
+                        <li>Broad range of both technical and community topics</li>
+                        <li>Social events</li>
+                        <li>Food and beverages included in ticket price on all three&nbsp;conference days</li>
+                    </ul>
 
-        <p>The conference is addressed to all Python programmers, experienced and novices alike. Presentations will cover a wide range of topics relevant to students, professionals, and hobbyists. Women who are interested to learn more about Python can also participate in DjangoGirls. Altogether, we are expecting more than 400 participants this year. The majority are likely to be Czech locals. With Brno and Czech Republic so centrally located in EU though, and the fact that the Czech organizer team is so
-            diverse and well connected, you can expect many visitors from Slovakia, Austria, Poland, Germany, Hungary, UK and more as well.</p>
+                    <h2>Contacts</h2>
+                    <p>Primary contact is our e-mail <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+                    <p>
+                        <b>Mr. Tomáš Orsava</b>, Partnerships Lead – PyCon CZ 2019
+                        <br><a href="mailto:tomas.p@orsava.cz">tomas.p@orsava.cz</a>
+                        <br><a href="tel:++420604244198">+420&nbsp;604&nbsp;244&nbsp;198</a> (CET/CEST)
+                    </p>
+                    <p>
+                        <b>Mr. Jiří Psotka</b>, Partnerships Support – PyCon CZ 2019
+                        <br><a href="mailto:j.psotka@gmail.com">j.psotka@gmail.com</a> (CET/CEST)
+                    </p>
+                </div>
 
-        <h2 id="sponsors-prospectus">Sponsorship Options</h2>
-
-        <h3 id="platinum-sponsor">Platinum Sponsor</h3>
-        <ul>
-            <li>Partner announced on social media channels</li>
-            <li>Partner’s logo on the official conference web site</li>
-            <li>Roll-up at the venue </li>
-            <li>Partners logo on intermission slide deck</li>
-            <li>Booth at the venue (max. 2&nbsp;m x 2&nbsp;m)</li>
-            <li>3× welcome package inserts / promotion for attendees</li>
-            <li>3× promotional post retweets/reshares on PyCon&nbsp;CZ official social media channels</li>
-            <li>Marketing lightning talk (5 minutes)</li>
-            <li>8× free tickets to the conference</li>
-            <li><strong>Net price: 160,000 CZK</strong></li>
-        </ul>
-
-        <h3 id="gold-sponsor">Gold Sponsor</h3>
-        <ul>
-            <li>Partner announced on social media channels</li>
-            <li>Partner’s logo on the official conference web site</li>
-            <li>Roll-up at the venue </li>
-            <li>Partners logo on intermission slide deck</li>
-            <li>2× welcome package inserts / promotion for attendees</li>
-            <li>2× promotional post retweets/reshares on PyCon&nbsp;CZ official social media channels</li>
-            <li>6× free tickets to the conference</li>
-            <li><strong>Net price: 80,000 CZK</strong></li>
-        </ul>
-
-        <h3 id="silver-sponsor">Silver Sponsor</h3>
-        <ul>
-            <li>Partner announced on social media channels</li>
-            <li>Partner’s logo on the official conference web site</li>
-            <li>Roll-up at the venue </li>
-            <li>Partners logo on intermission slide deck</li>
-            <li>1× welcome package inserts / promotion for attendees</li>
-            <li>1× promotional post retweets/reshares on PyCon&nbsp;CZ official social media channels</li>
-            <li>4× free tickets to the conference</li>
-            <li><strong>Net price: 40,000 CZK</strong></li>
-        </ul>
-
-        <h3 id="bronze-sponsor">Bronze Sponsor</h3>
-        <ul>
-            <li>Partner announced on social media channels</li>
-            <li>Partner’s logo on the official conference web site</li>
-            <li>2× free tickets to the conference</li>
-            <li><strong>Net price: 20,000 CZK</strong></li>
-        </ul>
-
-        <h3 id="djangogirls-sponsor">Venue Booth</h3>
-        <ul>
-            <li>Booth at the venue (max. 1&nbsp;m x 2&nbsp;m)</li>
-            <li><strong>Net price: 15,000 CZK</strong></li>
-        </ul>
-
-        <h3 id="coffee-sponsor">Custom (select one)</h3>
-        <ul>
-            <li>Diversity sponsor – provide free tickets for a target demographic.</li>
-            <li>Provide branded lanyards (etc) to attendees.</li>
-            <li>Host or contribute prizes for a quiz or competition.</li>
-            <li>Let us know how you’d like to support PyCon&nbsp;CZ!</li>
-            <li><strong>Net price: 5,000 CZK ++</strong></li>
-        </ul>
-
-
-        <h2 id="the-short-version">How to Apply</h2>
-
-        <p>Reach out to <a href="mailto:info@pycon.cz">info@pycon.cz</a> when you’re ready to discuss your options to sponsor the incredible PyCon&nbsp;CZ event in more detail!</p>
-
-
-        <h2 id="the-short-version">Terms and Conditions</h2>
-
-        <p>Sponsorship application is handled on a “ﬁrst-come, ﬁrst-served” basis.</p>
-        <p>Sponsors should be committed to the use of the Python language and supportive of Python CZ’s mission to honor and support awesome people teaching, learning and innovating with Python.</p>
-
-        <p>The organisation of PyCon&nbsp;CZ 2018 is being carried out by Pyvec and volunteering members of the Python CZ community. All contracts and ﬁnancial matters are handled by Pyvec.</p>
-
-        <p>Pyvec and the PyCon&nbsp;CZ Committee retain the right to reject any sponsor that they deem to be inappropriate.</p>
-
-        <p>After written acceptance by the PyCon&nbsp;CZ Committee, the sponsor should provide the sponsorship funds, logo image in an appropriate format, and other details required within three weeks of receipt of the acceptance, and in any case one week before the start of the Conference.</p>
-
-        <p><strong>Sponsorship pledges cannot be processed without payment.</strong> All pledges must be made in Czech Koruna or Euros by electronic transfer. Bank details for electronic transfer will be sent on request.</p>
-
-        <p>Sponsors may not sublet, assign or apportion any part of the item(s) sponsored nor represent, advertise or distribute literature or materials for the products or services of any other ﬁrm or organisation.</p>
-
-        <p>Pyvec and the PyCon&nbsp;CZ Committee will not be liable for damage or loss to sponsors’ properties by ﬁre, theft, accident or any other cause whether the result of negligence or otherwise or case of force majeure.</p>
-
-        <p>For sponsorship packages that include the use of signage, please note that signage space may be limited. The conference organisers will inform each sponsor about the maximum size and number of signs that they can use. Banners must be self-supporting.</p>
-
-        <h3 id="the-short-version">Refund Policy</h3>
-        <ul>
-            <li>50% Refund up to 90 days before the conference.</li>
-            <li>No Refunds within 90 days before the conference.</li>
-        </ul>
-
-        <p><strong>Sorry, full refunds are NOT possible! Thanks for your understanding.</strong></p>
-
-        <p><a href="{% static "pycon2018_sponsorship_prospectus.pdf" %}">Sponsorship prospectus in PDF</a></p>
-
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
