@@ -18,13 +18,13 @@
             <h1>Sponsors and partners</h1>
 
             <div class="row">
-                <div class="col">
+                <div class="col-sm col-md-4">
                     <p class="lead">We’re grateful to companies that help us organize PyCon CZ and allow keeping ticket prices as low as&nbsp;possible.</p>
                 </div>
-                <div class="col">
+                <div class="col-sm col-md-8">
                     <p>
                         Do you want to sponsor us too?
-                        <br>Check out <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact&nbsp;us.</a>
+                        Check out <a href="{% url "sponsors_offer" %}">our offer</a> or <a href="mailto:info@pycon.cz">contact&nbsp;us.</a>
                     </p>
                 </div>
             </div>
@@ -32,14 +32,18 @@
             {% for level in sponsor_levels %}
                 <h2>{{ level.grouper }}</h2>
                 {% for sponsor in level.list %}
-                    <h3>{{ sponsor.name }}</h3>
-                    <div class="row align-items-start">
-                        <div class="col-12 col-md-6 col-lg-4 justify-content-center   justify-content-center">
-                            <a href="{{ sponsor.link_url }}" class="d-block">
-                                <img class="img-fluid" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                    <div class="row">
+                        <div class="col-12 col-sm-8 col-md-4 mt-5 mt-sm-4 mb-3 mb-sm-4">
+                            <a href="{{ sponsor.link_url }}" class="d-block text-sm-center">
+                                <img class="img-fluid pc-img-fluid-svg" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
                             </a>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-8">
+                        <div class="col-12 col-md-8 mt-sm-2 mb-sm-4">
+                            <h3 class="mt-0">
+                                <a href="{{ sponsor.link_url }}">
+                                    {{ sponsor.name }}
+                                </a>
+                            </h3>
                             {{ sponsor.description|markdown }}
                         </div>
                     </div>
