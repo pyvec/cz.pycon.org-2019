@@ -84,7 +84,7 @@
 
         </div>
 
-        {% block finaid_info %}
+        {% if phases.finaid == "launched" %}
             <div class="container text-center pb-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
+        {% endif %}
 
     {% endif %}
     {% if debug %}
