@@ -31,11 +31,22 @@
 
         {% block info_text %}
 
-            <p>
-                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
-                    Apply for a grant
-                </a>
-            </p>
+            {% if phases.finaid == "launched" %}
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                        Apply for a grant
+                    </a>
+                </p>
+            {% elif phases.finaid == "closed" %}
+                <div class="p-3 bg-white">
+                    <p class="mb-0">We’re currently evaluating applications, please wait for the result.</p>
+                </div>
+            {% elif phases.finaid == "awarded" %}
+                <div class="p-3 bg-white">
+                    <p>We have evaluated all applications and sent <b>all applicants</b> an e-mail.</p>
+                    <p class="mb-0">If you haven’t received it, please <a href="mailto:info@pycon.cz">contact us</a> immediatelly.</p>
+                </div>
+            {% endif %}
 
             <h2>Philosophy &amp;&nbsp;Outreach</h2>
 
@@ -59,11 +70,14 @@
 
             <p>Please do not hesitate to email us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
 
-            <p>
-                <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
-                    Apply for a grant
-                </a>
-            </p>
+            {% if phases.finaid == "launched" %}
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                        Apply for a grant
+                    </a>
+                </p>
+            {% endif %}
+
         {% endblock %}
 
     </div>
