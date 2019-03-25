@@ -7,17 +7,13 @@
             <div class="pc-sponsors-list">
                 {% for sponsor in level.list %}
                     <a href="{{ sponsor.link_url }}"
-                       class="
-                        pc-sponsors-item
-                        {{ "pc-sponsors-item-"|add:level.grouper|lower }}
-                        {% comment %}{% if level.grouper == "Platinum" %}
-                        {% elif level.grouper == "Gold" %}
-                        {% elif level.grouper == "Silver" %}
-                        {% elif level.grouper == "Bronze" %}
-                        {% elif level.grouper == "Media" or level.grouper == "Partners" %}
-                        {% endif %}{% endcomment %}
-                    ">
-                        <img class="img-fluid pc-img-fluid-svg" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                       class="pc-sponsors-item pc-sponsors-item-{{ level.grouper|lower }}"
+                    >
+                        {% if sponsor.logo %}
+                            <img class="img-fluid pc-img-fluid-svg" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                        {% else %}
+                            {{ sponsor.name }}
+                        {% endif %}
                     </a>
                 {% endfor %}
             </div>

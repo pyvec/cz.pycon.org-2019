@@ -4,6 +4,8 @@ from django.db import models
 
 from extended_choices import Choices
 
+from django.utils.text import slugify
+
 
 class Sponsor(models.Model):
     LEVELS = Choices(
@@ -19,10 +21,14 @@ class Sponsor(models.Model):
 
     level = models.PositiveSmallIntegerField(choices=LEVELS, default=LEVELS.silver)
 
-    name = models.CharField(max_length=200)
-    logo = models.FileField(upload_to='sponsors/pyconcz/')
+    name = models.CharField(max_length=200, unique=True)
+    logo = models.FileField(
+        null=True, blank=True,
+        upload_to='sponsors/pyconcz/',
+        help_text='should be SVG'
+    )
 
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True, help_text='Markdown formatted')
     link_url = models.URLField()
     twitter = models.URLField(null=True, blank=True, help_text='full URL')
     facebook = models.URLField(null=True, blank=True, help_text='full URL')
@@ -34,3 +40,7 @@ class Sponsor(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def slug(self):
+        return slugify(self.name)
