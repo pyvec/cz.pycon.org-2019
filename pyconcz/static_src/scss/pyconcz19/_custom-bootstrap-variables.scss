@@ -80,14 +80,13 @@
     // $pink: #e83e8c; $pink: $pink !global; // #e83e8c
     $red: $pc-red; $red: $red !global; // #dc3545
     $orange: $pc-orange; $orange: $orange !global; // #fd7e14
-    // $yellow: #ffc107; $yellow: $yellow !global; // #ffc107
+    $yellow: lighten($pc-orange, 10%); $yellow: $yellow !global; // #ffc107
     // $green: #28a745; $green: $green !global; // #28a745
     // $teal: #20c997; $teal: $teal !global; // #20c997
     // $cyan: #17a2b8; $cyan: $cyan !global; // #17a2b8
 
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
-    /*
     $colors: (
     //        "blue": $blue,
     //        "indigo": $indigo,
@@ -101,15 +100,14 @@
     //        "cyan": $cyan,
     //        "white": $white,
     //        "gray": $gray-600,
-    //        "gray-dark": $gray-800
+            "gray-dark": $gray-900
     ); $colors: $colors !global;
-    */
 
     $primary: $orange; $primary: $primary !global; // $blue
-    // $secondary: $gray-600; $secondary: $secondary !global; // $gray-600
+    $secondary: $pc-beige; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
-    // $info: $cyan; $info: $info !global; // $cyan
-    // $warning: $yellow; $warning: $warning !global; // $yellow
+    $info: lighten($blue, 10%); $info: $info !global; // $cyan
+     $warning: $yellow; $warning: $warning !global; // $yellow
     // $danger: $red; $danger: $danger !global; // $red
     // $light: $gray-100; $light: $light !global; // $gray-100
     $dark: $gray-900; $dark: $dark !global; // $gray-800
@@ -118,15 +116,14 @@
     // so you can define only new ones you need
     $theme-colors: (
         //        "primary": $primary,
-        //        "secondary": $secondary,
+                "secondary": $pc-beige,
         //        "success": $success,
         //        "info": $info,
         //        "warning": $warning,
         //        "danger": $danger,
         //        "light": $light,
         //        "dark": $dark
-        "black": $pc-black,
-        "beige": $pc-beige
+        "black": $pc-black
     ); $theme-colors: $theme-colors !global;
 
 
@@ -216,7 +213,7 @@
     // adapting to different screen sizes, for use in media queries.
     $grid-breakpoints: (
         xxs: 0,
-        xs: 480px,
+        xs: 420px,
         sm: 630px,
         md: 850px,
         lg: 1090px,

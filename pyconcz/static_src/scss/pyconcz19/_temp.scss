@@ -11,7 +11,7 @@
 /* switch of margin-collapsing */
 .container,
 section {
-    column-span: all;
+    overflow: hidden;
 }
 
 

@@ -1,7 +1,6 @@
 {% extends "_layout.html" %}
 
 {% load static %}
-{% load sponsors_tags %}
 {% load formatting %}
 {% load emojificate %}
 
@@ -23,7 +22,7 @@
                 <div class="col-xs-10 col-sm-7 col-md-5 col-lg-4 text-black">
                     <p class="lead">Join over 400 conference attendees for 3&nbsp;days full of&nbsp;Python and fun at a&nbsp;former coal mine complex&nbsp;<a href="{% url "venue" %}">Hlubina</a>.</p>
 
-                    <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
+                    <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url "tickets" %}">Buy Ticket</a></p>
 
                     <ul>
                         <li>Learn at 30+ <b>talks</b> in English during Friday and Saturday. Choose from two parallel tracks including PyData track! <img class="pc-header-pydata" src="{% static "img/pydata.svg" %}" alt=""></li>
@@ -37,7 +36,9 @@
     </div>
 {% endblock %}
 
+
 {% block main_classes %}{% endblock %}
+
 
 {% block main %}
     <div class="bg-dark">
@@ -166,10 +167,10 @@
 
                             {{ keynoter.short_bio|markdown }}
                             {% with talk=keynoter.talks.all|first %}
-                                {% if talk.title != 'TBD' %}
+                                {% if talk.title != "TBD" %}
                                     <p>
-                                        {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
-                                        <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                                        {{ keynoter.full_name|truncatewords_html:1|cut:" ..." }}’s talk:
+                                        <a href="{% url "talk_detail" type="talk" talk_id=talk.id %}">
                                             {{ talk.title }}
                                         </a>
                                     </p>
@@ -188,8 +189,8 @@
         </div>
     {% endcomment %}
 
-    {% block partners %}
-        {% sponsors %}
-    {% endblock %}
+    {% if phases.sponsorship != "not_public" %}
+        {% include "sponsors/__phase_"|add:phases.sponsors|add:".html" %}
+    {% endif %}
 
 {% endblock %}
