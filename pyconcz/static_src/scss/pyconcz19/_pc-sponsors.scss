@@ -1,0 +1,70 @@
+.pc-sponsors {
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+
+    }
+
+    &-item {
+        width: auto;
+        flex: 0 1 auto;
+        min-width: 7.5rem;
+        max-width: 100%;
+        display: block;
+        margin-bottom: 3*$spacer;
+
+        &-platinum {
+            flex-basis: 100%;
+            max-width: 36rem;
+
+            @include media-breakpoint-up(xs) {
+                padding-left: 3*$spacer;
+                padding-right: 3*$spacer;
+                margin-bottom: 4*$spacer;
+            }
+        }
+
+        &-gold {
+            flex-basis: 85%;
+            max-width: 22rem;
+
+            @include media-breakpoint-up(xs) {
+                padding-left: 2*$spacer;
+                padding-right: 2*$spacer;
+                margin-bottom: 3.5*$spacer;
+            }
+        }
+
+        &-silver {
+            flex-basis: 70%;
+            @include media-breakpoint-up(xs) {
+                max-width: 15rem;
+                padding-left: $spacer;
+                padding-right: $spacer;
+            }
+        }
+
+        &-bronze {
+            flex-basis: 60%;
+            @include media-breakpoint-up(xs) {
+                max-width: 12rem;
+                padding-left: $spacer;
+                padding-right: $spacer;
+            }
+        }
+
+
+        &-media,
+        &-partners {
+            flex-basis: 50%;
+            max-width: 10rem;
+            padding-left: 0.5*$spacer;
+            padding-right: 0.5*$spacer;
+        }
+    }
+}

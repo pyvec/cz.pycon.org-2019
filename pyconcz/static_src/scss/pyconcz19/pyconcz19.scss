@@ -17,6 +17,7 @@
 @import "./node_modules/bootstrap/scss/type";
 @import "type";
 @import "./node_modules/bootstrap/scss/images";
+@import "images";
 @import "./node_modules/bootstrap/scss/code";
 @import "./node_modules/bootstrap/scss/grid";
 //@import "./node_modules/bootstrap/scss/tables";
@@ -54,6 +55,7 @@
 // own styles (feel free to add more)
 @import "pc-header";
 @import "pc-ticket";
+@import "pc-sponsors";
 @import "pc-intermission";
 @import "temp";
 

@@ -166,10 +166,10 @@
 
                             {{ keynoter.short_bio|markdown }}
                             {% with talk=keynoter.talks.all|first %}
-                                {% if talk.title != 'TBD' %}
+                                {% if talk.title != "TBD" %}
                                     <p>
-                                        {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
-                                        <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                                        {{ keynoter.full_name|truncatewords_html:1|cut:" ..." }}’s talk:
+                                        <a href="{% url "talk_detail" type="talk" talk_id=talk.id %}">
                                             {{ talk.title }}
                                         </a>
                                     </p>
@@ -189,15 +189,24 @@
     {% endcomment %}
 
     {% block sponsors_list %}
-        {% if phases.sponsorship != 'not_public' %}
+        {% if phases.sponsorship != "not_public" %}
             <div class="bg-white text-black" id="sponsors">
                 <div class="container pb-4">
 
+                    {% comment %}{% include "sponsors/__"|add:phases.sponsors|add:".html" %}{% endcomment %}
+
                     {% if phases.sponsors == "not_public" %}
                         <h2 class="h1">Sponsorship</h2>
-                    {% else %}
-                        <h2 class="h1">Sponsors</h2>
-                        {% sponsors %}
+                    {% elif phases.sponsors == "list_public" %}
+                        <h2 class="h1">
+                            {% if phases.sponsors == "details_public" %}
+                                <a href="{% url "sponsors_list" %}">
+                            {% endif %}
+                            Sponsors and Partners
+                            {% if phases.sponsors == "details_public" %}
+                                </a>
+                            {% endif %}
+                        </h2>
                     {% endif %}
 
                     <p class="lead">
@@ -209,6 +218,8 @@
                             learn more about <a href="{% url "sponsors_offer" %}">PyCon&nbsp;CZ sponsorship</a>.
                         {% endif %}
                     </p>
+
+                    {% sponsors %}
                 </div>
             </div>
         {% endif %}
