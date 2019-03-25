@@ -1,9 +1,9 @@
 {% extends "_layout.html" %}
 
 {% load static %}
-{% load formatting %}
 {% load emojificate %}
-
+{% load formatting %}
+{% load sponsors_tags %}
 
 {% block header %}
     <div class="pc-homepage-header">
@@ -190,7 +190,31 @@
     {% endcomment %}
 
     {% if phases.sponsorship != "not_public" %}
-        {% include "sponsors/__phase_"|add:phases.sponsors|add:".html" %}
+        <div class="bg-white text-black" id="sponsors">
+            <div class="container pb-4">
+                <h2 class="h1">
+                    {% if phases.sponsors == "not_public" %}
+                        Sponsors and Partners
+                    {% else %}
+                        Sponsorship
+                    {% endif %}
+                </h2>
+
+                <p class="lead">
+                    PyCon CZ relies on sponsors to keep ticket prices affordable.
+                    If you would like to sponsor the conference
+                    {% if phases.sponsorship == "prospectus_available" %}
+                        please see our <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
+                    {% elif phases.sponsorship == "dedicated_page" %}
+                        learn more about <a href="{% url "sponsors_offer" %}">PyCon&nbsp;CZ sponsorship</a>.
+                    {% endif %}
+                </p>
+
+                {% if phases.sponsors != "not_public" %}
+                    {% sponsors %}
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
 
 {% endblock %}
