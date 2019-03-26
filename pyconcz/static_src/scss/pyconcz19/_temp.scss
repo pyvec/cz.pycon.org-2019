@@ -36,3 +36,10 @@ h1, h2, h3, h4, h5, h6,
 .pc-img-effect {
     filter: saturate(40%) hue-rotate(-35deg);
 }
+
+.pc-footer-menu {
+    @include media-breakpoint-up(md) {
+        column-count: 2;
+        column-gap: $grid-gutter-width;
+    }
+}

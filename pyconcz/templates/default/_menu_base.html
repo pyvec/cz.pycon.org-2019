@@ -5,59 +5,55 @@ other menus mostly remove these links when not needed.
 If you want to remove a menu item globally, comment it out here.
 
 {% endcomment %}
-<ul class="nav w-100 justify-content-sm-center">
+<ul class="{% block wrapper_classes %}nav{% endblock %}">
     {% block menu_items %}
+
         {% block link_home %}
             {% include "__nav-link.html" with url="homepage" link_text="Home" %}
         {% endblock %}
 
         {% block link_about_city %}
-            {% include "__nav-link.html" with url="city" link_text="Ostrava" %}
+            {% if phases.city_info == "published" %}
+                {% include "__nav-link.html" with url="city" link_text="Ostrava" %}
+            {% endif %}
         {% endblock %}
 
         {% block link_venue %}
-            {% include "__nav-link.html" with url="venue" link_text="Venue" %}
+            {% if phases.date_venue == "venue_details" %}
+                {% include "__nav-link.html" with url="venue" link_text="Venue" %}
+            {% endif %}
         {% endblock %}
 
         {% block link_tickets %}
-            {% include "__nav-link.html" with url="tickets" link_text="Tickets" %}
+            {% if phases.ticket_sale == "launched" %}
+                {% include "__nav-link.html" with url="tickets" link_text="Tickets" %}
+            {% endif %}
         {% endblock %}
 
-        {% comment %}
         {% block link_call_for_papers %}
-            {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
-        {% endblock %}
-        {% endcomment %}
-
-        {% block link_team %}
-            {% include "__nav-link.html" with url="team_list" link_text="Team" %}
-        {% endblock %}
-
-        {% block link_coc %}
-            {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
-        {% endblock %}
-
-        {% block link_privacy_policy %}
-            {% include "__nav-link.html" with url="about_privacy" link_text="Privacy Policy" %}
+            {% if phases.cfp == "launched" %}
+                {% include "__nav-link.html" with url="proposals" link_text="Call for Papers" %}
+            {% endif %}
         {% endblock %}
 
         {% block link_financial_aid %}
-            {% include "__nav-link.html" with url="proposal_about" key='financial-aid' link_text="Financial Aid" %}
-        {% endblock %}
-
-        {% comment %}
-        {% block link_about %}
-            {% include "__nav-link.html" with url="about" link_text="About" %}
+            {% if phases.finaid == "launched" %}
+                {% include "__nav-link.html" with url="proposal_about" key='financial-aid' link_text="Financial Aid" %}
+            {% endif %}
         {% endblock %}
 
         {% block link_talks %}
-            {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
+            {% if phases.talks != "not_public" %}
+                {% include "__nav-link.html" with url="speakers_list" type="talks" link_text="Talks" %}
+            {% endif %}
         {% endblock %}
 
         {% block link_workshops %}
-            {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
+            {% if phases.workshops != "not_public" %}
+                {% include "__nav-link.html" with url="speakers_list" type="workshops" link_text="Workshops" %}
+            {% endif %}
         {% endblock %}
-        {% endcomment %}
+
 
         {% block link_sponsors %}
             {% if phases.sponsors == "details_public" %}
@@ -73,20 +69,29 @@ If you want to remove a menu item globally, comment it out here.
             {% endif %}
         {% endblock %}
 
-        {% comment %}
         {% block link_schedule %}
-            {% if phases.schedule != 'not_published' %}
+            {% if phases.schedule != "not_public" %}
                 {% include "__nav-link.html" with url="programme_schedule" link_text="Schedule" %}
             {% endif %}
         {% endblock %}
 
         {% block link_board_game_night %}
-            {% include "__nav-link.html" with url="board_game_night" link_text="Board Game Night" %}
+            {% if phases.board_game_night == "details_public" %}
+                {% include "__nav-link.html" with url="board_game_night" link_text="Board Game Night" %}
+            {% endif %}
         {% endblock %}
 
-        {% block link_financial_aid %}
-            {% include "__nav-link.html" with url="proposal_about" key='financial-aid' link_text="Financial Aid" %}
+        {% block link_team %}
+            {% include "__nav-link.html" with url="team_list" link_text="Team" %}
         {% endblock %}
-        {% endcomment %}
+
+        {% block link_coc %}
+            {% include "__nav-link.html" with url="about_code" link_text="Code of Conduct" %}
+        {% endblock %}
+
+        {% block link_privacy_policy %}
+            {% include "__nav-link.html" with url="about_privacy" link_text="Privacy Policy" %}
+        {% endblock %}
+
     {% endblock %}
 </ul>

@@ -1,12 +1,29 @@
 {% extends '_menu_base.html' %}
 
+
+
+{% block wrapper_classes %}
+    {{ block.super }}
+    w-100
+    justify-content-sm-center column
+{% endblock %}
+
+
 {% block link_team %}{% endblock %}
+
 
 {% block link_privacy_policy %}{% endblock %}
 
+
 {% block link_coc %}{% endblock %}
 
-{% block link_financial_aid %}{% endblock %}
+
+{% block link_financial_aid %}
+    {% if phases.ticket_sale != "launched" %} {# show finaid only if ticket sale isn't on #}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
 
 {% block link_sponsorship %}
     {% if phases.sponsors != "details_public" %} {# hide sponsorship link after sponsors detail are published  #}
