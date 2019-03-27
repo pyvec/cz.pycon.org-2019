@@ -1,0 +1,85 @@
+{% extends '_layout.html' %}
+
+{% load static %}
+
+
+{% block meta_title %}Sponsorship{% endblock %}
+
+
+{% block main_classes %}bg-white text-black{% endblock %}
+
+
+{% block main %}
+    <div class="container pb-4">
+        {% if phases.sponsorship != 'dedicated_page' %}
+            {% include '__404.html' %}
+        {% else %}
+            <h1>Sponsor&shy;ship</h1>
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <p class="lead">
+                        The PyCon&nbsp;CZ 2019 organizers are pleased to invite your sponsorship of the fifth annual, 3-day PyCon event in Ostrava, Czech Republic on 14–16&nbsp;June&nbsp;2018.
+                        <br>Sponsorship presents opportunities connect you with up to 450 expected attendees.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+
+                    <h2 class="mt-2">Sponsorship benefits</h2>
+                    <p>Sponsorship packages are starting from 20000 CZK and depending on the level they include:</p>
+                    <ul>
+                        <li>Partner announced on PyCon CZ official social media channels</li>
+                        <li>Logo on conference website</li>
+                        <li>Logo on intermission slide deck</li>
+                        <li>Roll-up at the venue</li>
+                        <li>Booth at the venue or an option to get one for extra fee</li>
+                        <li>Welcome package inserts / promotions for attendees</li>
+                        <li>Promotional posts</li>
+                        <li>Retweets/reshares on PyCon CZ official social media channels</li>
+                        <li>Free tickets to the conference</li>
+                        <li>Option to be an exclusive lanyard sponsor</li>
+                    </ul>
+
+                    <p><a class="btn btn-secondary" href="{% static 'pyconcz-2019-sponsorship-prospectus.pdf' %}">Download detailed sponsorship information in our prospectus (PDF)</a></p>
+
+                    <h2>Custom sponsorship</h2>
+                    <p>In the case packages that work for many won’t fill your idea of visibility on PyCon&nbsp;CZ, you can become a diversity sponsor (provide free tickets for a target demographic), host or contribute prizes for a quiz or competition, become a sponsor of a connected event or even suggest your own&nbsp;idea.</p>
+
+                </div>
+                <div class="col-md">
+                    <h2 class="mt-2">Event summary</h2>
+                    <ul>
+                        <li>Friday 14 June to Sunday 16 June</li>
+                        <li>Gorgeous industrial venue</li>
+                        <li>Friendly environment</li>
+                        <li>300–450 attendees (professionals, students and hobbyist Pythonistas)</li>
+                        <li>Volunteer community organized</li>
+                        <li>2&nbsp;full conference days with 2&nbsp;tracks (both tracks streamed online)</li>
+                        <li>1&nbsp;full day of workshops and sprints</li>
+                        <li>30+ diverse, international speakers</li>
+                        <li>Broad range of both technical and community topics</li>
+                        <li>Social events</li>
+                        <li>Food and beverages included in ticket price on all three&nbsp;conference days</li>
+                    </ul>
+
+                    <h2>Contacts</h2>
+                    <p>Primary contact is our e-mail <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+                    <p>
+                        <b>Mr. Tomáš Orsava</b>, Partnerships Lead – PyCon CZ 2019
+                        <br><a href="mailto:tomas.p@orsava.cz">tomas.p@orsava.cz</a>
+                        <br><a href="tel:++420604244198">+420&nbsp;604&nbsp;244&nbsp;198</a> (CET/CEST)
+                    </p>
+                    <p>
+                        <b>Mr. Jiří Psotka</b>, Partnerships Support – PyCon CZ 2019
+                        <br><a href="mailto:j.psotka@gmail.com">j.psotka@gmail.com</a> (CET/CEST)
+                    </p>
+                </div>
+
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

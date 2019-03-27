@@ -1,0 +1,56 @@
+{% extends '_layout.html' %}
+
+
+{% block meta_title %}Sent {{ proposal_config.cfp_title|safe }} – {{ block.super }}{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        {% if proposal_config_key == 'financial-aid' %}
+            <h1>Application sent</h1>
+
+            <p class="lead">You’ve submited your application successfully.</p>
+
+            <p>Now please wait for an e-mail from <a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
+
+            <p>We’ll inform you about the result before the end of {{ proposal_config.date_end | date:'F' }} whether your application will be successfull or not.</p>
+
+            <p>Please keep in mind, that our budget is limited and if there will be too many applications we won’t be able to help everyone.</p>
+
+            <p>If you have any questions, don’t hesitate to <a href="mailto:info@pycon.cz">contact us</a>.</p>
+        {% else %}
+            <h1>Proposal sent</h1>
+
+            <p class="h3">Thank you! <br>We’ve received your proposal.</p>
+
+            <p>Please note that you won’t receive any copy or confirmation of your proposal to your mailbox.</p>
+
+            <p>
+                Scoring of submissions starts <strong>after</strong> Call for Papers ends and takes usually a week.
+                <br>After it finishes, we email you results to the address you provided.
+            </p>
+            <p>If you have any questions, don’t hesitate to write us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
+
+            <div class="row">
+                    <div class="col">
+                        <a class="btn btn-lg btn-primary btn-block" href="{% url 'proposal_form' key='talks' %}">
+                            {% if proposal_config_key == 'talks' %}
+                                Submit another talk
+                            {% else %}
+                                Submit your talk
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-lg btn-primary btn-block" href="{% url 'proposal_form' key='workshops' %}">
+                            {% if proposal_config_key == 'workshops' %}
+                                Submit another workshop
+                            {% else %}
+                                Submit your workshop
+                            {% endif %}
+                        </a>
+                    </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

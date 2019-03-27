@@ -1,0 +1,17 @@
+{% extends 'programme/_base_list.html' %}
+
+
+{% load formatting %}
+
+
+{% block meta_title %}Talks – {{ block.super }}{% endblock %}
+
+
+{% block speakers_title %}Talks{% endblock %}
+
+
+{% block item %}
+    {% with session_type='talk' session=speaker.talks.all|first %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'programme/_base_list.html' %}
+
+
+{% load formatting %}
+
+
+{% block meta_title %}Workshops – {{ block.super }}{% endblock %}
+
+
+{% block speakers_title %}Workshops{% endblock %}
+
+
+{% block item %}
+    {% with session_type='workshop' session=speaker.workshops.all|first %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
