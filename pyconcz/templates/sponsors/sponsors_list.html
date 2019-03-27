@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 {% load formatting %}
 
@@ -10,8 +10,8 @@
 
 {% block main %}
     <div class="container">
-        {% if phases.sponsors != "details_public" %}
-            {% include "__404.html" %}
+        {% if phases.sponsors != 'details_public' %}
+            {% include '__404.html' %}
         {% else %}
             {% regroup sponsors_list by get_level_display as sponsor_levels %}
 
@@ -25,7 +25,7 @@
                     <p>
                         Do you want to sponsor us too?
                         Check out
-                        <a href="{% url "sponsors_offer" %}">our offer</a>
+                        <a href="{% url 'sponsors_offer' %}">our offer</a>
                         or <a href="mailto:info@pycon.cz">contact&nbsp;us</a>.
                     </p>
                 </div>

@@ -13,7 +13,7 @@
                     </small>
                 {% endif %}
             </span>
-            <span class="pc-ticket-price text-right">{{ ticket_md.early_bird.price|floatformat:"0" }}&nbsp;CZK</span>
+            <span class="pc-ticket-price text-right">{{ ticket_md.early_bird.price|floatformat:'0' }}&nbsp;CZK</span>
         </p>
     {% endif %}
 
@@ -24,14 +24,14 @@
                 <br>
                 <small>
                     {% if today < tickets.last_day_regular %}
-                        (until {{ tickets.last_day_regular_date | date:"j F" }})
+                        (until {{ tickets.last_day_regular_date | date:'j F' }})
                     {% elif today == tickets.last_day_regular %}
                         <b>(last chance today)</b>
                     {% endif %}
                 </small>
             {% endif %}
         </span>
-        <span class="pc-ticket-price text-right">{{ ticket_md.regular.price|floatformat:"0" }}&nbsp;CZK</span>
+        <span class="pc-ticket-price text-right">{{ ticket_md.regular.price|floatformat:'0' }}&nbsp;CZK</span>
     </p>
 
 {% endif %}
@@ -39,7 +39,7 @@
 {% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}
     <p class="d-flex small text-muted mb-2">
         <span class="mr-2">Late bird</span>
-        <span class="pc-ticket-price text-right">{{ ticket_md.late_bird.price|floatformat:"0" }}&nbsp;CZK</span>
+        <span class="pc-ticket-price text-right">{{ ticket_md.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
     </p>
 {% endif %}
 {% comment %}

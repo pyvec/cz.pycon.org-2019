@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 
 {% block meta_title %}{{ proposal_config.cfp_title|safe }} – {{ block.super }}{% endblock %}
@@ -9,12 +9,12 @@
 
         <h1>{{ proposal_config.cfp_title|safe }}</h1>
 
-        {% if proposal_config.key == "financial-aid" %}
+        {% if proposal_config.key == 'financial-aid' %}
             <p class="lead">
                 Financial aid applications <b>close on {{ proposal_config.date_end|date:'F j' }}</b>.
                 Learn more about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid programme</a>.
             </p>
-            <p>All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url "about_privacy" %}">PyCon CZ Privacy Policy</a>.</p>
+            <p>All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url 'about_privacy' %}">PyCon CZ Privacy Policy</a>.</p>
         {% else %}
             <p class="lead">
                 The Call for Proposals for {{ proposal_config.key }}
@@ -38,7 +38,7 @@
             </div>
         {% endif %}
 
-        {% if proposal_config.key != "financial-aid" %}
+        {% if proposal_config.key != 'financial-aid' %}
             <div class="container">
 
                 <h2>Public information</h2>
@@ -64,19 +64,19 @@
         {% endif %}
 
         <div class="container">
-            {% if proposal_config.key != "financial-aid" %}
+            {% if proposal_config.key != 'financial-aid' %}
                 <h2>Private information</h2>
                 <p class="text-center">The following information will <b>not</b> be displayed publicly.</p>
             {% endif %}
 
-            {% if proposal_config.key == "financial-aid" %}
+            {% if proposal_config.key == 'financial-aid' %}
                 {% include 'proposals/__form-field.html' with field_obj=form.full_name %}
             {% endif %}
             {% include 'proposals/__form-field.html' with field_obj=form.email %}
             {% include 'proposals/__form-field.html' with field_obj=form.amount %}
             {% include 'proposals/__form-field.html' with field_obj=form.purpose %}
             {% include 'proposals/__form-field.html' with field_obj=form.python_involvement %}
-            {% if proposal_config.key == "financial-aid" %}
+            {% if proposal_config.key == 'financial-aid' %}
                 {% include 'proposals/__form-field.html' with field_obj=form.community_involvement %}
             {% endif %}
             {% include 'proposals/__form-field.html' with field_obj=form.referral_link %}
@@ -89,10 +89,10 @@
             {% include 'proposals/__form-field.html' with field_obj=form.final_note %}
             {% include 'proposals/__form-field.html' with field_obj=form.gdpr_consent %}
 
-            <p>Please note that you won’t receive any copy of your {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %} to your mailbox.</p>
+            <p>Please note that you won’t receive any copy of your {% if proposal_config.key == 'financial-aid' %}application{% else %}proposal{% endif %} to your mailbox.</p>
 
             <button type="submit" class="btn btn-lg btn-primary mb-5">
-                Submit your<br class="d-sm-none"> {% if proposal_config.key == "financial-aid" %}application{% else %}proposal{% endif %}
+                Submit your<br class="d-sm-none"> {% if proposal_config.key == 'financial-aid' %}application{% else %}proposal{% endif %}
             </button>
         </div>
 
@@ -104,7 +104,7 @@
         {% endcomment %}
     </form>
 
-    {% if proposal_config.key != "financial-aid" %}
+    {% if proposal_config.key != 'financial-aid' %}
         <script>
             window.onload = function(){
                 var extra = document.querySelector('.pc-field-name--finaid_details');

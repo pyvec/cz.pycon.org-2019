@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 
 
@@ -31,17 +31,17 @@
 
         {% block info_text %}
 
-            {% if phases.finaid == "launched" %}
+            {% if phases.finaid == 'launched' %}
                 <p>
-                    <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    <a class="btn btn-primary btn-lg" href="{% url 'proposal_form' key='financial-aid' %}">
                         Apply for a grant now
                     </a>
                 </p>
-            {% elif phases.finaid == "closed" %}
+            {% elif phases.finaid == 'closed' %}
                 <div class="p-3 bg-white">
                     <p class="mb-0">We’re currently evaluating applications, please wait for the result.</p>
                 </div>
-            {% elif phases.finaid == "awarded" %}
+            {% elif phases.finaid == 'awarded' %}
                 <div class="p-3 bg-white">
                     <p>We have evaluated all applications and sent <b>all applicants</b> an e-mail.</p>
                     <p class="mb-0">If you haven’t received it, please <a href="mailto:info@pycon.cz">contact us</a> immediatelly.</p>
@@ -74,15 +74,15 @@
                 <div class="col-md">
                     <p>PyCon CZ is the largest annual gathering for the Python community in the Czech Republic, focused on honoring and supporting awesome people teaching, learning and innovating with Python in the Czech Republic and surrounding countries. The Python Software Foundation, the parent PyCon event organizer and sponsor, aims to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. We believe that the financial aid programme is perfectly aligned with these goals.</p>
 
-                    <p>Note well that our <a href="{% url "about_code" %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
+                    <p>Note well that our <a href="{% url 'about_code' %}">Code of Conduct</a> is strictly enforced during all official PyCon CZ event activities. All recipients of financial aid cited for a CoC violations will be immediately disqualified for all funding awards.</p>
 
                     <p>Please do not hesitate to email us at <a href="mailto:info@pycon.cz">info@pycon.cz</a></p>
                 </div>
             </div>
 
-            {% if phases.finaid == "launched" %}
+            {% if phases.finaid == 'launched' %}
                 <p>
-                    <a class="btn btn-primary btn-lg" href="{% url "proposal_form" key="financial-aid" %}">
+                    <a class="btn btn-primary btn-lg" href="{% url 'proposal_form' key='financial-aid' %}">
                         Apply for a grant now
                     </a>
                 </p>

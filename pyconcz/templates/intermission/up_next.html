@@ -1,7 +1,7 @@
 <h1 class="h3 {% if slot.room == 1 %}{% elif slot.room == 2 %}{% endif %}">
     Next up in
     <strong {% if slot.room == 2 %}class=""{% endif %}>{{ slot.get_room_display }}</strong>
-    from {{ slot.date|date:"H:i" }}
+    from {{ slot.date|date:'H:i' }}
 </h1>
 
 <h2 class="h1">

@@ -6,7 +6,7 @@
 
 {% block main %}
     <div class="pc-main-logo">
-        <img src="{% static "img/pyconlogo.svg" %}">
+        <img src="{% static 'img/pyconlogo.svg' %}">
     </div>
 
     <div class="pc-odd-section">
@@ -69,7 +69,7 @@
                 We're pretty excited about the place, and hope you'll be as well!
             </p>
 
-            <p class="text-center lead"><a href="{% url "venue" %}">Learn more about PyCon&nbsp;CZ venue</a></p>
+            <p class="text-center lead"><a href="{% url 'venue' %}">Learn more about PyCon&nbsp;CZ venue</a></p>
 
             <div class="pc-mini-gallery row">
                 {% with 'stare_koupelny_exterier_brick_house.jpg 20150413_zer_hlubina_044.jpg 20150413_zer_hlubina_014.jpg' as images %}
@@ -94,7 +94,7 @@
                 Last year, PyCon CZ sponsors and partners included <a href="https://cz.pycon.org/2018/sponsors/">18 companies and organizations</a>.
                 <br>
                 If you would like to sponsor the conference, please see our
-                <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
+                <a href="{% static 'pyconcz-2019-sponsorship-prospectus.pdf' %}">sponsorship prospectus in PDF</a>.
             </p>
         </div>
     </div>

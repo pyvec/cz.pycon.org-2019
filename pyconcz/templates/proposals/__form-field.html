@@ -4,7 +4,7 @@
     <div class="form-group pc-field-name--{{ field_obj.html_name }}">
         {% if input_type == 'checkbox' %}
             <div class="form-check">
-                {% render_field field_obj class="form-check-input" %}
+                {% render_field field_obj class='form-check-input' %}
                 {{ field_obj.label_tag }}
                 {% if field_obj.help_text %}
                     <small class="form-text">{{ field_obj.help_text|safe|linebreaksbr }}</small>
@@ -19,17 +19,17 @@
 
             {% if form.is_bound %}
                 {% if field_obj.errors %}
-                    {% render_field field_obj class="form-control is-invalid" %}
+                    {% render_field field_obj class='form-control is-invalid' %}
                     {% for error in field_obj.errors %}
                         <div class="invalid-feedback">
                             {{ error }}
                         </div>
                     {% endfor %}
                 {% else %}
-                    {% render_field field_obj class="form-control is-valid" %}
+                    {% render_field field_obj class='form-control is-valid' %}
                 {% endif %}
             {% else %}
-                {% render_field field_obj class="form-control" %}
+                {% render_field field_obj class='form-control' %}
             {% endif %}
 
             {% if input_type and input_type != 'file' and field_obj.help_text %}

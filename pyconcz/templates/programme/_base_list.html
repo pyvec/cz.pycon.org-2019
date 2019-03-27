@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 
 {% load formatting %}
@@ -28,7 +28,7 @@
                                 {% if session.title == 'TBD' %}
                                     This {{ session_type }} will be announced later
                                 {% else %}
-                                    {{ session.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                    {{ session.title|markdown|cut:'<p>'|cut:'</p>' }}
                                 {% endif %}
                             </div>
                         </a>

@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 
 {% load formatting %}
@@ -165,12 +165,12 @@
                                     {% elif slot.list.0.description %}
                                         <p class="h5
                                             {% if slot.list.0.description|truncatewords_html:1 == 'Afterparty ...' %}
-                                                {% elif slot.list.0.description == "board_game_night" %}
+                                                {% elif slot.list.0.description == 'board_game_night' %}
                                                 {% else %}
 
                                             {% endif %}
                                        ">
-                                            {% if slot.list.0.description == "board_game_night" %}
+                                            {% if slot.list.0.description == 'board_game_night' %}
                                                 <a href="{% url 'board_game_night' %}">Board Game Night!</a>
                                             {% else %}
                                                 {{ slot.list.0.description|safe }}
@@ -212,7 +212,7 @@
                                                                 class="d-block -serif {% if slot_item.room == 1 %} {% elif slot_item.room == 2 %} {% elif slot_item.room < 20 %} {% elif slot_item.room == 20 %} {% elif slot_item.room == 50 %} {% else %} {% endif %}"
                                                                 href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}"
                                                             >
-                                                                {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                                {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
                                                             </a>
                                                             {% comment %}<span>{{ slot_item.content_object.talks.all|join:'<br>' }}</span>{% endcomment %}
                                                         {% elif slot_item.content_type.model == 'workshop' %}
@@ -220,14 +220,14 @@
                                                                 class="d-block -serif {% if slot_item.room == 1 %} {% elif slot_item.room == 2 %} {% elif slot_item.room < 20 %} {% elif slot_item.room == 20 %} {% elif slot_item.room == 50 %} {% else %} {% endif %}"
                                                                 href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}"
                                                             >
-                                                                {{ slot_item.content_object.title|markdown|cut:"<p>"|cut:"</p>" }}
+                                                                {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
                                                             </a>
                                                             {% comment %}<span>{{ slot_item.content_object.workshops.all|join:'<br>' }}</span>{% endcomment %}
                                                         {% elif slot_item.description == 'Sprints' %}
                                                             <div>{{ slot_item.description }}</div>
                                                             <div>freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</div>
                                                         {% endif %}
-                                                        <span class="d-block">{{ slot_item.content_object.speakers|join:" &amp; " }}</span>
+                                                        <span class="d-block">{{ slot_item.content_object.speakers|join:' &amp; ' }}</span>
                                                     </div>
 
                                                     {% if slot_item.content_object.difficulty == 'advanced' %}

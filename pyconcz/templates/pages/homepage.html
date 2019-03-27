@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 {% load static %}
 {% load emojificate %}
@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <header class="pc-header pc-header--homepage">
                 <div class="pc-header-link pc-header-link--homepage">
-                    <img class="img-fluid pc-header-image pc-header-image--homepage" src="{% static "img/pycon19-logo.svg" %}" alt="PyCon CZ 2019">
+                    <img class="img-fluid pc-header-image pc-header-image--homepage" src="{% static 'img/pycon19-logo.svg' %}" alt="PyCon CZ 2019">
                 </div>
                 <div class="pc-header-text pc-header-text--homepage">
                     <p class="pc-header-year pc-header-year--homepage">2019</p>
@@ -20,12 +20,12 @@
 
             <div class="row">
                 <div class="col-xs-10 col-sm-7 col-md-5 col-lg-4 text-black">
-                    <p class="lead">Join over 400 conference attendees for 3&nbsp;days full of&nbsp;Python and fun at a&nbsp;former coal mine complex&nbsp;<a href="{% url "venue" %}">Hlubina</a>.</p>
+                    <p class="lead">Join over 400 conference attendees for 3&nbsp;days full of&nbsp;Python and fun at a&nbsp;former coal mine complex&nbsp;<a href="{% url 'venue' %}">Hlubina</a>.</p>
 
-                    <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url "tickets" %}">Buy Ticket</a></p>
+                    <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
 
                     <ul>
-                        <li>Learn at 30+ <b>talks</b> in English during Friday and Saturday. Choose from two parallel tracks including PyData track! <img class="pc-header-pydata" src="{% static "img/pydata.svg" %}" alt=""></li>
+                        <li>Learn at 30+ <b>talks</b> in English during Friday and Saturday. Choose from two parallel tracks including PyData track! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt=""></li>
                         <li>Dive deeper at <b>workshops</b>{% comment %} and <b>sprints</b>{% endcomment %} on&nbsp;Sunday</li>
                         <li>Have fun at <b>board game night</b> on&nbsp;Friday</li>
                         <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
@@ -48,7 +48,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <h2>Organized by community for community</h2>
-                    <p>5<sup>th</sup> PyCon CZ is organized by <a href="{% url "team_list" %}">volunteers</a> from <a href="http://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad. Everyone gets a chance to learn, receive support, and connect with others in a friendly atmosphere.</p>
+                    <p>5<sup>th</sup> PyCon CZ is organized by <a href="{% url 'team_list' %}">volunteers</a> from <a href="http://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad. Everyone gets a chance to learn, receive support, and connect with others in a friendly atmosphere.</p>
                 </div>
             </div>
             {% comment %}<div class="row justify-content-center">
@@ -167,10 +167,10 @@
 
                             {{ keynoter.short_bio|markdown }}
                             {% with talk=keynoter.talks.all|first %}
-                                {% if talk.title != "TBD" %}
+                                {% if talk.title != 'TBD' %}
                                     <p>
-                                        {{ keynoter.full_name|truncatewords_html:1|cut:" ..." }}’s talk:
-                                        <a href="{% url "talk_detail" type="talk" talk_id=talk.id %}">
+                                        {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
+                                        <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
                                             {{ talk.title }}
                                         </a>
                                     </p>
@@ -189,11 +189,11 @@
         </div>
     {% endcomment %}
 
-    {% if phases.sponsorship != "not_public" %}
+    {% if phases.sponsorship != 'not_public' %}
         <div class="bg-white text-black" id="sponsors">
             <div class="container pb-4">
                 <h2 class="h1">
-                    {% if phases.sponsors == "not_public" %}
+                    {% if phases.sponsors == 'not_public' %}
                         Sponsorship
                     {% else %}
                         Sponsors and Partners
@@ -203,14 +203,14 @@
                 <p class="lead">
                     PyCon CZ relies on sponsors to keep ticket prices affordable.
                     If you would like to sponsor the conference
-                    {% if phases.sponsorship == "prospectus_available" %}
-                        please see our <a href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">sponsorship prospectus in PDF</a>.
-                    {% elif phases.sponsorship == "dedicated_page" %}
-                        learn more about <a href="{% url "sponsors_offer" %}">PyCon&nbsp;CZ sponsorship</a>.
+                    {% if phases.sponsorship == 'prospectus_available' %}
+                        please see our <a href="{% static 'pyconcz-2019-sponsorship-prospectus.pdf' %}">sponsorship prospectus in PDF</a>.
+                    {% elif phases.sponsorship == 'dedicated_page' %}
+                        learn more about <a href="{% url 'sponsors_offer' %}">PyCon&nbsp;CZ sponsorship</a>.
                     {% endif %}
                 </p>
 
-                {% if phases.sponsors != "not_public" %}
+                {% if phases.sponsors != 'not_public' %}
                     {% sponsors %}
                 {% endif %}
             </div>

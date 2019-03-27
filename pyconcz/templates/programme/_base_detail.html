@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 
 {% load formatting %}
@@ -31,7 +31,7 @@
         </ul>
 
         <h1>
-            {{ talk.title|markdown|cut:"<p>"|cut:"</p>" }}
+            {{ talk.title|markdown|cut:'<p>'|cut:'</p>' }}
             <br class="d-md-none">
             <small class="d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
         </h1>
@@ -65,7 +65,7 @@
             <div
                 class="
                     col-12
-                    {% if talk.speakers|length_is:"1" %}
+                    {% if talk.speakers|length_is:'1' %}
                         col-md-6
                         {% if talk.abstract|length < 1000 %}
                             col-lg-5 col-xl-4

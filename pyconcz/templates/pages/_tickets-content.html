@@ -1,15 +1,15 @@
 {% load static %}
-{% now "nd" as today %}
+{% now 'nd' as today %}
 {% with last_day_regular=tickets.last_day_regular today=today|add:0 %}
     <div class="container">
         <h1>Tickets</h1>
         <p>Included in each ticket</p>
         <div class="row">
-            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static "img/icons/talks.svg" %}" alt=""> 2&nbsp;days of&nbsp;talks</div>
-            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static "img/icons/party.svg" %}" alt=""> Afterparty</div>
-            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static "img/icons/food.svg" %}" alt=""> Food, Coffee &amp;&nbsp;Tea</div>
-            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static "img/icons/workshops.svg" %}" alt=""> Workshops</div>
-            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static "img/icons/board-game-night.svg" %}" alt=""> Board Game Night</div>
+            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/talks.svg' %}" alt=""> 2&nbsp;days of&nbsp;talks</div>
+            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/party.svg' %}" alt=""> Afterparty</div>
+            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/food.svg' %}" alt=""> Food, Coffee &amp;&nbsp;Tea</div>
+            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/workshops.svg' %}" alt=""> Workshops</div>
+            <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt=""> Board Game Night</div>
         </div>
         {% comment %}
         {% if tickets.sold == tickets.capacity %}
@@ -84,7 +84,7 @@
 
         </div>
 
-        {% if phases.finaid == "launched" %}
+        {% if phases.finaid == 'launched' %}
             <div class="container text-center pb-5">
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-10 col-lg-8 col-xl-6">

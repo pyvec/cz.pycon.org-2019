@@ -1,4 +1,4 @@
-{% extends "admin/base_site.html" %}
+{% extends 'admin/base_site.html' %}
 
 {% load i18n %}
 {% load admin_urls %}
@@ -42,18 +42,18 @@
 
         <dl>
             <dt>Final note</dt>
-            <dd>{{ form.final_note.value|linebreaksbr|default:"--" }}</dd>
+            <dd>{{ form.final_note.value|linebreaksbr|default:'--' }}</dd>
         </dl>
 
         <dl>
             <dt><h2>Finaid</h2></dt>
             <dd>wants: {{ form.needs_finaid.value|yesno }}</dd>
-            <dd>detail: {{ form.finaid_details.value|linebreaksbr|default:"--" }}</dd>
+            <dd>detail: {{ form.finaid_details.value|linebreaksbr|default:'--' }}</dd>
         </dl>
 
         <dl>
             <dt><h2>Programme comitee note</h2></dt>
-            <dd>{{ form.note.value|linebreaksbr|default:"--" }}</dd>
+            <dd>{{ form.note.value|linebreaksbr|default:'--' }}</dd>
         </dl>
 
         <small>accepted: {{ form.accepted.value|yesno }}, submitted: {{ form.date.value }}</small>

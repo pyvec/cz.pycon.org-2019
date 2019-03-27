@@ -1,4 +1,4 @@
-{% extends "_layout.html" %}
+{% extends '_layout.html' %}
 
 {% load static %}
 
@@ -11,8 +11,8 @@
 
 {% block main %}
     <div class="container pb-4">
-        {% if phases.sponsorship != "dedicated_page" %}
-            {% include "__404.html" %}
+        {% if phases.sponsorship != 'dedicated_page' %}
+            {% include '__404.html' %}
         {% else %}
             <h1>Sponsor&shy;ship</h1>
 
@@ -44,7 +44,7 @@
                         <li>Option to be an exclusive lanyard sponsor</li>
                     </ul>
 
-                    <p><a class="btn btn-secondary" href="{% static "pyconcz-2019-sponsorship-prospectus.pdf" %}">Download detailed sponsorship information in our prospectus (PDF)</a></p>
+                    <p><a class="btn btn-secondary" href="{% static 'pyconcz-2019-sponsorship-prospectus.pdf' %}">Download detailed sponsorship information in our prospectus (PDF)</a></p>
 
                     <h2>Custom sponsorship</h2>
                     <p>In the case packages that work for many won’t fill your idea of visibility on PyCon&nbsp;CZ, you can become a diversity sponsor (provide free tickets for a target demographic), host or contribute prizes for a quiz or competition, become a sponsor of a connected event or even suggest your own&nbsp;idea.</p>

@@ -19,14 +19,14 @@
 
 
 {% block link_financial_aid %}
-    {% if phases.ticket_sale != "launched" %} {# show finaid only if ticket sale isn't on #}
+    {% if phases.ticket_sale != 'launched' %} {# show finaid only if ticket sale isn't on #}
         {{ block.super }}
     {% endif %}
 {% endblock %}
 
 
 {% block link_sponsorship %}
-    {% if phases.sponsors != "details_public" %} {# hide sponsorship link after sponsors detail are published  #}
+    {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
         {{ block.super }}
     {% endif %}
 {% endblock %}

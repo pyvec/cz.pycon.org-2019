@@ -1,4 +1,4 @@
-{% extends "admin/change_list.html" %}
+{% extends 'admin/change_list.html' %}
 
 {% load i18n %}
 {% load admin_urls %}
@@ -12,7 +12,7 @@
     <li>
         {% url opts|admin_urlname:'generate' as generate_url %}
         <a href="{% add_preserved_filters generate_url is_popup to_field %}">
-            {% trans "Start scoring" %}
+            {% trans 'Start scoring' %}
         </a>
     </li>
 {% endblock %}
