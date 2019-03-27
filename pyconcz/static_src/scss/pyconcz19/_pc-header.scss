@@ -9,7 +9,7 @@
     margin: auto;
 
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 2rem 0;
 
     @include media-breakpoint-up(sm) {
         flex-direction: row;
@@ -143,35 +143,40 @@
 }
 
 .pc-homepage-header {
+    $pc-header-img-size: 2100px;
+
     background-color: $secondary;
     background-image: url("/2019/static/img/jakub-soucek-flickr-cc-by-2.jpg");
     background-repeat: no-repeat;
-    background-size: 510%;
-    background-position: 21% 0;
+    background-size: ($pc-header-img-size / 2);
+    background-position: 0;
     padding-bottom: 30px;
     background-attachment: fixed;
 
     @include media-breakpoint-up(xs) {
         padding-bottom: 1px;
-        background-size: 370%;
+        background-position: 31% -8rem;
+        background-size: 10/16*$pc-header-img-size;
     }
 
     @include media-breakpoint-up(sm) {
-        background-position: 15% 0;
-        background-size: 240%;
+        background-position: 40% 0;
+        background-size: 9/16*$pc-header-img-size;
     }
 
     @include media-breakpoint-up(md) {
-        background-position: 20% 0;
-        background-size: 180%;
+        background-position: 50% 0;
     }
 
     @include media-breakpoint-up(lg) {
-        background-position: 30% 0;
-        background-size: 150%;
+        background-size: cover;
+    }
+
+    @include media-breakpoint-up(xl) {
+        background-position: 50%;
     }
 
     .container-fluid {
-        max-width: 1350px;
+        max-width: 1060px;
     }
 }
