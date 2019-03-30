@@ -27,7 +27,7 @@ If you want to remove a menu item globally, comment it out here.
 
             {% block link_tickets %}
                 {% if phases.ticket_sale == 'launched' %}
-                    {% include '__nav-link.html' with url='tickets' link_text='Tickets' %}
+                    {% include '__nav-link.html' with url='tickets' link_text='Tickets' class='pc-nav-link-highlight' %}
                 {% endif %}
             {% endblock %}
 
