@@ -36,8 +36,6 @@
     @import "./node_modules/bootstrap/scss/functions";
     @import "./node_modules/bootstrap/scss/variables";
 
-    $enable-rounded: false !global;
-
     // Variables
     //
     // Variables should follow the `$component-state-property-size` formula for
@@ -142,7 +140,7 @@
     // Quickly modify global styling by enabling or disabling optional features.
 
     // $enable-caret: true; $enable-caret: $enable-caret !global; // true
-    // $enable-rounded: true; $enable-rounded: $enable-rounded !global; // true
+    $enable-rounded: false; $enable-rounded: $enable-rounded !global; // true
     // $enable-shadows: false; $enable-shadows: $enable-shadows !global; // false
     // $enable-gradients: false; $enable-gradients: $enable-gradients !global; // false
     // $enable-transitions: true; $enable-transitions: $enable-transitions !global; // true
