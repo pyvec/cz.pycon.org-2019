@@ -5,9 +5,9 @@
 
 
 {% block body %}
-    <nav role="navigation" class="navbar navbar-dark navbar-expand bg-dark">
-        {% include '_menu_top.html' %}
-    </nav>
+
+    {% include '_menu_top.html' %}
+
 
     {% block header %}
         <div class="container">
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-            <p class="text-center text-monospace small">
+            <p class="text-lg-center text-monospace small">
                 <a href="https://www.python.org/psf/trademarks/pycon/" class="text-white">PyCon</a>™
                 is a trademark for worldwide conference activities claimed by the
                 <a href="https://www.python.org/psf-landing/" class="text-white">Python Software Foundation</a> and used with permission.

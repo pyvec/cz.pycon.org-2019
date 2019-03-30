@@ -2,10 +2,19 @@
 
 
 
+{% block nav %}
+    <nav role="navigation" class="navbar navbar-dark navbar-expand bg-dark">
+        {{ block.super }}
+    </nav>
+{% endblock %}
+
+
 {% block wrapper_classes %}
-    {{ block.super }}
     w-100
     justify-content-sm-center column
+    navbar-nav
+    nav-pills
+    flex-wrap
 {% endblock %}
 
 
