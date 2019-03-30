@@ -1,0 +1,8 @@
+.navbar-nav {
+    .nav-link {
+        $pc-navbar-nav-link-vertical-padding: 1rem;
+
+        padding-top: $pc-navbar-nav-link-vertical-padding;
+        padding-bottom: $pc-navbar-nav-link-vertical-padding;
+    }
+}
