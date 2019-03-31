@@ -16,17 +16,17 @@
     {% elif tickets.now < tickets.last_day_regular %}
         <p class="lead">
             Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
-            {% include 'pages/__ticket-tickets-left.html' with threshold=30 %}
+            {% include 'tickets/__tickets-left.html' with threshold=30 %}
         </p>
     {% elif tickets.now == tickets.last_day_regular %}
         <p class="lead">
             Today is the last chance to buy tickets for the regular price!
-            {% include 'pages/__ticket-tickets-left.html' with threshold=20 %}
+            {% include 'tickets/__tickets-left.html' with threshold=20 %}
         </p>
     {% else %}
         <p class="lead">
             Good news!<br>You can still get your ticket at a late bird price.
-            {% include 'pages/__ticket-tickets-left.html' with threshold=10 %}
+            {% include 'tickets/__tickets-left.html' with threshold=10 %}
         </p>
     {% endif %}
 
@@ -54,9 +54,9 @@
                     <h3 class="mt-0">Educational</h3>
                     <p>Are you a student, a&nbsp;teacher or have you attended PyLadies courses?</p>
                     <hr>
-                    {% include 'pages/__ticket-pricing.html' with ticket=tickets.educational %}
+                    {% include 'tickets/__pricing.html' with ticket=tickets.educational %}
                     <p class="small">Students need to bring a student ID to the registration.</p>
-                    {% include 'pages/__ticket-button.html' with ticket=tickets.educational %}
+                    {% include 'tickets/__button.html' with ticket=tickets.educational %}
                 </div>
             </div>
             <div class="col my-4 pc-ticket">
@@ -64,9 +64,9 @@
                     <h3 class="mt-0">Individual</h3>
                     <p>Are you paying PyCon&nbsp;CZ from your own pocket?</p>
                     <hr>
-                    {% include 'pages/__ticket-pricing.html' with ticket=tickets.individual %}
+                    {% include 'tickets/__pricing.html' with ticket=tickets.individual %}
                     <p class="small">These tickets are for you if your company doesn’t pay for it. Please respect that and buy a Company ticket if it does.</p>
-                    {% include 'pages/__ticket-button.html' with ticket=tickets.individual %}
+                    {% include 'tickets/__button.html' with ticket=tickets.individual %}
                 </div>
             </div>
 
@@ -75,9 +75,9 @@
                     <h3 class="mt-0">Company</h3>
                     <p>Is your company paying for the&nbsp;ticket?</p>
                     <hr>
-                    {% include 'pages/__ticket-pricing.html' with ticket=tickets.company %}
+                    {% include 'tickets/__pricing.html' with ticket=tickets.company %}
                     <p class="small">Choose this ticket if your company is paying or if you are getting reimbursed. This is the right choice to support PyCon CZ, so please respect the&nbsp;rule.</p>
-                    {% include 'pages/__ticket-button.html' with ticket=tickets.company %}
+                    {% include 'tickets/__button.html' with ticket=tickets.company %}
                 </div>
             </div>
 
@@ -86,9 +86,9 @@
                     <h3 class="mt-0">VIP</h3>
                     <p>Do you want to have the best PyCon&nbsp;CZ experience?</p>
                     <hr>
-                    {% include 'pages/__ticket-pricing.html' with ticket=tickets.vip %}
+                    {% include 'tickets/__pricing.html' with ticket=tickets.vip %}
                     <p class="small">VIP ticket will get you a seat at the speakers’ dinner on June&nbsp;13. You will meet PyCon&nbsp;CZ speakers over great food which is included in the&nbsp;price.</p>
-                    {% include 'pages/__ticket-button.html' with ticket=tickets.vip %}
+                    {% include 'tickets/__button.html' with ticket=tickets.vip %}
                 </div>
             </div>
         </div>

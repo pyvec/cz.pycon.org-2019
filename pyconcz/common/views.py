@@ -103,9 +103,9 @@ def get_fresh_tickets_data():
 
 def tickets_index(request):
     tickets = get_cached_tickets_data()
-    return TemplateResponse(request, 'pages/tickets.html', {'tickets': tickets})
+    return TemplateResponse(request, 'tickets/tickets.html', {'tickets': tickets})
 
 
 def tickets_ajax_content(request):
     tickets = get_fresh_tickets_data()
-    return TemplateResponse(request, 'pages/tickets_ajax_content.html', {'tickets': tickets})
+    return TemplateResponse(request, 'tickets/ajax_content.html', {'tickets': tickets})
