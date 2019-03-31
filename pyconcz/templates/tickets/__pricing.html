@@ -1,0 +1,43 @@
+{% if tickets.now <= tickets.last_day_regular %} {# before late bird #}
+
+    {% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}
+        <p class="pc-ticket-line font-weight-bold mb-3">
+            <span class="mr-2">
+                Early-bird
+                <br>
+                {% if tickets.cached %}
+                    <small>&nbsp;</small>
+                {% else %}
+                    <small {% if ticket.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
+                      ({{ ticket.early_bird.tickets_left }}&nbsp;left)
+                    </small>
+                {% endif %}
+            </span>
+            <span class="pc-ticket-price text-right">{{ ticket.early_bird.price|floatformat:'0' }}&nbsp;CZK</span>
+        </p>
+    {% endif %}
+
+    <p class="pc-ticket-line mb-3 {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
+        <span class="mr-2">
+            Regular
+            {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
+                <br>
+                <small>
+                    {% if tickets.now < tickets.last_day_regular %}
+                        (until {{ tickets.last_day_regular|date:'j F' }})
+                    {% elif tickets.now == tickets.last_day_regular %}
+                        <b>(last chance today)</b>
+                    {% endif %}
+                </small>
+            {% endif %}
+        </span>
+        <span class="pc-ticket-price text-right">{{ ticket.regular.price|floatformat:'0' }}&nbsp;CZK</span>
+    </p>
+{% endif %}
+
+{% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
+    <p class="pc-ticket-line mb-2 {% if tickets.now > tickets.last_day_regular %}font-weight-bold{% else %}small text-muted{% endif %}">
+        <span class="mr-2">Late bird</span>
+        <span class="pc-ticket-price text-right">{{ ticket.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
+    </p>
+{% endif %}

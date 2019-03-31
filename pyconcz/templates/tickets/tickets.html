@@ -17,15 +17,15 @@
 
 
 {% block main %}
-    <div id="tickets-content">
-        {% include 'pages/_tickets-content.html' %}
+    <div id="pc-tickets-content">
+        {% include 'tickets/__content.html' %}
     </div>
 {% endblock %}
 
 
 {% block after_scripts_loaded %}
     <script>
-        $("#tickets-content").load("ajax-content", function(){
+        $("#pc-tickets-content").load("ajax-content", function(){
             if (window.console && console.info){
                 console.info("tickets-content loaded");
             }
