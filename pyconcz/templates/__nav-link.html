@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if link %}
-    {% if request.path != '/2019/' or  link != '/2019/' %} {# hide link to homepage on homepage #}
+    {% if request.path != '/2019/' or  link != '/2019/' or extra %} {# hide link to homepage on homepage #}
         <li class="nav-item">
             <a
                 href="{{ link }}{{ extra }}"
