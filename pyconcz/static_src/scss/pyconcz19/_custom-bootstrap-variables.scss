@@ -910,24 +910,24 @@
 
     // Carousel
 
-    // $carousel-control-color: $white; $carousel-control-color: $carousel-control-color !global; // $white
-    // $carousel-control-width: 15%; $carousel-control-width: $carousel-control-width !global; // 15%
-    // $carousel-control-opacity: .5; $carousel-control-opacity: $carousel-control-opacity !global; // .5
+     $carousel-control-color: $primary; $carousel-control-color: $carousel-control-color !global; // $white
+     $carousel-control-width: 12%; $carousel-control-width: $carousel-control-width !global; // 15%
+     $carousel-control-opacity: .6; $carousel-control-opacity: $carousel-control-opacity !global; // .5
 
-    $carousel-indicator-width: 5px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
-    $carousel-indicator-height: 5px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
-    $carousel-indicator-spacer: 5px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
-    $carousel-indicator-active-bg: $orange; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
+    // $carousel-indicator-width: 30px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
+    // $carousel-indicator-height: 3px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
+    // $carousel-indicator-spacer: 3px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
+    // $carousel-indicator-active-bg: $white; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
 
     // $carousel-caption-width: 70%; $carousel-caption-width: $carousel-caption-width !global; // 70%
     // $carousel-caption-color: $white; $carousel-caption-color: $carousel-caption-color !global; // $white
 
-    // $carousel-control-icon-width: 20px; $carousel-control-icon-width: $carousel-control-icon-width !global; // 20px
+    $carousel-control-icon-width: 45px; $carousel-control-icon-width: $carousel-control-icon-width !global; // 20px
 
-    // $carousel-control-prev-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23"); $carousel-control-prev-icon-bg: $carousel-control-prev-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23")
-    // $carousel-control-next-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23"); $carousel-control-next-icon-bg: $carousel-control-next-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23")
+    $carousel-control-prev-icon-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 46'><path fill='none' stroke='#{rgba($carousel-control-color, 0.999999)}' stroke-width='8' d='M26 3L6 23l20 20'/></svg>"); $carousel-control-prev-icon-bg: $carousel-control-prev-icon-bg !global;
+    $carousel-control-next-icon-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 46'><path fill='none' stroke='#{rgba($carousel-control-color, 0.999999)}' stroke-width='8' d='M3 3l20 20-20 20'/></svg>"); $carousel-control-next-icon-bg: $carousel-control-next-icon-bg !global;
 
-    // $carousel-transition: transform .6s ease; $carousel-transition: $carousel-transition !global; // transform .6s ease // Define transform transition first if using multiple transitons (e.g., `transform 2s ease, opacity .5s ease-out`)
+    $carousel-transition: transform .3s ease; $carousel-transition: $carousel-transition !global; // transform .6s ease // Define transform transition first if using multiple transitons (e.g., `transform 2s ease, opacity .5s ease-out`)
 
     // Close
 
