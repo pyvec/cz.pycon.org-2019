@@ -23,11 +23,11 @@
         <h2>Timeline</h2>
 
         <p>
-            Financial aid applications open on {{ proposal_config.date_start | date:'j F' }} and
-            <b>close on {{ proposal_config.date_end | date:'j F' }}, 23:59 CEST</b>.
+            Financial aid applications open on {{ proposal_config.date_start|date:'j F' }} and
+            <b>close on {{ proposal_config.date_end|date:'j F' }}, 23:59 CEST</b>.
         </p>
 
-        <p>After that we will carefully examine each application and inform all applicants privately before the end of {{ proposal_config.date_end | date:'F' }} about the result.</p>
+        <p>After that we will carefully examine each application and inform all applicants privately before the end of {{ proposal_config.date_end|date:'F' }} about the result.</p>
 
         {% block info_text %}
 
