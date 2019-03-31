@@ -7,17 +7,19 @@
 {% endif %}
 
 {% if link %}
-    <li class="nav-item">
-        <a
-            href="{{ link }}{{ extra }}"
-            class="nav-link {{ class }} {% if request.path == link and not extra %}active{% endif %}"
-        >
-            {{ link_text }}
-            {% if request.path == link and not extra %}
-                <span class="sr-only">(current)</span>
-            {% endif %}
-        </a>
-    </li>
+    {% if request.path != '/2019/' or  link != '/2019/' %} {# hide link to homepage on homepage #}
+        <li class="nav-item">
+            <a
+                href="{{ link }}{{ extra }}"
+                class="nav-link {{ class }} {% if request.path == link and not extra %}active{% endif %}"
+            >
+                {{ link_text }}
+                {% if request.path == link and not extra %}
+                    <span class="sr-only">(current)</span>
+                {% endif %}
+            </a>
+        </li>
+    {% endif %}
 {% elif debug %}
     <li class="nav-item"><span class="nav-link" style="color:red;background-color:yellow;">Inccorect URL</span></li>
 {% endif %}
