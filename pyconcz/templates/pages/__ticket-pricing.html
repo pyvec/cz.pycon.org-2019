@@ -1,6 +1,6 @@
-{% if today <= tickets.last_day_regular %} {# before late bird #}
+{% if tickets.now <= tickets.last_day_regular %} {# before late bird #}
 
-    {% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}
+    {% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}
         <p class="pc-ticket-line font-weight-bold mb-3">
             <span class="mr-2">
                 Early-bird
@@ -8,42 +8,36 @@
                 {% if tickets.cached %}
                     <small>&nbsp;</small>
                 {% else %}
-                    <small {% if ticket_md.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
-                      ({{ ticket_md.early_bird.tickets_left }}&nbsp;left)
+                    <small {% if ticket.early_bird.tickets_left <= 3 %}class="text-danger font-weight-bold"{% endif %}>
+                      ({{ ticket.early_bird.tickets_left }}&nbsp;left)
                     </small>
                 {% endif %}
             </span>
-            <span class="pc-ticket-price text-right">{{ ticket_md.early_bird.price|floatformat:'0' }}&nbsp;CZK</span>
+            <span class="pc-ticket-price text-right">{{ ticket.early_bird.price|floatformat:'0' }}&nbsp;CZK</span>
         </p>
     {% endif %}
 
-    <p class="pc-ticket-line mb-3 {% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
+    <p class="pc-ticket-line mb-3 {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
         <span class="mr-2">
             Regular
-            {% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}
+            {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
                 <br>
                 <small>
-                    {% if today < tickets.last_day_regular %}
-                        (until {{ tickets.last_day_regular_date | date:'j F' }})
-                    {% elif today == tickets.last_day_regular %}
+                    {% if tickets.now < tickets.last_day_regular %}
+                        (until {{ tickets.last_day_regular|date:'j F' }})
+                    {% elif tickets.now == tickets.last_day_regular %}
                         <b>(last chance today)</b>
                     {% endif %}
                 </small>
             {% endif %}
         </span>
-        <span class="pc-ticket-price text-right">{{ ticket_md.regular.price|floatformat:'0' }}&nbsp;CZK</span>
+        <span class="pc-ticket-price text-right">{{ ticket.regular.price|floatformat:'0' }}&nbsp;CZK</span>
     </p>
-
 {% endif %}
 
-{% if ticket_md.early_bird.sold_out or ticket_md.early_bird.secret %}
-    <p class="pc-ticket-line small text-muted mb-2">
+{% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
+    <p class="pc-ticket-line mb-2 {% if tickets.now > tickets.last_day_regular %}font-weight-bold{% else %}small text-muted{% endif %}">
         <span class="mr-2">Late bird</span>
-        <span class="pc-ticket-price text-right">{{ ticket_md.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
+        <span class="pc-ticket-price text-right">{{ ticket.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
     </p>
 {% endif %}
-{% comment %}
-<div class="{% if today > tickets.last_day_regular %}font-weight-bold{% else %}{% endif %}">
-    <span></span>
-</div>
-{% endcomment %}

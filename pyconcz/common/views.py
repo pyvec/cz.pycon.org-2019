@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.utils import timezone
 
 import requests
 from django.template.response import TemplateResponse
@@ -63,11 +64,8 @@ def retrieve_tickets_data():
                 date = datetime.strptime(date_str, date_format)
                 # date which will be displayed on the site, it describes when the sale of regular
                 # tickets ends
-                tickets["last_day_regular_date"] = date
-                # number which the logic in the template works with. it determines when what
-                # changes should happen (month and day put together). Previously this was hardcoded
-                # into the template.
-                tickets["last_day_regular"] = int(date.strftime("%-m%d"))
+                tickets["last_day_regular"] = timezone.localtime(date)
+                tickets["now"] = timezone.localtime(timezone.now())
 
     # we need to get the capacity and how many tickets are already sold. We use activities endpoint
     # instead of activity as it has less data and is faster
@@ -84,6 +82,7 @@ def retrieve_tickets_data():
         if "Talks" in activity["name"]:
             tickets["sold"] = activity["allocation_count"]
             tickets["capacity"] = activity["capacity"]
+            tickets["left"] = tickets["capacity"] - tickets["sold"]
             break
 
     return tickets

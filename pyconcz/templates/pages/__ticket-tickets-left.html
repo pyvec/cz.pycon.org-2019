@@ -1,0 +1,5 @@
+{% if tickets.left <= threshold %}
+    <span class="lead font-weight-bold text-danger">
+        Last {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} are available.
+    </span>
+{% endif %}

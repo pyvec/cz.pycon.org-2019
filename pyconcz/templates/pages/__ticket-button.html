@@ -1,4 +1,4 @@
-{% if ticket_md.early_bird.upcoming %}
+{% if ticket.early_bird.upcoming %}
     <button class="btn btn-primary disabled px-3 my-3 mx-auto" disabled>Not for sale yet</button>
 {% else %}
     {% if tickets.cached %}
@@ -15,12 +15,12 @@
             );
         </script>
         <noscript>
-            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.secret or ticket_md.early_bird.tickets_left <= 3 %}{% if not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}{% endif %}" class="tito-tickets-button">
+            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}" class="tito-tickets-button">
                 Buy ticket
             </a>
         </noscript>
     {% else %}
-        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket_md.early_bird.sold_out and not ticket_md.early_bird.secret %}{{ ticket_md.early_bird.slug }}{% if ticket_md.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket_md.early_bird.secret or ticket_md.early_bird.tickets_left <= 3 %}{% if not ticket_md.regular.sold_out %}{{ ticket_md.regular.slug }}{% endif %}{% endif %}">
+        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}">
             Buy ticket
         </tito-button>
         {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
