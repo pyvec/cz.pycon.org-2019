@@ -8,9 +8,7 @@ from pyconcz.common.views import homepage
 
 '''
 prefixed_urlpatterns = [
-    url(r'^programme/', include('pyconcz.programme.urls')),
     url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
-
     # static pages
     url(r'^board-game-night/$',
         TemplateView.as_view(template_name='pages/board_game_night.html'),
@@ -23,6 +21,7 @@ prefixed_urlpatterns = [
 
 prefixed_urlpatterns = [
     url(r'^$', homepage, name='homepage'),
+    url(r'^programme/', include('pyconcz.programme.urls')),
     url(r'^about/team/', include('pyconcz.team.urls')),
     url(r'^proposals/', include('pyconcz.proposals.urls')),
     url(r'^announcements/', include('pyconcz.announcements.urls')),
