@@ -52,19 +52,20 @@
                     <h3>Attendees said about PyCon&nbsp;CZ</h3>
                 </div>
             </div>
+
             <div class="row no-gutters justify-content-center">
                 <div class="col-12 col-md-11 col-xl-10 pb-5">
                     <div id="carousel" class="carousel carousel-fade slide" data-ride="carousel">
                         {% comment %}<ol class="carousel-indicators">
-                            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel" data-slide-to="1"></li>
-                            <li data-target="#carousel" data-slide-to="2"></li>
-                            <li data-target="#carousel" data-slide-to="3"></li>
-                            <li data-target="#carousel" data-slide-to="4"></li>
-                            <li data-target="#carousel" data-slide-to="5"></li>
-                            <li data-target="#carousel" data-slide-to="6"></li>
-                            <li data-target="#carousel" data-slide-to="7"></li>
-                        </ol>{% endcomment %}
+<li data-target="#carousel" data-slide-to="0" class="active"></li>
+<li data-target="#carousel" data-slide-to="1"></li>
+<li data-target="#carousel" data-slide-to="2"></li>
+<li data-target="#carousel" data-slide-to="3"></li>
+<li data-target="#carousel" data-slide-to="4"></li>
+<li data-target="#carousel" data-slide-to="5"></li>
+<li data-target="#carousel" data-slide-to="6"></li>
+<li data-target="#carousel" data-slide-to="7"></li>
+</ol>{% endcomment %}
                         <div class="carousel-inner justify-content-center">
                             {% emojified %}
                                 <div class="carousel-item active">
@@ -141,60 +142,36 @@
 
     <div class="pc-homepage-header pc-homepage-header-secondary"></div>
 
-    <div class="pc-linkbar bg-black text-white">
+    <div class="pc-linkbar bg-black text-white pt-3 pt-md-4 pb-2 pb-md-0">
         <div class="container">
             <div class="row align-items-center justify-content-around">
-                <div class="col-12 col-xs-6 col-md-auto col-lg-3 text-center">
-                    <a class="pc-linkbar-link my-4 my-md-5 pb-md-4" href="{% url 'city' %}">
+                <div class="col-6 col-md-auto col-lg-3 text-center">
+                    <a class="pc-linkbar-link my-4 pb-md-4" href="{% url 'city' %}">
                         <img src="{% static 'img/icons/ostrava.svg' %}" alt="" class="pc-linkbar-image img-fluid pc-img-fluid-svg">
                         Ostrava
                     </a>
                 </div>
-            </div>{% endcomment %}
-
-        </div>
-    </div>
-
-    {% comment %}{% block keynoters %}
-        {% if keynoters %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h2>Keynote speakers</h2>
-                    </div>
-                    {% for keynoter in keynoters %}
-                        <div class="row no-gutters {% if forloop.first %} {% else %}{% endif %} align-items-start">
-                            <img class="img-fluid" src="{{ keynoter.photo.url }}" alt="">
-
-                            <h3>{{ keynoter.full_name }}</h3>
-                            {% if keynoter.twitter or keynoter.github %}
-                                <p class="row no-gutters small justify-content-center">
-                                    {% if keynoter.twitter %}
-                                        <span class="col">TW:&nbsp;<a href="http://twitter.com/{{ keynoter.twitter }}">@{{ keynoter.twitter }}</a></span>
-                                    {% endif %}
-                                    {% if keynoter.github %}
-                                        <span class="col">GH:&nbsp;<a href="{{ keynoter.github }}">{{ keynoter.github }}</a></span>
-                                    {% endif %}
-                                </p>
-                            {% endif %}
-
-                            {{ keynoter.short_bio|markdown }}
-                            {% with talk=keynoter.talks.all|first %}
-                                {% if talk.title != 'TBD' %}
-                                    <p>
-                                        {{ keynoter.full_name|truncatewords_html:1|cut:' ...' }}’s talk:
-                                        <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
-                                            {{ talk.title }}
-                                        </a>
-                                    </p>
-                                {% endif %}
-                            {% endwith %}
-                        </div>
-                    {% endfor %}
+                <div class="col-6 col-md-auto col-lg-3 text-center">
+                    <a class="pc-linkbar-link my-4 pb-md-4" href="{% url 'venue' %}">
+                        <img src="{% static 'img/icons/venue.svg' %}" alt="" class="pc-linkbar-image img-fluid pc-img-fluid-svg d-block mx-auto">
+                        Venue
+                    </a>
+                </div>
+                <div class="col-6 col-md-auto col-lg-3 text-center">
+                    <a class="pc-linkbar-link my-4 pb-md-4" href="{% url 'city' %}#arrival-to-ostrava">
+                        <img src="{% static 'img/icons/travel.svg' %}" alt="" class="pc-linkbar-image img-fluid pc-img-fluid-svg d-block mx-auto">
+                        Travel
+                    </a>
+                </div>
+                <div class="col-6 col-md-auto col-lg-3 text-center">
+                    <a class="pc-linkbar-link my-4 pb-md-4" href="{% url 'city' %}#accommodation">
+                        <img src="{% static 'img/icons/accommodation.svg' %}" alt="" class="pc-linkbar-image img-fluid pc-img-fluid-svg d-block mx-auto">
+                        Ac&shy;com&shy;mo&shy;da&shy;tion
+                    </a>
                 </div>
             </div>
-        {% endif %}
-    {% endblock %}{% endcomment %}
+        </div>
+    </div>
 
     {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
