@@ -1,0 +1,28 @@
+.pc-linkbar {
+    background-image: url("/2019/static/img/grid.svg");
+}
+
+.pc-linkbar .container {
+}
+
+
+.pc-linkbar-image {
+
+    display: block;
+    margin: 0 auto map_get($spacers, 2);
+    height: 5rem;
+
+    @include media-breakpoint-up(md) {
+        height: 6.75rem;
+    }
+}
+
+.pc-linkbar-link {
+    display: block;
+    color: $white;
+    font-size: $h3-font-size;
+    font-weight: $font-weight-bold;
+    font-family: $font-family-sans-serif;
+    text-decoration: none;
+    text-align: center;
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <pattern id="grid" width="98.8" height="57" patternUnits="userSpaceOnUse">
+            <path stroke-linecap="square" stroke-width="1" fill="none" stroke="hsl(26, 43%, 18%)" d="M98.8 57L0 0m0 57L98.8 0" />
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+</svg>
