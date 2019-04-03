@@ -144,24 +144,27 @@
 
 .pc-homepage-header {
     $pc-header-img-size: 2100px;
+    $pc-header-img-noise-size: (400px / 2);
 
-    background-color: $secondary;
-    background-image: url("/2019/static/img/jakub-soucek-flickr-cc-by-2.jpg");
-    background-repeat: no-repeat;
-    background-size: ($pc-header-img-size / 2);
-    background-position: 0;
     padding-bottom: 30px;
+    background-color: $secondary;
+
+    background-image: url("/2019/static/img/jakub-soucek-flickr-cc-by-2.jpg"), url("/2019/static/img/noise.png");
+    background-blend-mode: hard-light, normal;
+    background-repeat: no-repeat, repeat;
+    background-size: ($pc-header-img-size / 2), $pc-header-img-noise-size;
     background-attachment: fixed;
+    background-position: 0;
 
     @include media-breakpoint-up(xs) {
         padding-bottom: 1px;
         background-position: 31% -8rem;
-        background-size: 10/16*$pc-header-img-size;
+        background-size: 0.63*$pc-header-img-size, $pc-header-img-noise-size
     }
 
     @include media-breakpoint-up(sm) {
         background-position: 40% 0;
-        background-size: 9/16*$pc-header-img-size;
+        background-size: 0.56*$pc-header-img-size, $pc-header-img-noise-size;
     }
 
     @include media-breakpoint-up(md) {
@@ -169,7 +172,7 @@
     }
 
     @include media-breakpoint-up(lg) {
-        background-size: cover;
+        background-size: cover, $pc-header-img-noise-size;
     }
 
     @include media-breakpoint-up(xl) {
