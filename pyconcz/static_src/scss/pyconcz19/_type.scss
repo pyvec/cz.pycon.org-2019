@@ -16,7 +16,7 @@ h1, .h1 {
 }
 
 .pc-overline {
-    border-top: (1em/6) solid currentColor;
+    border-top: ($h1-font-size/6) solid currentColor;
 }
 
 h2, .h2 {
