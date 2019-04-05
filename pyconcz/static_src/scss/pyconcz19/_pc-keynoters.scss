@@ -15,4 +15,8 @@
         font-size: $h3-font-size;
         margin-top: 0;
     }
+
+    &-photo {
+        z-index: 10;
+    }
 }
