@@ -56,16 +56,6 @@
             <div class="row no-gutters justify-content-center">
                 <div class="col-12 col-md-11 col-xl-10 pb-5">
                     <div id="carousel" class="carousel carousel-fade slide" data-ride="carousel">
-                        {% comment %}<ol class="carousel-indicators">
-<li data-target="#carousel" data-slide-to="0" class="active"></li>
-<li data-target="#carousel" data-slide-to="1"></li>
-<li data-target="#carousel" data-slide-to="2"></li>
-<li data-target="#carousel" data-slide-to="3"></li>
-<li data-target="#carousel" data-slide-to="4"></li>
-<li data-target="#carousel" data-slide-to="5"></li>
-<li data-target="#carousel" data-slide-to="6"></li>
-<li data-target="#carousel" data-slide-to="7"></li>
-</ol>{% endcomment %}
                         <div class="carousel-inner justify-content-center">
                             {% emojified %}
                                 <div class="carousel-item active">
@@ -124,7 +114,6 @@
                 </div>
             </div>
 
-
         </div>
     </div>
 
@@ -169,15 +158,23 @@
                     {% with odd=forloop.counter|divisibleby:'2' %}
                         <div class="row no-gutters pc-keynoter mb-6 {% if odd %}justify-content-end{% endif %}">
 
-                            <div class="col-12 col-md mt-md-5 order-2 {% if odd %}order-md-1 mr-md-n4{% else %}order-md-2 ml-md-n4{% endif %}">
+                            <div class="
+                                col-12 col-md mt-md-5 order-2
+                                {% if odd %}
+                                    order-md-1 mr-md-n4
+                                {% else %}
+                                    order-md-2 ml-md-n4
+                                {% endif %}
+                                ">
 
                                 <div class="
                                     bg-secondary pc-box-shadow text-black
                                     pt-5 pb-4 pt-md-3 py-md-5 px-4
-                                    ml-sm-3
                                     {% if odd %}
+                                        ml-sm-3
                                         pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
                                     {% else %}
+                                        mr-sm-3
                                         pr-md-4 pr-lg-5 pl-md-5 pl-lg-6
                                     {% endif %}
                                     ">
@@ -218,7 +215,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 mb-n4 mb-md-0  order-1 {% if odd %}order-md-2{% else %}order-md-1{% endif %}">
+                            <div class="pc-keynoter-photo col-12 col-sm-6 col-md-4 mb-n4 mb-md-0  order-1 {% if odd %}order-md-2{% else %}order-md-1{% endif %}">
                                 <img class="img-fluid pc-img-effect" src="{{ keynoter.photo.url }}" alt="">
                             </div>
 
