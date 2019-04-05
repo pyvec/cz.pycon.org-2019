@@ -164,9 +164,9 @@
         //1: ($spacer * .25),
         //2: ($spacer * .5),
         //3: $spacer,
-        4: ($spacer * 1.333),
-        5: ($spacer * 2.666),
-        6: ($spacer * 4)
+        //4: ($spacer * 1.5),
+        5: ($spacer * 2.8),
+        6: ($spacer * 5)
     ); $spacers: $spacers !global;
     // the following variable affects the `.h-*` and `.w-*` classes.
     /*
