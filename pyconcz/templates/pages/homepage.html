@@ -173,6 +173,74 @@
         </div>
     </div>
 
+    {% if keynoters %}
+        <div class="bg-black">
+            <div class="container">
+                <h2 class="h1 mt-0 mb-4">Keynote speakers</h2>
+                {% for keynoter in keynoters %}
+                    {% with odd=forloop.counter|divisibleby:'2' %}
+                        <div class="row no-gutters pc-keynoter mb-6 {% if odd %}justify-content-end{% endif %}">
+
+                            <div class="col-12 col-md mt-md-5 order-2 {% if odd %}order-md-1 mr-md-n4{% else %}order-md-2 ml-md-n4{% endif %}">
+
+                                <div class="
+                                    bg-secondary pc-box-shadow text-black
+                                    pt-5 pb-4 pt-md-3 py-md-5 px-4
+                                    ml-sm-3
+                                    {% if odd %}
+                                        pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
+                                    {% else %}
+                                        pr-md-4 pr-lg-5 pl-md-5 pl-lg-6
+                                    {% endif %}
+                                    ">
+
+                                    <h3 class="mt-0 pc-keynoter-name">{{ keynoter.full_name }}</h3>
+
+                                    {% with talk=keynoter.talks.all|first %}
+                                        {% if talk.is_public and phases.talks != 'not_public' %}
+                                            <p class="pc-keynoter-talk mt-n3">
+                                                {% if phases.talks == 'details_public' %}
+                                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                                                        {{ talk.title }}
+                                                    </a>
+                                                {% else %}
+                                                    {{ talk.title }}
+                                                {% endif %}
+                                            </p>
+                                        {% endif %}
+                                    {% endwith %}
+
+                                    {{ keynoter.short_bio|markdown }}
+
+                                    {% if keynoter.twitter or keynoter.github %}
+                                        <p class="mt-4 mb-0">
+                                            {% if keynoter.twitter %}
+                                                <a class="d-inline-block mr-4 pc-iconlink pc-iconlink-twitter" href="http://twitter.com/{{ keynoter.twitter }}">
+                                                    {{ keynoter.twitter }}
+                                                </a>
+                                            {% endif %}
+                                            {% if keynoter.github %}
+                                                <a class="d-inline-block pc-iconlink pc-iconlink-github" href="http://github.com/{{ keynoter.github }}">
+                                                    {{ keynoter.github }}
+                                                </a>
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-4 mb-n4 mb-md-0  order-1 {% if odd %}order-md-2{% else %}order-md-1{% endif %}">
+                                <img class="img-fluid pc-img-effect" src="{{ keynoter.photo.url }}" alt="">
+                            </div>
+
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
     {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" allowfullscreen></iframe>
