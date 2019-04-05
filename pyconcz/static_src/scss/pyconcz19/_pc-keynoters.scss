@@ -2,7 +2,11 @@
 
     &-name {
         text-transform: initial;
-        font-size: 2.5rem;
+        font-size: 2rem;
+
+        @include media-breakpoint-up(xs) {
+            font-size: 2.5rem;
+        }
     }
 
     &-talk {
