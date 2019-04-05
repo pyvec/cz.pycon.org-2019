@@ -4,7 +4,7 @@
 
 .pc-linkbar-image {
     display: block;
-    margin: 0 auto map_get($spacers, 2);
+    margin: 0 auto map-get($spacers, 2);
     height: 5rem;
 
     @include media-breakpoint-up(md) {
