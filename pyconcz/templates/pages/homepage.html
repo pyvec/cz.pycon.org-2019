@@ -47,9 +47,9 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2>Organized by community for community</h2>
+                    <h2 class="text-center">Organized by community for community</h2>
                     <p>5<sup>th</sup> PyCon CZ is organized by <a href="{% url 'team_list' %}">volunteers</a> from <a href="http://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad. Everyone gets a chance to learn, receive support, and connect with others in a friendly atmosphere.</p>
-                    <h3>Attendees said about PyCon&nbsp;CZ</h3>
+                    <h2 class="pc-overline text-center pt-5">Attendees said about PyCon&nbsp;CZ</h2>
                 </div>
             </div>
 
@@ -109,8 +109,12 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <p>Check out short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk&t=9">video from the first PyCon CZ</a> for atmosphere, or watch talks on our <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">Youtube channel</a>.</p>
+                <div class="col-md-8 text-center">
+                    <p>Watch a short video from the first PyCon CZ or check talks from previous years on <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">PyCon&nbsp;CZ YouTube channel</a>.</p>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0&t=9" allowfullscreen></iframe>
+                    </div>
+
                 </div>
             </div>
 
@@ -151,7 +155,7 @@
     </div>
 
     {% if keynoters %}
-        <div class="bg-black">
+        <div class="bg-black" id="keynoters">
             <div class="container">
                 <h2 class="h1 mt-0 mb-4">Keynote speakers</h2>
                 {% for keynoter in keynoters %}
@@ -184,13 +188,9 @@
                                     {% with talk=keynoter.talks.all|first %}
                                         {% if talk.is_public and phases.talks != 'not_public' %}
                                             <p class="pc-keynoter-talk mt-n3">
-                                                {% if phases.talks == 'details_public' %}
-                                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
-                                                        {{ talk.title }}
-                                                    </a>
-                                                {% else %}
+                                                <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
                                                     {{ talk.title }}
-                                                {% endif %}
+                                                </a>
                                             </p>
                                         {% endif %}
                                     {% endwith %}
