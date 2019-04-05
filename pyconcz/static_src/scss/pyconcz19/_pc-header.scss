@@ -184,7 +184,17 @@
     }
 }
 
-.pc-homepage-header-secondary{
-    min-height: 20rem;
+.pc-homepage-header-secondary {
     background-position-y: 100%;
+
+    height: 20vw;
+    max-height: 30vh;
+
+    @include media-breakpoint-up(xs) {
+        height: 30vw;
+    }
+
+    @include media-breakpoint-up(md) {
+        max-height: 20rem;
+    }
 }

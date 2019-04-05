@@ -47,25 +47,15 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2>Organized by community for community</h2>
+                    <h2 class="text-center">Organized by community for community</h2>
                     <p>5<sup>th</sup> PyCon CZ is organized by <a href="{% url 'team_list' %}">volunteers</a> from <a href="http://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad. Everyone gets a chance to learn, receive support, and connect with others in a friendly atmosphere.</p>
-                    <h3>Attendees said about PyCon&nbsp;CZ</h3>
+                    <h2 class="pc-overline text-center pt-5">Attendees said about PyCon&nbsp;CZ</h2>
                 </div>
             </div>
 
             <div class="row no-gutters justify-content-center">
                 <div class="col-12 col-md-11 col-xl-10 pb-5">
                     <div id="carousel" class="carousel carousel-fade slide" data-ride="carousel">
-                        {% comment %}<ol class="carousel-indicators">
-<li data-target="#carousel" data-slide-to="0" class="active"></li>
-<li data-target="#carousel" data-slide-to="1"></li>
-<li data-target="#carousel" data-slide-to="2"></li>
-<li data-target="#carousel" data-slide-to="3"></li>
-<li data-target="#carousel" data-slide-to="4"></li>
-<li data-target="#carousel" data-slide-to="5"></li>
-<li data-target="#carousel" data-slide-to="6"></li>
-<li data-target="#carousel" data-slide-to="7"></li>
-</ol>{% endcomment %}
                         <div class="carousel-inner justify-content-center">
                             {% emojified %}
                                 <div class="carousel-item active">
@@ -78,36 +68,24 @@
                                     <div class="pc-carousel-item-text">
                                         <div>I had a lovely time at <a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> - thank you, organizers for your hard work!</div>
                                         <span class="pc-carousel-item-author">Ann (@AE3nn)</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="pc-carousel-item-text">
-                                        <div><a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> this year was awesome! Can&#39;t wait to visit next one, thanks to everyone who made it happen and who i got to talk to during the conference :)</div>
-                                        <span class="pc-carousel-item-author">Zue (@FerkiZue)</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="pc-carousel-item-text">
-                                        <div>Thanks <a href="https://twitter.com/pyconcz">@pyconcz</a> organizers for their enormous effort to create such welcome and friendly community atmosphere and a great conference! Enjoyed it to the last bit. See you sometimes soon... <a href="https://twitter.com/hashtag/PyConCZ">#PyConCZ</a></div>
-                                        <span class="pc-carousel-item-author">Tomáš Hroch (@TomasHroch)</span>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="pc-carousel-item-text">
                                         <div>Just want to thank <a href="https://twitter.com/pyconcz">@pyconcz</a> organizers for such great event! Completely well done job! Enjoyed the conference and after party so much! Great people, even better atmosphere! <a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> <a href="https://twitter.com/hashtag/python">#python</a></div>
                                         <span class="pc-carousel-item-author">Igor Davydenko (@playpausenstop)</span>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="pc-carousel-item-text">
-                                        <div><a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> over but I am still looking on a bright side of life <a href="https://t.co/RuMrinYOGi">pic.twitter.com/&#8203;RuMrinYOGi</a></div>
-                                        <span class="pc-carousel-item-author">Petr Simecek (@simecek)</span>
+                                        <div><a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> this year was awesome! Can&#39;t wait to visit next one, thanks to everyone who made it happen and who i got to talk to during the conference :)</div>
+                                        <span class="pc-carousel-item-author">Zue (@FerkiZue)</span>
+                                        <div>An extremely successful first day at <a href="https://twitter.com/hashtag/PyConCZ">#PyConCZ</a>. To <a href="https://twitter.com/BaraDrb">@BaraDrb</a> and all the other organizers… Bravo! Well done. 👏</div>
+                                        <span class="pc-carousel-item-author">Justin Mayer (@jmayer)</span>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="pc-carousel-item-text">
-                                        <div>An extremely successful first day at <a href="https://twitter.com/hashtag/PyConCZ">#PyConCZ</a>. To <a href="https://twitter.com/BaraDrb">@BaraDrb</a> and all the other organizers… Bravo! Well done. 👏</div>
-                                        <span class="pc-carousel-item-author">Justin Mayer (@jmayer)</span>
+                                        <div>Thanks <a href="https://twitter.com/pyconcz">@pyconcz</a> organizers for their enormous effort to create such welcome and friendly community atmosphere and a great conference! Enjoyed it to the last bit. See you sometimes soon... <a href="https://twitter.com/hashtag/PyConCZ">#PyConCZ</a></div>
+                                        <span class="pc-carousel-item-author">Tomáš Hroch (@TomasHroch)</span>
+                                        <div><a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> over but I am still looking on a bright side of life <a href="https://t.co/RuMrinYOGi">pic.twitter.com/&#8203;RuMrinYOGi</a></div>
+                                        <span class="pc-carousel-item-author">Petr Simecek (@simecek)</span>
                                     </div>
                                 </div>
                                 <div class="carousel-item" lang="cs">
@@ -131,11 +109,14 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <p>Check out short <a href="https://www.youtube.com/watch?v=venjk_cL-Gk&t=9">video from the first PyCon CZ</a> for atmosphere, or watch talks on our <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">Youtube channel</a>.</p>
+                <div class="col-md-8 text-center">
+                    <p>Watch a short video from the first PyCon CZ or check talks from previous years on <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">PyCon&nbsp;CZ YouTube channel</a>.</p>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0&t=9" allowfullscreen></iframe>
+                    </div>
+
                 </div>
             </div>
-
 
         </div>
     </div>
@@ -172,6 +153,78 @@
             </div>
         </div>
     </div>
+
+    {% if keynoters %}
+        <div class="bg-black" id="keynoters">
+            <div class="container">
+                <h2 class="h1 mt-0 mb-4">Keynote speakers</h2>
+                {% for keynoter in keynoters %}
+                    {% with odd=forloop.counter|divisibleby:'2' %}
+                        <div class="row no-gutters pc-keynoter mb-6 {% if odd %}justify-content-end{% endif %}">
+
+                            <div class="
+                                col-12 col-md mt-md-5 order-2
+                                {% if odd %}
+                                    order-md-1 mr-md-n4
+                                {% else %}
+                                    order-md-2 ml-md-n4
+                                {% endif %}
+                                ">
+
+                                <div class="
+                                    bg-secondary pc-box-shadow text-black
+                                    pt-5 pb-4 pt-md-3 py-md-5 px-4
+                                    {% if odd %}
+                                        ml-sm-3
+                                        pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
+                                    {% else %}
+                                        mr-sm-3
+                                        pr-md-4 pr-lg-5 pl-md-5 pl-lg-6
+                                    {% endif %}
+                                    ">
+
+                                    <h3 class="mt-0 pc-keynoter-name">{{ keynoter.full_name }}</h3>
+
+                                    {% with talk=keynoter.talks.all|first %}
+                                        {% if talk.is_public and phases.talks != 'not_public' %}
+                                            <p class="pc-keynoter-talk mt-n3">
+                                                <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                                                    {{ talk.title }}
+                                                </a>
+                                            </p>
+                                        {% endif %}
+                                    {% endwith %}
+
+                                    {{ keynoter.short_bio|markdown }}
+
+                                    {% if keynoter.twitter or keynoter.github %}
+                                        <p class="mt-4 mb-0">
+                                            {% if keynoter.twitter %}
+                                                <a class="d-inline-block mr-4 pc-iconlink pc-iconlink-twitter" href="http://twitter.com/{{ keynoter.twitter }}">
+                                                    {{ keynoter.twitter }}
+                                                </a>
+                                            {% endif %}
+                                            {% if keynoter.github %}
+                                                <a class="d-inline-block pc-iconlink pc-iconlink-github" href="http://github.com/{{ keynoter.github }}">
+                                                    {{ keynoter.github }}
+                                                </a>
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                            <div class="pc-keynoter-photo col-12 col-sm-6 col-md-4 mb-n4 mb-md-0  order-1 {% if odd %}order-md-2{% else %}order-md-1{% endif %}">
+                                <img class="img-fluid pc-img-effect" src="{{ keynoter.photo.url }}" alt="">
+                            </div>
+
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 
     {% comment %}
         <div class="embed-responsive embed-responsive-16by9">
