@@ -27,23 +27,33 @@
     }
 
     @include media-breakpoint-up(sm) {
-        min-height: 13rem;
+        min-height: 22rem;
     }
 
     @include media-breakpoint-up(md) {
-        min-height: 12rem;
+        min-height: 20rem;
         width: 64%;
     }
 
     @include media-breakpoint-up(lg) {
-        min-height: 10rem;
+        min-height: 16rem;
         width: 66%;
     }
 
     @include media-breakpoint-up(xl) {
-        min-height: 9rem;
+        min-height: 14rem;
         width: 74%;
     }
+
+    a {
+        color: $white;
+    }
+
+    img {
+        max-height: 1.3rem;
+        vertical-align: middle;
+    }
+
 }
 
 .pc-carousel-item-author {
@@ -52,4 +62,8 @@
     display: block;
     margin-top: $spacer;
     font-family: $font-family-sans-serif;
+}
+
+.pc-carousel-item-author + div {
+    margin-top: map-get($spacers, 4);
 }
