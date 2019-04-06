@@ -1,0 +1,48 @@
+{% extends '_layout.html' %}
+
+
+{% load formatting %}
+
+
+{% block meta_title %}{{ list_title }}{% endblock %}
+
+
+{% block main %}
+    <div class="container-fluid">
+
+        <nav role="navigation" class="d-none d-md-block">
+            {% include '_menu_programme.html' %}
+        </nav>
+
+        <h1>{% block list_title %}{{ list_title }}{% endblock %}</h1>
+
+        {% block top_info %}{% endblock %}
+
+        <div>
+            {% for session in sessions %}
+                {% block session %}
+                    <div>
+                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session.type talk_id=session.id %}"{% endif %}>
+                            <h2>{{ session.title }}</h2>
+                        </a>
+
+                        {% for speaker in session.speakers %}
+                        <div style="background-image: url({{ speaker.photo.url }})"></div>
+
+                        <h2>{{ speaker.full_name }}</h2>
+                        {% endfor %}
+
+                            <div>
+                                {% if session.title == 'TBD' %}
+                                    This {{ session.type }} will be announced later
+                                {% else %}
+                                    {{ session.title|markdown|cut:'<p>'|cut:'</p>' }}
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endblock %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
