@@ -51,6 +51,7 @@ class Talk(models.Model):
         ('en', 'English (preferred)'),
         ('cs', 'Czechoslovak'),
     )
+    type = 'talk'  # for symmetry with workshops/sprints
 
     title = models.CharField(max_length=200)
     abstract = models.TextField()
