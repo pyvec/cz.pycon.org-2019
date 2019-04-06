@@ -18,7 +18,7 @@ def preview(request):
     )
 
 
-def talk_list(request):
+def talks_list(request):
     talks = (Talk.objects.filter(is_public=True)
         .filter(is_public=True, is_backup=False)
         .order_by('title'))
@@ -26,11 +26,11 @@ def talk_list(request):
     return TemplateResponse(
         request,
         template='programme/session_list.html',
-        context={'sessions': talks, 'list_title':'Talks'}
+        context={'sessions': talks, 'list_title': 'Talks'}
     )
 
 
-def workshop_list(request):
+def workshops_list(request):
     workshops = (Workshop.objects.filter(is_public=True)
         .filter(is_public=True, is_backup=False)
         .order_by('title'))
@@ -38,7 +38,7 @@ def workshop_list(request):
     return TemplateResponse(
         request,
         template='programme/session_list.html',
-        context={'sessions': workshops, 'list_title':'Workshops'}
+        context={'sessions': workshops, 'list_title': 'Workshops'}
     )
 
 
