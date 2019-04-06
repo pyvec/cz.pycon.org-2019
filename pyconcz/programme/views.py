@@ -8,6 +8,16 @@ from django.conf import settings
 from .models import Speaker, Slot, EndTime, Talk, Workshop
 
 
+def preview(request):
+    speakers = Speaker.objects.prefetch_related('talks', 'workshops').order_by('full_name')
+
+    return TemplateResponse(
+        request,
+        template='programme/preview.html',
+        context={'speakers': speakers}
+    )
+
+
 def speakers_list(request, type):
     speakers = (Speaker.objects.filter(is_public=True).filter(
         **{type+'__is_public': True, type+'__is_backup': False})
