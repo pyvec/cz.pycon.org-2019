@@ -35,8 +35,10 @@
 
 
 {% block link_sponsorship %}
-    {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
-        {{ block.super }}
+    {% if phases.talks == 'not_public' and phases.workshops == 'not_public' %}
+        {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
+            {{ block.super }}
+        {% endif %}
     {% endif %}
 {% endblock %}
 
