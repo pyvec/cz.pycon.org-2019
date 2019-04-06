@@ -26,8 +26,19 @@
                                 <span class="badge badge-warning">not public</span>
                             {% endif %}
                         <p>
-                            Twitter <a href="https://twitter.com/{{ speaker.twitter }}">@{{ speaker.twitter }}</a>
-                            <br>GitHub <a href="https://github.com/{{ speaker.github }}">{{ speaker.github }}</a>
+                            Twitter
+                            {% if speaker.twitter %}
+                                <a href="https://twitter.com/{{ speaker.twitter }}">https://twitter.com/{{ speaker.twitter }}</a>
+                            {% else %}
+                                <span class="badge badge-warning">not set</span>
+                            {% endif %}
+
+                            <br>GitHub
+                            {% if speaker.twitter %}
+                                <a href="https://github.com/{{ speaker.github }}">https://github.com/{{ speaker.github }}</a>
+                            {% else %}
+                                <span class="badge badge-warning">not set</span>
+                            {% endif %}
                         </p>
 
                     </div>
