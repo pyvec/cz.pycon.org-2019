@@ -33,6 +33,12 @@
     {% endif %}
 {% endblock %}
 
+{% block link_sponsors %}
+    {# show sponsors only if programme is not public #}
+    {% if phases.talks == 'not_public' and phases.workshops == 'not_public' and phases.schedule == 'not_public' %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
 
 {% block link_sponsorship %}
     {% if phases.talks == 'not_public' and phases.workshops == 'not_public' %}

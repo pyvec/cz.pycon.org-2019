@@ -45,13 +45,13 @@ If you want to remove a menu item globally, comment it out here.
 
             {% block link_talks %}
                 {% if phases.talks != 'not_public' %}
-                    {% include '__nav-link.html' with url='speakers_list' type='talks' link_text='Talks' %}
+                    {% include '__nav-link.html' with url='talks_list' link_text='Talks' %}
                 {% endif %}
             {% endblock %}
 
             {% block link_workshops %}
                 {% if phases.workshops != 'not_public' %}
-                    {% include '__nav-link.html' with url='speakers_list' type='workshops' link_text='Workshops' %}
+                    {% include '__nav-link.html' with url='workshops_list' link_text='Workshops' %}
                 {% endif %}
             {% endblock %}
 
