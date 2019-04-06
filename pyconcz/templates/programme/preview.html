@@ -80,7 +80,8 @@
                             {% endif %}
                         </p>
 
-                        <img src="{{ speaker.photo.url }}" alt="" class="img-fluid pc-img-effect mb-3" style="width: 440px;">
+                        <img src="{{ speaker.photo.url }}" alt="" class="img-fluid pc-img-effect mb-3 border border-primary" style="width: 440px;">
+
                     </div>
                     <div class="col-6 bg-dark">
                         {% include 'programme/__preview-session.html' with sessions=speaker.talks.all %}
