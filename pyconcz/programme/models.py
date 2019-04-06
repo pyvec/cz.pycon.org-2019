@@ -30,9 +30,13 @@ class Speaker(models.Model):
 
     def _talkws_export(self, type_):
         qs = self.talks.all() if type_ == 'talk' else self.workshops.all()
-        return '\n'.join(['%s | %s' % (t.title, 'https://cz.pycon.org'+reverse('talk_detail',
-                                                                               kwargs={'type': type_, 'talk_id': t.id}),
-                                       ) for t in qs])
+        return '\n'.join([
+            '%s | %s' % (
+                t.title, 'https://cz.pycon.org'
+                + reverse('session_detail', kwargs={'type': type_, 'talk_id': t.id}),
+            )
+            for t in qs
+        ])
 
     def talks_export(self):
         return self._talkws_export('talk')

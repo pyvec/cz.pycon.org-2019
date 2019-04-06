@@ -188,7 +188,7 @@
                                     {% with talk=keynoter.talks.all|first %}
                                         {% if talk.is_public and phases.talks != 'not_public' %}
                                             <p class="pc-keynoter-talk mt-n3">
-                                                <a href="{% url 'talk_detail' type='talk' talk_id=talk.id %}">
+                                                <a href="{% url 'session_detail' type='talk' session_id=talk.id %}">
                                                     {{ talk.title }}
                                                 </a>
                                             </p>

@@ -22,7 +22,7 @@
             {% for session in sessions %}
                 {% block session %}
                     <div>
-                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session.type talk_id=session.id %}"{% endif %}>
+                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'session_detail' type=session.type session_id=session.id %}"{% endif %}>
                             <h2>{{ session.title }}</h2>
                         </a>
 

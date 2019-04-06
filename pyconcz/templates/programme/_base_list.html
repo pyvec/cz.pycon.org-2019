@@ -19,7 +19,7 @@
             {% for speaker in speakers %}
                 {% block item %}
                     <div>
-                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'talk_detail' type=session_type talk_id=session.id %}"{% endif %}>
+                        <a class="d-block h-100" {% if session.title != 'TBD' %}href="{% url 'session_detail' type=session_type session_id=session.id %}"{% endif %}>
                             <div style="background-image: url({{ speaker.photo.url }})"></div>
 
                             <h2>{{ speaker.full_name }}</h2>

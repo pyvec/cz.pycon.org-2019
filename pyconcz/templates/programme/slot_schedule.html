@@ -210,7 +210,7 @@
                                                         {% if slot_item.content_type.model == 'talk' %}
                                                             <a
                                                                 class="d-block -serif {% if slot_item.room == 1 %} {% elif slot_item.room == 2 %} {% elif slot_item.room < 20 %} {% elif slot_item.room == 20 %} {% elif slot_item.room == 50 %} {% else %} {% endif %}"
-                                                                href="{% url 'talk_detail' type='talk' talk_id=slot_item.content_object.id %}"
+                                                                href="{% url 'session_detail' type='talk' session_id=slot_item.content_object.id %}"
                                                             >
                                                                 {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
                                                             </a>
@@ -218,7 +218,7 @@
                                                         {% elif slot_item.content_type.model == 'workshop' %}
                                                             <a
                                                                 class="d-block -serif {% if slot_item.room == 1 %} {% elif slot_item.room == 2 %} {% elif slot_item.room < 20 %} {% elif slot_item.room == 20 %} {% elif slot_item.room == 50 %} {% else %} {% endif %}"
-                                                                href="{% url 'talk_detail' type='workshop' talk_id=slot_item.content_object.id %}"
+                                                                href="{% url 'session_detail' type='workshop' session_id=slot_item.content_object.id %}"
                                                             >
                                                                 {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
                                                             </a>
