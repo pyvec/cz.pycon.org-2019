@@ -14,7 +14,7 @@ class Speaker(models.Model):
     github = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
 
-    photo = models.ImageField(upload_to='programme/pyconcz2018/')
+    photo = models.ImageField(upload_to='programme/speakers/')
 
     talks = models.ManyToManyField('Talk', blank=True, related_name='talk_speakers')
     workshops = models.ManyToManyField('Workshop', blank=True, related_name='ws_speakers')
