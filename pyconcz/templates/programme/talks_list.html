@@ -10,8 +10,15 @@
 {% block speakers_title %}Talks{% endblock %}
 
 
-{% block item %}
-    {% with session_type='talk' session=speaker.talks.all|first %}
+{% block details_info %}
+    {% if phases.talks == 'list_public' %}
+        <p class="lead">We will publish talks’ details later.</p>
+    {% endif %}
+{% endblock %}
+
+
+{% block detail_link %}
+    {% if phases.talks == 'details_public' %}
         {{ block.super }}
-    {% endwith %}
+    {% endif %}
 {% endblock %}

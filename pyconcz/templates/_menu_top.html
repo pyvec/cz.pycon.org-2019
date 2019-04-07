@@ -33,10 +33,18 @@
     {% endif %}
 {% endblock %}
 
+{% block link_sponsors %}
+    {# show sponsors only if programme is not public #}
+    {% if phases.talks == 'not_public' and phases.workshops == 'not_public' and phases.schedule == 'not_public' %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
 
 {% block link_sponsorship %}
-    {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
-        {{ block.super }}
+    {% if phases.talks == 'not_public' and phases.workshops == 'not_public' %}
+        {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
+            {{ block.super }}
+        {% endif %}
     {% endif %}
 {% endblock %}
 
