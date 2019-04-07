@@ -25,8 +25,8 @@ def talks_list(request):
 
     return TemplateResponse(
         request,
-        template='programme/session_list.html',
-        context={'sessions': talks, 'list_title': 'Talks'}
+        template='programme/talks_list.html',
+        context={'sessions': talks}
     )
 
 
@@ -37,8 +37,8 @@ def workshops_list(request):
 
     return TemplateResponse(
         request,
-        template='programme/session_list.html',
-        context={'sessions': workshops, 'list_title': 'Workshops'}
+        template='programme/workshops_list.html',
+        context={'sessions': workshops}
     )
 
 
