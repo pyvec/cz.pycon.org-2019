@@ -109,7 +109,7 @@
                         {% for talk_other in speaker.talks.all %}
                             {% if talk_other.id != talk.id %}
                                 <h3>
-                                    <a href="{% url 'talk_detail' type='talk' talk_id=talk_other.id %}">
+                                    <a href="{% url 'session_detail' type='talk' session_id=talk_other.id %}">
                                         {{ talk_other.title }}
                                     </a>
                                 </h3>
@@ -125,7 +125,7 @@
                                 {% if other_session_type == 'talk' %}has a talk:{% endif %}
                                 <a
                                     class="small d-block"
-                                    href="{% url 'talk_detail' type=other_session_type talk_id=other_session.id %}"
+                                    href="{% url 'session_detail' type=other_session_type session_id=other_session.id %}"
                                 >
                                     {{ other_session.title }}
                                 </a>

@@ -7,11 +7,18 @@
 {% block meta_title %}Workshops – {{ block.super }}{% endblock %}
 
 
-{% block speakers_title %}Workshops{% endblock %}
+{% block speakers_title %}Work&shy;shops{% endblock %}
 
 
-{% block item %}
-    {% with session_type='workshop' session=speaker.workshops.all|first %}
+{% block details_info %}
+    {% if phases.workshops == 'list_public' %}
+        <p class="lead">We will publish workshops’ details later.</p>
+    {% endif %}
+{% endblock %}
+
+
+{% block detail_link %}
+    {% if phases.workshops == 'details_public' %}
         {{ block.super }}
-    {% endwith %}
+    {% endif %}
 {% endblock %}

@@ -161,10 +161,10 @@
     $spacers: ();
     $spacers: (
         //0: 0,
-        //1: ($spacer * .25),
-        //2: ($spacer * .5),
-        //3: $spacer,
-        //4: ($spacer * 1.5),
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
         5: ($spacer * 2.8),
         6: ($spacer * 5)
     ); $spacers: $spacers !global;
@@ -725,22 +725,22 @@
 
     // Cards
 
-    // $card-spacer-y: .75rem; $card-spacer-y: $card-spacer-y !global; // .75rem
-    // $card-spacer-x: 1.25rem; $card-spacer-x: $card-spacer-x !global; // 1.25rem
-    // $card-border-width: $border-width; $card-border-width: $card-border-width !global; // $border-width
+     $card-spacer-y: map-get($spacers, 3); $card-spacer-y: $card-spacer-y !global; // .75rem
+     $card-spacer-x: map-get($spacers, 3); $card-spacer-x: $card-spacer-x !global; // 1.25rem
+     $card-border-width: 0; $card-border-width: $card-border-width !global; // $border-width
     // $card-border-radius: $border-radius; $card-border-radius: $card-border-radius !global; // $border-radius
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global; // rgba($black, .125)
     // $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}); $card-inner-border-radius: $card-inner-border-radius !global; // calc(#{$card-border-radius} - #{$card-border-width})
     // $card-cap-bg: rgba($black, .03); $card-cap-bg: $card-cap-bg !global; // rgba($black, .03)
     // $card-bg: $white; $card-bg: $card-bg !global; // $white
 
-    // $card-img-overlay-padding: 1.25rem; $card-img-overlay-padding: $card-img-overlay-padding !global; // 1.25rem
+     $card-img-overlay-padding: map-get($spacers, 3); $card-img-overlay-padding: $card-img-overlay-padding !global; // 1.25rem
 
     // $card-group-margin: ($grid-gutter-width / 2); $card-group-margin: $card-group-margin !global; // ($grid-gutter-width / 2)
     // $card-deck-margin: $card-group-margin; $card-deck-margin: $card-deck-margin !global; // $card-group-margin
 
     // $card-columns-count: 3; $card-columns-count: $card-columns-count !global; // 3
-    // $card-columns-gap: 1.25rem; $card-columns-gap: $card-columns-gap !global; // 1.25rem
+     $card-columns-gap: map-get($spacers, 3); $card-columns-gap: $card-columns-gap !global; // 1.25rem
     // $card-columns-margin: $card-spacer-y; $card-columns-margin: $card-columns-margin !global; // $card-spacer-y
 
     // Tooltips

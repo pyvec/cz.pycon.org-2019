@@ -18,27 +18,27 @@ def preview(request):
     )
 
 
-def talk_list(request):
+def talks_list(request):
     talks = (Talk.objects.filter(is_public=True)
-        .filter(is_public=True, is_backup=False)
-        .order_by('title'))
+             .filter(is_public=True, is_backup=False)
+             .order_by('title'))
 
     return TemplateResponse(
         request,
-        template='programme/session_list.html',
-        context={'sessions': talks, 'list_title':'Talks'}
+        template='programme/talks_list.html',
+        context={'sessions': talks}
     )
 
 
-def workshop_list(request):
+def workshops_list(request):
     workshops = (Workshop.objects.filter(is_public=True)
-        .filter(is_public=True, is_backup=False)
-        .order_by('title'))
+                 .filter(is_public=True, is_backup=False)
+                 .order_by('title'))
 
     return TemplateResponse(
         request,
-        template='programme/session_list.html',
-        context={'sessions': workshops, 'list_title':'Workshops'}
+        template='programme/workshops_list.html',
+        context={'sessions': workshops}
     )
 
 
@@ -56,9 +56,9 @@ def speakers_list(request, type):
     )
 
 
-def talk_detail(request, type, talk_id):
+def session_detail(request, type, session_id):
     MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
-    obj = get_object_or_404(MODEL_MAP.get(type), id=talk_id, is_public=True)
+    obj = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True)
 
     return TemplateResponse(
         request,

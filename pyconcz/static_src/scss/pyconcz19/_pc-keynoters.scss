@@ -1,7 +1,7 @@
 .pc-keynoter {
 
     &-name {
-        text-transform: initial;
+        text-transform: none;
         font-size: 2rem;
 
         @include media-breakpoint-up(xs) {

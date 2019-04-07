@@ -30,9 +30,13 @@ class Speaker(models.Model):
 
     def _talkws_export(self, type_):
         qs = self.talks.all() if type_ == 'talk' else self.workshops.all()
-        return '\n'.join(['%s | %s' % (t.title, 'https://cz.pycon.org'+reverse('talk_detail',
-                                                                               kwargs={'type': type_, 'talk_id': t.id}),
-                                       ) for t in qs])
+        return '\n'.join([
+            '%s | %s' % (
+                t.title, 'https://cz.pycon.org'
+                + reverse('session_detail', kwargs={'type': type_, 'talk_id': t.id}),
+            )
+            for t in qs
+        ])
 
     def talks_export(self):
         return self._talkws_export('talk')
@@ -63,6 +67,7 @@ class Talk(models.Model):
     is_backup = models.BooleanField(default=False, blank=True)
     is_keynote = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     class Meta:
         ordering = ('title',)
@@ -133,6 +138,7 @@ class Workshop(models.Model):
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     registration = models.CharField(
         max_length=10, choices=REGISTRATION, default='free', blank='free'

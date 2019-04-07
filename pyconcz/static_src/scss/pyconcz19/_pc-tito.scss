@@ -1,0 +1,10 @@
+.tito-tickets-button {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .my-3;
+    @extend .mx-auto;
+    display: block;
+    padding: 1rem 2rem;
+    line-height: 1;
+    min-width: 80%;
+}
