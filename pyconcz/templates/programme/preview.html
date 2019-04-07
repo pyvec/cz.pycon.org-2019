@@ -44,11 +44,9 @@
                     </div>
                     <div class="col">
                         {% with words=speaker.bio|markdown|striptags|wordcount %}
-                            <p class="h3 p-3 text-white {% if words < 40 or words > 100 %}bg-danger{% else %}bg-info{% endif %}">
+                            <p class="h3 p-3 text-white {% if words < 40 or words > 100 %}bg-danger{% else %}bg-light{% endif %}">
                                 Bio has
                                 <b>{{ words }}</b>&nbsp;words
-                                or {{ speaker.bio|markdown|striptags|length }}&nbsp;characters
-
                                 {% if words < 40 %}
                                     But should be more than 50 words.
                                 {% elif words > 100 %}
@@ -63,11 +61,9 @@
 
                         {% if session.is_keynote %}
                             {% with words=speaker.short_bio|markdown|striptags|wordcount %}
-                                <p class="h3 p-3 text-white {% if words < 40 or words > 90 %}bg-danger{% else %}bg-info{% endif %}">
+                                <p class="h3 p-3 text-white {% if words < 40 or words > 90 %}bg-danger{% else %}bg-light{% endif %}">
                                     Short Bio (for homepage) has
                                     <b>{{ words }}</b>&nbsp;words
-                                    or {{ speaker.short_bio|markdown|striptags|length }}&nbsp;characters
-
                                     {% if words < 40 %}
                                         But should be more than 50 words.
                                     {% elif words > 90 %}
@@ -81,7 +77,7 @@
                             </div>
                         {% endif %}
 
-                        <p class="h3 mt-0 p-3 text-white {% if speaker.photo.width < 880 or speaker.photo.height < 880 %}bg-danger{% else %}bg-info{% endif %}">
+                        <p class="h3 mt-0 p-3 text-white {% if speaker.photo.width < 880 or speaker.photo.height < 880 %}bg-danger{% else %}bg-light{% endif %}">
                             Photo is
                             {{ speaker.photo.width }}&nbsp;px × {{ speaker.photo.height }}&nbsp;px
                             {% if speaker.photo.width != speaker.photo.height %}
