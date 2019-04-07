@@ -67,6 +67,7 @@ class Talk(models.Model):
     is_backup = models.BooleanField(default=False, blank=True)
     is_keynote = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     class Meta:
         ordering = ('title',)
@@ -137,6 +138,7 @@ class Workshop(models.Model):
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     registration = models.CharField(
         max_length=10, choices=REGISTRATION, default='free', blank='free'
