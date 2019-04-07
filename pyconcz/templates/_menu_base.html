@@ -7,7 +7,7 @@ If you want to remove a menu item globally, comment it out here.
 {% endcomment %}
 {% block nav %}
     <ul class="{% block wrapper_classes %}nav{% endblock %}">
-        {% block menu_items %}
+        {% block pre_session_links %}
 
             {% block link_home %}
                 {% include '__nav-link.html' with url='homepage' link_text='Home' %}
@@ -42,18 +42,27 @@ If you want to remove a menu item globally, comment it out here.
                     {% include '__nav-link.html' with url='proposal_about' key='financial-aid' link_text='Financial Aid' %}
                 {% endif %}
             {% endblock %}
+        {% endblock %}
 
-            {% block link_talks %}
-                {% if phases.talks != 'not_public' %}
-                    {% include '__nav-link.html' with url='talks_list' link_text='Talks' %}
-                {% endif %}
-            {% endblock %}
+        {% block link_talks %}
+            {% if phases.talks != 'not_public' %}
+                {% include '__nav-link.html' with url='talks_list' link_text='Talks' %}
+            {% endif %}
+        {% endblock %}
 
-            {% block link_workshops %}
-                {% if phases.workshops != 'not_public' %}
-                    {% include '__nav-link.html' with url='workshops_list' link_text='Workshops' %}
-                {% endif %}
-            {% endblock %}
+        {% block link_workshops %}
+            {% if phases.workshops != 'not_public' %}
+                {% include '__nav-link.html' with url='workshops_list' link_text='Workshops' %}
+            {% endif %}
+        {% endblock %}
+
+        {% block link_schedule %}
+            {% if phases.schedule != 'not_public' %}
+                {% include '__nav-link.html' with url='programme_schedule' link_text='Schedule' %}
+            {% endif %}
+        {% endblock %}
+
+        {% block post_session_links %}
 
             {% block link_sponsors %}
                 {% if phases.sponsors == 'details_public' %}
@@ -66,12 +75,6 @@ If you want to remove a menu item globally, comment it out here.
                     {% include '__nav-link.html' with url='homepage' link_text='Sponsorship' extra='#sponsors' %}
                 {% elif phases.sponsorship == 'dedicated_page' %}
                     {% include '__nav-link.html' with url='sponsors_offer' link_text='Sponsorship' %}
-                {% endif %}
-            {% endblock %}
-
-            {% block link_schedule %}
-                {% if phases.schedule != 'not_public' %}
-                    {% include '__nav-link.html' with url='programme_schedule' link_text='Schedule' %}
                 {% endif %}
             {% endblock %}
 
