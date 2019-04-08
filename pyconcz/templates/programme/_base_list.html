@@ -18,14 +18,15 @@
 
         {% block details_info %}{% endblock %}
 
-        <div class="card-columns mb-5">
+        <div class="card-columns mb-5 d-block">
             {% for session in sessions %}
-                <div class="card pc-session bg-dark">
+                <div class="card pc-session bg-transparent">
                     <a
                         class="
-                                card-img-overlay text-white text-decoration-none
-                                d-flex flex-column flex-wrap align-items-stretch
-                            "
+                            pc-img-effect-dark-fallback
+                            card-img-overlay text-white text-decoration-none
+                            d-flex flex-column flex-wrap align-items-stretch
+                        "
                         {% block detail_link %}
                         href="{% url 'session_detail' type=session.type session_id=session.id %}"
                         {% endblock %}
@@ -50,6 +51,7 @@
                             {% endif %}
                         {% endfor %}
                     </a>
+
                     {% if session.in_data_track %}
                         <div class="pc-session-pydata">
                             <span class="sr-only">Is part of PyData track</span>
@@ -57,14 +59,26 @@
                     {% endif %}
 
                     {% for speaker in session.speakers %}
-                        <img
-                            src="{{ speaker.photo.url }}"
-                            class="card-img pc-img-effect-dark {% if not forloop.first %}mt-3{% endif %}"
-                            alt="{{ session.speakers.full_name }} photo"
+                        <div
+                            class="embed-responsive
+                                {% if session.speakers|length > 1 %}
+                                    pc-embed-responsive-1by1-pb-3
+                                {% else %}
+                                    embed-responsive-1by1
+                                {% endif %}
+                            "
                         >
+                            <img
+                                src="{{ speaker.photo.url }}"
+                                class="embed-responsive-item pc-object-fit-cover pc-img-effect-dark"
+                                alt="{{ session.speakers.full_name }} photo"
+                            >
+                        </div>
                     {% endfor %}
-                </div>
 
+                </div>
+            {% empty %}
+                <p class="font-weight-bold">No {% block empty_message_type %}sessions{% endblock %} have been published yet. Please check again later.</p>
             {% endfor %}
         </div>
     </div>
