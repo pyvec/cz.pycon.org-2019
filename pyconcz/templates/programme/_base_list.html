@@ -65,6 +65,8 @@
                     {% endfor %}
                 </div>
 
+            {% empty %}
+                <p class="font-weight-bold">No {% block empty_message_type %}sessions{% endblock %} have been published yet. Please check again later.</p>
             {% endfor %}
         </div>
     </div>
