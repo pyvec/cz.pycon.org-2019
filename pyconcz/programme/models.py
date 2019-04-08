@@ -14,7 +14,7 @@ class Speaker(models.Model):
     github = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
 
-    photo = models.ImageField(upload_to='programme/pyconcz2018/')
+    photo = models.ImageField(upload_to='programme/speakers/')
 
     talks = models.ManyToManyField('Talk', blank=True, related_name='talk_speakers')
     workshops = models.ManyToManyField('Workshop', blank=True, related_name='ws_speakers')
@@ -30,9 +30,13 @@ class Speaker(models.Model):
 
     def _talkws_export(self, type_):
         qs = self.talks.all() if type_ == 'talk' else self.workshops.all()
-        return '\n'.join(['%s | %s' % (t.title, 'https://cz.pycon.org'+reverse('talk_detail',
-                                                                               kwargs={'type': type_, 'talk_id': t.id}),
-                                       ) for t in qs])
+        return '\n'.join([
+            '%s | %s' % (
+                t.title, 'https://cz.pycon.org'
+                + reverse('session_detail', kwargs={'type': type_, 'talk_id': t.id}),
+            )
+            for t in qs
+        ])
 
     def talks_export(self):
         return self._talkws_export('talk')
@@ -51,6 +55,7 @@ class Talk(models.Model):
         ('en', 'English (preferred)'),
         ('cs', 'Czechoslovak'),
     )
+    type = 'talk'  # for symmetry with workshops/sprints
 
     title = models.CharField(max_length=200)
     abstract = models.TextField()
@@ -62,6 +67,7 @@ class Talk(models.Model):
     is_backup = models.BooleanField(default=False, blank=True)
     is_keynote = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     class Meta:
         ordering = ('title',)
@@ -96,7 +102,7 @@ class Workshop(models.Model):
     LENGTH = (
         ('1h', '1 hour'),
         ('2h', '2 hours'),
-        ('2h', '3 hours'),
+        ('3h', '3 hours'),
         ('1d', 'Full day (most sprints go here!)'),
         ('xx', 'Something else! (Please leave a note in the abstract!)')
     )
@@ -132,6 +138,7 @@ class Workshop(models.Model):
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     registration = models.CharField(
         max_length=10, choices=REGISTRATION, default='free', blank='free'

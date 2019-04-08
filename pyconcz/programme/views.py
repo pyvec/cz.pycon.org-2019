@@ -8,6 +8,40 @@ from django.conf import settings
 from .models import Speaker, Slot, EndTime, Talk, Workshop
 
 
+def preview(request):
+    speakers = Speaker.objects.prefetch_related('talks', 'workshops').order_by('full_name')
+
+    return TemplateResponse(
+        request,
+        template='programme/preview.html',
+        context={'speakers': speakers}
+    )
+
+
+def talks_list(request):
+    talks = (Talk.objects.filter(is_public=True)
+             .filter(is_public=True, is_backup=False)
+             .order_by('title'))
+
+    return TemplateResponse(
+        request,
+        template='programme/talks_list.html',
+        context={'sessions': talks}
+    )
+
+
+def workshops_list(request):
+    workshops = (Workshop.objects.filter(is_public=True)
+                 .filter(is_public=True, is_backup=False)
+                 .order_by('title'))
+
+    return TemplateResponse(
+        request,
+        template='programme/workshops_list.html',
+        context={'sessions': workshops}
+    )
+
+
 def speakers_list(request, type):
     speakers = (Speaker.objects.filter(is_public=True).filter(
         **{type+'__is_public': True, type+'__is_backup': False})
@@ -22,9 +56,9 @@ def speakers_list(request, type):
     )
 
 
-def talk_detail(request, type, talk_id):
-    MODEL_MAP = dict(talk=Talk, workshop=Workshop)
-    obj = get_object_or_404(MODEL_MAP.get(type), id=talk_id, is_public=True)
+def session_detail(request, type, session_id):
+    MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
+    obj = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True)
 
     return TemplateResponse(
         request,

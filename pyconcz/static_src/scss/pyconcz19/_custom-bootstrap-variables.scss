@@ -36,8 +36,6 @@
     @import "./node_modules/bootstrap/scss/functions";
     @import "./node_modules/bootstrap/scss/variables";
 
-    $enable-rounded: false !global;
-
     // Variables
     //
     // Variables should follow the `$component-state-property-size` formula for
@@ -80,14 +78,13 @@
     // $pink: #e83e8c; $pink: $pink !global; // #e83e8c
     $red: $pc-red; $red: $red !global; // #dc3545
     $orange: $pc-orange; $orange: $orange !global; // #fd7e14
-    // $yellow: #ffc107; $yellow: $yellow !global; // #ffc107
+    $yellow: lighten($pc-orange, 10%); $yellow: $yellow !global; // #ffc107
     // $green: #28a745; $green: $green !global; // #28a745
     // $teal: #20c997; $teal: $teal !global; // #20c997
     // $cyan: #17a2b8; $cyan: $cyan !global; // #17a2b8
 
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
-    /*
     $colors: (
     //        "blue": $blue,
     //        "indigo": $indigo,
@@ -101,15 +98,14 @@
     //        "cyan": $cyan,
     //        "white": $white,
     //        "gray": $gray-600,
-    //        "gray-dark": $gray-800
+            "gray-dark": $gray-900
     ); $colors: $colors !global;
-    */
 
     $primary: $orange; $primary: $primary !global; // $blue
-    // $secondary: $gray-600; $secondary: $secondary !global; // $gray-600
+    $secondary: $pc-beige; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
-    // $info: $cyan; $info: $info !global; // $cyan
-    // $warning: $yellow; $warning: $warning !global; // $yellow
+    $info: lighten($blue, 10%); $info: $info !global; // $cyan
+     $warning: $yellow; $warning: $warning !global; // $yellow
     // $danger: $red; $danger: $danger !global; // $red
     // $light: $gray-100; $light: $light !global; // $gray-100
     $dark: $gray-900; $dark: $dark !global; // $gray-800
@@ -118,15 +114,14 @@
     // so you can define only new ones you need
     $theme-colors: (
         //        "primary": $primary,
-        //        "secondary": $secondary,
+                "secondary": $pc-beige,
         //        "success": $success,
         //        "info": $info,
         //        "warning": $warning,
         //        "danger": $danger,
         //        "light": $light,
         //        "dark": $dark
-        "black": $pc-black,
-        "beige": $pc-beige
+        "black": $pc-black
     ); $theme-colors: $theme-colors !global;
 
 
@@ -145,7 +140,7 @@
     // Quickly modify global styling by enabling or disabling optional features.
 
     // $enable-caret: true; $enable-caret: $enable-caret !global; // true
-    // $enable-rounded: true; $enable-rounded: $enable-rounded !global; // true
+    $enable-rounded: false; $enable-rounded: $enable-rounded !global; // true
     // $enable-shadows: false; $enable-shadows: $enable-shadows !global; // false
     // $enable-gradients: false; $enable-gradients: $enable-gradients !global; // false
     // $enable-transitions: true; $enable-transitions: $enable-transitions !global; // true
@@ -166,12 +161,12 @@
     $spacers: ();
     $spacers: (
         //0: 0,
-        //1: ($spacer * .25),
-        //2: ($spacer * .5),
-        //3: $spacer,
-        4: ($spacer * 1.333),
-        5: ($spacer * 2.666),
-        6: ($spacer * 4)
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 2.8),
+        6: ($spacer * 5)
     ); $spacers: $spacers !global;
     // the following variable affects the `.h-*` and `.w-*` classes.
     /*
@@ -216,7 +211,7 @@
     // adapting to different screen sizes, for use in media queries.
     $grid-breakpoints: (
         xxs: 0,
-        xs: 480px,
+        xs: 420px,
         sm: 630px,
         md: 850px,
         lg: 1090px,
@@ -260,8 +255,8 @@
     // $box-shadow: 0 .5rem 1rem rgba($black, .15); $box-shadow: $box-shadow !global; // 0 .5rem 1rem rgba($black, .15)
     // $box-shadow-lg: 0 1rem 3rem rgba($black, .175); $box-shadow-lg: $box-shadow-lg !global; // 0 1rem 3rem rgba($black, .175)
 
-    // $component-active-color: $white; $component-active-color: $component-active-color !global; // $white
-    // $component-active-bg: theme-color("primary"); $component-active-bg: $component-active-bg !global; // theme-color("primary")
+     $component-active-color: theme-color("primary"); $component-active-color: $component-active-color !global; // $white
+     $component-active-bg: $black; $component-active-bg: $component-active-bg !global; // theme-color("primary")
 
     // $caret-width: .3em; $caret-width: $caret-width !global; // .3em
 
@@ -643,7 +638,7 @@
     // Navs
 
     // $nav-link-padding-y: .5rem; $nav-link-padding-y: $nav-link-padding-y !global; // .5rem
-    $nav-link-padding-x: 1*$spacer; $nav-link-padding-x: $nav-link-padding-x !global; // 1rem
+    $nav-link-padding-x: $spacer; $nav-link-padding-x: $nav-link-padding-x !global; // 1rem
     // $nav-link-disabled-color: $gray-600; $nav-link-disabled-color: $nav-link-disabled-color !global; // $gray-600
 
     // $nav-tabs-border-color: $gray-300; $nav-tabs-border-color: $nav-tabs-border-color !global; // $gray-300
@@ -654,19 +649,19 @@
     // $nav-tabs-link-active-bg: $body-bg; $nav-tabs-link-active-bg: $nav-tabs-link-active-bg !global; // $body-bg
     // $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg; $nav-tabs-link-active-border-color: $nav-tabs-link-active-border-color !global; // $gray-300 $gray-300 $nav-tabs-link-active-bg
 
-    // $nav-pills-border-radius: $border-radius; $nav-pills-border-radius: $nav-pills-border-radius !global; // $border-radius
-    // $nav-pills-link-active-color: $component-active-color; $nav-pills-link-active-color: $nav-pills-link-active-color !global; // $component-active-color
-    // $nav-pills-link-active-bg: $component-active-bg; $nav-pills-link-active-bg: $nav-pills-link-active-bg !global; // $component-active-bg
+     $nav-pills-border-radius: 0; $nav-pills-border-radius: $nav-pills-border-radius !global; // $border-radius
+     // $nav-pills-link-active-color: $component-active-color; $nav-pills-link-active-color: $nav-pills-link-active-color !global; // $component-active-color
+     // $nav-pills-link-active-bg: $component-active-bg; $nav-pills-link-active-bg: $nav-pills-link-active-bg !global; // $component-active-bg
 
     // $nav-divider-color: $gray-200; $nav-divider-color: $nav-divider-color !global; // $gray-200
     // $nav-divider-margin-y: ($spacer / 2); $nav-divider-margin-y: $nav-divider-margin-y !global; // ($spacer / 2)
 
     // Navbar
 
-    // $navbar-padding-y: ($spacer / 2); $navbar-padding-y: $navbar-padding-y !global; // ($spacer / 2)
+     $navbar-padding-y: 0; $navbar-padding-y: $navbar-padding-y !global; // ($spacer / 2)
     // $navbar-padding-x: $spacer; $navbar-padding-x: $navbar-padding-x !global; // $spacer
 
-    // $navbar-nav-link-padding-x: .5rem; $navbar-nav-link-padding-x: $navbar-nav-link-padding-x !global; // .5rem
+     $navbar-nav-link-padding-x: $spacer; $navbar-nav-link-padding-x: $navbar-nav-link-padding-x !global; // .5rem
 
     // $navbar-brand-font-size: $font-size-lg; $navbar-brand-font-size: $navbar-brand-font-size !global; // $font-size-lg
     // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
@@ -680,8 +675,8 @@
     // $navbar-toggler-border-radius: $btn-border-radius; $navbar-toggler-border-radius: $navbar-toggler-border-radius !global; // $btn-border-radius
 
     $navbar-dark-color: $white; $navbar-dark-color: $navbar-dark-color !global; // rgba($white, .5)
-    $navbar-dark-hover-color: $orange; $navbar-dark-hover-color: $navbar-dark-hover-color !global; // rgba($white, .75)
-    $navbar-dark-active-color: $orange; $navbar-dark-active-color: $navbar-dark-active-color !global; // $white
+    $navbar-dark-hover-color: $primary; $navbar-dark-hover-color: $navbar-dark-hover-color !global; // rgba($white, .75)
+    $navbar-dark-active-color: $primary; $navbar-dark-active-color: $navbar-dark-active-color !global; // $white
     // $navbar-dark-disabled-color: rgba($white, .25); $navbar-dark-disabled-color: $navbar-dark-disabled-color !global; // rgba($white, .25)
     // $navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"); $navbar-dark-toggler-icon-bg: $navbar-dark-toggler-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23")
     // $navbar-dark-toggler-border-color: rgba($white, .1); $navbar-dark-toggler-border-color: $navbar-dark-toggler-border-color !global; // rgba($white, .1)
@@ -730,22 +725,22 @@
 
     // Cards
 
-    // $card-spacer-y: .75rem; $card-spacer-y: $card-spacer-y !global; // .75rem
-    // $card-spacer-x: 1.25rem; $card-spacer-x: $card-spacer-x !global; // 1.25rem
-    // $card-border-width: $border-width; $card-border-width: $card-border-width !global; // $border-width
+     $card-spacer-y: map-get($spacers, 3); $card-spacer-y: $card-spacer-y !global; // .75rem
+     $card-spacer-x: map-get($spacers, 3); $card-spacer-x: $card-spacer-x !global; // 1.25rem
+     $card-border-width: 0; $card-border-width: $card-border-width !global; // $border-width
     // $card-border-radius: $border-radius; $card-border-radius: $card-border-radius !global; // $border-radius
     // $card-border-color: rgba($black, .125); $card-border-color: $card-border-color !global; // rgba($black, .125)
     // $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}); $card-inner-border-radius: $card-inner-border-radius !global; // calc(#{$card-border-radius} - #{$card-border-width})
     // $card-cap-bg: rgba($black, .03); $card-cap-bg: $card-cap-bg !global; // rgba($black, .03)
     // $card-bg: $white; $card-bg: $card-bg !global; // $white
 
-    // $card-img-overlay-padding: 1.25rem; $card-img-overlay-padding: $card-img-overlay-padding !global; // 1.25rem
+     $card-img-overlay-padding: map-get($spacers, 3); $card-img-overlay-padding: $card-img-overlay-padding !global; // 1.25rem
 
     // $card-group-margin: ($grid-gutter-width / 2); $card-group-margin: $card-group-margin !global; // ($grid-gutter-width / 2)
     // $card-deck-margin: $card-group-margin; $card-deck-margin: $card-deck-margin !global; // $card-group-margin
 
     // $card-columns-count: 3; $card-columns-count: $card-columns-count !global; // 3
-    // $card-columns-gap: 1.25rem; $card-columns-gap: $card-columns-gap !global; // 1.25rem
+     $card-columns-gap: map-get($spacers, 3); $card-columns-gap: $card-columns-gap !global; // 1.25rem
     // $card-columns-margin: $card-spacer-y; $card-columns-margin: $card-columns-margin !global; // $card-spacer-y
 
     // Tooltips
@@ -915,24 +910,24 @@
 
     // Carousel
 
-    // $carousel-control-color: $white; $carousel-control-color: $carousel-control-color !global; // $white
-    // $carousel-control-width: 15%; $carousel-control-width: $carousel-control-width !global; // 15%
-    // $carousel-control-opacity: .5; $carousel-control-opacity: $carousel-control-opacity !global; // .5
+     $carousel-control-color: $primary; $carousel-control-color: $carousel-control-color !global; // $white
+     $carousel-control-width: 12%; $carousel-control-width: $carousel-control-width !global; // 15%
+     $carousel-control-opacity: .6; $carousel-control-opacity: $carousel-control-opacity !global; // .5
 
-    $carousel-indicator-width: 5px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
-    $carousel-indicator-height: 5px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
-    $carousel-indicator-spacer: 5px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
-    $carousel-indicator-active-bg: $orange; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
+    // $carousel-indicator-width: 30px; $carousel-indicator-width: $carousel-indicator-width !global; // 30px
+    // $carousel-indicator-height: 3px; $carousel-indicator-height: $carousel-indicator-height !global; // 3px
+    // $carousel-indicator-spacer: 3px; $carousel-indicator-spacer: $carousel-indicator-spacer !global; // 3px
+    // $carousel-indicator-active-bg: $white; $carousel-indicator-active-bg: $carousel-indicator-active-bg !global; // $white
 
     // $carousel-caption-width: 70%; $carousel-caption-width: $carousel-caption-width !global; // 70%
     // $carousel-caption-color: $white; $carousel-caption-color: $carousel-caption-color !global; // $white
 
-    // $carousel-control-icon-width: 20px; $carousel-control-icon-width: $carousel-control-icon-width !global; // 20px
+    $carousel-control-icon-width: 45px; $carousel-control-icon-width: $carousel-control-icon-width !global; // 20px
 
-    // $carousel-control-prev-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23"); $carousel-control-prev-icon-bg: $carousel-control-prev-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"), "#", "%23")
-    // $carousel-control-next-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23"); $carousel-control-next-icon-bg: $carousel-control-next-icon-bg !global; // str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E"), "#", "%23")
+    $carousel-control-prev-icon-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 46'><path fill='none' stroke='#{rgba($carousel-control-color, 0.999999)}' stroke-width='8' d='M26 3L6 23l20 20'/></svg>"); $carousel-control-prev-icon-bg: $carousel-control-prev-icon-bg !global;
+    $carousel-control-next-icon-bg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 46'><path fill='none' stroke='#{rgba($carousel-control-color, 0.999999)}' stroke-width='8' d='M3 3l20 20-20 20'/></svg>"); $carousel-control-next-icon-bg: $carousel-control-next-icon-bg !global;
 
-    // $carousel-transition: transform .6s ease; $carousel-transition: $carousel-transition !global; // transform .6s ease // Define transform transition first if using multiple transitons (e.g., `transform 2s ease, opacity .5s ease-out`)
+    $carousel-transition: transform .3s ease; $carousel-transition: $carousel-transition !global; // transform .6s ease // Define transform transition first if using multiple transitons (e.g., `transform 2s ease, opacity .5s ease-out`)
 
     // Close
 

@@ -1,0 +1,24 @@
+{% extends 'programme/_base_list.html' %}
+
+
+{% load formatting %}
+
+
+{% block meta_title %}Talks – {{ block.super }}{% endblock %}
+
+
+{% block speakers_title %}Talks{% endblock %}
+
+
+{% block details_info %}
+    {% if phases.talks == 'list_public' %}
+        <p class="lead">We will publish talks’ details later.</p>
+    {% endif %}
+{% endblock %}
+
+
+{% block detail_link %}
+    {% if phases.talks == 'details_public' %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+.pc-linkbar {
+    background-image: url("/2019/static/img/grid.svg");
+}
+
+.pc-linkbar-image {
+    display: block;
+    margin: 0 auto map-get($spacers, 2);
+    height: 5rem;
+
+    @include media-breakpoint-up(md) {
+        height: 6.75rem;
+    }
+}
+
+.pc-linkbar-link {
+    display: block;
+    color: $white;
+
+    font-weight: $font-weight-bold;
+    font-family: $font-family-sans-serif;
+    text-decoration: none;
+    text-align: center;
+    transition: all 80ms ease-in-out;
+    font-size: $h4-font-size;
+
+    @include media-breakpoint-up(md) {
+        font-size: $h3-font-size;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $primary;
+        transform: scale(1.1);
+    }
+}

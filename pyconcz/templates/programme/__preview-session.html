@@ -1,0 +1,56 @@
+{% load formatting %}
+
+{% for session in sessions %}
+    <div class="bg-dark text-white p-3 my-3">
+        <h1 class="mt-0">{{ session.type|default:'Talk' }} <a class="btn btn-sm btn-light mt-2" href="/admin/programme/{{ session.type|yesno:'workshop,talk' }}/{{ session.id }}/change/">edit in admin</a></h1>
+
+        <p class="h3 m-0">
+            {% if session.is_keynote %}
+                <span class="badge badge-dark">keynote</span>
+            {% endif %}
+            {% if session.language == 'en' %}
+                <span class="badge badge-success">english</span>
+            {% else %}
+                <span class="badge badge-danger">czech</span>
+            {% endif %}
+            {% if session.difficulty == 'beginner' %}
+                <span class="badge badge-success">beginner</span>
+            {% else %}
+                <span class="badge badge-danger">advanced</span>
+            {% endif %}
+            {% if session.is_public %}
+                <span class="badge badge-success">public</span>
+            {% else %}
+                <span class="badge badge-warning">not public</span>
+            {% endif %}
+            {% if session.is_backup %}
+                <span class="badge badge-info">backup</span>
+            {% endif %}
+            <span class="badge badge-light">display position {{ session.display_position|default:'not set' }}</span>
+        </p>
+    </div>
+    <p class="h3 mt-0 p-3 text-white {% if session.title|length > 55 %}bg-warning{% else %}bg-light{% endif %}">
+        Title has {{ session.title|length }}&nbsp;characters
+        {% if session.title|length > 55 %}Can you make it shorter?{% endif %}
+    </p>
+
+    <p class="display-4 text-monospace mt-4 text-white">
+        {{ session.title }}
+    </p>
+
+    {% with words=session.abstract|markdown|striptags|wordcount %}
+        <p class="h3 mt-0 {% if words < 80 or words > 220 %}bg-danger{% else %}bg-light{% endif %} p-3 text-white">
+            Abstract has
+            <b>{{ words }}</b>&nbsp;words
+            {% if words < 80 %}
+                But should be more than 90 words.
+            {% elif words > 220 %}
+                But should be less than 200 words.
+            {% endif %}
+        </p>
+    {% endwith %}
+
+    <div class="bg-secondary p-3 mb-4">
+        {{ session.abstract|markdown }}
+    </div>
+{% endfor %}

@@ -87,19 +87,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pyconcz.urls'
 
-# PHASE = [
-#     '00-finaid-opened',
-# ]
-#
-# PHASE_CURRENT = 0
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # os.path.join(BASE_DIR, 'templates' + '/' + PHASE[PHASE_CURRENT]),
-            os.path.join(BASE_DIR, 'templates/default/'),
-            os.path.join(BASE_DIR, 'templates/old/'),
+            os.path.join(BASE_DIR, 'templates/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -109,6 +101,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'pyconcz.common.phases.phases_processor',
             ],
         },
     },

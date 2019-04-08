@@ -1,0 +1,38 @@
+{% load static %}
+<table class="results" style="margin: 0 0 -9px; border-width: 0;">
+    <thead>
+    <tr>
+        <th style="background-color: transparent; border-top: 0; padding-bottom: 8px; width: 10%;"></th>
+        <th style="background-color: transparent; border-top: 0; padding-bottom: 8px; width: 20%; padding-left: 8px;">Name</th>
+        <th style="background-color: transparent; border-top: 0; padding-bottom: 8px; width: 75%; padding-left: 8px;">Active since</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for value in values %}
+        <tr>
+            <td style="text-align: right; padding-left: 0; padding-right: 0;">
+                <small>
+                    {% if value == current_value %}
+                        <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13'%3E%3Cpath fill='%23447e9b' d='M6.5.93A5.57 5.57 0 0 0 .93 6.5a5.57 5.57 0 0 0 5.72 5.57 5.57 5.57 0 0 0 5.42-5.57A5.57 5.57 0 0 0 6.65.93zm.05 1.84c.12 0 .23.04.33.13l3.28 3.27c.16.18.17.45 0 .65L6.88 10.1a.48.48 0 0 1-.65 0l-.66-.66a.47.47 0 0 1 0-.65l1.37-1.36H3.31a.48.48 0 0 1-.46-.47v-.92c0-.24.2-.45.46-.47h3.63L5.57 4.21a.48.48 0 0 1 0-.65l.66-.66a.47.47 0 0 1 .32-.13z'/%3E%3C/svg%3E" alt="current value" />
+                    {% endif %}
+                    {% if not value.enabled %}
+                        <img src="{% static 'admin/img/icon-no.svg' %}" alt="not enabled" />
+                    {% endif %}
+                </small>
+            </td>
+            <td>
+                <small>
+                    {% if value == current_value %}
+                        <strong>{{ value }}</strong>
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                </small>
+            </td>
+            <td>
+                <small>{{ value.active_since|date:'Y-m-d  H:i:s' }}</small>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
