@@ -60,7 +60,7 @@ class Talk(models.Model):
     title = models.CharField(max_length=200)
     abstract = models.TextField()
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
-    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner', )
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner')
     video_id = models.CharField(max_length=100, default='', blank=True, help_text='youtube')
 
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
