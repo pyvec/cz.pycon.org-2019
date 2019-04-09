@@ -50,13 +50,15 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                        {% if session.in_data_track %}
+                            <div class="pc-session-pydata">
+                                <div class="pc-session-pydata-holder">
+                                    <span class="pc-session-pydata-text">Is part of the PyData&nbsp;track</span>
+                                </div>
+                            </div>
+                        {% endif %}
                     </a>
 
-                    {% if session.in_data_track %}
-                        <div class="pc-session-pydata">
-                            <span class="sr-only">Is part of PyData track</span>
-                        </div>
-                    {% endif %}
 
                     {% for speaker in session.speakers %}
                         <div

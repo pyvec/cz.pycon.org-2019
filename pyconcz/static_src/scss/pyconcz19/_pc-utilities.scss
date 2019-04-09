@@ -17,7 +17,9 @@
     &-dark {
         filter: $pc-base-effect brightness(0.6);
 
-        a[href]:hover ~ div > & {
+        a[href]:hover ~ div > &,
+        a[href]:focus ~ div > &,
+        a[href]:active ~ div > & {
             filter: $pc-base-effect;
         }
 
