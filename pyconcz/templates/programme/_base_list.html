@@ -5,7 +5,7 @@
 
 
 {% block main %}
-    <div class="container">
+    <div class="container pb-5">
 
         {% comment %}
         {# todo: navigation for workshops, talks and schedule #}
@@ -18,70 +18,72 @@
 
         {% block details_info %}{% endblock %}
 
-        <div class="card-columns mb-5 d-block">
-            {% for session in sessions %}
-                <div class="card pc-session bg-transparent">
-                    <a
-                        class="
+        {% if sessions %}
+            <div class="card-columns d-block">
+                {% for session in sessions %}
+                    <div class="card pc-session bg-transparent">
+                        <a
+                            class="
                             pc-img-effect-dark-fallback
                             card-img-overlay text-white text-decoration-none
                             d-flex flex-column flex-wrap align-items-stretch
                         "
-                        {% block detail_link %}
-                        href="{% url 'session_detail' type=session.type session_id=session.id %}"
-                        {% endblock %}
-                    >
-                        <div class="pc-session-speaker d-flex flex-column justify-content-between">
-                            <h2 class="card-title pc-session-list-heading">
-                                {{ session.title }}
-                            </h2>
+                            {% block detail_link %}
+                            href="{% url 'session_detail' type=session.type session_id=session.id %}"
+                            {% endblock %}
+                        >
+                            <div class="pc-session-speaker d-flex flex-column justify-content-between">
+                                <h2 class="card-title pc-session-list-heading">
+                                    {{ session.title }}
+                                </h2>
 
-                            <p class="card-text font-weight-bold">
-                                {{ session.speakers.0.full_name }}
-                            </p>
-                        </div>
+                                <p class="card-text font-weight-bold">
+                                    {{ session.speakers.0.full_name }}
+                                </p>
+                            </div>
 
-                        {% for speaker in session.speakers %}
-                            {% if forloop.counter0 > 0 %}
-                                <div class="pc-session-speaker">
-                                    <p class="card-text font-weight-bold">
-                                        {{ speaker.full_name }}
-                                    </p>
+                            {% for speaker in session.speakers %}
+                                {% if forloop.counter0 > 0 %}
+                                    <div class="pc-session-speaker">
+                                        <p class="card-text font-weight-bold">
+                                            {{ speaker.full_name }}
+                                        </p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            {% if session.in_data_track %}
+                                <div class="pc-session-pydata">
+                                    <div class="pc-session-pydata-holder">
+                                        <span class="pc-session-pydata-text">Is part of the PyData&nbsp;track</span>
+                                    </div>
                                 </div>
                             {% endif %}
-                        {% endfor %}
-                        {% if session.in_data_track %}
-                            <div class="pc-session-pydata">
-                                <div class="pc-session-pydata-holder">
-                                    <span class="pc-session-pydata-text">Is part of the PyData&nbsp;track</span>
-                                </div>
-                            </div>
-                        {% endif %}
-                    </a>
+                        </a>
 
 
-                    {% for speaker in session.speakers %}
-                        <div
-                            class="embed-responsive
+                        {% for speaker in session.speakers %}
+                            <div
+                                class="embed-responsive
                                 {% if session.speakers|length > 1 %}
                                     pc-embed-responsive-1by1-pb-3
                                 {% else %}
                                     embed-responsive-1by1
                                 {% endif %}
                             "
-                        >
-                            <img
-                                src="{{ speaker.photo.url }}"
-                                class="embed-responsive-item pc-object-fit-cover pc-img-effect-dark"
-                                alt="{{ session.speakers.full_name }} photo"
                             >
-                        </div>
-                    {% endfor %}
+                                <img
+                                    src="{{ speaker.photo.url }}"
+                                    class="embed-responsive-item pc-object-fit-cover pc-img-effect-dark"
+                                    alt="{{ session.speakers.full_name }} photo"
+                                >
+                            </div>
+                        {% endfor %}
 
-                </div>
-            {% empty %}
-                <p class="font-weight-bold">No {% block empty_message_type %}sessions{% endblock %} have been published yet. Please check again later.</p>
-            {% endfor %}
-        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="lead">No {% block empty_message_type %}sessions{% endblock %} have been published yet. Please check again later.</p>
+        {% endif %}
     </div>
 {% endblock %}
