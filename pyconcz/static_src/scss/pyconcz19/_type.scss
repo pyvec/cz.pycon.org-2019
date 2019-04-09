@@ -103,3 +103,14 @@ ul:not(.nav) {
         white-space: nowrap;
     }
 }
+
+a:focus {
+    outline-color: $primary;
+    outline-width: 2px;
+    outline-style: solid;
+
+    &.text-black,
+    .text-black &{
+        outline-color: $pc-deepblue;
+    }
+}

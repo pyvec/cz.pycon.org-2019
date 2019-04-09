@@ -4,12 +4,12 @@
         column-count: 2;
     }
 
-    @include media-breakpoint-up(md) {
-        column-count: 2;
-    }
-
     @include media-breakpoint-up(lg) {
         column-count: 3;
+    }
+
+    @include media-breakpoint-up(xl) {
+        column-count: 4;
     }
 
     .card {
@@ -17,7 +17,6 @@
         page-break-inside: avoid; /* older browsers */
         break-inside: avoid-column;
     }
-
 }
 
 .card-img-overlay {

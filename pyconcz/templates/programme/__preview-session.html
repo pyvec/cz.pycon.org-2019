@@ -2,7 +2,7 @@
 
 {% for session in sessions %}
     <div class="bg-dark text-white p-3 my-3">
-        <h1 class="mt-0">{{ session.type|default:'Talk' }} <a class="btn btn-sm btn-light mt-2" href="/admin/programme/{{ session.type|yesno:'workshop,talk' }}/{{ session.id }}/change/">edit in admin</a></h1>
+        <h1 class="mt-0">{{ session.type }} <a class="btn btn-sm btn-light mt-2" href="/admin/programme/{% if session.type == 'sprint' %}workshop{% else %}{{ session.type }}{% endif %}/{{ session.id }}/change/">edit in admin</a></h1>
 
         <p class="h3 m-0">
             {% if session.is_keynote %}

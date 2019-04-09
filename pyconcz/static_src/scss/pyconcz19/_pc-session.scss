@@ -24,15 +24,45 @@
     &-pydata {
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         z-index: 5;
-        width: $pc-pydata-width;
+        width: 100%;
         height: 3rem;
-        background-color: $primary;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1900 4100'><path fill='white' d='M1001 2068l896-469v958l-896 470m-59-1046L52 1513l897-460 896 462zM999 9l896 469v958L999 967zM0 2673l896 469v958L0 3631zm0-1074l896 469v958L0 2557z'/></svg>");
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-size: auto 2rem;
+        overflow: hidden;
+
+        &-holder {
+            transition-property: transform, left;
+            transition-duration: 150ms;
+            transition-timing-function: ease-in;
+            background-color: $primary;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1900 4100'><path fill='white' d='M1001 2068l896-469v958l-896 470m-59-1046L52 1513l897-460 896 462zM999 9l896 469v958L999 967zM0 2673l896 469v958L0 3631zm0-1074l896 469v958L0 2557z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: 0.55rem 50%;
+            background-size: auto 2rem;
+            position: absolute;
+            top: 0;
+            left: -$pc-pydata-width;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transform: translateX(100%);
+        }
+
+        &-text {
+            width: 100%;
+            color: $white;
+            padding-left: 1.1*$pc-pydata-width;
+            padding-right: map-get($spacers, 2);
+            line-height: $headings-line-height;
+        }
+    }
+
+    & a:hover &-pydata-holder,
+    & a:focus &-pydata-holder,
+    & a:active &-pydata-holder {
+        left: 0;
+        transform: translateX(0);
     }
 
 }
