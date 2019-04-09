@@ -60,7 +60,7 @@ class Talk(models.Model):
     title = models.CharField(max_length=200)
     abstract = models.TextField()
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
-    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner',)
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner')
     video_id = models.CharField(max_length=100, default='', blank=True, help_text='youtube')
 
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
@@ -134,15 +134,15 @@ class Workshop(models.Model):
     length = models.CharField(
         max_length=2, choices=LENGTH, blank=True,
     )
-
+    requirements = models.TextField('What should attendees bring, install and know?', default='', blank=True, help_text='Include even the most obvious stuff: laptops, git, python')
+    attendee_limit = models.PositiveSmallIntegerField('Maximum number of attendees allowed', default=False, blank=True)
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
-    is_backup = models.BooleanField(default=False, blank=True)
-    is_public = models.BooleanField(default=False, blank=True)
-    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
-
     registration = models.CharField(
         max_length=10, choices=REGISTRATION, default='free', blank='free'
     )
+    is_backup = models.BooleanField(default=False, blank=True)
+    is_public = models.BooleanField(default=False, blank=True)
+    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
 
     def __str__(self):
         return self.title
