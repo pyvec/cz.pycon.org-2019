@@ -23,6 +23,13 @@
             {% else %}
                 <span class="badge badge-warning">not public</span>
             {% endif %}
+            {% if session.type != 'talk' %}
+                {% if session.attendee_limit %}
+                    <span class="badge badge-info">limited to {{ session.attendee_limit }} attendees</span>
+                {% else %}
+                    <span class="badge badge-light">not limited</span>
+                {% endif %}
+            {% endif %}
             {% if session.is_backup %}
                 <span class="badge badge-info">backup</span>
             {% endif %}
@@ -53,4 +60,17 @@
     <div class="bg-secondary p-3 mb-4">
         {{ session.abstract|markdown }}
     </div>
+
+    {% if session.type != 'talk' %}
+        <h2 class="text-white">Requirements <small class="text-lowercase text-white-50">what to bring, install…</small></h2>
+        {% if session.requirements %}
+        <div class="bg-secondary p-3 mb-4">
+            {{ session.requirements|markdown }}
+        </div>
+        {% else %}
+        <div class="bg-danger text-white font-weight-bold p-3 mb-4">
+            <p>None set but   they should be.</p>
+        </div>
+        {% endif %}
+    {% endif %}
 {% endfor %}
