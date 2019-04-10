@@ -19,35 +19,35 @@ def preview(request):
 
 
 def talks_list(request):
-    talks = (Talk.objects.filter(is_public=True)
-             .filter(is_public=True, is_backup=False)
-             .order_by('title'))
+    nonbackup_talks = Talk.objects.filter(is_backup=False)
+    talks = nonbackup_talks.filter(is_public=True).order_by('title')
+    more_to_come = len(nonbackup_talks.filter(is_public=False)) > 0
 
     return TemplateResponse(
         request,
         template='programme/talks_list.html',
-        context={'sessions': talks}
+        context={'sessions': talks, 'more_to_come': more_to_come}
     )
 
 
 def workshops_list(request):
-    workshops = (Workshop.objects.filter(is_public=True)
-                 .filter(is_public=True, is_backup=False)
-                 .order_by('title'))
+    nonbackup_workshops = Workshop.objects.filter(is_backup=False)
+    workshops = nonbackup_workshops.filter(is_public=True).order_by('title')
+    more_to_come = len(nonbackup_workshops.filter(is_public=False)) > 0
 
     return TemplateResponse(
         request,
         template='programme/workshops_list.html',
-        context={'sessions': workshops}
+        context={'sessions': workshops, 'more_to_come': more_to_come}
     )
 
 
 def speakers_list(request, type):
     speakers = (Speaker.objects.filter(is_public=True).filter(
-        **{type+'__is_public': True, type+'__is_backup': False})
-        .exclude(**{type: None})
-        .prefetch_related(type)
-        .order_by('full_name'))
+        **{type + '__is_public': True, type + '__is_backup': False})
+                .exclude(**{type: None})
+                .prefetch_related(type)
+                .order_by('full_name'))
 
     return TemplateResponse(
         request,
@@ -75,20 +75,20 @@ def _prefetch_generic(ct):
 
     return (
         Slot.objects.all()
-        .filter(
+            .filter(
             Q(
                 content_type__app_label='programme',
                 content_type__model=ct,
             ) | ~Q(description=None),
             **lookup
         )
-        .prefetch_related(
+            .prefetch_related(
             'content_object',
         )
-        .annotate(
+            .annotate(
             date_end=EndTime()
         )
-        .order_by('date', 'room')
+            .order_by('date', 'room')
     )
 
 
