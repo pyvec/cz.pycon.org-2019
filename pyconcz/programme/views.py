@@ -42,20 +42,6 @@ def workshops_list(request):
     )
 
 
-def speakers_list(request, type):
-    speakers = (Speaker.objects.filter(is_public=True).filter(
-        **{type + '__is_public': True, type + '__is_backup': False})
-                .exclude(**{type: None})
-                .prefetch_related(type)
-                .order_by('full_name'))
-
-    return TemplateResponse(
-        request,
-        template='programme/{}_list.html'.format(type),
-        context={'speakers': speakers}
-    )
-
-
 def session_detail(request, type, session_id):
     MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
     obj = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True)
