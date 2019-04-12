@@ -59,8 +59,7 @@
     }
 
     & a:hover &-pydata-holder,
-    & a:focus &-pydata-holder,
-    & a:active &-pydata-holder {
+    & a:focus &-pydata-holder {
         left: 0;
         transform: translateX(0);
     }

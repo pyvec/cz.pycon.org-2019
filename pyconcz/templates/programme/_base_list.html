@@ -5,7 +5,7 @@
 
 
 {% block main %}
-    <div class="container">
+    <div class="container pb-5">
 
         {% comment %}
         {# todo: navigation for workshops, talks and schedule #}
@@ -16,15 +16,23 @@
 
         <h1>{% block speakers_title %}{% endblock %}</h1>
 
-        {% block details_info %}{% endblock %}
+        {% block top_info %}
+            {% if more_to_come %}
+                <p class="lead">
+                    Here’s a <strong>taste</strong> of what and who you will see at PyCon&nbsp;CZ.
+                    <br><b>More will be announced soon.</b>
+                </p>
+            {% endif %}
+        {% endblock %}
 
-        <div class="card-columns mb-5 d-block">
+        <div class="card-columns d-block">
             {% for session in sessions %}
                 <div class="card pc-session bg-transparent">
                     <a
                         class="
+                            card-img-overlay
                             pc-img-effect-dark-fallback
-                            card-img-overlay text-white text-decoration-none
+                            text-white text-decoration-none
                             d-flex flex-column flex-wrap align-items-stretch
                         "
                         {% block detail_link %}
@@ -79,9 +87,46 @@
                     {% endfor %}
 
                 </div>
-            {% empty %}
-                <p class="font-weight-bold">No {% block empty_message_type %}sessions{% endblock %} have been published yet. Please check again later.</p>
             {% endfor %}
+
+            {% if more_to_come %}
+                <div class="card pc-session bg-primary">
+                    <a class="
+                            card-img-overlay
+                            text-white text-decoration-none
+                            d-flex flex-column flex-wrap align-items-stretch
+                        ">
+                        <div class="pc-session-speaker d-flex flex-column justify-content-between">
+                            <h2 class="card-title pc-session-list-heading">
+                                That’s not all!
+                            </h2>
+                            <p class="card-text font-weight-bold">
+                                We have more {% block more_sessions_name %}sessions{% endblock %} to&nbsp;be&nbsp;announced
+                            </p>
+                        </div>
+                    </a>
+                    <div class="embed-responsive embed-responsive-1by1"></div>
+
+                </div>
+            {% endif %}
+
+            {% block other_sessions %}
+                <div class="card pc-session bg-light">
+                    <a href="{{ other_session_url }}"
+                       class="
+                            card-img-overlay
+                            d-flex flex-column flex-wrap align-items-stretch
+                        ">
+                        <div class="pc-session-speaker d-flex flex-column justify-content-end">
+                            <p class="card-text font-weight-bold">
+                                See our {{ other_session_name }}
+                            </p>
+                        </div>
+                    </a>
+                    <div class="embed-responsive embed-responsive-1by1"></div>
+                </div>
+            {% endblock %}
         </div>
+
     </div>
 {% endblock %}
