@@ -1,6 +1,0 @@
-.pc-footer-menu {
-    @include media-breakpoint-up(md) {
-        column-count: 2;
-        column-gap: $grid-gutter-width;
-    }
-}

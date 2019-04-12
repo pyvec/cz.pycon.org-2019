@@ -2,19 +2,12 @@
 
 
 
-{% block nav %}
-    <nav role="navigation" class="navbar navbar-dark navbar-expand bg-dark">
-        {{ block.super }}
+{% block all %}
+    <nav role="navigation" class="navbar navbar-dark navbar-expand bg-dark px-2">
+        <ul class="w-100 justify-content-sm-center column navbar-nav nav-pills flex-wrap">
+            {{ block.super }}
+        </ul>
     </nav>
-{% endblock %}
-
-
-{% block wrapper_classes %}
-    w-100
-    justify-content-sm-center column
-    navbar-nav
-    nav-pills
-    flex-wrap
 {% endblock %}
 
 
@@ -33,12 +26,14 @@
     {% endif %}
 {% endblock %}
 
+
 {% block link_sponsors %}
     {# show sponsors only if programme is not public #}
     {% if phases.talks == 'not_public' and phases.workshops == 'not_public' and phases.schedule == 'not_public' %}
         {{ block.super }}
     {% endif %}
 {% endblock %}
+
 
 {% block link_sponsorship %}
     {% if phases.talks == 'not_public' and phases.workshops == 'not_public' %}
