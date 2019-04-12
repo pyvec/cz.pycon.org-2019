@@ -2,8 +2,19 @@
 
 
 
-{% block wrapper_classes %}
-    {{ block.super }}
-    d-md-block
-    pc-footer-menu
+{% block basic %}
+    <div class="col-xs-6 col-sm-4 col-md col-lg-3 mb-3">
+        <ul class="nav flex-xs-column">
+            {{ block.super }}
+        </ul>
+    </div>
+{% endblock %}
+
+
+{% block secondary %}
+    <div class="col-xs-6 col-sm-4 col-md col-lg-3 mb-3">
+        <ul class="nav flex-xs-column">
+            {{ block.super }}
+        </ul>
+    </div>
 {% endblock %}

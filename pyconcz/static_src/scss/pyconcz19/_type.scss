@@ -1,7 +1,3 @@
-//
-// Headings
-//
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: uppercase;
@@ -17,15 +13,6 @@ h1, .h1 {
 
 .pc-overline {
     border-top: ($h1-font-size/6) solid currentColor;
-}
-
-h2, .h2 {
-}
-
-h3, .h3 {
-}
-
-h4, .h4 {
 }
 
 .lead {
@@ -46,15 +33,14 @@ li > ul {
     margin-left: $spacer;
 }
 
-
-ul:not(.nav) {
+.pc-text ul {
     $pc-bullet-size: 0.5rem;
     $pc-bullet-distance: 0.5rem;
 
     list-style-type: none;
     padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
-    & > li:not(.nav-item) {
+    & > li {
         margin-bottom: 0.5*$spacer;
 
         &::before {
@@ -70,6 +56,7 @@ ul:not(.nav) {
             background-color: $orange;
         }
 
+        @at-root .text-black#{&}::before,
         .text-black &::before {
             background-color: $dark;
         }
@@ -110,7 +97,7 @@ a:focus {
     outline-style: solid;
 
     &.text-black,
-    .text-black &{
+    .text-black & {
         outline-color: $pc-deepblue;
     }
 }
