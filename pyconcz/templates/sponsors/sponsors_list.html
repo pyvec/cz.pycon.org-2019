@@ -20,7 +20,7 @@
 
             {% if phases.sponsors != 'details_public' %}
                 <div class="alert alert-warning h2 my-5">
-                   ⚠️ You see sponsors on this page because you’re logged in.
+                    ⚠️ You see sponsors on this page because you’re logged in.
                     <br>Publicly they’re hidden.
                 </div>
             {% endif %}
@@ -40,11 +40,11 @@
             </div>
 
             {% for level in sponsor_levels %}
-                <h2>{{ level.grouper }}</h2>
+                <h2 class="mt-md-6">{{ level.grouper }}</h2>
                 {% for sponsor in level.list %}
-                    <div class="row {% if not sponsor.description %}align-items-center{% endif %}" id="sponsor-{{ sponsor.slug }}">
+                    <div class="row {% if not sponsor.description %}align-items-center mt-4 mb-5{% endif %}" id="sponsor-{{ sponsor.slug }}">
 
-                        <div class="col-12 col-sm-8 col-md-4 mt-5 mt-sm-4 mb-3 mb-sm-4">
+                        <div class="col-12 col-sm-8 col-md-4 col-lg-3 mt-5 mt-sm-4 {% if not sponsor.description %}mb-3 mb-sm-4{% endif %}">
                             {% if sponsor.logo %}
                                 <a href="{{ sponsor.link_url }}" class="d-block">
                                     <img
@@ -56,8 +56,8 @@
                             {% endif %}
                         </div>
 
-                        <div class="col-12 col-md-8 mt-sm-2 mb-sm-4">
-                            <h3 class="sponsor-detail-heading">
+                        <div class="col-12 col-md mt-sm-2 mb-sm-4">
+                            <h3 class="sponsor-detail-heading {% if not sponsor.description %}d-none d-md-block{% endif %}">
                                 {{ sponsor.name }}
                             </h3>
                             {{ sponsor.description|markdown }}
