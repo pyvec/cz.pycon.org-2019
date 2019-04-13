@@ -10,12 +10,20 @@
 
 {% block main %}
     <div class="container">
-        {% if phases.sponsors != 'details_public' %}
+        {% if phases.sponsors != 'details_public' and not user.is_staff %}
             {% include '__404.html' %}
         {% else %}
             {% regroup sponsors_list by get_level_display as sponsor_levels %}
 
+
             <h1>Sponsors and partners</h1>
+
+            {% if phases.sponsors != 'details_public' %}
+                <div class="alert alert-warning h2 my-5">
+                   ⚠️ You see sponsors on this page because you’re logged in.
+                    <br>Publicly they’re hidden.
+                </div>
+            {% endif %}
 
             <div class="row">
                 <div class="col-sm col-md-4">
@@ -53,6 +61,12 @@
                                 {{ sponsor.name }}
                             </h3>
                             {{ sponsor.description|markdown }}
+
+                            {% if user.is_staff and sponsor.description %}
+                                <div class="alert alert-info">
+                                    ℹ️ {{ sponsor.description|markdown|striptags|wordcount }} words
+                                </div>
+                            {% endif %}
                         </div>
 
                     </div>
