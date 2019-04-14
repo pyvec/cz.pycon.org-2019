@@ -73,4 +73,12 @@
         </div>
         {% endif %}
     {% endif %}
+
+      {% if session.og_image == 'False' %}
+        <p class="p-3 bg-danger text-white h2">og:image is missing</p>
+    {% else %}
+        {{ session.image.width }}&nbsp;px × {{ session.image.height }}&nbsp;px
+        <img src="{{ session.image.url }}" alt="" class="img-fluid mb-3 border border-primary">
+    {% endif %}
+
 {% endfor %}
