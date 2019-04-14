@@ -1,7 +1,6 @@
 {% extends '_layout.html' %}
 
 {% load static %}
-{% load emojificate %}
 {% load formatting %}
 {% load sponsors_tags %}
 
@@ -57,7 +56,6 @@
                 <div class="col-12 col-md-11 col-xl-10 pb-5">
                     <div id="carousel" class="carousel carousel-fade slide" data-ride="carousel">
                         <div class="carousel-inner justify-content-center">
-                            {% emojified %}
                                 <div class="carousel-item active">
                                     <div class="pc-carousel-item-text">
                                         <div>Attended <a href="https://twitter.com/hashtag/pyconcz">#pyconcz</a> for the first time. It was one of the best tech conferences I’ve ever been to. Inspiring talks, superb venue, perfect organization and — most importantly — really great community of people. Kudos to the organizers and keep on going!</div>
@@ -94,7 +92,6 @@
                                         <span class="pc-carousel-item-author">Programujeme hrou (@programohrajeme)</span>
                                     </div>
                                 </div>
-                            {% endemojified %}
                         </div>
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
