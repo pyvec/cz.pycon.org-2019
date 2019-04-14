@@ -35,7 +35,7 @@
                 {% with talk=speaker.talks.all|first %}
                     {% if talk.is_public and phases.talks != 'not_public' %}
                         <p class="pc-speaker-talk mt-n3">
-                            <a href="{% url 'session_detail' type='talk' session_id=talk.id %}">
+                            <a class="d-inline-block" href="{% url 'session_detail' type='talk' session_id=talk.id %}">
                                 {{ talk.title }}
                             </a>
                         </p>
