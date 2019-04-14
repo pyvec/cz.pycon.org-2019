@@ -84,6 +84,17 @@ li > ul {
     }
 }
 
+.text-white {
+    .nav-link,
+    a:not(.btn) {
+        color: $link-color;
+
+        &:hover {
+            color: darken($link-color, 10%);
+        }
+    }
+}
+
 
 @include media-breakpoint-up(md) {
     .text-nowrap-md {

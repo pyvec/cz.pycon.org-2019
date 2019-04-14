@@ -49,7 +49,7 @@ def session_detail(request, type, session_id):
     return TemplateResponse(
         request,
         template='programme/{}_detail.html'.format(type),
-        context={'talk': obj}
+        context={'session': obj}
     )
 
 
