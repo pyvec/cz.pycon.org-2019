@@ -36,7 +36,7 @@
                             d-flex flex-column flex-wrap align-items-stretch
                         "
                         {% block detail_link %}
-                        href="{% url 'session_detail' type=session.type session_id=session.id %}"
+                        href="{% url 'session_detail' type=session.type session_id=session.id %}#main"
                         {% endblock %}
                     >
                         <div class="pc-session-list-speaker d-flex flex-column justify-content-between">
