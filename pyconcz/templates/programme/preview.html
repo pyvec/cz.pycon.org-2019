@@ -105,8 +105,10 @@
             <th>github</th>
             <th>talk_title</th>
             <th>talk_link</th>
+            <th>talk_published</th>
             <th>workshop_title</th>
             <th>workshop_link</th>
+            <th>workshop_published</th>
         </tr>
         {% for speaker in speakers %}
             <tr>
@@ -127,6 +129,12 @@
                     {% endfor %}
                 </td>
                 <td>
+                    {% for session in speaker.talks.all %}
+                        {% if forloop.counter > 1 %} <br> {% endif %}
+                        {{ session.is_public }}
+                    {% endfor %}
+                </td>
+                <td>
                     {% for session in speaker.workshops.all %}
                         {% if forloop.counter > 1 %} <br> {% endif %}
                         {{ session.title }}
@@ -136,6 +144,12 @@
                     {% for session in speaker.workshops.all %}
                         {% if forloop.counter > 1 %} <br> {% endif %}
                         https://{{ request.get_host }}{% url 'session_detail' type=session.type session_id=session.id %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for session in speaker.workshops.all %}
+                        {% if forloop.counter > 1 %} <br> {% endif %}
+                        {{ session.is_public }}
                     {% endfor %}
                 </td>
             </tr>
