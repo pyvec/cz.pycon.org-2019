@@ -7,7 +7,7 @@
 
 
 {% block body %}
-    <div class="container pc-text">
+    <div class="container">
         <div class="row">
             <div class="col">
                 <h1>h1. Pyttern Library
@@ -16,6 +16,13 @@
                 <p class="lead">
                     Lead paragraph vivamus sagittis lacus vel <a href="#">link somewhere</a> augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus. Aspernatur beatae molestiae nostrum possimus saepe! Cumque harum id inventore pariatur voluptates.
                 </p>
+                <nav class="nav">
+                    <a class="nav-link active" aria-current="page">Do not use navs</a>
+                    <a class="nav-link" href="#">with lists <code>&lt;ul&gt;</code></a>
+                    <a class="nav-link" href="#">Just use links</a>
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">disabled link</a>
+                    <a class="nav-link active" href="#">current link shouldn't have <code>href</code></a>
+                </nav>
                 {% comment %}<h1 class="display-1">Display 1</h1>
                 <h1 class="display-2">Display 2</h1>
                 <h1 class="display-3">Display 3</h1>
