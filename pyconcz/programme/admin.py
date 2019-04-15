@@ -11,11 +11,15 @@ from .models import Speaker, Talk, Slot, Workshop
 
 def mk_public(modeladmin, request, queryset):
     queryset.update(is_public=True)
+
+
 mk_public.short_description = 'Make public'
 
 
 def mk_not_public(modeladmin, request, queryset):
     queryset.update(is_public=False)
+
+
 mk_not_public.short_description = 'Make NOT public'
 
 
@@ -34,7 +38,7 @@ class SpeakerHasKeynoteFilter(SimpleListFilter):
 
 class SlotAdmin(admin.ModelAdmin):
     list_display = ['get_description', 'date', 'room']
-    list_filter = ['room', 'date', ]
+    list_filter = ['room', 'date']
     list_editable = ['room', 'date']
     date_hierarchy = 'date'
 
@@ -60,18 +64,20 @@ class SpeakerResource(resources.ModelResource):
 
 class SpeakerAdmin(ImportExportActionModelAdmin):
     list_display = ['full_name', 'get_talks', 'get_workshops',
-                    'is_public', 'display_position', ]
+                    'is_public', 'display_position']
     list_filter = ['is_public', SpeakerHasKeynoteFilter]
-    search_fields = ['full_name', 'email', 'github', 'twitter', ]
+    search_fields = ['full_name', 'email', 'github', 'twitter']
     resource_class = SpeakerResource
     actions = [mk_public, mk_not_public]
 
     def get_talks(self, obj):
         return ', '.join([t.title for t in obj.talks.all()])
+
     get_talks.short_description = 'talks'
 
     def get_workshops(self, obj):
         return ', '.join([w.title for w in obj.workshops.all()])
+
     get_workshops.short_description = 'workshops'
 
 
@@ -88,20 +94,24 @@ class TalkResource(resources.ModelResource):
 
 
 class TalkAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'speakers', 'language', 'is_keynote', 'is_public', 'is_backup', ]
-    list_filter = ['is_keynote', 'is_public', 'is_backup', ]
-    search_fields = ['title', ]
+    list_display = ['title', 'speakers', 'language', 'is_keynote', 'is_public',
+                    'is_backup', 'in_data_track']
+    list_filter = ['is_keynote', 'is_public', 'is_backup', 'in_data_track']
+    search_fields = ['title']
     resource_class = TalkResource
     actions = [mk_public, mk_not_public]
 
     def speakers(self, obj):
         return obj.speakers_display
+
     speakers.short_description = 'speakers'
 
 
 class WorkshopAdmin(TalkAdmin):
-    list_display = ['title', 'speakers', 'language', 'difficulty', 'type', 'is_public', 'is_backup', 'registration', ]
-    list_filter = ['is_public', 'is_backup', 'type', 'registration', ]
+    list_display = [
+        'title', 'speakers', 'language', 'difficulty', 'type', 'is_public',
+        'is_backup', 'registration', 'length', 'attendee_limit']
+    list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
 
 

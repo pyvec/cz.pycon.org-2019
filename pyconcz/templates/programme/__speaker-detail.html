@@ -1,0 +1,78 @@
+{% load formatting %}
+
+<div class="row no-gutters pc-speaker {% if type == 'keynoter' %}mb-6{% else %}mb-3{% endif %} {% if odd %}justify-content-end{% endif %}">
+
+    <div class="
+            col-12 col-md mt-md-5 order-2
+            {% if odd %}
+                order-md-1 mr-md-n4
+            {% else %}
+                order-md-2 ml-md-n4
+            {% endif %}
+    ">
+
+        <div class="
+            pc-box-shadow
+            {% if type == 'keynoter' %}
+                bg-secondary text-black
+            {% else %}
+                bg-dark text-white
+            {% endif %}
+
+            pt-5 pb-4 pt-md-3 py-md-5 px-4
+            {% if odd %}
+                ml-sm-3
+                pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
+            {% else %}
+                mr-sm-3
+                pr-md-4 pr-lg-5 pl-md-5 pl-lg-6
+            {% endif %}
+        ">
+
+            <h3 class="mt-0 pc-speaker-name">{{ speaker.full_name }}</h3>
+
+            {% if type == 'keynoter' %}
+                {% with talk=speaker.talks.all|first %}
+                    {% if talk.is_public and phases.talks != 'not_public' %}
+                        <p class="pc-speaker-talk mt-n3">
+                            <a class="d-inline-block" href="{% url 'session_detail' type='talk' session_id=talk.id %}">
+                                {{ talk.title }}
+                            </a>
+                        </p>
+                    {% endif %}
+                {% endwith %}
+
+                {{ speaker.short_bio|markdown }}
+            {% else %}
+                {{ speaker.bio|markdown }}
+            {% endif %}
+
+            {% if speaker.twitter or speaker.github %}
+                <p class="mt-4 mb-0">
+                    {% if speaker.twitter %}
+                        <a
+                            class="d-inline-block mr-4 pc-iconlink pc-iconlink-twitter {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
+                            href="http://twitter.com/{{ speaker.twitter }}"
+                        >
+                            {{ speaker.twitter }}
+                        </a>
+                    {% endif %}
+                    {% if speaker.github %}
+                        <a
+                            class="d-inline-block pc-iconlink pc-iconlink-github {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
+                            href="http://github.com/{{ speaker.github }}"
+                        >
+                            {{ speaker.github }}
+                        </a>
+                    {% endif %}
+                </p>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="pc-speaker-photo col-12 col-sm-6 col-md-4 mb-n4 mb-md-0  order-1 {% if odd %}order-md-2{% else %}order-md-1{% endif %}">
+        <img class="img-fluid pc-img-effect" src="{{ speaker.photo.url }}" alt="">
+    </div>
+
+</div>

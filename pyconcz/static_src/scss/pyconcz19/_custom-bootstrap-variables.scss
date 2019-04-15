@@ -938,8 +938,8 @@
 
     // Code
 
-    // $code-font-size: 87.5%; $code-font-size: $code-font-size !global; // 87.5%
-    // $code-color: $pink; $code-color: $code-color !global; // $pink
+    $code-font-size: 100%; $code-font-size: $code-font-size !global; // 87.5%
+    $code-color: inherit; $code-color: $code-color !global; // $pink
 
     // $kbd-padding-y: .2rem; $kbd-padding-y: $kbd-padding-y !global; // .2rem
     // $kbd-padding-x: .4rem; $kbd-padding-x: $kbd-padding-x !global; // .4rem

@@ -5,165 +5,146 @@
 {% load static %}
 
 
-{% block meta_title %}{{ talk.title|markdown|striptags }} – a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
+{% block meta_title %}{{ session.title|markdown|striptags }} – a {{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
 
 
 {% block meta_social_customizable %}
-    <meta property="og:title" content="PyCon CZ – {{ talk.title|markdown|striptags }} – a {{ session_type }} by {{ talk.speakers|join:' &amp; ' }}">
-    <meta property="og:description" content="{{ talk.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
-    {% with og_speaker=talk.speakers|first %}
-        <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
-        <meta property="og:image:width" content="{{ og_speaker.photo.width }}">
-        <meta property="og:image:height" content="{{ og_speaker.photo.height }}">
-    {% endwith %}
+    <meta property="og:title" content="PyCon CZ – {{ session.title|markdown|striptags }} – a {{ session.type }} by {{ session.speakers|join:' &amp; ' }}">
+    <meta property="og:description" content="{{ session.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
+    {% if session.og_image != 'False' %}
+        <meta property="og:image" content="https://{{ request.get_host }}{{ session.og_image.url }}">
+        <meta property="og:image:width" content="{{ session.og_image.width }}">
+        <meta property="og:image:height" content="{{ session.og_image.height }}">
+    {% else %}
+        {% with og_speaker=session.speakers|first %}
+            <meta property="og:image" content="https://{{ request.get_host }}{{ og_speaker.photo.url }}">
+            <meta property="og:image:width" content="{{ og_speaker.photo.og_speaker.photo.width }}">
+            <meta property="og:image:height" content="{{ og_speaker.photo.og_speaker.photo.height }}">
+        {% endwith %}
+    {% endif %}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:alt" content="{{ talk.speakers|join:' &amp; ' }}">
+    <meta name="twitter:image:alt" content="{{ session.speakers|join:' &amp; ' }}">
 {% endblock %}
 
 
-{% block header_text_classes %} {{ block.super }} d-none d-sm-block {% endblock %}
-
-
 {% block main %}
-    <div class="container">
-        <ul class="nav justify-content-center">
-            {% include '_menu_programme.html' %}
-        </ul>
+    <div class="container pb-5">
 
-        <h1>
-            {{ talk.title|markdown|cut:'<p>'|cut:'</p>' }}
-            <br class="d-md-none">
-            <small class="d-md-none">a {{ session_type }} {{ session_preposition }} {{ talk.speakers|join:' &amp; ' }}</small>
-        </h1>
+        {% comment 'todo' %}{% include '_menu_programme.html' %}{% endcomment %}
 
-        {% if talk.video_id %}
+        <div class="pc-text">
+
+            <h1 class="pc-h1-shrinking">
+                {{ session.title }}
+                <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
+            </h1>
+
+            {% if phases.schedule == 'full' %}
+                <p class="pc-session-date">{{ 'TODO' }}</p>
+            {% endif %}
+
+            <div class="pc-session-info mb-3">
+                {{ session.abstract|markdown }}
+
+                {% block registration_info %}
+                    {% if session.registration %}
+                        {% if phases.workshop_registration == 'not_launched' %}
+                            <p>
+                                {% if session.registration == 'without' %}
+                                    No registration will be required.
+                                {% elif session.registration == 'free' %}
+                                    This {{ session.type }} will require a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
+                                {% elif session.registration == 'paid' %}
+                                    This {{ session.type }} will require a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
+                                {% endif %}
+                            </p>
+                        {% elif phases.workshop_registration == 'announced' %}
+                        {% elif phases.workshop_registration == 'launched' %}
+                        {% elif phases.workshop_registration == 'timed_out' %}
+                        {% endif %}
+                    {% endif %}
+                {% endblock %}
+
+                <p class="text-monospace">
+                    {% if session.difficulty == 'advanced' %}
+                        <strong>This {{ session.type }} is aimed at advanced Pythonistas.</strong>
+                        (While it might be interesting for beginners we recommend them to choose another {{ session.type }}.)
+                    {% else %}
+                        This {{ session.type }} is suitable for both beginner and advanced Pythonistas.
+                    {% endif %}
+                </p>
+
+                {% if session.requirements and phases.workshop == 'details_complete_public' %}
+                    <div class="pc-session-requirements p-3 mb-5 bg-white d-inline-block w-100">
+                        {{ session.requirements|markdown }}
+                    </div>
+                {% endif %}
+            </div>
+
+            {% for speaker in session.speakers %}
+
+                {% if speaker.talks.all|length > 1 %}
+                    <h2>Another {{ session.type }} {{ session_preposition }} {{ speaker.full_name }}</h2>
+                {% endif %}
+
+                {% comment %}
+                {% for talk_other in speaker.talks.all %}
+                    {% if talk_other.id != session.id %}
+                        <h3>
+                            <a href="{% url 'session_detail' type='talk' session_id=talk_other.id %}">
+                                {{ talk_other.title }}
+                            </a>
+                        </h3>
+                    {% endif %}
+                {% endfor %}
+                {% endcomment %}
+
+                {% comment %}
+                {% block other_sessions %}
+                    {% for other_session in other_sessions %}
+                        <h2>
+                            {{ speaker.full_name }} also
+                            {% if other_session.type == 'workshop' %}leads a workshop:{% endif %}
+                            {% if other_session.type == 'talk' %}has a talk:{% endif %}
+                            <a
+                                class="small d-block"
+                                href="{% url 'session_detail' type=other_session.type session_id=other_session.id %}"
+                            >
+                                {{ other_session.title }}
+                            </a>
+                        </h2>
+                    {% endfor %}
+                {% endblock %}
+                {% endcomment %}
+            {% endfor %}
+
+            {% for speaker in session.speakers %}
+                {% include 'programme/__speaker-detail.html' with odd=forloop.counter|divisibleby:'2' %}
+            {% endfor %}
+
+            {% comment 'todo' %}
+            {% if session.video_id %}
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="{{ talk.video_embed_url }}?rel=0" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" src="{{ session.video_embed_url }}?rel=0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
+            {% endcomment %}
 
-        <div class="row justify-content-center align-items-start">
-            {% block registration_info %}
-                {% if talk.registration %}
-                    <div class="col-12">
-                        <p class="h5">
-                            {% if talk.registration == 'without' %}
-                                No registration required.
-                            {% elif talk.registration == 'free' %}
-                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
-                            {% elif talk.registration == 'paid' %}
-                                This {{ session_type }} requires a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
-                            {% endif %}
-                        </p>
-                    </div>
-                {% endif %}
-            {% endblock %}
-            <div
-                class="
-                    col-12
-                    {% if talk.speakers|length_is:'1' %}
-                        col-md-6
-                        {% if talk.abstract|length < 1000 %}
-                            col-lg-5 col-xl-4
-                        {% endif %}
-                    {% else %}
-                        col-md-4
-                    {% endif %}
-               ">
+            {% comment 'todo' %}
+            {% if session.language == 'cs' %}
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
+                    <rect width="90" height="60" fill="#d7141a" />
+                    <rect width="90" height="30" fill="#fff" />
+                    <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
+                </svg>
+                <span>This {{ session.type }} will be in Czech.</span>
+            {% endif %}
+            {% endcomment %}
 
-                {% if talk.language == 'cs' %}
-                    <p class="d-flex align-items-center">
-                        <svg class="mr-2" version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
-                            <rect width="90" height="60" fill="#d7141a" />
-                            <rect width="90" height="30" fill="#fff" />
-                            <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
-                        </svg>
-                        <span>This {{ session_type }} will be in Czech.</span>
-                    </p>
-                {% endif %}
-
-                <div>{{ talk.abstract|markdown }}</div>
-
-                {% if talk.difficulty == 'advanced' %}
-                    <p>
-                        <strong>This {{ session_type }} is aimed at advanced Pythonistas.</strong>
-                        (While it might be interesting for beginners we recommend them to choose another {{ session_type }}.)
-                    </p>
-                {% else %}
-                    <p>
-                        This {{ session_type }} is suitable for both beginner and advanced Pythonistas.
-                    </p>
-                {% endif %}
-
-                {% for speaker in talk.speakers %}
-
-                    {% comment 'not needed this year' %}
-                        {% if speaker.talks.all|length > 1 %}
-                            <h2>Another {{ session_type }} {{ session_preposition }} {{ speaker.full_name }}</h2>
-                        {% endif %}
-
-                        {% for talk_other in speaker.talks.all %}
-                            {% if talk_other.id != talk.id %}
-                                <h3>
-                                    <a href="{% url 'session_detail' type='talk' session_id=talk_other.id %}">
-                                        {{ talk_other.title }}
-                                    </a>
-                                </h3>
-                            {% endif %}
-                        {% endfor %}
-                    {% endcomment %}
-
-                    {% block other_sessions %}
-                        {% for other_session in other_sessions %}
-                            <h2>
-                                {{ speaker.full_name }} also
-                                {% if other_session_type == 'workshop' %}leads a workshop:{% endif %}
-                                {% if other_session_type == 'talk' %}has a talk:{% endif %}
-                                <a
-                                    class="small d-block"
-                                    href="{% url 'session_detail' type=other_session_type session_id=other_session.id %}"
-                                >
-                                    {{ other_session.title }}
-                                </a>
-                            </h2>
-                        {% endfor %}
-                    {% endblock %}
-                {% endfor %}
-            </div>
-
-            {% for speaker in talk.speakers %}
-                <div>
-                    <h3>{{ speaker.full_name }}</h3>
-
-                    <img class="img-fluid" src="{{ speaker.photo.url }}" alt="">
-
-                    <div class="small">{{ speaker.bio|markdown }}</div>
-
-                    <div class="row justify-content-between small">
-                        {% if speaker.github %}
-                            <div class="col">
-                                GH:
-                                <a href="{{ speaker.github }}">
-                                    {{ speaker.github }}
-                                </a>
-                            </div>
-                        {% endif %}
-
-                        {% if speaker.twitter %}
-                            <div class="col">
-                                TW:
-                                <a href="https://twitter.com/{{ speaker.twitter }}">
-                                    {{ speaker.twitter }}
-                                </a>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

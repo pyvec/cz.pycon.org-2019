@@ -2,14 +2,16 @@
 
 
 {% block all %}
-    {% with session_type='workshop' session_preposition='with' %}
+    {% with session_preposition='with' %}
         {{ block.super }}
     {% endwith %}
 {% endblock %}
 
 
+{% comment %}
 {% block other_sessions %}
     {% with other_sessions=speaker.talks.all other_session_type='talk' %}
         {{ block.super }}
     {% endwith %}
 {% endblock %}
+{% endcomment %}

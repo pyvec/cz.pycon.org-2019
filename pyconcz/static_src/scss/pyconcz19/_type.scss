@@ -11,6 +11,18 @@ h1, .h1 {
     margin-top: 1.333em;
 }
 
+.pc-h1-shrinking {
+    @include media-breakpoint-down(xs) {
+        font-size: 0.75*$h1-font-size;
+    }
+}
+
+.pc-h2-shrinking {
+    @include media-breakpoint-down(xs) {
+        font-size: 0.75*$h2-font-size;
+    }
+}
+
 .pc-overline {
     border-top: ($h1-font-size/6) solid currentColor;
 }
@@ -80,6 +92,17 @@ li > ul {
 
         &:hover {
             color: $blue;
+        }
+    }
+}
+
+.text-white {
+    .nav-link,
+    a:not(.btn) {
+        color: $link-color;
+
+        &:hover {
+            color: darken($link-color, 10%);
         }
     }
 }
