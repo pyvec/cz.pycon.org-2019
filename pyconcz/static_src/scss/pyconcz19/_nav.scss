@@ -1,19 +1,17 @@
-.nav-item {
+.nav-link {
     text-transform: uppercase;
     font-family: $font-family-monospace;
     font-weight: $pc-font-weight-mono-medium;
     font-size: $font-size-sm;
 
-    a {
-        color: $white;
-        text-decoration: none;
+    color: $white;
+    text-decoration: none;
 
-        &:hover {
-            color: $orange;
-        }
+    &:hover,
+    &.active,
+    &.active:hover,
+    &.active:not([href]),
+    &.active:not([href]):hover {
+        color: $primary;
     }
-}
-
-.nav-link.active {
-    color: $primary;
 }

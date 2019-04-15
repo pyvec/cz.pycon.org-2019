@@ -31,30 +31,28 @@ h1, .h1 {
     margin-bottom: 2*$paragraph-margin-bottom;
 }
 
-ol {
-    padding-left: 2.5*$spacer;
+$pc-bullet-size: 0.5rem;
+$pc-bullet-distance: 0.5rem;
 
-    & > li {
-        margin-bottom: $spacer;
-    }
-}
-
-li > ol,
-li > ul {
-    margin-top: $spacer;
-    margin-left: $spacer;
-}
-
-.pc-text ul {
-    $pc-bullet-size: 0.5rem;
-    $pc-bullet-distance: 0.5rem;
-
-    list-style-type: none;
+ol,
+ul {
     padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
     & > li {
         margin-bottom: 0.5*$spacer;
+    }
 
+    li > & {
+        margin-top: 0.5*$spacer;
+        margin-left: $spacer;
+        margin-bottom: $spacer;
+    }
+}
+
+ul {
+    list-style-type: none;
+
+    & > li {
         &::before {
             display: inline-block;
             content: "\200B";
@@ -68,7 +66,6 @@ li > ul {
             background-color: $orange;
         }
 
-        @at-root .text-black#{&}::before,
         .text-black &::before {
             background-color: $dark;
         }
