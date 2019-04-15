@@ -31,24 +31,24 @@ h1, .h1 {
     margin-bottom: 2*$paragraph-margin-bottom;
 }
 
-ol {
-    padding-left: 2.5*$spacer;
-
-    & > li {
-        margin-bottom: $spacer;
-    }
-}
-
 li > ol,
 li > ul {
     margin-top: $spacer;
     margin-left: $spacer;
 }
 
-.pc-text ul {
-    $pc-bullet-size: 0.5rem;
-    $pc-bullet-distance: 0.5rem;
+$pc-bullet-size: 0.5rem;
+$pc-bullet-distance: 0.5rem;
 
+ol {
+    padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
+
+    & > li {
+        margin-bottom: 0.5*$spacer;
+    }
+}
+
+.pc-text ul {
     list-style-type: none;
     padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
