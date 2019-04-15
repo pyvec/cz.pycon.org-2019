@@ -54,7 +54,7 @@ class Talk(models.Model):
 
     type = 'talk'  # for symmetry with workshops/sprints
     title = models.CharField(max_length=200)
-    og_image = models.ImageField(upload_to='programme/talks/', default=False, blank=True, help_text='og:image (social media image) 1200×630 pixels')
+    og_image = models.ImageField(upload_to='programme/talks/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
     difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner')
@@ -116,7 +116,7 @@ class Workshop(models.Model):
 
     type = models.CharField(max_length=10, choices=TYPE, default='sprint')
     title = models.CharField(max_length=200, verbose_name='Title')
-    og_image = models.ImageField(upload_to='programme/workshops/', default=False, blank=True, help_text='og:image (social media image) 1200×630 pixels')
+    og_image = models.ImageField(upload_to='programme/workshops/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
     requirements = models.TextField('What should attendees bring, install and know?', default='', blank=True, help_text='Include even the most obvious stuff: laptops, git, python')
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
