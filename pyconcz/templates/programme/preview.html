@@ -102,20 +102,24 @@
             <th>id</th>
             <th>full_name</th>
             <th>twitter</th>
-            <th>github</th>
+            <th>talk_published</th>
             <th>talk_title</th>
             <th>talk_link</th>
-            <th>talk_published</th>
+            <th>workshop_published</th>
             <th>workshop_title</th>
             <th>workshop_link</th>
-            <th>workshop_published</th>
         </tr>
         {% for speaker in speakers %}
             <tr>
                 <td>{{ speaker.id }}</td>
                 <td>{{ speaker.full_name }}</td>
-                <td>{% if speaker.twitter %}https://twitter.com/{{ speaker.twitter }}{% endif %}</td>
-                <td>{% if speaker.github %}https://github.com/{{ speaker.github }}{% endif %}</td>
+                <td>{{ speaker.twitter }}</td>
+                <td>
+                    {% for session in speaker.talks.all %}
+                        {% if forloop.counter > 1 %} <br> {% endif %}
+                        {{ session.is_public }}
+                    {% endfor %}
+                </td>
                 <td>
                     {% for session in speaker.talks.all %}
                         {% if forloop.counter > 1 %} <br> {% endif %}
@@ -129,7 +133,7 @@
                     {% endfor %}
                 </td>
                 <td>
-                    {% for session in speaker.talks.all %}
+                    {% for session in speaker.workshops.all %}
                         {% if forloop.counter > 1 %} <br> {% endif %}
                         {{ session.is_public }}
                     {% endfor %}
@@ -144,12 +148,6 @@
                     {% for session in speaker.workshops.all %}
                         {% if forloop.counter > 1 %} <br> {% endif %}
                         https://{{ request.get_host }}{% url 'session_detail' type=session.type session_id=session.id %}
-                    {% endfor %}
-                </td>
-                <td>
-                    {% for session in speaker.workshops.all %}
-                        {% if forloop.counter > 1 %} <br> {% endif %}
-                        {{ session.is_public }}
                     {% endfor %}
                 </td>
             </tr>
