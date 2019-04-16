@@ -5,11 +5,11 @@
 {% load static %}
 
 
-{% block meta_title %}{{ session.title|markdown|striptags }} – a {{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
+{% block meta_title %}{{ session.title|markdown|striptags }} – a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }} – {{ block.super }}{% endblock %}
 
 
 {% block meta_social_customizable %}
-    <meta property="og:title" content="PyCon CZ – {{ session.title|markdown|striptags }} – a {{ session.type }} by {{ session.speakers|join:' &amp; ' }}">
+    <meta property="og:title" content="PyCon CZ – {{ session.title|markdown|striptags }} – a&nbsp;{{ session.type }} by {{ session.speakers|join:' &amp; ' }}">
     <meta property="og:description" content="{{ session.abstract|markdown|striptags|linebreaks|striptags|truncatechars:300 }}">
     {% if session.og_image %}
         <meta property="og:image" content="https://{{ request.get_host }}{{ session.og_image.url }}">
