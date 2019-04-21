@@ -4,13 +4,30 @@
 
         padding-top: $pc-navbar-nav-link-vertical-padding;
         padding-bottom: $pc-navbar-nav-link-vertical-padding;
+
+        .navbar-expand & {
+            @include media-breakpoint-down(md) {
+                padding-left: 0.8*$navbar-nav-link-padding-x;
+                padding-right: 0.8*$navbar-nav-link-padding-x;
+            }
+
+            @include media-breakpoint-down(xs) {
+                padding-left: 0.5*$navbar-nav-link-padding-x;
+                padding-right: 0.5*$navbar-nav-link-padding-x;
+            }
+        }
     }
 
     .pc-nav-link-highlight {
-        background-repeat: no-repeat;
-        background-position: 5px 50%, right 5px top 50%;
-        background-size: 9px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 13'><g stroke='#{rgba($navbar-dark-active-color, 0.999999)}' stroke-width='1'><path d='M0 6.5h8' transform='rotate(18, 20, 7)' /><path d='M0 6.5h8' /><path d='M0 6.5h8' transform='rotate(-18, 20, 7)' /></g></svg>"),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 13'><g stroke='#{rgba($navbar-dark-active-color, 0.999999)}' stroke-width='1' transform='scale(-1, 1)  translate(-9,0)'><path d='M0 6.5h8' transform='rotate(18, 20, 7)' /><path d='M0 6.5h8' /><path d='M0 6.5h8' transform='rotate(-18, 20, 7)' /></g></svg>");
+        &,
+        .navbar-expand & {
+            padding-left: $navbar-nav-link-padding-x;
+            padding-right: $navbar-nav-link-padding-x;
+            background-repeat: no-repeat;
+            background-position: 5px 50%, right 5px top 50%;
+            background-size: 9px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 13'><g stroke='#{rgba($navbar-dark-active-color, 0.999999)}' stroke-width='1'><path d='M0 6.5h8' transform='rotate(18, 20, 7)' /><path d='M0 6.5h8' /><path d='M0 6.5h8' transform='rotate(-18, 20, 7)' /></g></svg>"),
+            url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 13'><g stroke='#{rgba($navbar-dark-active-color, 0.999999)}' stroke-width='1' transform='scale(-1, 1)  translate(-9,0)'><path d='M0 6.5h8' transform='rotate(18, 20, 7)' /><path d='M0 6.5h8' /><path d='M0 6.5h8' transform='rotate(-18, 20, 7)' /></g></svg>");
+        }
     }
 }
