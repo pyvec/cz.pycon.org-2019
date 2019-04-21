@@ -8,7 +8,7 @@ class Organizer(models.Model):
         help_text="This is private")
     twitter = models.CharField(max_length=255, blank=True, help_text='handle without @')
     github = models.CharField(max_length=255, blank=True, help_text='just handle')
-    photo = models.ImageField(upload_to='team/pyconcz2018/')
+    photo = models.ImageField(upload_to='team/')
 
     published = models.BooleanField(default=False)
 
