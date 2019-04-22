@@ -73,11 +73,22 @@
                 {% endif %}
             </p>
 
+            {% if session.language == 'cs' %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60" height="14" class="pc-img-fluid-svg align-baseline">
+                    <rect width="90" height="60" fill="#d7141a"></rect>
+                    <rect width="90" height="30" fill="#fff"></rect>
+                    <path d="M 45,30 0,0 V 60 z" fill="#11457e"></path>
+                </svg>
+                <span class="ml-1">This {{ session.type }} will be in Czech only.</span>
+            {% endif %}
+
             {% if session.requirements and phases.workshop == 'details_complete_public' %}
                 <div class="pc-session-requirements p-3 mb-5 bg-white d-inline-block w-100">
                     {{ session.requirements|markdown }}
                 </div>
             {% endif %}
+
+
         </div>
 
         {% for speaker in session.speakers %}
@@ -130,17 +141,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
-        {% endcomment %}
-
-        {% comment 'todo' %}
-        {% if session.language == 'cs' %}
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
-                <rect width="90" height="60" fill="#d7141a" />
-                <rect width="90" height="30" fill="#fff" />
-                <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
-            </svg>
-            <span>This {{ session.type }} will be in Czech.</span>
         {% endif %}
         {% endcomment %}
 
