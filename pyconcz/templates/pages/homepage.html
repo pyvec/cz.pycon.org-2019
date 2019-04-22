@@ -25,9 +25,36 @@
                     <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
 
                     <ul>
-                        <li>Learn at 30+ <b>talks</b> in English during Friday and Saturday. Choose from two parallel tracks including PyData track! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt=""></li>
-                        <li>Dive deeper at <b>workshops</b>{% comment %} and <b>sprints</b>{% endcomment %} on&nbsp;Sunday</li>
-                        <li>Have fun at <b>board game night</b> on&nbsp;Friday</li>
+                        <li>
+                            Learn at 30+
+                            {% if phases.talks == 'not_public' %}
+                                <b>talks</b>
+                            {% else %}
+                                <a href="{% url 'talks_list' %}">talks</a>
+                            {% endif %}
+                            in English during Friday and Saturday.
+                            Choose from two parallel tracks including PyData track on&nbsp;Friday! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt="">
+                        </li>
+                        <li>
+                            Dive deeper at
+                            {% if phases.workshops == 'not_public' %}
+                                <b>workshops</b> and <b>sprints</b>
+                            {% else %}
+                                <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
+                            {% endif %}
+                            on&nbsp;Sunday
+                        </li>
+                        {% if phases.board_game_night != 'not_public' %}
+                            <li>
+                                Have fun at
+                                {% if phases.board_game_night == 'basic_info_public' %}
+                                    <b>board game night</b>
+                                {% else %}
+                                    <a href="{% url 'board_game_night' %}">board game night</a>
+                                {% endif %}
+                                on&nbsp;Friday
+                            </li>
+                        {% endif %}
                         <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
                     </ul>
                 </div>
