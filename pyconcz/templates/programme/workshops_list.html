@@ -15,6 +15,18 @@
         {{ block.super }}
         {% if phases.workshops == 'list_public' %}
             <p class="lead">We will publish more information about talks and speakers soon.</p>
+        {% elif phases.workshops == 'details_public' %}
+            <p class="lead">
+                {% if phases.workshops_registration == 'timed_out' %}
+                    We’re sorry but you can’t register for workshops anymore.
+                {% elif phases.workshops_registration == 'launched' %}
+                    Workshops have limited capacity and every conference ticket holder can register for two workshops for free now!
+                    <br>See workshops’ details for more information.
+                {% else %}
+                    Workshops have limited capacity and every conference ticket holder will have a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served basis{% if phases.workshops_registration == 'announced' %} at&nbsp;the beginning of&nbsp;June{% endif %}.
+                    We will send an e-mail reminder before the registration starts.
+                {% endif %}
+            </p>
         {% endif %}
     {% else %}
         <p class="lead">No workshops have been published yet. Please check again later.</p>

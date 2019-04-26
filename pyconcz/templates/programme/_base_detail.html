@@ -45,26 +45,7 @@
         <div class="pc-session-info mb-3">
             {{ session.abstract|markdown }}
 
-            {% block registration_info %}
-                {% if session.registration %}
-                    {% if phases.workshop_registration == 'not_launched' %}
-                        <p>
-                            {% if session.registration == 'without' %}
-                                No registration will be required.
-                            {% elif session.registration == 'free' %}
-                                This {{ session.type }} will require a&nbsp;<a href="{% url 'tickets' %}#workshops">free registration</a>.
-                            {% elif session.registration == 'paid' %}
-                                This {{ session.type }} will require a&nbsp;<a href="{% url 'tickets' %}#workshops">paid registration</a>.
-                            {% endif %}
-                        </p>
-                    {% elif phases.workshop_registration == 'announced' %}
-                    {% elif phases.workshop_registration == 'launched' %}
-                    {% elif phases.workshop_registration == 'timed_out' %}
-                    {% endif %}
-                {% endif %}
-            {% endblock %}
-
-            <p class="text-monospace">
+            <p class="text-monospace mb-5">
                 {% if session.difficulty == 'advanced' %}
                     <strong>This {{ session.type }} is aimed at advanced Pythonistas.</strong>
                     (While it might be interesting for beginners we recommend them to choose another {{ session.type }}.)
@@ -73,11 +54,46 @@
                 {% endif %}
             </p>
 
+            {% if session.registration %}
+                <div class="pc-session-registration">
+                    <h3 class="mt-0">Registration</h3>
+                    {% if phases.workshops_registration == 'timed_out' %}
+                        <p class="font-weight-bold">Registration is not possible anymore.</p>
+                    {% elif phases.workshops_registration == 'launched' %}
+                        <p class="bg-danger">
+                            TODO
+                            <a class="btn btn-primary" href="#">Register for this workshop</a>
+                        </p>
+                    {% else %}
+                        <p>
+                            {% if session.registration == 'without' %}
+                                No registration will be required.
+                            {% elif session.registration == 'free' %}
+                                This {{ session.type }} will require a&nbsp;free registration{% if phases.workshops_registration == 'announced' %} at&nbsp;the beginning of&nbsp;June{% endif %}.
+                            {% elif session.registration == 'paid' %}
+                                This {{ session.type }} will require a&nbsp;paid registration{% if phases.workshops_registration == 'announced' %} at&nbsp;the beginning of&nbsp;June{% endif %}.
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if session.language == 'cs' %}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60" height="14" class="pc-img-fluid-svg align-baseline">
+                    <rect width="90" height="60" fill="#d7141a"></rect>
+                    <rect width="90" height="30" fill="#fff"></rect>
+                    <path d="M 45,30 0,0 V 60 z" fill="#11457e"></path>
+                </svg>
+                <span class="ml-1">This {{ session.type }} will be in Czech only.</span>
+            {% endif %}
+
             {% if session.requirements and phases.workshop == 'details_complete_public' %}
                 <div class="pc-session-requirements p-3 mb-5 bg-white d-inline-block w-100">
                     {{ session.requirements|markdown }}
                 </div>
             {% endif %}
+
+
         </div>
 
         {% for speaker in session.speakers %}
@@ -130,17 +146,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
-        {% endcomment %}
-
-        {% comment 'todo' %}
-        {% if session.language == 'cs' %}
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="90" height="60">
-                <rect width="90" height="60" fill="#d7141a" />
-                <rect width="90" height="30" fill="#fff" />
-                <path d="M 45,30 0,0 V 60 z" fill="#11457e" />
-            </svg>
-            <span>This {{ session.type }} will be in Czech.</span>
         {% endif %}
         {% endcomment %}
 
