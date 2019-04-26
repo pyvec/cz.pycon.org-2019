@@ -62,6 +62,7 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+
                         {% if session.in_data_track %}
                             <div class="pc-session-list-pydata">
                                 <div class="pc-session-list-pydata-holder">
@@ -83,8 +84,8 @@
                             "
                         >
                             <img
-                                src="{{ speaker.photo.url }}"
-                                class="embed-responsive-item pc-object-fit-cover pc-img-effect-dark"
+                                {% comment %}src="{{ speaker.photo.url }}"
+                                class="embed-responsive-item pc-object-fit-cover pc-img-effect-dark"{% endcomment %}
                                 alt="{{ session.speakers.full_name }} photo"
                             >
                         </div>
