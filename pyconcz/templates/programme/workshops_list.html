@@ -35,7 +35,7 @@
 
 
 {% block detail_link %}
-    {% if phases.workshops == 'details_public' %}
+    {% if phases.workshops == 'details_public' or phases.workshops == 'details_complete_public' %}
         {{ block.super }}
     {% endif %}
 {% endblock %}
