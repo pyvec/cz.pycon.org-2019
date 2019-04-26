@@ -91,7 +91,6 @@
 
             {% if session.registration %}
                 <div class="pc-session-registration">
-                    <h3 class="mt-0">Registration</h3>
                     {% if phases.workshops_registration == 'timed_out' %}
                         <p class="font-weight-bold">Registration is not possible anymore.</p>
                     {% elif phases.workshops_registration == 'launched' %}
@@ -102,11 +101,11 @@
                     {% else %}
                         <p>
                             {% if session.registration == 'without' %}
-                                No registration will be required.
+                                No registration will be required to attend.
                             {% elif session.registration == 'free' %}
-                                This {{ session.type }} will require a&nbsp;free registration{% if phases.workshops_registration == 'announced' %} at&nbsp;the beginning of&nbsp;June{% endif %}.
+                                Free registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
                             {% elif session.registration == 'paid' %}
-                                This {{ session.type }} will require a&nbsp;paid registration{% if phases.workshops_registration == 'announced' %} at&nbsp;the beginning of&nbsp;June{% endif %}.
+                                Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
                             {% endif %}
                         </p>
                     {% endif %}
