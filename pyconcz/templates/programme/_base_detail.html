@@ -92,13 +92,13 @@
             {% if session.registration %}
                 <div class="pc-session-registration">
                     {% if phases.workshops_registration == 'timed_out' %}
-                        <p class="font-weight-bold">Registration is not possible anymore.</p>
+                        <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
                     {% elif phases.workshops_registration == 'launched' %}
                         <p class="bg-danger">
                             TODO
                             <a class="btn btn-primary" href="#">Register for this workshop</a>
                         </p>
-                    {% else %}
+                    {% elif phases.workshops_registration != 'hidden' %}
                         <p>
                             {% if session.registration == 'without' %}
                                 No registration will be required to attend.

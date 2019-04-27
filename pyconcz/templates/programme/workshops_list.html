@@ -15,7 +15,7 @@
         {{ block.super }}
         {% if phases.workshops == 'list_public' %}
             <p class="lead">We will publish more information about talks and speakers soon.</p>
-        {% elif phases.workshops == 'details_public' and phases.workshops_registration != 'not_launched' %}
+        {% elif phases.workshops == 'details_public' and phases.workshops_registration != 'hidden' %}
             <p class="lead">
                 {% if phases.workshops_registration == 'timed_out' %}
                     We’re sorry but you can’t register for workshops anymore.
