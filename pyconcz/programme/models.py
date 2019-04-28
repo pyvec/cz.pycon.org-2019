@@ -123,6 +123,7 @@ class Workshop(models.Model):
     difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner', )
     length = models.CharField(max_length=2, choices=LENGTH, blank=True, )
     attendee_limit = models.PositiveSmallIntegerField('Atendee limit', default=False, blank=True, help_text='Maximum number of attendees allowed')
+    tito_id = models.SlugField('Ticket ID in ti.to', null=True, blank=True, help_text='Tickets are called releases in API')
     registration = models.CharField(max_length=10, choices=REGISTRATION, default='free', blank='free')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
