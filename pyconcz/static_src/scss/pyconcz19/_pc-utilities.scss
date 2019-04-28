@@ -16,6 +16,25 @@
     padding-bottom: calc(100% + #{map-get($spacers, 3)/2});
 }
 
+
+.pc-multicol {
+    @include media-breakpoint-up(md) {
+        columns: 2;
+        column-gap: $grid-gutter-width;
+    }
+
+    @include media-breakpoint-up(xl) {
+        columns: 3;
+    }
+
+    p,
+    ul,
+    ol {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
 .pc-img-effect {
     $pc-base-effect: saturate(40%) hue-rotate(-35deg);
 
