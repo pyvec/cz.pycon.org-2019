@@ -1,4 +1,5 @@
 {% load formatting %}
+{% comment %}{% load humanize %}{% endcomment %}
 
 <div class="row no-gutters pc-speaker {% if type == 'keynoter' %}mb-6{% else %}mb-3{% endif %} {% if odd %}justify-content-end{% endif %}">
 
@@ -68,6 +69,62 @@
                 </p>
             {% endif %}
 
+            {% if session %}{# checks if this is included in session detail #}
+                {# todo: refactor: this should get cleaner data from Python, too much logic here #}
+                {# todo: with it we could also do a nicer listing of more than one other session #}
+
+                {% with talks=speaker.talks.all workshops=speaker.workshops.all %}
+                    {% if session.type == 'talk' %}
+                        {% with extra_talks=talks|length|add:-1 extra_workshops=workshops|length %}
+                            {% if extra_talks %}
+                                <p class="mt-4 mb-0">
+                                    Check my other {{ extra_talks|pluralize:'talk,talks' }}
+                                    {% for talk in talks %}
+                                        {% if talk.id != session.id %}
+                                            <a class="{{ extra_talks|pluralize:',d-block' }}" href="{% url 'session_detail' type=talk.type session_id=talk.id %}#main">{{ talk.title }}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                            {% if extra_workshops %}
+                                <p class="mt-4 mb-0">
+                                    I also lead
+                                    {% for workshop in workshops %}
+                                        <span class="{{ extra_workshops|pluralize:',d-block' }}">
+                                            a&nbsp;{{ workshop.type }}
+                                            <a href="{% url 'session_detail' type=workshop.type session_id=workshop.id %}#main">{{ workshop.title }}</a>
+                                        </span>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        {% endwith %}
+                    {% elif session.type == 'workshop' or session.type == 'sprint' %}
+                        {% with extra_talks=talks|length extra_workshops=workshops|length|add:-1 %}
+                            {% if extra_workshops %}
+                                <p class="mt-4 mb-0">
+                                    I also lead
+                                    {% for workshop in workshops %}
+                                        {% if workshop.id != session.id %}
+                                        <span class="{{ extra_workshops|pluralize:',d-block' }}">
+                                            a&nbsp;{{ workshop.type }}
+                                            <a href="{% url 'session_detail' type=workshop.type session_id=workshop.id %}#main">{{ workshop.title }}</a>
+                                        </span>
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                            {% if extra_talks %}
+                                <p class="mt-4 mb-0">
+                                    Check my {{ extra_talks|pluralize:'talk,talks' }}
+                                    {% for talk in talks %}
+                                        <a class="{{ extra_talks|pluralize:',d-block' }}" href="{% url 'session_detail' type=talk.type session_id=talk.id %}#main">{{ talk.title }}</a>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
+                        {% endwith %}
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
         </div>
     </div>
 

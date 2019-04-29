@@ -6,12 +6,3 @@
         {{ block.super }}
     {% endwith %}
 {% endblock %}
-
-
-{% comment %}
-{% block other_sessions %}
-    {% with other_sessions=speaker.talks.all other_session_type='talk' %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
-{% endcomment %}

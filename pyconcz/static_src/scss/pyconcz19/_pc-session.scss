@@ -1,22 +1,8 @@
 .pc-session {
-    &-info {
-        @include media-breakpoint-up(md) {
-            columns: 2;
-            column-gap: $grid-gutter-width;
-        }
-
-        @include media-breakpoint-up(xl) {
-            columns: 3;
-        }
-
-        p,
-        ul,
-        ol,
-        .pc-session-registration,
-        .pc-session-flags {
-            display: inline-block;
-            width: 100%;
-        }
+    &-registration,
+    &-flags {
+        display: inline-block;
+        width: 100%;
     }
 
     &-date {
@@ -34,4 +20,5 @@
             margin-top: map-get($spacers, 1);
         }
     }
+
 }
