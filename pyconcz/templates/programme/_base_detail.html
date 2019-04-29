@@ -94,7 +94,7 @@
                     {% if phases.workshops_registration == 'timed_out' %}
                         <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
                     {% elif phases.workshops_registration == 'launched' %}
-                        <p class="bg-danger">
+                        <p class="bg-danger p-5">
                             TODO
                             <a class="btn btn-primary" href="#">Register for this workshop</a>
                         </p>
@@ -103,7 +103,7 @@
                             {% if session.registration == 'without' %}
                                 No registration will be required to attend.
                             {% elif session.registration == 'free' %}
-                                Free registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
+                                Free registration available to PyCon&nbsp;CZ ticket holders {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
                             {% elif session.registration == 'paid' %}
                                 Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
                             {% endif %}
@@ -117,45 +117,7 @@
                     {{ session.requirements|markdown }}
                 </div>
             {% endif %}
-
         </div>
-
-        {% for speaker in session.speakers %}
-
-            {% if speaker.talks.all|length > 1 %}
-                <h2>Another {{ session.type }} {{ session_preposition }} {{ speaker.full_name }}</h2>
-            {% endif %}
-
-            {% comment %}
-            {% for talk_other in speaker.talks.all %}
-                {% if talk_other.id != session.id %}
-                    <h3>
-                        <a href="{% url 'session_detail' type='talk' session_id=talk_other.id %}">
-                            {{ talk_other.title }}
-                        </a>
-                    </h3>
-                {% endif %}
-            {% endfor %}
-            {% endcomment %}
-
-            {% comment %}
-            {% block other_sessions %}
-                {% for other_session in other_sessions %}
-                    <h2>
-                        {{ speaker.full_name }} also
-                        {% if other_session.type == 'workshop' %}leads a workshop:{% endif %}
-                        {% if other_session.type == 'talk' %}has a talk:{% endif %}
-                        <a
-                            class="small d-block"
-                            href="{% url 'session_detail' type=other_session.type session_id=other_session.id %}"
-                        >
-                            {{ other_session.title }}
-                        </a>
-                    </h2>
-                {% endfor %}
-            {% endblock %}
-            {% endcomment %}
-        {% endfor %}
 
         {% for speaker in session.speakers %}
             {% include 'programme/__speaker-detail.html' with odd=forloop.counter|divisibleby:'2' %}
@@ -172,7 +134,6 @@
         </div>
         {% endif %}
         {% endcomment %}
-
 
     </div>
 {% endblock %}
