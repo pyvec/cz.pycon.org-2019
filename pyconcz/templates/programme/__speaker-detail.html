@@ -102,11 +102,11 @@
                         {% with extra_talks=talks|length extra_workshops=workshops|length|add:-1 %}
                             {% if extra_workshops %}
                                 <p class="mt-4 mb-0">
-                                    Check my other
+                                    I also lead
                                     {% for workshop in workshops %}
                                         {% if workshop.id != session.id %}
-                                            <span class="{{ extra_workshops|pluralize:',d-block' }}">
-                                            {{ workshop.type }}
+                                        <span class="{{ extra_workshops|pluralize:',d-block' }}">
+                                            a&nbsp;{{ workshop.type }}
                                             <a href="{% url 'session_detail' type=workshop.type session_id=workshop.id %}#main">{{ workshop.title }}</a>
                                         </span>
                                         {% endif %}
@@ -115,7 +115,7 @@
                             {% endif %}
                             {% if extra_talks %}
                                 <p class="mt-4 mb-0">
-                                    I also have {{ extra_talks|pluralize:'a&nbsp;talk,talks'|safe }}
+                                    Check my {{ extra_talks|pluralize:'talk,talks' }}
                                     {% for talk in talks %}
                                         <a class="{{ extra_talks|pluralize:',d-block' }}" href="{% url 'session_detail' type=talk.type session_id=talk.id %}#main">{{ talk.title }}</a>
                                     {% endfor %}
