@@ -89,6 +89,20 @@
                 {% endif %}
             </div>
 
+            {% if session.length and 'h' in session.length %}
+                <p>
+                    {{ session.type|capfirst }}
+                    will take
+                    {% if session.length == '1h' %}
+                        1&nbsp;hour.
+                    {% elif session.length == '2h' %}
+                        2&nbsp;hours.
+                    {% elif session.length == '3h' %}
+                        3&nbsp;hours.
+                    {% endif %}
+                </p>
+            {% endif %}
+
             {% if session.registration %}
                 <div class="pc-session-registration">
                     {% if phases.workshops_registration == 'timed_out' %}
