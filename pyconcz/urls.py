@@ -10,9 +10,6 @@ from pyconcz.common.views import homepage
 prefixed_urlpatterns = [
     url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
     # static pages
-    url(r'^board-game-night/$',
-        TemplateView.as_view(template_name='pages/board_game_night.html'),
-        name='board_game_night'),
     url(r'^about/transparency-report/$',
         TemplateView.as_view(template_name='pages/transparency.html'),
         name='about_transparency'),
@@ -47,6 +44,9 @@ prefixed_urlpatterns = [
     url(r'^venue/$',
         TemplateView.as_view(template_name='pages/venue.html'),
         name='venue'),
+    url(r'^board-game-night/$',
+        TemplateView.as_view(template_name='pages/board_game_night.html'),
+        name='board_game_night'),
 ]
 
 urlpatterns = (
