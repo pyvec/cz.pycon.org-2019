@@ -33,11 +33,32 @@
     <h2>Included in each ticket</h2>
 
     <div class="row">
-        <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/talks.svg' %}" alt=""> 2&nbsp;days of&nbsp;talks</div>
-        <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/party.svg' %}" alt=""> Afterparty</div>
-        <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/food.svg' %}" alt=""> Food, Coffee &amp;&nbsp;Tea</div>
-        <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/workshops.svg' %}" alt=""> Workshops</div>
-        <div class="col py-4 text-center font-weight-bold"><img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt=""> Board Game Night</div>
+        <div class="col py-4 text-center font-weight-bold">
+            {% if phases.talks != 'not_public' %}<a href="{% url 'talks_list' %}" class="d-block">{% endif %}
+            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/talks.svg' %}" alt="">
+            2&nbsp;days of&nbsp;talks
+            {% if phases.talks != 'not_public' %}</a>{% endif %}
+        </div>
+        <div class="col py-4 text-center font-weight-bold">
+            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/party.svg' %}" alt="">
+            Afterparty
+        </div>
+        <div class="col py-4 text-center font-weight-bold">
+            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/food.svg' %}" alt="">
+            Food, Coffee &amp;&nbsp;Tea
+        </div>
+        <div class="col py-4 text-center font-weight-bold">
+            {% if phases.workshops != 'not_public' %}<a href="{% url 'workshops_list' %}" class="d-block">{% endif %}
+            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/workshops.svg' %}" alt="">
+            Workshops
+            {% if phases.workshops != 'not_public' %}</a>{% endif %}
+        </div>
+        <div class="col py-4 text-center font-weight-bold">
+            {% if phases.board_game_night == 'details_public' %}<a href="{% url 'board_game_night' %}" class="d-block">{% endif %}
+            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt="">
+            Board Game Night
+            {% if phases.board_game_night == 'details_public' %}</a>{% endif %}
+        </div>
     </div>
 
 </div>
