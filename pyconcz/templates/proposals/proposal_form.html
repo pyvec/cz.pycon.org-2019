@@ -14,7 +14,7 @@
                 Financial aid applications <b>close on {{ proposal_config.date_end|date:'F j' }}</b>.
                 Learn more about <a href="{% url 'proposal_about' key='financial-aid' %}">Financial Aid programme</a>.
             </p>
-            <p>All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url 'about_privacy' %}">PyCon CZ Privacy Policy</a>.</p>
+            <p>All answers will be used only to evaluate eligibility for Financial Aid and will be handled according to <a href="{% url 'privacy_policy' %}">PyCon CZ Privacy Policy</a>.</p>
         {% else %}
             <p class="lead">
                 The Call for Proposals for {{ proposal_config.key }}
