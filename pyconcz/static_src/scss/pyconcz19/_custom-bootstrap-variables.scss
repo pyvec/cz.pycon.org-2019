@@ -745,14 +745,14 @@
 
     // Tooltips
 
-    // $tooltip-font-size: $font-size-sm; $tooltip-font-size: $tooltip-font-size !global; // $font-size-sm
-    // $tooltip-max-width: 200px; $tooltip-max-width: $tooltip-max-width !global; // 200px
-    // $tooltip-color: $white; $tooltip-color: $tooltip-color !global; // $white
-    // $tooltip-bg: $black; $tooltip-bg: $tooltip-bg !global; // $black
+    $tooltip-font-size: $font-size-lg; $tooltip-font-size: $tooltip-font-size !global; // $font-size-sm
+    $tooltip-max-width: 18rem; $tooltip-max-width: $tooltip-max-width !global; // 200px
+    $tooltip-color: $white; $tooltip-color: $tooltip-color !global; // $white
+    $tooltip-bg: $primary; $tooltip-bg: $tooltip-bg !global; // $black
     // $tooltip-border-radius: $border-radius; $tooltip-border-radius: $tooltip-border-radius !global; // $border-radius
-    // $tooltip-opacity: .9; $tooltip-opacity: $tooltip-opacity !global; // .9
-    // $tooltip-padding-y: .25rem; $tooltip-padding-y: $tooltip-padding-y !global; // .25rem
-    // $tooltip-padding-x: .5rem; $tooltip-padding-x: $tooltip-padding-x !global; // .5rem
+    $tooltip-opacity: 1; $tooltip-opacity: $tooltip-opacity !global; // .9
+    $tooltip-padding-y: map-get($spacers, 1); $tooltip-padding-y: $tooltip-padding-y !global; // .25rem
+    $tooltip-padding-x: map-get($spacers, 2); $tooltip-padding-x: $tooltip-padding-x !global; // .5rem
     // $tooltip-margin: 0; $tooltip-margin: $tooltip-margin !global; // 0
 
     // $tooltip-arrow-width: .8rem; $tooltip-arrow-width: $tooltip-arrow-width !global; // .8rem
@@ -938,8 +938,8 @@
 
     // Code
 
-    // $code-font-size: 87.5%; $code-font-size: $code-font-size !global; // 87.5%
-    // $code-color: $pink; $code-color: $code-color !global; // $pink
+    $code-font-size: 100%; $code-font-size: $code-font-size !global; // 87.5%
+    $code-color: inherit; $code-color: $code-color !global; // $pink
 
     // $kbd-padding-y: .2rem; $kbd-padding-y: $kbd-padding-y !global; // .2rem
     // $kbd-padding-x: .4rem; $kbd-padding-x: $kbd-padding-x !global; // .4rem

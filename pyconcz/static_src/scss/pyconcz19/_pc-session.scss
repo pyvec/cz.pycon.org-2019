@@ -1,37 +1,24 @@
 .pc-session {
-    $pc-pydata-width: 2rem;
-
-    position: relative;
-
-    &-list-heading {
-        margin-top: 0;
-        text-transform: none;
-        line-height: $line-height-base;
-        font-family: $font-family-monospace;
-        font-weight: $pc-font-weight-mono-medium;
-        font-size: $h4-font-size;
-        padding-right: 0.55*$pc-pydata-width;
+    &-registration,
+    &-flags {
+        display: inline-block;
+        width: 100%;
     }
 
-    &-speaker {
-        flex: 1 0 0;
+    &-date {
+        color: $white;
+        font-weight: $font-weight-bold;
+        font-size: $h3-font-size;
+    }
 
-        &:nth-child(n+2) {
-            margin-top: 3*map-get($spacers, 3);
+    &-requirements {
+        h2 {
+            margin-top: map-get($spacers, 3);
+        }
+
+        h2:first-of-type {
+            margin-top: map-get($spacers, 1);
         }
     }
 
-    &-pydata {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 5;
-        width: $pc-pydata-width;
-        height: 3rem;
-        background-color: $primary;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1900 4100'><path fill='white' d='M1001 2068l896-469v958l-896 470m-59-1046L52 1513l897-460 896 462zM999 9l896 469v958L999 967zM0 2673l896 469v958L0 3631zm0-1074l896 469v958L0 2557z'/></svg>");
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-size: auto 2rem;
-    }
 }

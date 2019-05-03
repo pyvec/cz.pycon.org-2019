@@ -1,7 +1,3 @@
-//
-// Headings
-//
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: uppercase;
@@ -15,48 +11,48 @@ h1, .h1 {
     margin-top: 1.333em;
 }
 
+.pc-h1-shrinking {
+    @include media-breakpoint-down(xs) {
+        font-size: 0.75*$h1-font-size;
+    }
+}
+
+.pc-h2-shrinking {
+    @include media-breakpoint-down(xs) {
+        font-size: 0.75*$h2-font-size;
+    }
+}
+
 .pc-overline {
     border-top: ($h1-font-size/6) solid currentColor;
-}
-
-h2, .h2 {
-}
-
-h3, .h3 {
-}
-
-h4, .h4 {
 }
 
 .lead {
     margin-bottom: 2*$paragraph-margin-bottom;
 }
 
-ol {
-    padding-left: 2.5*$spacer;
+$pc-bullet-size: 0.5rem;
+$pc-bullet-distance: 0.5rem;
+
+ol,
+ul {
+    padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
     & > li {
+        margin-bottom: 0.5*$spacer;
+    }
+
+    li > & {
+        margin-top: 0.5*$spacer;
+        margin-left: $spacer;
         margin-bottom: $spacer;
     }
 }
 
-li > ol,
-li > ul {
-    margin-top: $spacer;
-    margin-left: $spacer;
-}
-
-
-ul:not(.nav) {
-    $pc-bullet-size: 0.5rem;
-    $pc-bullet-distance: 0.5rem;
-
+ul {
     list-style-type: none;
-    padding-left: $pc-bullet-size + 1.5*$pc-bullet-distance;
 
-    & > li:not(.nav-item) {
-        margin-bottom: 0.5*$spacer;
-
+    & > li {
         &::before {
             display: inline-block;
             content: "\200B";
@@ -97,9 +93,31 @@ ul:not(.nav) {
     }
 }
 
+.text-white {
+    .nav-link,
+    a:not(.btn) {
+        color: $link-color;
+
+        &:hover {
+            color: darken($link-color, 10%);
+        }
+    }
+}
+
 
 @include media-breakpoint-up(md) {
     .text-nowrap-md {
         white-space: nowrap;
+    }
+}
+
+a:focus {
+    outline-color: $primary;
+    outline-width: 2px;
+    outline-style: solid;
+
+    &.text-black,
+    .text-black & {
+        outline-color: $pc-deepblue;
     }
 }

@@ -10,9 +10,14 @@
 {% block speakers_title %}Talks{% endblock %}
 
 
-{% block details_info %}
-    {% if phases.talks == 'list_public' %}
-        <p class="lead">We will publish talks’ details later.</p>
+{% block top_info %}
+    {% if sessions and phases.talks != 'not_public' %}
+        {{ block.super }}
+        {% if phases.talks == 'list_public' %}
+            <p class="lead">We will publish more information about talks and speakers soon.</p>
+        {% endif %}
+    {% else %}
+        <p class="lead">No talks have been published yet. Please check again later.</p>
     {% endif %}
 {% endblock %}
 
@@ -20,5 +25,18 @@
 {% block detail_link %}
     {% if phases.talks == 'details_public' %}
         {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+
+{% block more_sessions_name %}talks{% endblock %}
+
+
+{% block other_sessions %}
+    {% if phases.workshops != 'not_published' %}
+        {% url 'workshops_list' as other_session_url %}
+        {% with other_session_name='workshops' %}
+            {{ block.super }}
+        {% endwith %}
     {% endif %}
 {% endblock %}

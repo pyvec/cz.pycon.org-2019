@@ -19,6 +19,7 @@
 @import "./node_modules/bootstrap/scss/images";
 @import "images";
 @import "./node_modules/bootstrap/scss/code";
+@import "code";
 @import "./node_modules/bootstrap/scss/grid";
 //@import "./node_modules/bootstrap/scss/tables";
 @import "./node_modules/bootstrap/scss/forms";
@@ -58,10 +59,10 @@
 
 // own styles (feel free to add more)
 @import "pc-header";
-@import "pc-footer";
 @import "pc-ticket";
-@import "pc-keynoters";
+@import "pc-speakers";
 @import "pc-session";
+@import "pc-session-list";
 @import "pc-sponsors";
 @import "pc-linkbar";
 @import "pc-tito";

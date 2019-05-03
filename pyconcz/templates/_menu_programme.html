@@ -1,8 +1,14 @@
 {% extends '_menu_base.html' %}
 
 
+{% block all %}
+    <div class="nav justify-content-center">
+        {{ block.super }}
+    </div>
+{% endblock %}
 
-{% block pre_session_links %}{% endblock %}
+
+{% block basic %}{% endblock %}
 
 
-{% block post_session_links %}{% endblock %}
+{% block other %}{% endblock %}

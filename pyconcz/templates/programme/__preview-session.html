@@ -2,7 +2,7 @@
 
 {% for session in sessions %}
     <div class="bg-dark text-white p-3 my-3">
-        <h1 class="mt-0">{{ session.type|default:'Talk' }} <a class="btn btn-sm btn-light mt-2" href="/admin/programme/{{ session.type|yesno:'workshop,talk' }}/{{ session.id }}/change/">edit in admin</a></h1>
+        <h1 class="mt-0">{{ session.type }} <a class="btn btn-sm btn-light mt-2" href="/admin/programme/{% if session.type == 'sprint' %}workshop{% else %}{{ session.type }}{% endif %}/{{ session.id }}/change/">edit in admin</a></h1>
 
         <p class="h3 m-0">
             {% if session.is_keynote %}
@@ -22,6 +22,17 @@
                 <span class="badge badge-success">public</span>
             {% else %}
                 <span class="badge badge-warning">not public</span>
+            {% endif %}
+            {% if session.type != 'talk' %}
+                {% if session.attendee_limit %}
+                    <span class="badge badge-info">limited to {{ session.attendee_limit }} attendees</span>
+                {% else %}
+                    <span class="badge badge-light">not limited</span>
+                {% endif %}
+
+                {% if session.registration %}
+                    <span class="badge badge-light">{{ session.registration }} registration</span>
+                {% endif %}
             {% endif %}
             {% if session.is_backup %}
                 <span class="badge badge-info">backup</span>
@@ -53,4 +64,27 @@
     <div class="bg-secondary p-3 mb-4">
         {{ session.abstract|markdown }}
     </div>
+
+    {% if session.type != 'talk' %}
+        <h2 class="text-white">Requirements
+            <small class="text-lowercase text-white-50">what to bring, install…</small>
+        </h2>
+        {% if session.requirements %}
+            <div class="bg-secondary p-3 mb-4">
+                {{ session.requirements|markdown }}
+            </div>
+        {% else %}
+            <div class="bg-danger text-white font-weight-bold p-3 mb-4">
+                <p>None set but they should be.</p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if session.og_image %}
+        {{ session.og_image.width }}&nbsp;px × {{ session.og_image.height }}&nbsp;px
+        <img src="{{ session.og_image.url }}" alt="" class="img-fluid mb-3 border border-primary">
+    {% else %}
+        <p class="p-3 bg-danger text-white h2">og:image is missing</p>
+    {% endif %}
+
 {% endfor %}

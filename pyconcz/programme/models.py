@@ -9,16 +9,12 @@ class Speaker(models.Model):
     full_name = models.CharField(max_length=200)
     bio = models.TextField()
     short_bio = models.TextField('Short bio', blank=True, help_text='For keynote speakers')
-
     twitter = models.CharField(max_length=255, blank=True)
     github = models.CharField(max_length=255, blank=True)
     email = models.EmailField()
-
     photo = models.ImageField(upload_to='programme/speakers/')
-
     talks = models.ManyToManyField('Talk', blank=True, related_name='talk_speakers')
     workshops = models.ManyToManyField('Workshop', blank=True, related_name='ws_speakers')
-
     display_position = models.PositiveSmallIntegerField(default=0, help_text='sort order on frontend displays')
     is_public = models.BooleanField(default=True)
 
@@ -55,19 +51,19 @@ class Talk(models.Model):
         ('en', 'English (preferred)'),
         ('cs', 'Czechoslovak'),
     )
-    type = 'talk'  # for symmetry with workshops/sprints
 
+    type = 'talk'  # for symmetry with workshops/sprints
     title = models.CharField(max_length=200)
+    og_image = models.ImageField(upload_to='programme/talks/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
     language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
-    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner',)
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner')
     video_id = models.CharField(max_length=100, default='', blank=True, help_text='youtube')
-
-    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
     is_backup = models.BooleanField(default=False, blank=True)
     is_keynote = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
-    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
+    in_data_track = models.BooleanField('PyData Track', default=False, blank=True)
+    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
 
     class Meta:
         ordering = ('title',)
@@ -118,31 +114,21 @@ class Workshop(models.Model):
         ('paid', 'Paid'),
     )
 
-    type = models.CharField(
-        max_length=10, choices=TYPE, default='sprint'
-    )
-    title = models.CharField(
-        max_length=200, verbose_name='Title'
-    )
+    type = models.CharField(max_length=10, choices=TYPE, default='sprint')
+    title = models.CharField(max_length=200, verbose_name='Title')
+    og_image = models.ImageField(upload_to='programme/workshops/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
-    language = models.CharField(
-        max_length=2, choices=LANGUAGES, default='en'
-    )
-    difficulty = models.CharField(
-        max_length=10, choices=DIFFICULTY, default='beginner',
-    )
-    length = models.CharField(
-        max_length=2, choices=LENGTH, blank=True,
-    )
-
-    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
+    requirements = models.TextField('What should attendees bring, install and know?', default='', blank=True, help_text='Include even the most obvious stuff: laptops, git, python')
+    language = models.CharField(max_length=2, choices=LANGUAGES, default='en')
+    difficulty = models.CharField(max_length=10, choices=DIFFICULTY, default='beginner', )
+    length = models.CharField(max_length=2, choices=LENGTH, blank=True, )
+    attendee_limit = models.PositiveSmallIntegerField('Atendee limit', default=False, blank=True, help_text='Maximum number of attendees allowed')
+    tito_id = models.SlugField('Ticket ID in ti.to', null=True, blank=True, help_text='Tickets are called releases in API')
+    registration = models.CharField(max_length=10, choices=REGISTRATION, default='free', blank='free')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
-    in_data_track = models.BooleanField('Is a part of PyData Track', default=False, blank=True)
-
-    registration = models.CharField(
-        max_length=10, choices=REGISTRATION, default='free', blank='free'
-    )
+    in_data_track = models.BooleanField('PyData Track', default=False, blank=True)
+    private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
 
     def __str__(self):
         return self.title
@@ -158,12 +144,9 @@ class Workshop(models.Model):
 
 class Slot(models.Model):
     date = models.DateTimeField()
-
-    content_type = models.ForeignKey(
-        ContentType, null=True, blank=True, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
-
     description = models.CharField(max_length=100, blank=True, default='', help_text='will be markdowned')
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
 

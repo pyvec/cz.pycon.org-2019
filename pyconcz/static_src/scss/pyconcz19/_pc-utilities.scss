@@ -8,6 +8,32 @@
     }
 }
 
+.pc-object-fit-cover {
+    object-fit: cover;
+}
+
+.pc-embed-responsive-1by1-pb-3 {
+    padding-bottom: calc(100% + #{map-get($spacers, 3)/2});
+}
+
+
+.pc-multicol {
+    @include media-breakpoint-up(md) {
+        columns: 2;
+        column-gap: $grid-gutter-width;
+    }
+
+    @include media-breakpoint-up(xl) {
+        columns: 3;
+    }
+
+    p,
+    ul,
+    ol {
+        display: inline-block;
+        width: 100%;
+    }
+}
 
 .pc-img-effect {
     $pc-base-effect: saturate(40%) hue-rotate(-35deg);
@@ -17,8 +43,20 @@
     &-dark {
         filter: $pc-base-effect brightness(0.6);
 
-        a[href]:hover ~ & {
+        a[href]:hover ~ div > &,
+        a[href]:focus ~ div > & {
             filter: $pc-base-effect;
+        }
+
+        // this goes to container over the image
+        &-fallback {
+            background-color: rgba($dark, .5);
+        }
+
+        &-fallback {
+            @supports (filter: saturate(40%) hue-rotate(-35deg) brightness(0.6)) {
+                background-color: transparent;
+            }
         }
     }
 }
@@ -33,20 +71,56 @@
 }
 
 .pc-iconlink {
-    $pc-icon-size: 1.2rem;
-    $pc-icon-color: lighten(desaturate($pc-deepblue, 35%), 10%);
+    $pc-icon-size: 1.125rem;
     background-repeat: no-repeat;
     background-position: 0 55%;
     background-size: $pc-icon-size;
-    padding-left: 1.2*$pc-icon-size;
 
-    // todo: make icons for different colors
+    // todo: icons need refactor
+
+    @mixin icon-twitter($pc-color) {
+        padding-left: 1.2*$pc-icon-size;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><path fill='#{rgba($pc-color, 0.999999)}' d='M127 361c149 0 231-124 231-231l-1-11c12-8 32-26 40-73a99 99 0 0 1-62 19 81 81 0 0 0-138 74c-65-3-126-34-167-85-33 69-7 231 92 237-34 26-77 38-120 33 37 24 80 37 125 37'/></svg>");
+    }
+
+    @mixin icon-github($pc-color) {
+        padding-left: 1.3*$pc-icon-size;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><path fill='#{rgba($pc-color, 0.999999)}' d='M47 28c-16.08 41.56-16.01 90.32-14.13 97.79C11.92 148.45 2 182.16 2 212.92 2 314.3 44.18 368 200 368s198-53.69 198-155.08c0-30.77-9.92-64.47-30.87-87.13C369 118.32 369.09 69.55 353 28c-37.32.67-85.4 33.91-99.09 46.92-36.95-11.04-73.4-10.74-107.82 0C132.39 61.91 84.34 28.67 47 28zm79.03 163.4c29.44 0 29.71 4.32 73.97 4.32s53.2-4.23 73.97-4.32c38.14-.16 70.38 21.7 70.62 66.57.33 61.05-37.7 88.03-144.59 88.03-106.9 0-144.9-26.98-144.58-88.03.24-44.86 41.15-66.57 70.6-66.57zM132 226c-15.4 0-28 17.28-28 38.58 0 21.29 12.61 38.42 28 38.42s28-17.13 28-38.42c0-21.3-12.62-38.58-28-38.58zm136.23 0c-15.39 0-28.23 17.28-28.23 38.58 0 21.29 12.62 38.63 28 38.63 15.4 0 28-17.34 28-38.63 0-21.3-12.38-38.58-27.77-38.58z'/></svg>");
+    }
 
     &-twitter {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><path fill='#{rgba($pc-icon-color, 0.999999)}' d='M127 361c149 0 231-124 231-231l-1-11c16-11 30-26 41-42-15 7-31 11-47 13 17-10 30-26 36-45-16 9-33 16-52 20a81 81 0 0 0-138 74c-65-3-126-34-167-85a81 81 0 0 0 25 108c-13 0-26-3-37-10v1c0 39 27 72 65 80-12 3-24 4-37 1 11 33 41 56 76 57A163 163 0 0 1 2 324c37 24 80 37 125 37'/></svg>");
+        @include icon-twitter($link-color);
+
+        &:hover {
+            @include icon-twitter($link-hover-color);
+        }
     }
 
     &-github {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><path fill='#{rgba($pc-icon-color, 0.999999)}' d='M199.4 7.4C90.4 7.4 2 95.8 2 204.8c0 87.2 57 161 134.4 187.7 9.7 1.2 13.3-4.9 13.3-9.7v-34c-54.5 12.2-66.6-26.6-66.6-26.6-8.4-23-21.8-29-21.8-29C43.2 281 62.6 281 62.6 281c19.3 1.2 30.2 20.5 30.2 20.5 18.2 30.3 46 21.8 57 17a42.2 42.2 0 0 1 12-26.6c-43.5-4.9-89.6-21.8-89.6-98.1a75 75 0 0 1 20.6-53.3c-2.4-4.9-8.5-25.4 2.4-52 0 0 17-5 54.5 20.5 15.8-4.8 32.7-6 49.7-6s33.9 2.4 49.6 6c37.6-25.4 54.5-20.6 54.5-20.6 11 26.7 3.7 47.2 2.5 52a78.3 78.3 0 0 1 20.6 53.4c0 76.3-46 92-89.7 96.8 7.3 6.1 13.4 18.2 13.4 36.4v54.5c0 4.8 3.6 10.9 13.3 9.7A197.6 197.6 0 0 0 398 203.6 199 199 0 0 0 199.4 7.4z'/></svg>");
+        @include icon-github($link-color);
+
+        &:hover {
+            @include icon-github($link-hover-color);
+        }
     }
+
+    $pc-blue-icon-color: lighten(desaturate($pc-deepblue, 35%), 10%);
+    $pc-blue-icon-hover-color: lighten(desaturate($pc-blue, 35%), 10%);
+
+    &-blue#{&}-twitter {
+        @include icon-twitter($pc-blue-icon-color);
+
+        &:hover {
+            @include icon-twitter($pc-blue-icon-hover-color);
+        }
+    }
+
+    &-blue#{&}-github {
+        @include icon-github($pc-blue-icon-color);
+
+        &:hover {
+            @include icon-github($pc-blue-icon-hover-color);
+        }
+    }
+
 }
