@@ -1,0 +1,95 @@
+{% extends '_layout.html' %}
+
+{% load static %}
+
+
+
+{% block meta_title %}Instructions for workshop leaders – {{ block.super }}{% endblock %}
+
+
+{% comment %}{% block main_classes %}bg-dark{% endblock %}{% endcomment %}
+{% comment %}{% block main_classes %}bg-white text-black{% endblock %}{% endcomment %}
+
+
+{% block main %}
+    <div class="container pb-5">
+
+        <h1 class="pc-h1-shrinking">Instructions for workshop leaders</h1>
+        <div class="row">
+            <div class="col-md-6 col-xl-4">
+                <p class="lead">
+                    Please read these instructions carefully and <a href="mailto:info@pycon.cz">let us know</a> if there is anything unclear. Thank&nbsp;you!
+                </p>
+            </div>
+
+            <div class="col">
+                <p>
+                    <strong>This info might get updated.</strong>
+                    <br>Important changes will be listed here and you’ll be notified by email.
+                </p>
+            </div>
+        </div>
+
+        <h2>Before PyCon&nbsp;CZ</h2>
+        <div class="pc-multicol">
+            <p>
+                We will publish final detailed instructions for attendees on the website on 1 June.
+                <br>Please make sure you send them to&nbsp;<a href="mailto:info@pycon.cz">info@pycon.cz</a> in time i.e. deadline is 29 May.
+            </p>
+            <p>Also, let us know the <b>maximum number of attendees</b> you allow at your workshop, otherwise it will be limited to&nbsp;30.</p>
+            <p><b>Registration</b> will be opened soon after that and all PyCon&nbsp;CZ attendees will receive an&nbsp;email informing them about it.</p>
+            <p>We can send <b>a&nbsp;custom email to&nbsp;all attendees registered for your workshop</b> on your behalf via our registration system. Just write its contents and <a href="mailto:info@pycon.cz">send it to&nbsp;us</a>.<br>Basic Markdown formatting is possible.</p>
+            <p>You can also <b>send us your presentation</b> beforehand to&nbsp;have a&nbsp;backup in case something happens to&nbsp;your laptop, your backup on your flash drive, your second backup 😉…</p>
+        </div>
+
+        <h2>Location</h2>
+        <p>The workshops will take place at <strong>a&nbsp;different place</strong> than the talks: at <em>VSB-TU Ostrava – Faculty of Electrical Engineering and Computer Science</em>.</p>
+        <p><a href="{% url 'venue' %}#workshops">Detailed instructions how to&nbsp;get to&nbsp;the venue</a>.</p>
+
+        <h2>Rooms and equipment</h2>
+        <div class="pc-multicol">
+            <p>Each room is equipped with a&nbsp;projector connected via VGA (D-sub) with a&nbsp;maximum 1280×768 pixels resolution. If&nbsp;you don’t have a&nbsp;VGA output and need an adapter, please <a href="mailto:info@pycon.cz">contact&nbsp;us</a> and specify from which connection, e.g. HDMI, mini HDMI, DisplayPort…</p>
+            <p>There is no&nbsp;audio available.</p>
+            <p>The workshop room's capacity is 30 seats, but you can limit your workshop to&nbsp;fewer people. Otherwise we will allow registration for a&nbsp;full room.</p>
+        </div>
+        <h2>Internet connection (Wi-Fi)</h2>
+        <p>Both you and attendees can connect to&nbsp;a&nbsp;Wi-Fi network TBD using login TBD and password TBD.</p>
+
+        <h2>Schedule</h2>
+        <p>You’re welcome to&nbsp;have breakfast and/or lunch on site. Food will be served from 9:30 and 13:00 respectively.</p>
+
+        <div class="row">
+            <div class="col-md">
+                <h3>For morning workshops</h3>
+                <p>Please join us at 9:00 for a&nbsp;short information session and you’ll be shown to&nbsp;your rooms where you can prepare and check everything before people start coming in.</p>
+                <p>Workshops start at 10:00 and should end before 13:00.</p>
+            </div>
+            <div class="col-md">
+                <h3>For afternoon workshops</h3>
+                <p>Please join us at 13:00 for a&nbsp;short information session and you’ll be shown to&nbsp;your rooms where you can prepare and check everything before people start coming in.</p>
+                <p>Workshops start at 14:00 and should end before 17:00.</p>
+            </div>
+        </div>
+
+        <h2>Attendees’ access to&nbsp;workshops</h2>
+        <div class="pc-multicol">
+            <p>Workshops are available for anybody wearing the PyCon&nbsp;CZ badge.</p>
+            <p>Priority access is for those who registered for the workshop but 10 minutes before the workshop should start this priority access is voided.</p>
+            <p>Lists of registered attendees for each workshop will be available in each room. You don’t have to&nbsp;check those names against the list, just ask attendees to&nbsp;put a&nbsp;check mark beside their name. Lists will be collected by organizers.</p>
+            <p>If somebody wants to&nbsp;join your workshop and isn’t on the list allow them to&nbsp;join your workshop if you still have a&nbsp;free seat less than 10 minutes before the beginning. Just ask them to&nbsp;add their name to&nbsp;the list.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <h2>Support</h2>
+                <p>Our team will be on site to&nbsp;assist you with any troubles you might encounter.</p>
+            </div>
+            <div class="col-md">
+                <h2>Still have questions?</h2>
+                <p>Use <a href="https://pyconcz2019.slack.com/join/shared_invite/enQtNTY0NjQ1NDU5OTg0LTE3YzliYWQxMDU2MjNjMzE3MzBmYjQ5NjZjZDVkMjY5N2JmN2IwMmEyZmMxMDZlZmJhMDkwZTY5NDQwZmFiOGY">PyCon&nbsp;CZ Slack</a> or write to&nbsp;<a href="mailto:info@pycon.cz">info@pycon.cz</a>.</p>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

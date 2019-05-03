@@ -21,6 +21,7 @@ prefixed_urlpatterns = [
     url(r'^ostrava/$', TemplateView.as_view(template_name='pages/ostrava.html'), name='city'),
     url(r'^venue/$', TemplateView.as_view(template_name='pages/venue.html'), name='venue'),
     url(r'^board-game-night/$', TemplateView.as_view(template_name='pages/board_game_night.html'), name='board_game_night'),
+    url(r'^workshop-leaders-info/$', TemplateView.as_view(template_name='pages/workshop_leaders_info.html'), name='workshop_leaders_info'),
     url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
 
     # url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
