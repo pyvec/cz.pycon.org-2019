@@ -16,8 +16,8 @@ prefixed_urlpatterns = [
     url(r'^tickets/', include('pyconcz.common.urls')),
 
     # static pages
-    url(r'^coc/$', TemplateView.as_view(template_name='pages/code.html'), name='about_code'),
-    url(r'^privacy-policy/$', TemplateView.as_view(template_name='pages/privacy.html'), name='about_privacy'),
+    url(r'^coc/$', TemplateView.as_view(template_name='pages/coc.html'), name='coc'),
+    url(r'^privacy-policy/$', TemplateView.as_view(template_name='pages/privacy-policy.html'), name='privacy_policy'),
     url(r'^ostrava/$', TemplateView.as_view(template_name='pages/ostrava.html'), name='city'),
     url(r'^venue/$', TemplateView.as_view(template_name='pages/venue.html'), name='venue'),
     url(r'^board-game-night/$', TemplateView.as_view(template_name='pages/board_game_night.html'), name='board_game_night'),
