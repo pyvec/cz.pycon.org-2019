@@ -178,8 +178,8 @@ MEDIA_ROOT = os.path.join(TMP_DIR, 'media')
 
 SLACK_WEBHOOK = ''  # This variable is set in local.py
 
-TALKS_DATES = [datetime.date(2018, 6, 1), datetime.date(2018, 6, 2)]
-WORKSHOPS_DATES = [datetime.date(2018, 6, 3)]
+TALKS_DATES = [datetime.date(2019, 6, 14), datetime.date(2019, 6, 15)]
+WORKSHOPS_DATES = [datetime.date(2019, 6, 16)]
 TALKS_ROOMS = [
     (1, 'Main'),
     (2, 'Theatre'),
