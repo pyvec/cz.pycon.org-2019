@@ -37,7 +37,7 @@ If you want to remove a menu item globally, comment it out here.
         {% endblock %}
 
         {% block link_financial_aid %}
-            {% if phases.finaid == 'launched' %}
+            {% if phases.finaid != 'not_launched' %}
                 {% include '__nav-link.html' with url='proposal_about' key='financial-aid' link_text='Financial Aid' %}
             {% endif %}
         {% endblock %}
