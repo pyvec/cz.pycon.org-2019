@@ -30,13 +30,11 @@
                 </div>
                 <div class="col-lg-6">
                     <p>
-                        <em><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a></em> (DOV) is a&nbsp;national site of industrial heritage located in the centre of Ostrava. It includes extensive <em>industrial ironworks</em> with a&nbsp;former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a&nbsp;unique collection
-                        of industrial architecture.
+                        <em><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a></em> (DOV) is a&nbsp;national site of industrial heritage located in the centre of Ostrava. It includes extensive <em>industrial ironworks</em> with a&nbsp;former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a&nbsp;unique collection of industrial architecture.
                     </p>
 
                     <p>
-                        The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a&nbsp;unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre.
-                        Its significance now reaches beyond the boundaries of the region.
+                        The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a&nbsp;unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre. Its significance now reaches beyond the boundaries of the region.
                     </p>
                 </div>
             </div>
@@ -82,7 +80,30 @@
         <section id="workshops">
             <h1 class="pc-h1-shrinking">Workshops venue</h1>
 
-            <p>Workshops will be happening at a&nbsp;different place in Ostrava and will be announced later.</p>
+            {% if phases.workshops_venue == 'not_public' %}
+                <p class="lead">Workshops will be happening at a&nbsp;different place in Ostrava and will be announced later.</p>
+            {% elif phases.workshops_venue == 'basic_info' %}
+                <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science and more details will be published later.</p>
+            {% elif phases.workshops_venue == 'full_info' %}
+                <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science.</p>
+
+                <h2>Getting to&nbsp;the VŠB</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Public transport</h3>
+                        <p>TODO</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>By bike or foot</h3>
+                        <p>TODO</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>By car</h3>
+                        <p>TODO</p>
+                    </div>
+                </div>$
+            {% endif %}
+
         </section>
     </div>
 {% endblock %}
