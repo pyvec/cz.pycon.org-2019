@@ -1,5 +1,7 @@
 /* switch of margin-collapsing */
 .container,
+main,
 section {
-    overflow: hidden;
+    padding-top:.5px;
+    padding-bottom:.5px;
 }
