@@ -94,8 +94,8 @@ class TalkResource(resources.ModelResource):
 
 
 class TalkAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'speakers', 'language', 'is_keynote', 'is_public',
-                    'is_backup', 'in_data_track']
+    list_display = ['order', 'title', 'speakers', 'language',
+                    'is_keynote', 'is_public', 'is_backup', 'in_data_track']
     list_filter = ['is_keynote', 'is_public', 'is_backup', 'in_data_track']
     search_fields = ['title']
     resource_class = TalkResource
@@ -108,9 +108,9 @@ class TalkAdmin(ImportExportActionModelAdmin):
 
 
 class WorkshopAdmin(TalkAdmin):
-    list_display = [
-        'title', 'speakers', 'language', 'difficulty', 'type', 'is_public',
-        'is_backup', 'registration', 'length', 'attendee_limit']
+    list_display = ['order', 'title', 'speakers', 'language', 'difficulty',
+                    'type', 'is_public', 'is_backup', 'registration',
+                    'length', 'attendee_limit']
     list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
 
