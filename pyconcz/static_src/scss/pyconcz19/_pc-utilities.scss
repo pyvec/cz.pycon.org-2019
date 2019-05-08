@@ -5,7 +5,20 @@
             top: 0;
             z-index: $zindex-sticky;
         }
+
     }
+}
+
+.pc-sticky-bottom {
+    @supports (position: sticky) {
+        position: sticky;
+        bottom: 0;
+        z-index: $zindex-sticky;
+    }
+}
+
+.pc-mw-max {
+    max-width: map-get($container-max-widths, xl);
 }
 
 .pc-object-fit-cover {

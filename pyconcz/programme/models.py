@@ -53,7 +53,7 @@ class Talk(models.Model):
     )
 
     type = 'talk'  # for symmetry with workshops/sprints
-    order = models.SmallIntegerField(default=100, help_text='display order on front end, has to be unique')
+    order = models.SmallIntegerField(unique=True, help_text='display order on front end, has to be unique')
     title = models.CharField(max_length=200)
     og_image = models.ImageField(upload_to='programme/talks/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
@@ -116,7 +116,7 @@ class Workshop(models.Model):
     )
 
     type = models.CharField(max_length=10, choices=TYPE, default='sprint')
-    order = models.SmallIntegerField(default=100, help_text='display order on front end, has to be unique')
+    order = models.SmallIntegerField(unique=True, help_text='display order on front end, has to be unique')
     title = models.CharField(max_length=200, verbose_name='Title')
     og_image = models.ImageField(upload_to='programme/workshops/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
