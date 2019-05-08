@@ -20,7 +20,7 @@ def preview(request):
 
 def talks_list(request):
     nonbackup_talks = Talk.objects.filter(is_backup=False)
-    talks = nonbackup_talks.filter(is_public=True).order_by('title')
+    talks = nonbackup_talks.filter(is_public=True).order_by('order')
     more_to_come = nonbackup_talks.filter(is_public=False).exists()
 
     return TemplateResponse(
@@ -32,7 +32,7 @@ def talks_list(request):
 
 def workshops_list(request):
     nonbackup_workshops = Workshop.objects.filter(is_backup=False)
-    workshops = nonbackup_workshops.filter(is_public=True).order_by('title')
+    workshops = nonbackup_workshops.filter(is_public=True).order_by('order')
     more_to_come = nonbackup_workshops.filter(is_public=False).exists()
 
     return TemplateResponse(
