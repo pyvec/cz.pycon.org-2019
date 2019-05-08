@@ -20,7 +20,7 @@ def preview(request):
 
 def talks_list(request):
     nonbackup_talks = Talk.objects.filter(is_backup=False)
-    talks = nonbackup_talks.filter(is_public=True).order_by('order')
+    talks = nonbackup_talks.filter(is_public=True, is_backup=False).order_by('order')
     more_to_come = nonbackup_talks.filter(is_public=False).exists()
 
     return TemplateResponse(
@@ -32,7 +32,7 @@ def talks_list(request):
 
 def workshops_list(request):
     nonbackup_workshops = Workshop.objects.filter(is_backup=False)
-    workshops = nonbackup_workshops.filter(is_public=True).order_by('order')
+    workshops = nonbackup_workshops.filter(is_public=True, is_backup=False).order_by('order')
     more_to_come = nonbackup_workshops.filter(is_public=False).exists()
 
     return TemplateResponse(
@@ -44,7 +44,7 @@ def workshops_list(request):
 
 def session_detail(request, type, session_id):
     MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
-    obj = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True)
+    obj = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True, is_backup=False)
 
     return TemplateResponse(
         request,
