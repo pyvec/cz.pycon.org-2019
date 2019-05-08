@@ -28,10 +28,9 @@
 
 
 {% block main %}
-    <div class="container pb-5">
+    <div class="container">
 
-        {% comment 'todo' %}{% include '_menu_programme.html' %}{% endcomment %}
-
+        {% comment 'todo' %}{% include '_menu_programme .html' %}{% endcomment %}
 
         <h1 class="pc-h1-shrinking">
             {{ session.title }}
@@ -150,4 +149,16 @@
         {% endcomment %}
 
     </div>
+
+    <div class="pc-sticky-bottom pc-mw-max mx-auto">
+        <div class="pr-2 px-sm-3 pb-2 mb-2 d-flex justify-content-between">
+            <a class="btn btn-sm btn-secondary px-2 px-sm-3" href="{% url 'session_detail' type=session_previous.type session_id=session_previous.id %}#main">
+                previous {{ session_previous.type }}
+            </a>
+            <a class="btn btn-sm btn-info px-2 px-sm-3" href="{% url 'session_detail' type=session_next.type session_id=session_next.id %}#main">
+                next {{ session_next.type }}
+            </a>
+        </div>
+    </div>
+
 {% endblock %}
