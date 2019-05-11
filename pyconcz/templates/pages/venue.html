@@ -85,21 +85,22 @@
             {% elif phases.workshops_venue == 'basic_info' %}
                 <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science and more details will be published later.</p>
             {% elif phases.workshops_venue == 'full_info' %}
-                <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science.</p>
-
-                <h2>Getting to&nbsp;the VŠB</h2>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-6">
+                        <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science.</p>
+
+                        <h2>Getting to&nbsp;the VŠB</h2>
+                        <p>The building you are looking for can’t be easily navigated to by its address, however, it is big and green so you won't miss it. <a href="https://goo.gl/maps/s7CuBFQgiiUKG89Z7">This GPS location</a> will lead you right in front of the main entrance.</p>
                         <h3>Public transport</h3>
-                        <p>TODO</p>
-                    </div>
-                    <div class="col-md-4">
+                        <p>The venue is just a&nbsp;4-minute-long walk from the tram stop <i>Hlavní třída</i> (trams number 5, 7, 8, 9 and 17). Follow signs with PyCon&nbsp;CZ logo.</p>
                         <h3>By bike or foot</h3>
-                        <p>TODO</p>
-                    </div>
-                    <div class="col-md-4">
+                        <p>There are a&nbsp;lot of places around the building where you can park your bike. There is a&nbsp;bike rack for your bicycle or shared <i>Nextbike</i> or <i>Rekola</i> in front of the building.</p>
                         <h3>By car</h3>
-                        <p>TODO</p>
+                        <p>Many parking lots are available around the university, but be careful because not all of them are public or free. You can find a&nbsp;lot of free places to park on near <i>17.&nbsp;listopadu</i> street.</p>
+                    </div>
+                    <div class="col-lg">
+                        <img class="img-fluid mb-3" src="{% static 'img/vsb-fei.jpg' %}" alt="Main building of VSB FEI">
+                        <p class="bg-white p-3 pc-box-shadow">We want to thank our partner for lending us their building. If you’re thinking about studying computer science, make sure to check their <a href="https://katedrainformatiky.cz/">website</a> and a&nbsp;<a href="https://youtu.be/0u9OMtzuKqA">short video</a>.</p>
                     </div>
                 </div>
             {% endif %}
