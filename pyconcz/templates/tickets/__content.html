@@ -32,33 +32,41 @@
 
     <h2>Included in each ticket</h2>
 
-    <div class="row">
-        <div class="col py-4 text-center font-weight-bold">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             {% if phases.talks != 'not_public' %}<a href="{% url 'talks_list' %}" class="d-block">{% endif %}
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/talks.svg' %}" alt="">
-            2&nbsp;days of&nbsp;talks
+            <div>2&nbsp;days of&nbsp;talks</div>
             {% if phases.talks != 'not_public' %}</a>{% endif %}
+            <small>Friday and Saturday <span class="text-nowrap">(10:00 – 19:00)</span></small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/party.svg' %}" alt="">
-            Afterparty
+            <div>Afterparty</div>
+            <small>Saturday from 19:15</small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/food.svg' %}" alt="">
-            Food, Coffee &amp;&nbsp;Tea
+            <div>Food, Coffee &amp;&nbsp;Tea</div>
+            <small>all days</small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             {% if phases.workshops != 'not_public' %}<a href="{% url 'workshops_list' %}" class="d-block">{% endif %}
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/workshops.svg' %}" alt="">
-            Workshops
+            <div>Workshops</div>
             {% if phases.workshops != 'not_public' %}</a>{% endif %}
+            <small>Sunday <span class="text-nowrap">(10:00 – 17:00)</span></small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
-            {% if phases.board_game_night == 'details_public' %}<a href="{% url 'board_game_night' %}" class="d-block">{% endif %}
-            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt="">
-            Board Game Night
-            {% if phases.board_game_night == 'details_public' %}</a>{% endif %}
-        </div>
+
+        {% if phases.board_game_night != 'not_public' %}
+            <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
+                {% if phases.board_game_night == 'details_public' %}<a href="{% url 'board_game_night' %}" class="d-block">{% endif %}
+                <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt="">
+                <div>Board Game Night</div>
+                {% if phases.board_game_night == 'details_public' %}</a>{% endif %}
+                <small>Friday from 19:15</small>
+            </div>
+        {% endif %}
     </div>
 
 </div>
