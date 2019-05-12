@@ -29,6 +29,13 @@
     padding-bottom: calc(100% + #{map-get($spacers, 3)/2});
 }
 
+.pc-embed-responsive-20by21::before {
+    padding-top: 105%;
+}
+
+.pc-embed-responsive-3by4-pb-3 {
+    height: calc(100%);
+}
 
 .pc-multicol {
     @include media-breakpoint-up(md) {
@@ -71,6 +78,17 @@
                 background-color: transparent;
             }
         }
+    }
+}
+
+.pc-bg-cover-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-blend-mode: multiply;
+
+    &-brown {
+        background-color: rgba($pc-brown, 0.8);
     }
 }
 
