@@ -1,9 +1,83 @@
 .pc-ticket {
-    max-width: 19rem;
-    min-width: 13rem;
+    background-color: rgba($secondary, 0.95);
+    
+    display: flex;
+    flex-direction: column;
 
-    & > div {
-        height: 100%;
+    max-width: 19rem;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    @include media-breakpoint-up(xs) {
+        flex-basis: 100%;
+    }
+
+    @include media-breakpoint-up(sm) {
+        flex-basis: 50%;
+    }
+
+    @include media-breakpoint-up(md) {
+        flex-basis: 33%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        flex-basis: 25%;
+    }
+
+    &-top {
+        $ticket-hole-diameter: 16px;
+        $ticket-border-width: 4px;
+
+        border-bottom: $ticket-border-width dashed $dark;
+        position: relative;
+
+        @include media-breakpoint-up(sm) {
+            min-height: 10rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            min-height: calc(18rem - 10vw);
+        }
+
+        @include media-breakpoint-up(lg) {
+            min-height: calc(19rem - 9vw);
+        }
+
+        @include media-breakpoint-up(xl) {
+            min-height: 11rem;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            width: 0.5*$ticket-hole-diameter;
+            height: $ticket-hole-diameter;
+            background-color: $dark;
+            position: absolute;
+            bottom: -$ticket-hole-diameter + 1.5*$ticket-border-width;
+        }
+
+        &::before {
+            border-bottom-right-radius: 2*$ticket-hole-diameter;
+            border-top-right-radius: 2*$ticket-hole-diameter;
+            left: 0;
+        }
+
+        &::after {
+            border-bottom-left-radius: 2*$ticket-hole-diameter;
+            border-top-left-radius: 2*$ticket-hole-diameter;
+            right: 0;
+        }
+
+    }
+
+    &-pricing {
+        height: auto;
+    }
+
+    &-button {
+        margin-top: auto;
     }
 
     &-line {
