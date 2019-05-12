@@ -4,76 +4,128 @@
 
 
 
-{% block meta_title %}Conference Venue – {{ block.super }}{% endblock %}
+{% block meta_title %}Venue – {{ block.super }}{% endblock %}
 
 
 {% block main %}
-    <div class="container pb-5">
+    <div class="container">
+        <h1 class="pc-h1-shrinking">Conference Venue</h1>
+        <div class="row">
+            <div class="col-lg-6">
+                <p class="lead">
+                    PyCon&nbsp;CZ will take place at <a href="http://www.dolnivitkovice.cz/akce-v-dovu-hlubina">Hlubina</a> – the coal mine complex re-made into a&nbsp;cozy conference center.
+                    We’re&nbsp;pretty excited about the place, and hope you’ll be as&nbsp;well!
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p>Looking for <a href="getting-to-the-venue">instructions how to get to the main venue</a>?</p>
+                {% if phases.workshops_venue != 'not_public' %}
+                    <p>Or for <a href="#workshops">a&nbsp;workshops venue</a>?</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
-        <section>
-            <h1 class="pc-h1-shrinking">Conference Venue</h1>
-            <p>
-                PyCon CZ will take place at <a href="http://www.dolnivitkovice.cz/akce-v-dovu-hlubina">Hlubina</a> – the coal mine complex re-made into a&nbsp;cozy conference center.
-                We're pretty excited about the place, and hope you'll be as well!
-            </p>
-
-            <p>
-                The Conference hall is in the middle of the national monument area called Dolní Vítkovice (shortened DOV or DV).
-                <br>Check DOV’s offical video to&nbsp;get the idea about the area.
-            </p>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eHLcEUNx4cI" allowfullscreen></iframe>
-                    </div>
+    <div class="py-0 mb-5 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
+        <div class="container my-5">
+            <div class="row no-gutters my-n5">
+                <div class="col-md-6 mb-3 pr-md-2">
+                    <img class="img-fluid pc-img-effect" src="{% static 'img/dov/low-res-jiri-zerzon-kompresorovna-compress-kavarna3.min.jpg' %}" alt="">
+                    {% comment %}<img class="img-fluid pc-img-effect" src="//satyr.io/1302x3:2/deepskyblue" alt="">{% endcomment %}
                 </div>
-                <div class="col-lg-6">
-                    <p>
-                        <em><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a></em> (DOV) is a&nbsp;national site of industrial heritage located in the centre of Ostrava. It includes extensive <em>industrial ironworks</em> with a&nbsp;former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a&nbsp;unique collection of industrial architecture.
-                    </p>
-
-                    <p>
-                        The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a&nbsp;unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre. Its significance now reaches beyond the boundaries of the region.
-                    </p>
+                <div class="col-md-6 mb-3 pl-md-2">
+                    <img class="img-fluid pc-img-effect" src="{% static 'img/dov/jiri-zerzon-20150413-hlubina_053.min.jpg' %}" alt="">
+                    {% comment %}<img class="img-fluid pc-img-effect" src="//satyr.io/1302x16:9/black" alt="">{% endcomment %}
+                    {% comment %}<img class="img-fluid pc-img-effect" src="//satyr.io/1302x3:2/black" alt="">{% endcomment %}
+                </div>
+                <div class="col-md-12">
+                    <img class="img-fluid pc-img-effect" src="{% static 'img/dov/low-res-jiri-zerzon-stare-koupelny_exterier_brick_house.1280x720.min.jpg' %}" alt="">
+                    {% comment %}<img class="img-fluid pc-img-effect" src="//satyr.io/2640x3:2/white" alt="">{% endcomment %}
                 </div>
             </div>
+        </div>
+    </div>
 
-            <p>
-                DOV now includes attractions such as the
-                <a href="http://stcostrava.cz/hlavni-stranka">Science and technology center</a>,
-                a
-                <a href="http://www.dolnivitkovice.cz/gong">multifunctional auditorium</a>,
-                and the
-                <a href="http://www.dolnivitkovice.cz/bolt-tower-maly-okruh">Bolt Tower</a>.
-                See more info at the
-                <a href="http://www.dolnivitkovice.cz/en/">DOV’s official website</a>.
-            </p>
-        </section>
+    <div class="container">
+        <h2>Location</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <p class="lead">The Conference hall is in the middle of the national monument area called Dolní Vítkovice (shortened DOV or&nbsp;DV).</p>
+                <p><a href="https://en.wikipedia.org/wiki/Lower_V%C3%ADtkovice">Dolní oblast Vítkovice</a> is located in the centre of Ostrava. It&nbsp;includes extensive <em>industrial ironworks</em> with a&nbsp;former coal mine, coke ovens and blast furnace operations with exceptional technology flow and specialized machines as well as a&nbsp;unique collection of industrial architecture.</p>
+            </div>
+            <div class="col-lg-6">
+                <p>The manufacturing complex closed down in the 19<sup>th</sup> century, but since then it was transformed into a&nbsp;unique <em>educational</em>, <em>social</em> and <em>cultural</em> centre. Its significance now reaches beyond the boundaries of the region.</p>
+                <p>
+                    DOV now includes attractions such as the
+                    <a href="http://stcostrava.cz/hlavni-stranka">Science and technology center</a>,
+                    a&nbsp;<a href="http://www.dolnivitkovice.cz/gong">multifunctional auditorium</a>,
+                    and the
+                    <a href="http://www.dolnivitkovice.cz/bolt-tower-maly-okruh">Bolt Tower</a>.
+                    See more info at the
+                    <a href="http://www.dolnivitkovice.cz/en/">DOV’s official website</a>.
+                </p>
+            </div>
+        </div>
+    </div>
 
+
+    <div class="pt-0 pb-3 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_106.min.jpg' %});">
+        <div class="container mt-5 mb-4">
+            <div class="row no-gutters mt-n5">
+                <div class="col-12 col-md-6 pr-md-2 mb-3 mb-md-0">
+                    <div class="embed-responsive embed-responsive-16by9 h-100">
+                        <div class="embed-responsive-item">
+                            {% comment %}<img style="object-fit: cover;" class="h-100 w-100 pc-img-effect" src="//satyr.io/1302x1502/skyblue?texture=cross" alt="">{% endcomment %}
+                            <img style="object-fit: cover;" class="h-100 w-100 pc-img-effect" src="{% static 'img/dov/jirka-zapalka_2017-09-17_112.min.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-md-2">
+                    <div class="embed-responsive embed-responsive-16by9 mb-3">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/eHLcEUNx4cI" allowfullscreen></iframe>
+                    </div>
+                    {% comment %}<img class="img-fluid pc-img-effect mb-3" src="//satyr.io/1302x3:2/chocolate?texture=cross" alt="">{% endcomment %}
+                    {% comment %}<img class="img-fluid pc-img-effect" src="//satyr.io/1302x16:9/chocolate?texture=cross" alt="">{% endcomment %}
+                    <img class="img-fluid pc-img-effect" src="{% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pb-5">
         <section id="getting-to-the-venue">
             <h2>Getting to&nbsp;the venue</h2>
 
-            <p>Both rooms and chill-out zone and more will be at <a href="https://goo.gl/maps/X3PYca4RJw12">Brick House</a> (“Staré koupelny” in Czech).</p>
-
-            <p>Don’t worry! There will be a&nbsp;navigation in place to&nbsp;guide you through the area during PyCon&nbsp;CZ.</p>
-
             <div class="row">
-                <div class="col-md-4">
-                    <h3>Public transport</h3>
-                    <p>The venue is just a&nbsp;2-minute walk from the tram stop <i>Důl Hlubina</i>. Follow signs with PyCon&nbsp;CZ logo from there.</p>
+                <div class="col-lg-6">
+                    <p class="lead">Both rooms and chill-out zone and more will be at <a href="https://goo.gl/maps/X3PYca4RJw12">Brick House</a> (“Staré&nbsp;koupelny” in Czech).</p>
                 </div>
-                <div class="col-md-4">
-                    <h3>By bike or foot</h3>
-                    <p>You are looking for <a href="https://goo.gl/maps/jFAY7fHwyXG2">Vítkovická&nbsp;17</a> (it’s&nbsp;the&nbsp;closest point on the map to&nbsp;reach <i>Staré koupelny</i>). Park your bike in front of the <i>Cineport</i> building and <i>Kavárna Maryčka</i>.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>By car</h3>
-                    <p>Parking is close to&nbsp;the&nbsp;tram stop <i>Dolní Vítkovice Hlubina</i>. Look for the closest point from parking place <a href="https://goo.gl/maps/jFAY7fHwyXG2">Vítkovická&nbsp;17</a>, Moravská Ostrava). You&nbsp;can park inside the area for free, around the street Vitkovicka.</p>
+                <div class="col-lg-6">
+                    <p>
+                        Don’t worry!
+                        <br>There will be a&nbsp;navigation in place to&nbsp;guide you through the area during PyCon&nbsp;CZ.
+                    </p>
                 </div>
             </div>
 
-            <p>For details about different transport options check our <a href="{% url 'city' %}#travelling-around-ostrava">guide to&nbsp;getting around Ostrava</a>.</p>
+            <div class="row">
+                <div class="col-md-6 col-lg">
+                    <h3>Public transport</h3>
+                    <p>The venue is just a&nbsp;2-minute walk from the tram stop <i>Důl Hlubina</i>. Follow signs with PyCon&nbsp;CZ logo from there.</p>
+                </div>
+                <div class="col-md-6 col-lg">
+                    <h3>By bike or foot</h3>
+                    <p>You are looking for <a href="https://goo.gl/maps/jFAY7fHwyXG2">Vítkovická&nbsp;17</a> (it’s&nbsp;the&nbsp;closest point on the map to&nbsp;reach <i>Staré koupelny</i>). Park your bike in front of the <i>Cineport</i> building and <i>Kavárna Maryčka</i>.</p>
+                </div>
+                <div class="col-md-6 col-lg">
+                    <h3>By car</h3>
+                    <p>Parking is close to&nbsp;the&nbsp;tram stop <i>Dolní Vítkovice Hlubina</i>. Look for the closest point from parking place <a href="https://goo.gl/maps/jFAY7fHwyXG2">Vítkovická&nbsp;17</a>, Moravská Ostrava). You&nbsp;can park inside the area for free, around the street Vitkovicka.</p>
+                </div>
+                <div class="col-md-6 col-lg-12">
+                    <h3>Getting around Ostrava</h3>
+                    <p>For details about different transport options check our <a href="{% url 'city' %}#travelling-around-ostrava">guide to&nbsp;getting around Ostrava</a>.</p>
+                </div>
+            </div>
 
         </section>
 
@@ -90,7 +142,7 @@
                         <p class="lead">Workshops will be happening at VŠB-TU Ostrava – Faculty of Electrical Engineering and Computer Science.</p>
 
                         <h2>Getting to&nbsp;the VŠB</h2>
-                        <p>The building you are looking for can’t be easily navigated to by its address, however, it is big and green so you won't miss it. <a href="https://goo.gl/maps/s7CuBFQgiiUKG89Z7">This GPS location</a> will lead you right in front of the main entrance.</p>
+                        <p>The building you are looking for can’t be easily navigated to by its address, however, it is big and green so you won’t miss it. <a href="https://goo.gl/maps/s7CuBFQgiiUKG89Z7">This GPS location</a> will lead you right in front of the main entrance.</p>
                         <h3>Public transport</h3>
                         <p>The venue is just a&nbsp;4-minute-long walk from the tram stop <i>Hlavní třída</i> (trams number 5, 7, 8, 9 and 17). Follow signs with PyCon&nbsp;CZ logo.</p>
                         <h3>By bike or foot</h3>
