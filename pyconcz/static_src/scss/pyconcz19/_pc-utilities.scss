@@ -21,6 +21,10 @@
     max-width: map-get($container-max-widths, xl);
 }
 
+.pc-min-w-md {
+    min-width: 12rem;
+}
+
 .pc-object-fit-cover {
     object-fit: cover;
 }

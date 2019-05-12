@@ -169,18 +169,17 @@
         6: ($spacer * 5)
     ); $spacers: $spacers !global;
     // the following variable affects the `.h-*` and `.w-*` classes.
-    /*
     // uncomment whole block, the following variable uses map-merge(),
     // so you can define only new ones you need
     // $sizes: ();
     $sizes: (
+        20: 20%
     //        25: 25%,
     //        50: 50%,
     //        75: 75%,
     //        100: 100%,
     //        auto: auto
     ); $sizes: $sizes !global;
-    */
 
 
     // Body
