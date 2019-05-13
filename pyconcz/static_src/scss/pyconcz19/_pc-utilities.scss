@@ -103,6 +103,10 @@
     margin-right: $pc-shadow-horizontal;
     margin-bottom: $pc-shadow-horizontal;
     box-shadow: $pc-shadow-vertical $pc-shadow-horizontal 0 $primary;
+
+    &-dark {
+        box-shadow: $pc-shadow-vertical $pc-shadow-horizontal 0 $dark;
+    }
 }
 
 .pc-iconlink {
