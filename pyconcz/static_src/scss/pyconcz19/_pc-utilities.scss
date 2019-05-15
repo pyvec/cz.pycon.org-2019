@@ -143,8 +143,8 @@
         }
     }
 
-    $pc-blue-icon-color: lighten(desaturate($pc-deepblue, 35%), 10%);
-    $pc-blue-icon-hover-color: lighten(desaturate($pc-blue, 35%), 10%);
+    $pc-blue-icon-color: lighten(desaturate($pc-blue, 15%), 10%);
+    $pc-blue-icon-hover-color: darken($pc-blue-icon-color, 15%);
 
     &-blue#{&}-twitter {
         @include icon-twitter($pc-blue-icon-color);

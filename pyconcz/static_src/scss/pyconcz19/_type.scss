@@ -88,7 +88,18 @@ ul {
         color: $pc-deepblue;
 
         &:hover {
-            color: $blue;
+            color: darken($pc-deepblue, 15%);
+        }
+    }
+}
+
+.text-dark {
+    .nav-link,
+    a:not(.btn) {
+        color: $pc-blue;
+
+        &:hover {
+            color: darken($pc-blue, 15%);
         }
     }
 }
@@ -118,6 +129,6 @@ a:focus {
 
     &.text-black,
     .text-black & {
-        outline-color: $pc-deepblue;
+        outline-color: $pc-blue;
     }
 }
