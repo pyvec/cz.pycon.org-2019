@@ -143,7 +143,7 @@
         }
     }
 
-    $pc-blue-icon-color: lighten(desaturate($pc-blue, 15%), 10%);
+    $pc-blue-icon-color: lighten(desaturate($pc-deepblue, 15%), 10%);
     $pc-blue-icon-hover-color: darken($pc-blue-icon-color, 15%);
 
     &-blue#{&}-twitter {
