@@ -167,3 +167,15 @@ class EndTime(models.Func):
 
     def get_group_by_cols(self):
         return []
+
+class Utility(models.Model):
+    title = models.CharField(max_length=200, verbose_name='Title')
+    description = models.TextField(blank=True, null=True)
+    url = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+            verbose_name = 'Utility'
+            verbose_name_plural = 'Utilities'

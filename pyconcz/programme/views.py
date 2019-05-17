@@ -99,14 +99,16 @@ def _prefetch_generic(ct):
 def schedule(request):
     slots = chain(
         _prefetch_generic('talk'),
-        _prefetch_generic('workshop')
+        _prefetch_generic('workshop'),
+        _prefetch_generic('utility'),
     )
-
+    domain = "/".join(request.build_absolute_uri().split("/")[:3])
     return TemplateResponse(
         request,
         template='programme/slot_schedule.html',
         context={
             'slots': slots,
-            'ALL_ROOMS': settings.ALL_ROOMS
+            'ALL_ROOMS': settings.ALL_ROOMS,
+            'domain': domain,
         }
     )

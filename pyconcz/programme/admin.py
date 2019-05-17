@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from django.utils.translation import gettext as _
 
-from .models import Speaker, Talk, Slot, Workshop
+from .models import Speaker, Talk, Slot, Workshop, Utility
 
 
 def mk_public(modeladmin, request, queryset):
@@ -114,8 +114,12 @@ class WorkshopAdmin(TalkAdmin):
     list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
 
+class UtilityAdmin(ImportExportActionModelAdmin):
+    list_display = ['id', 'title', 'description', "url"]
+
 
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Slot, SlotAdmin)
+admin.site.register(Utility, UtilityAdmin)
