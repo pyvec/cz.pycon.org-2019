@@ -11,24 +11,38 @@
     {% endif %}
 
     <h1>Tickets</h1>
-    {% if tickets.left <= 0 %}
-        <p class="lead">We’re sorry but all available tickets have been sold out.</p>
-    {% elif tickets.now < tickets.last_day_regular %}
-        <p class="lead">
-            Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
-            {% include 'tickets/__tickets-left.html' with threshold=30 %}
-        </p>
-    {% elif tickets.now == tickets.last_day_regular %}
-        <p class="lead">
-            Today is the last chance to buy tickets for the regular price!
-            {% include 'tickets/__tickets-left.html' with threshold=20 %}
-        </p>
-    {% else %}
-        <p class="lead">
-            Good news!<br>You can still get your ticket at a&nbsp;late bird price.
-            {% include 'tickets/__tickets-left.html' with threshold=10 %}
-        </p>
-    {% endif %}
+    <div class="row">
+        <div class="col">
+            {% if tickets.left <= 0 %}
+                <p class="lead">We’re sorry but all available tickets have been sold out.</p>
+            {% elif tickets.now < tickets.last_day_regular %}
+                <p class="lead">
+                    Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
+                    {% include 'tickets/__tickets-left.html' with threshold=30 %}
+                </p>
+            {% elif tickets.now == tickets.last_day_regular %}
+                <p class="lead">
+                    Today is the last chance to buy tickets for the regular price!
+                    {% include 'tickets/__tickets-left.html' with threshold=20 %}
+                </p>
+            {% else %}
+                <p class="lead">
+                    Good news!<br>You can still get your ticket at a&nbsp;late bird price.
+                    {% include 'tickets/__tickets-left.html' with threshold=10 %}
+                </p>
+            {% endif %}
+        </div>
+        <div class="col">
+            {% if tickets.left > 0 %}
+                <div class="p-3 bg-white">
+                    <p>You can pay the ticket with a credit or debit card.</p>
+                    <p class="my-0">While it uses PayPal <em>gateway</em> you <strong>do not need a&nbsp;PayPal account</strong> to use&nbsp;it.</p>
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
 
     <h2>Included in each ticket</h2>
 
