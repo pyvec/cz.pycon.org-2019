@@ -12,7 +12,7 @@
 
     <h1>Tickets</h1>
     <div class="row">
-        <div class="col">
+        <div class="col-md">
             {% if tickets.left <= 0 %}
                 <p class="lead">We’re sorry but all available tickets have been sold out.</p>
             {% elif tickets.now < tickets.last_day_regular %}
@@ -32,11 +32,11 @@
                 </p>
             {% endif %}
         </div>
-        <div class="col">
+        <div class="col-md">
             {% if tickets.left > 0 %}
-                <div class="p-3 bg-white">
-                    <p>You can pay the ticket with a credit or debit card.</p>
-                    <p class="my-0">While it uses PayPal <em>gateway</em> you <strong>do not need a&nbsp;PayPal account</strong> to use&nbsp;it.</p>
+                <div class="px-3 py-2 bg-white">
+                    <p class="lead font-weight-bold my-0">You can pay the ticket with a&nbsp;credit or debit card.</p>
+                    <p class="my-0">PayPal account is&nbsp;<strong>not</strong> required to buy the&nbsp;ticket. It&nbsp;is&nbsp;used only as a&nbsp;payment gateway.</p>
                 </div>
             {% endif %}
         </div>
