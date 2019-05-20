@@ -183,6 +183,7 @@
                                             {% if slot_item.content_type and slot_item.room != 20 %}
 
                                                 <div class="col-12 {% if day.grouper != 'Sunday, 3 June' %} {% if slot.grouper|time != '10:00' and slot.grouper|time != '14:00' %} col-sm-6 {% endif %} {% endif %}">
+                                                    {% if slot_item.content_type.model != 'utility'%}
                                                     <h4
                                                         class="
                                                             h5
@@ -205,6 +206,7 @@
                                                             {% if slot_item.room == key %} {{ value }} {% endif %}
                                                         {% endfor %}
                                                     </h4>
+                                                    {% endif %}
 
                                                     <div class="h5">
                                                         {% if slot_item.content_type.model == 'talk' %}
@@ -226,6 +228,20 @@
                                                         {% elif slot_item.description == 'Sprints' %}
                                                             <div>{{ slot_item.description }}</div>
                                                             <div>freely accesible for anybody wearing a&nbsp;PyCon&nbsp;CZ badge</div>
+                                                        {% elif slot_item.content_type.model == 'utility'%}
+                                                            {% if slot_item.content_object.url %}
+                                                            <a
+                                                                class="d-block -serif"
+                                                                href="{% if 'http' in slot_item.content_object.url %} {{ slot_item.content_object.url }} {% else %} {{ domain}}{{ slot_item.content_object.url }} {% endif %}"
+                                                            >
+                                                                {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
+                                                            </a>
+                                                            {% else %}
+                                                                {{ slot_item.content_object.title|markdown|cut:'<p>'|cut:'</p>' }}
+                                                            {% endif %}
+                                                            {% if slot_item.content_object.description %}
+                                                                {{ slot_item.content_object.description }}
+                                                            {% endif%}
                                                         {% endif %}
                                                         <span class="d-block">{{ slot_item.content_object.speakers|join:' &amp; ' }}</span>
                                                     </div>
