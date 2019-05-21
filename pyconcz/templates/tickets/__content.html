@@ -1,7 +1,7 @@
 {% load static %}
 <div class="container">
     {% if debug %}
-        <div class="bg-success p-3">
+        <div class="bg-success p-3 small">
             <pre>             now = {{ tickets.now|pprint }}</pre>
             <pre>last_day_regular = {{ tickets.last_day_regular|pprint }}</pre>
             <pre>        capacity = {{ tickets.capacity|pprint }}</pre>
@@ -11,37 +11,36 @@
     {% endif %}
 
     <h1>Tickets</h1>
-    <div class="row">
-        <div class="col-md">
-            {% if tickets.left <= 0 %}
-                <p class="lead">We’re sorry but all available tickets have been sold out.</p>
-            {% elif tickets.now < tickets.last_day_regular %}
-                <p class="lead">
-                    Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
-                    {% include 'tickets/__tickets-left.html' with threshold=30 %}
-                </p>
-            {% elif tickets.now == tickets.last_day_regular %}
-                <p class="lead">
-                    Today is the last chance to buy tickets for the regular price!
-                    {% include 'tickets/__tickets-left.html' with threshold=20 %}
-                </p>
-            {% else %}
-                <p class="lead">
-                    Good news!<br>You can still get your ticket at a&nbsp;late bird price.
-                    {% include 'tickets/__tickets-left.html' with threshold=10 %}
-                </p>
-            {% endif %}
+    {% if tickets.left > 0 %}
+        <div class="row">
+            <div class="col-md">
+                {% if tickets.now < tickets.last_day_regular %}
+                    <p class="lead">
+                        Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
+                        {% include 'tickets/__tickets-left.html' with threshold=30 %}
+                    </p>
+                {% elif tickets.now == tickets.last_day_regular %}
+                    <p class="lead">
+                        Today is the last chance to buy tickets for the regular price!
+                        {% include 'tickets/__tickets-left.html' with threshold=20 %}
+                    </p>
+                {% else %}
+                    <p class="lead">
+                        Good news!<br>You can still get your ticket at a&nbsp;late bird price.
+                        {% include 'tickets/__tickets-left.html' with threshold=10 %}
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col-md">
+                {% if tickets.left > 0 %}
+                    <div class="px-3 py-2 bg-white">
+                        <p class="lead font-weight-bold my-0">You can pay the ticket with a&nbsp;credit or debit card.</p>
+                        <p class="my-0">PayPal account is&nbsp;<strong>not</strong> required to buy the&nbsp;ticket. It&nbsp;is&nbsp;used only as a&nbsp;payment gateway.</p>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-        <div class="col-md">
-            {% if tickets.left > 0 %}
-                <div class="px-3 py-2 bg-white">
-                    <p class="lead font-weight-bold my-0">You can pay the ticket with a&nbsp;credit or debit card.</p>
-                    <p class="my-0">PayPal account is&nbsp;<strong>not</strong> required to buy the&nbsp;ticket. It&nbsp;is&nbsp;used only as a&nbsp;payment gateway.</p>
-                </div>
-            {% endif %}
-        </div>
-
-    </div>
+    {% endif %}
 
 
     <h2>Included in each ticket</h2>
@@ -85,13 +84,12 @@
 
 </div>
 
-{% if tickets.sold < tickets.capacity %}
 
-    <div class="container-fluid mt-4 py-1 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
+<div class="container-fluid mt-4 py-1 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
+    <h2 class="sr-only">Ticket types</h2>
 
-        <h2 class="sr-only">Ticket types</h2>
-
-        <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
+    <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
+        {% if tickets.sold < tickets.capacity %}
             <div class="pc-ticket mb-3 mx-2 bg-white">
                 <div class="pc-ticket-top p-3 p-md-4">
                     <h3 class="mt-0">Educational</h3>
@@ -147,14 +145,16 @@
                     {% include 'tickets/__button.html' with ticket=tickets.vip %}
                 </div>
             </div>
-        </div>
 
-        <p class="text-white-50 text-center py-2">
-            We’re not VAT payers, all prices are final.
-            <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
-            <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
-            and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
-        </p>
+            <p class="text-white-50 text-center py-2">
+                We’re not VAT payers, all prices are final.
+                <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
+                <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
+                and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
+            </p>
+        {% else %}
+            <p class="display-4 my-6 text-primary">We’re sorry but all available tickets have been sold out.</p>
+        {% endif %}
 
     </div>
 
@@ -177,11 +177,10 @@
             </div>
         </div>
     {% endif %}
-
-{% endif %}
+</div>
 
 {% if debug %}
     <div class="bg-success p-3">
-        <pre>{{ tickets|pprint }}</pre>
+        <pre class="small">{{ tickets|pprint }}</pre>
     </div>
 {% endif %}
