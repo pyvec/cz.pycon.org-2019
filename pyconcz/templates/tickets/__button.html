@@ -1,6 +1,6 @@
 {% if ticket.early_bird.upcoming %}
     <button class="btn btn-primary disabled px-3 mx-auto" disabled>Not for sale yet</button>
-{% else %}
+{% elif not ticket.regular.sold_out %}
     {% if tickets.cached %}
         <button disabled class="tito-tickets-button d-none pc-js-display">
             <span class="spinner-border d-inline-block spinner-border-sm" role="status"></span>
@@ -25,5 +25,4 @@
         </tito-button>
         {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
     {% endif %}
-
 {% endif %}

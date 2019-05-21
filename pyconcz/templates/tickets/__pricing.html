@@ -17,7 +17,8 @@
         </p>
     {% endif %}
 
-    <p class="pc-ticket-line mb-2 {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
+    {% if not ticket.regular.sold_out and not ticket.regular.secret %}
+        <p class="pc-ticket-line mb-2 {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
         <span class="mr-2">
             Regular
             {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
@@ -31,13 +32,21 @@
                 </small>
             {% endif %}
         </span>
-        <span class="pc-ticket-price text-right">{{ ticket.regular.price|floatformat:'0' }}&nbsp;CZK</span>
-    </p>
-{% endif %}
+            <span class="pc-ticket-price text-right">{{ ticket.regular.price|floatformat:'0' }}&nbsp;CZK</span>
+        </p>
+    {% elif ticket.regular.sold_out %}
+        <p class="pc-ticket-line mb-2 {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}font-weight-bold{% else %}small text-muted{% endif %}">
+            <span class="pc-ticket-price text-danger">This ticket is sold out.</span>
+        </p>
+    {% endif %}
 
-{% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
-    <p class="pc-ticket-line mb-2 {% if tickets.now > tickets.last_day_regular %}font-weight-bold{% else %}small text-muted{% endif %}">
-        <span class="mr-2">Late bird</span>
-        <span class="pc-ticket-price text-right">{{ ticket.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
-    </p>
+    {% if not ticket.regular.sold_out %}
+        {% if ticket.early_bird.sold_out or ticket.early_bird.secret %}
+            <p class="pc-ticket-line mb-2 {% if tickets.now > tickets.last_day_regular %}font-weight-bold{% else %}small text-muted{% endif %}">
+                <span class="mr-2">Late bird</span>
+                <span class="pc-ticket-price text-right">{{ ticket.late_bird.price|floatformat:'0' }}&nbsp;CZK</span>
+            </p>
+        {% endif %}
+    {% endif %}
+
 {% endif %}
