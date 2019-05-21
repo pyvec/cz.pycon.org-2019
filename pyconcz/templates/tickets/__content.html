@@ -157,27 +157,27 @@
         {% endif %}
 
     </div>
+</div>
 
-    {% if phases.finaid == 'launched' or phases.ticket_finaid == 'launched' %}
-        <div class="container text-center mt-4 pb-5">
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
-                    <h2>Financial Aid{% if phases.ticket_finaid == 'launched' %} for tickets{% endif %}</h2>
-                    {% if phases.finaid == 'launched' %}
-                        <p class="lead">If money is the <b>only factor</b> stopping you from attending PyCon&nbsp;CZ you&nbsp;can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your&nbsp;expenses.</p>
-                    {% elif phases.ticket_finaid == 'launched' %}
-                        <p>We want PyCon&nbsp;CZ accessible for everyone as possible.</p>
-                        <p>Full grants covering accommodation and/or travel costs have been awarded but we still have a&nbsp;few free tickets available thanks to&nbsp;<a href="{% url 'sponsors_list' %}">our&nbsp;sponsors</a>.</p>
-                        <p>
-                            If ticket price is the only thing stopping you from attending
-                            <br><b>just <a href="mailto:info@pycon.cz?subject=Financial Aid for a ticket">email us</a> for one</b>.
-                        </p>
-                    {% endif %}
-                </div>
+{% if phases.finaid == 'launched' or phases.ticket_finaid == 'launched' %}
+    <div class="container text-center mt-4 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
+                <h2>Financial Aid{% if phases.ticket_finaid == 'launched' %} for tickets{% endif %}</h2>
+                {% if phases.finaid == 'launched' %}
+                    <p class="lead">If money is the <b>only factor</b> stopping you from attending PyCon&nbsp;CZ you&nbsp;can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your&nbsp;expenses.</p>
+                {% elif phases.ticket_finaid == 'launched' %}
+                    <p>We want PyCon&nbsp;CZ accessible for everyone as possible.</p>
+                    <p>Full grants covering accommodation and/or travel costs have been awarded but we still have a&nbsp;few free tickets available thanks to&nbsp;<a href="{% url 'sponsors_list' %}">our&nbsp;sponsors</a>.</p>
+                    <p>
+                        If ticket price is the only thing stopping you from attending
+                        <br><b>just <a href="mailto:info@pycon.cz?subject=Financial Aid for a ticket">email us</a> for one</b>.
+                    </p>
+                {% endif %}
             </div>
         </div>
-    {% endif %}
-</div>
+    </div>
+{% endif %}
 
 {% if debug %}
     <div class="bg-success p-3">
