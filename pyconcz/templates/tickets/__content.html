@@ -16,7 +16,7 @@
             <div class="col-md">
                 {% if tickets.now < tickets.last_day_regular %}
                     <p class="lead">
-                        Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
+                        Regular price only until {{ tickets.last_day_regular|date:'j F' }}!
                         {% include 'tickets/__tickets-left.html' with threshold=30 %}
                     </p>
                 {% elif tickets.now == tickets.last_day_regular %}
