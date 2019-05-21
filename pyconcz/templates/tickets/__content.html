@@ -145,18 +145,20 @@
                     {% include 'tickets/__button.html' with ticket=tickets.vip %}
                 </div>
             </div>
-
-            <p class="text-white-50 text-center py-2">
-                We’re not VAT payers, all prices are final.
-                <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
-                <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
-                and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
-            </p>
         {% else %}
             <p class="display-4 my-6 text-primary">We’re sorry but all available tickets have been sold out.</p>
         {% endif %}
-
     </div>
+
+    {% if tickets.sold < tickets.capacity %}
+        <p class="text-white-50 text-center py-2">
+            We’re not VAT payers, all prices are final.
+            <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
+            <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
+            and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
+        </p>
+    {% endif %}
+
 </div>
 
 {% if phases.finaid == 'launched' or phases.ticket_finaid == 'launched' %}
