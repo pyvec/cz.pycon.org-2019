@@ -37,10 +37,10 @@ class SpeakerHasKeynoteFilter(SimpleListFilter):
 
 
 class SlotAdmin(admin.ModelAdmin):
-    list_display = ['get_description', 'date', 'room']
-    list_filter = ['room', 'date']
-    list_editable = ['room', 'date']
-    date_hierarchy = 'date'
+    list_display = ['get_description', 'start', 'room', 'end']
+    list_filter = ['room', 'start', 'end']
+    list_editable = ['room', 'start', 'end']
+    date_hierarchy = 'start'
 
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('content_object')
