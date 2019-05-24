@@ -19,11 +19,16 @@ class Command(BaseCommand):
 
         for one in qs:
             Slot.objects.create(
-                date=timezone.make_aware(datetime.datetime(settings.TALKS_DATES[0].year,
-                                                           settings.TALKS_DATES[0].month,
-                                                           settings.TALKS_DATES[0].day,
-                                                           ),
-                                         timezone.get_current_timezone()),
+                start=timezone.make_aware(datetime.datetime(settings.TALKS_DATES[0].year,
+                                                            settings.TALKS_DATES[0].month,
+                                                            settings.TALKS_DATES[0].day,
+                                                            ),
+                                          timezone.get_current_timezone()),
+                end=timezone.make_aware(datetime.datetime(settings.TALKS_DATES[0].year,
+                                                          settings.TALKS_DATES[0].month,
+                                                          settings.TALKS_DATES[0].day,
+                                                          ),
+                                        timezone.get_current_timezone()),
                 content_object=one,
                 room=settings.TALKS_ROOMS[0][0],
             )
