@@ -129,12 +129,21 @@
 
     <div class="pc-sticky-bottom pc-mw-max mx-auto">
         <div class="pr-2 px-sm-3 pb-2 mb-2 d-flex justify-content-between">
-            <a class="btn btn-secondary px-2 px-sm-3" href="{% url 'session_detail' type=session_previous.type session_id=session_previous.id %}#main">
+            {% if session_previous %}
+            <a class="btn btn-secondary px-2 px-sm-3" href="{% if 'schedule' in request.path %}{% url 'session_detail_schedule' type=session_previous.content_object.type slot_id=session_previous.id  %}{% else %}{% url 'session_detail' type=session_previous.type session_id=session_previous.id %}{% endif %}#main">
                 previous {{ session_previous.type }}
             </a>
-            <a class="btn btn-info px-2 px-sm-3" href="{% url 'session_detail' type=session_next.type session_id=session_next.id %}#main">
+            {% endif %}
+            {% if session_next_room and 'schedule' in request.path %}
+            <a class="btn btn-info px-2 px-sm-3" href="{% url 'session_detail_schedule' type=session_next_room.content_object.type slot_id=session_next_room.id  %}#main">
+                Parallel Track: {{ session_next_room.content_object.title }}
+            </a>
+            {% endif %}
+            {% if session_next %}
+            <a class="btn btn-info px-2 px-sm-3" href="{% if 'schedule' in request.path %}{%  url 'session_detail_schedule' type=session_next.content_object.type slot_id=session_next.id  %}{% else %}{% url 'session_detail' type=session_next.type session_id=session_next.id %}{% endif %}#main">
                 next {{ session_next.type }}
             </a>
+            {% endif %}
         </div>
     </div>
 

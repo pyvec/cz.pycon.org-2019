@@ -4,6 +4,8 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
 import requests
+from django.conf import settings
+from django.http import Http404
 
 from .models import Speaker, Slot, EndTime, Talk, Workshop
 from django.conf import settings
@@ -42,6 +44,38 @@ def workshops_list(request):
         context={'sessions': workshops, 'more_to_come': more_to_come}
     )
 
+def session_detail_schedule(request, type, slot_id):
+    slot = get_object_or_404(Slot, id=slot_id)
+    other_room_id = [r[0] for r in settings.TALKS_ROOMS if r[0] != slot.room][0]
+    session_next_room = Slot.objects.filter(
+        start__gte=slot.start, end__lte=slot.end, room=other_room_id).first()
+
+    if slot.content_object.is_public and not slot.content_object.is_backup: 
+
+        slot_previous = Slot.objects.filter(
+            end__lte=slot.start, room=slot.room, content_type=slot.content_type
+        ).order_by('end').last()
+
+        slot_next = Slot.objects.filter(
+            start__gte=slot.end, room=slot.room, content_type=slot.content_type
+        ).order_by('start').first()
+
+        session = slot.content_object
+        session_previous = slot_previous
+        session_next = slot_next
+    else:
+        raise Http404
+
+    return TemplateResponse(
+        request,
+        template='programme/{}_detail.html'.format(type),
+        context={
+            'session': session,
+            'session_previous': session_previous,
+            'session_next': session_next,
+            'session_next_room': session_next_room,
+        }
+    )
 
 @csrf_exempt
 def workshops_refresh_tickets(request):
