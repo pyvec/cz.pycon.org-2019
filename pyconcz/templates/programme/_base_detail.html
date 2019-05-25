@@ -102,6 +102,10 @@
                 </p>
             {% endif %}
 
+            {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
+                <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
+            {% endif %}
+
             {% if session.registration %}
                 <div class="pc-session-registration">
                     {% if phases.workshops_registration == 'timed_out' %}
