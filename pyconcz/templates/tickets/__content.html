@@ -14,20 +14,20 @@
     {% if tickets.left > 0 %}
         <div class="row">
             <div class="col-md">
-                {% if tickets.now < tickets.last_day_regular %}
+                {% if tickets.now|date:'ymd' < tickets.last_day_regular|date:'ymd' %}
                     <p class="lead">
                         Regular price only until {{ tickets.last_day_regular|date:'j F' }}!
-                        {% include 'tickets/__tickets-left.html' with threshold=30 %}
+                        <br>{% include 'tickets/__tickets-left.html' with threshold=30 %}
                     </p>
-                {% elif tickets.now == tickets.last_day_regular %}
+                {% elif tickets.now|date:'ymd' == tickets.last_day_regular|date:'ymd' %}
                     <p class="lead">
                         Today is the last chance to buy tickets for the regular price!
-                        {% include 'tickets/__tickets-left.html' with threshold=20 %}
+                        <br>{% include 'tickets/__tickets-left.html' with threshold=20 %}
                     </p>
                 {% else %}
                     <p class="lead">
                         Good news!<br>You can still get your ticket at a&nbsp;late bird price.
-                        {% include 'tickets/__tickets-left.html' with threshold=10 %}
+                        <br>{% include 'tickets/__tickets-left.html' with threshold=10 %}
                     </p>
                 {% endif %}
             </div>
