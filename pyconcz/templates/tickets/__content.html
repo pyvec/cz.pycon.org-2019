@@ -17,17 +17,32 @@
                 {% if tickets.now|date:'ymd' < tickets.last_day_regular|date:'ymd' %}
                     <p class="lead">
                         Regular price only until {{ tickets.last_day_regular|date:'j F' }}!
-                        <br>{% include 'tickets/__tickets-left.html' with threshold=30 %}
+                        <br>
+                        {% if tickets.left <= 30 %}
+                            <span class="lead font-weight-bold text-danger">
+                                Last {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} are available.
+                            </span>
+                        {% endif %}
                     </p>
                 {% elif tickets.now|date:'ymd' == tickets.last_day_regular|date:'ymd' %}
                     <p class="lead">
                         Today is the last chance to buy tickets for the regular price!
-                        <br>{% include 'tickets/__tickets-left.html' with threshold=20 %}
+                        <br>
+                        {% if tickets.left <= 20 %}
+                            <span class="lead font-weight-bold text-danger">
+                                We have {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} available.
+                            </span>
+                        {% endif %}
                     </p>
                 {% else %}
                     <p class="lead">
                         Good news!<br>You can still get your ticket at a&nbsp;late bird price.
-                        <br>{% include 'tickets/__tickets-left.html' with threshold=10 %}
+                        <br>
+                        {% if tickets.left <= 20 %}
+                            <span class="lead font-weight-bold text-danger">
+                                We still have {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} left.
+                            </span>
+                        {% endif %}
                     </p>
                 {% endif %}
             </div>
