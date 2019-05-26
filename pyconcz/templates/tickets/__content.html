@@ -89,7 +89,7 @@
     <h2 class="sr-only">Ticket types</h2>
 
     <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
-        {% if tickets.sold < tickets.capacity %}
+        {% if tickets.left > 0 %}
             <div class="pc-ticket mb-3 mx-2 bg-white">
                 <div class="pc-ticket-top p-3 p-md-4">
                     <h3 class="mt-0">Educational</h3>
