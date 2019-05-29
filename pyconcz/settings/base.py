@@ -181,7 +181,7 @@ SLACK_WEBHOOK = ''  # This variable is set in local.py
 TALKS_DATES = [datetime.date(2019, 6, 14), datetime.date(2019, 6, 15)]
 WORKSHOPS_DATES = [datetime.date(2019, 6, 16)]
 TALKS_ROOMS = [
-    (1, 'Ball room'),
+    (1, 'Ballroom'),
     (2, 'Club'),
 ]
 WORKSHOPS_ROOMS = [
