@@ -158,7 +158,7 @@ class Slot(models.Model):
 
     @property
     def room_name(self):
-        return dict(settings.ALL_ROOMS)[self.room]
+        return settings.ALL_ROOMS_DICT.get(self.room)
 
     class Meta:
         ordering = ('start', 'room',)
