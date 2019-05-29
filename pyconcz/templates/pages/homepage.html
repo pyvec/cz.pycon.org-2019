@@ -20,43 +20,83 @@
 
             <div class="row">
                 <div class="col-xs-10 col-sm-7 col-md-6 text-black">
-                    <p class="lead">Join over 400 conference attendees for 3&nbsp;days full of&nbsp;Python and fun at a&nbsp;former coal mine complex&nbsp;<a href="{% url 'venue' %}">Hlubina</a>.</p>
+                    {% if phases.ticket_sale == 'timed_out' %}
+                    {% endif %}
+                    {% if phases.ticket_sale == 'sold_out' %}
+                    {% endif %}
+                    {% if phases.ticket_sale == 'not_launched' %}
 
-                    <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
+                    {% endif %}
 
-                    <ul>
-                        <li>
-                            Learn at 30+
-                            {% if phases.talks == 'not_public' %}
-                                <b>talks</b>
-                            {% else %}
-                                <a href="{% url 'talks_list' %}">talks</a>
-                            {% endif %}
-                            in English during Friday and Saturday.
-                            Choose from two parallel tracks including PyData track on&nbsp;Friday! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt="">
-                        </li>
-                        <li>
-                            Dive deeper at
-                            {% if phases.workshops == 'not_public' %}
-                                <b>workshops</b> and <b>sprints</b>
-                            {% else %}
-                                <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
-                            {% endif %}
-                            on&nbsp;Sunday
-                        </li>
-                        {% if phases.board_game_night != 'not_public' %}
-                            <li>
-                                Have fun at
-                                {% if phases.board_game_night == 'basic_info_public' %}
-                                    <b>board game night</b>
-                                {% else %}
-                                    <a href="{% url 'board_game_night' %}">board game night</a>
-                                {% endif %}
-                                on&nbsp;Friday
-                            </li>
+                    <p class="lead">
+                        {% if phases.ticket_sale == 'not_launched' or phases.ticket_sale == 'launched' %}
+                            Join over 400 conference attendees
+                        {% elif phases.ticket_sale != 'timed_out' %}
+                            PyCon&nbsp;CZ is a&nbsp;community event where 450&nbsp;people gather
+                        {% else %}
+                            PyCon&nbsp;CZ 2019 was a&nbsp;community event where 450&nbsp;people gathered
                         {% endif %}
-                        <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
-                    </ul>
+                        for 3&nbsp;days full of&nbsp;Python and fun at a&nbsp;former coal mine complex&nbsp;<a href="{% url 'venue' %}">Hlubina</a>.
+                    </p>
+
+                    {% if phases.ticket_sale == 'timed_out' %}
+                        <p class="display-4">
+                            Thank you all! You were awesome!
+                            <br>Let’s do it again in 2020!
+                        </p>
+                    {% endif %}
+
+                    {% if phases.ticket_sale == 'not_launched' %}
+                        <p class="mb-4 font-weight-bold">
+                            We don’t sell tickets yet. The start of the ticket sales will be announced on our
+                            <a href="https://twitter.com/pyconcz">Twitter</a>
+                            and
+                            <a href="https://www.facebook.com/events/2070764789904992/">Facebook</a>.
+                        </p>
+                    {% elif phases.ticket_sale == 'launched' %}
+                        <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
+                    {% elif phases.ticket_sale == 'sold_out' %}
+                        <p class="font-weight-bold mb-4 p-3 bg-white">
+                            We’re sorry but all available tickets have been sold out.
+                        </p>
+                    {% endif %}
+
+                    {% if phases.ticket_sale != 'timed_out' %}
+                        <ul>
+                            <li>
+                                Learn at 30+
+                                {% if phases.talks == 'not_public' %}
+                                    <b>talks</b>
+                                {% else %}
+                                    <a href="{% url 'talks_list' %}">talks</a>
+                                {% endif %}
+                                in English during Friday and Saturday.
+                                Choose from two parallel tracks including PyData track on&nbsp;Friday! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt="">
+                            </li>
+                            <li>
+                                Dive deeper at
+                                {% if phases.workshops == 'not_public' %}
+                                    <b>workshops</b> and <b>sprints</b>
+                                {% else %}
+                                    <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
+                                {% endif %}
+                                on&nbsp;Sunday
+                            </li>
+                            {% if phases.board_game_night != 'not_public' %}
+                                <li>
+                                    Have fun at
+                                    {% if phases.board_game_night == 'basic_info_public' %}
+                                        <b>board game night</b>
+                                    {% else %}
+                                        <a href="{% url 'board_game_night' %}">board game night</a>
+                                    {% endif %}
+                                    on&nbsp;Friday
+                                </li>
+                            {% endif %}
+                            <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
+                        </ul>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
