@@ -11,7 +11,7 @@
     {% endif %}
 
     <h1>Tickets</h1>
-    {% if tickets.left > 0 %}
+    {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
         <div class="row">
             <div class="col-md">
                 {% if tickets.now|date:'ymd' < tickets.last_day_regular|date:'ymd' %}
@@ -100,81 +100,82 @@
 </div>
 
 
-<div class="container-fluid mt-4 py-1 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
-    <h2 class="sr-only">Ticket types</h2>
+{% if phases.ticket_sale != 'not_launched' and phases.ticket_sale != 'timed_out' %}
+    <div class="container-fluid mt-4 py-1 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
+        <h2 class="sr-only">Ticket types</h2>
+        <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
+            {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Educational</h3>
+                        <p class="my-0">Are you a&nbsp;student, a&nbsp;teacher or have you attended PyLadies courses?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.educational %}
+                        <p class="small mt-4 mb-3">Students need to bring a&nbsp;student ID to the registration.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.educational %}
+                    </div>
+                </div>
 
-    <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
-        {% if tickets.left > 0 %}
-            <div class="pc-ticket mb-3 mx-2 bg-white">
-                <div class="pc-ticket-top p-3 p-md-4">
-                    <h3 class="mt-0">Educational</h3>
-                    <p class="my-0">Are you a&nbsp;student, a&nbsp;teacher or have you attended PyLadies courses?</p>
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Individual</h3>
+                        <p class="my-0">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.individual %}
+                        <p class="small mt-4 mb-3">These tickets are for you if your company doesn’t pay for it. <br>Please respect that and buy a&nbsp;Company ticket if it does.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.individual %}
+                    </div>
                 </div>
-                <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
-                    {% include 'tickets/__pricing.html' with ticket=tickets.educational %}
-                    <p class="small mt-4 mb-3">Students need to bring a&nbsp;student ID to the registration.</p>
-                </div>
-                <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
-                    {% include 'tickets/__button.html' with ticket=tickets.educational %}
-                </div>
-            </div>
 
-            <div class="pc-ticket mb-3 mx-2 bg-white">
-                <div class="pc-ticket-top p-3 p-md-4">
-                    <h3 class="mt-0">Individual</h3>
-                    <p class="my-0">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Company</h3>
+                        <p class="my-0">Is your company paying for the&nbsp;ticket?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.company %}
+                        <p class="small mt-4 mb-3">Choose this ticket if your company is&nbsp;paying for it or if you are getting reimbursed later. Thank you for supporting PyCon&nbsp;CZ!</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.company %}
+                    </div>
                 </div>
-                <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
-                    {% include 'tickets/__pricing.html' with ticket=tickets.individual %}
-                    <p class="small mt-4 mb-3">These tickets are for you if your company doesn’t pay for it. <br>Please respect that and buy a&nbsp;Company ticket if it does.</p>
-                </div>
-                <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
-                    {% include 'tickets/__button.html' with ticket=tickets.individual %}
-                </div>
-            </div>
 
-            <div class="pc-ticket mb-3 mx-2 bg-white">
-                <div class="pc-ticket-top p-3 p-md-4">
-                    <h3 class="mt-0">Company</h3>
-                    <p class="my-0">Is your company paying for the&nbsp;ticket?</p>
+                <div class="pc-ticket mb-3 mx-2">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">VIP</h3>
+                        <p class="my-0">Do you want to have the best PyCon&nbsp;CZ experience?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.vip %}
+                        <p class="small mt-4 mb-3">VIP ticket will get you a&nbsp;seat at the speakers’ dinner on June&nbsp;13. You will meet PyCon&nbsp;CZ speakers over great food which is included in the&nbsp;price.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.vip %}
+                    </div>
                 </div>
-                <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
-                    {% include 'tickets/__pricing.html' with ticket=tickets.company %}
-                    <p class="small mt-4 mb-3">Choose this ticket if your company is&nbsp;paying for it or if you are getting reimbursed later. Thank you for supporting PyCon&nbsp;CZ!</p>
-                </div>
-                <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
-                    {% include 'tickets/__button.html' with ticket=tickets.company %}
-                </div>
-            </div>
+            {% else %}
+                <p class="display-4 my-6 text-primary text-center">We’re sorry but all available tickets have been sold out.</p>
+            {% endif %}
+        </div>
 
-            <div class="pc-ticket mb-3 mx-2">
-                <div class="pc-ticket-top p-3 p-md-4">
-                    <h3 class="mt-0">VIP</h3>
-                    <p class="my-0">Do you want to have the best PyCon&nbsp;CZ experience?</p>
-                </div>
-                <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
-                    {% include 'tickets/__pricing.html' with ticket=tickets.vip %}
-                    <p class="small mt-4 mb-3">VIP ticket will get you a&nbsp;seat at the speakers’ dinner on June&nbsp;13. You will meet PyCon&nbsp;CZ speakers over great food which is included in the&nbsp;price.</p>
-                </div>
-                <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
-                    {% include 'tickets/__button.html' with ticket=tickets.vip %}
-                </div>
-            </div>
-        {% else %}
-            <p class="display-4 my-6 text-primary text-center">We’re sorry but all available tickets have been sold out.</p>
+        {% if tickets.sold < tickets.capacity %}
+            <p class="text-white-50 text-center py-2">
+                We’re not VAT payers, all prices are final.
+                <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
+                <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
+                and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
+            </p>
         {% endif %}
+
     </div>
-
-    {% if tickets.sold < tickets.capacity %}
-        <p class="text-white-50 text-center py-2">
-            We’re not VAT payers, all prices are final.
-            <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
-            <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
-            and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
-        </p>
-    {% endif %}
-
-</div>
+{% endif %}
 
 {% if phases.finaid == 'launched' or phases.ticket_finaid == 'launched' %}
     <div class="container text-center mt-4 pb-5">
