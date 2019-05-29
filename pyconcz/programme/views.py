@@ -75,7 +75,7 @@ def _prefetch_generic(ct):
     if ct == 'talk':
         lookup = {'start__lt': settings.WORKSHOPS_DATES[0]}
     else:
-        lookup = {'start__gte': settings.WORKSHOPS_DATES[0]}
+        lookup = {'end__gte': settings.WORKSHOPS_DATES[0]}
 
     return (
         Slot.objects.all()
