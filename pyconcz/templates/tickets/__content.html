@@ -165,7 +165,7 @@
             {% endif %}
         </div>
 
-        {% if tickets.sold < tickets.capacity %}
+        {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
             <p class="text-white-50 text-center py-2">
                 We’re not VAT payers, all prices are final.
                 <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
