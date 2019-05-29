@@ -108,7 +108,6 @@ def schedule(request):
         template='programme/slot_schedule.html',
         context={
             'slots': slots,
-            'ALL_ROOMS': settings.ALL_ROOMS,
             'domain': domain,
         }
     )
