@@ -102,7 +102,7 @@ def schedule(request):
         _prefetch_generic('workshop'),
         _prefetch_generic('utility'),
     )
-    domain = "/".join(request.build_absolute_uri().split("/")[:3])
+    domain = '/'.join(request.build_absolute_uri().split('/')[:3])
     return TemplateResponse(
         request,
         template='programme/slot_schedule.html',
