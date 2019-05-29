@@ -161,7 +161,7 @@ class Slot(models.Model):
 
 
 class EndTime(models.Func):
-    template = 'LAG(date) OVER (PARTITION BY room ORDER BY date DESC)'
+    template = 'LAG(start) OVER (PARTITION BY room ORDER BY start DESC)'
 
     def __init__(self):
         super().__init__(output_field=models.DateTimeField())

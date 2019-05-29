@@ -73,9 +73,9 @@ def session_detail(request, type, session_id):
 
 def _prefetch_generic(ct):
     if ct == 'talk':
-        lookup = {'date__lt': settings.WORKSHOPS_DATES[0]}
+        lookup = {'start__lt': settings.WORKSHOPS_DATES[0]}
     else:
-        lookup = {'date__gte': settings.WORKSHOPS_DATES[0]}
+        lookup = {'start__gte': settings.WORKSHOPS_DATES[0]}
 
     return (
         Slot.objects.all()
@@ -90,9 +90,9 @@ def _prefetch_generic(ct):
             'content_object',
         )
             .annotate(
-            date_end=EndTime()
+            start_end=EndTime()
         )
-            .order_by('date', 'room')
+            .order_by('start', 'room')
     )
 
 
