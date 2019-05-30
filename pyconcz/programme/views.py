@@ -74,9 +74,8 @@ def session_detail(request, type, session_id):
 def schedule(request):
     slots = (
         Slot.objects.all().filter(
-            Q(content_type__app_label='programme', content_type__model='talk', ) |
-            Q(content_type__app_label='programme', content_type__model='workshop', ) |
-            Q(content_type__app_label='programme', content_type__model='utility', )
+            content_type__app_label='programme',
+            content_type__model__in=['talk', 'workshop', 'utility']
         ).prefetch_related(
             'content_object',
         ).annotate(
