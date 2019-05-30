@@ -186,22 +186,19 @@ MEDIA_ROOT = os.path.join(TMP_DIR, 'media')
 
 SLACK_WEBHOOK = ''  # This variable is set in local.py
 
-TALKS_DATES = [datetime.date(2018, 6, 1), datetime.date(2018, 6, 2)]
-WORKSHOPS_DATES = [datetime.date(2018, 6, 3)]
+TALKS_DATES = [datetime.date(2019, 6, 14), datetime.date(2019, 6, 15)]
+WORKSHOPS_DATES = [datetime.date(2019, 6, 16)]
 TALKS_ROOMS = [
-    (1, 'Main'),
-    (2, 'Theatre'),
+    (1, 'Ballroom'),
+    (2, 'Club'),
 ]
 WORKSHOPS_ROOMS = [
-    (4, 'room 301'),
-    (5, 'room 302'),
-    (6, 'room 303'),
-    (7, 'room 343'),
-    (8, 'room 346'),
-    (9, 'room 347'),
-    (10, 'room 348'),
-    (11, 'room 349'),
-    (20, 'Respirium'),
+    (4, 'room EB126'),
+    (5, 'room EB129'),
+    (6, 'room EB130'),
+    (7, 'room EB226'),
+    (8, 'room EB229'),
+    (9, 'room EB230'),
 ]
 SPRINT_ROOMS = [
 
@@ -209,9 +206,8 @@ SPRINT_ROOMS = [
 
 OTHER_ROOMS = [
     (30, 'Foyer'),
-    (40, 'Backyard'),
-    (50, 'Red room'),
-    (60, 'Fish tank'),
+    (40, 'Compress hall'),
+    (50, 'Gallery'),
 ]
 
 ALL_ROOMS = TALKS_ROOMS + WORKSHOPS_ROOMS + SPRINT_ROOMS + OTHER_ROOMS

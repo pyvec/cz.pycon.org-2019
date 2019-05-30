@@ -28,10 +28,9 @@
 
 
 {% block main %}
-    <div class="container pb-5">
+    <div class="container">
 
-        {% comment 'todo' %}{% include '_menu_programme.html' %}{% endcomment %}
-
+        {% comment 'todo' %}{% include '_menu_programme .html' %}{% endcomment %}
 
         <h1 class="pc-h1-shrinking">
             {{ session.title }}
@@ -103,6 +102,10 @@
                 </p>
             {% endif %}
 
+            {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
+                <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
+            {% endif %}
+
             {% if session.registration %}
                 <div class="pc-session-registration">
                     {% if phases.workshops_registration == 'timed_out' %}
@@ -115,11 +118,11 @@
                     {% elif phases.workshops_registration != 'hidden' %}
                         <p>
                             {% if session.registration == 'without' %}
-                                No registration will be required to attend.
+                                No registration will be required to&nbsp;attend.
                             {% elif session.registration == 'free' %}
-                                Free registration available to PyCon&nbsp;CZ ticket holders {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
+                                Free registration available to PyCon&nbsp;CZ ticket holders {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to&nbsp;attend.
                             {% elif session.registration == 'paid' %}
-                                Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to attend.
+                                Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to&nbsp;attend.
                             {% endif %}
                         </p>
                     {% endif %}
@@ -150,4 +153,16 @@
         {% endcomment %}
 
     </div>
+
+    <div class="pc-sticky-bottom pc-mw-max mx-auto">
+        <div class="pr-2 px-sm-3 pb-2 mb-2 d-flex justify-content-between">
+            <a class="btn btn-secondary px-2 px-sm-3" href="{% url 'session_detail' type=session_previous.type session_id=session_previous.id %}#main">
+                previous {{ session_previous.type }}
+            </a>
+            <a class="btn btn-info px-2 px-sm-3" href="{% url 'session_detail' type=session_next.type session_id=session_next.id %}#main">
+                next {{ session_next.type }}
+            </a>
+        </div>
+    </div>
+
 {% endblock %}

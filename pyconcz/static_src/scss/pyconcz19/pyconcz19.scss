@@ -58,6 +58,7 @@
 @import "./node_modules/bootstrap/scss/print";
 
 // own styles (feel free to add more)
+@import "pc-base";
 @import "pc-header";
 @import "pc-ticket";
 @import "pc-speakers";
@@ -67,5 +68,4 @@
 @import "pc-linkbar";
 @import "pc-tito";
 @import "pc-intermission";
-@import "temp";
 

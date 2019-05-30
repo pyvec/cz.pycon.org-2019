@@ -43,7 +43,7 @@
                 </div>
                 <div class="col">
                     {% with words=speaker.bio|markdown|striptags|wordcount %}
-                        <p class="h3 p-3 text-white {% if words < 40 or words > 100 %}bg-danger{% else %}bg-light{% endif %}">
+                        <p class="h3 p-3 text-white {% if words < 40 or words > 100 %}bg-danger{% else %}bg-white{% endif %}">
                             Bio has
                             <b>{{ words }}</b>&nbsp;words
                             {% if words < 40 %}
@@ -60,7 +60,7 @@
 
                     {% if session.is_keynote %}
                         {% with words=speaker.short_bio|markdown|striptags|wordcount %}
-                            <p class="h3 p-3 text-white {% if words < 40 or words > 90 %}bg-danger{% else %}bg-light{% endif %}">
+                            <p class="h3 p-3 text-white {% if words < 40 or words > 90 %}bg-danger{% else %}bg-white{% endif %}">
                                 Short Bio (for homepage) has
                                 <b>{{ words }}</b>&nbsp;words
                                 {% if words < 40 %}
@@ -76,7 +76,7 @@
                         </div>
                     {% endif %}
 
-                    <p class="h3 mt-0 p-3 text-white {% if speaker.photo.width < 880 or speaker.photo.height < 880 %}bg-danger{% else %}bg-light{% endif %}">
+                    <p class="h3 mt-0 p-3 text-white {% if speaker.photo.width < 880 or speaker.photo.height < 880 %}bg-danger{% else %}bg-white{% endif %}">
                         Photo is
                         {{ speaker.photo.width }}&nbsp;px × {{ speaker.photo.height }}&nbsp;px
                         {% if speaker.photo.width != speaker.photo.height %}

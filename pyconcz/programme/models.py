@@ -53,6 +53,7 @@ class Talk(models.Model):
     )
 
     type = 'talk'  # for symmetry with workshops/sprints
+    order = models.SmallIntegerField(unique=True, help_text='display order on front end, has to be unique')
     title = models.CharField(max_length=200)
     og_image = models.ImageField(upload_to='programme/talks/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
@@ -66,7 +67,7 @@ class Talk(models.Model):
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('order',)
 
     def __str__(self):
         return self.title
@@ -115,6 +116,7 @@ class Workshop(models.Model):
     )
 
     type = models.CharField(max_length=10, choices=TYPE, default='sprint')
+    order = models.SmallIntegerField(unique=True, help_text='display order on front end, has to be unique')
     title = models.CharField(max_length=200, verbose_name='Title')
     og_image = models.ImageField(upload_to='programme/workshops/', null=True, blank=True, help_text='og:image (social media image) 1200×630 pixels')
     abstract = models.TextField()
@@ -130,6 +132,9 @@ class Workshop(models.Model):
     in_data_track = models.BooleanField('PyData Track', default=False, blank=True)
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
 
+    class Meta:
+        ordering = ('order',)
+
     def __str__(self):
         return self.title
 
@@ -143,22 +148,35 @@ class Workshop(models.Model):
 
 
 class Slot(models.Model):
-    date = models.DateTimeField()
+    start = models.DateTimeField()
     content_type = models.ForeignKey(ContentType, null=True, blank=True, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(null=True, blank=True)
     content_object = GenericForeignKey('content_type', 'object_id')
     description = models.CharField(max_length=100, blank=True, default='', help_text='will be markdowned')
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
+    end = models.DateTimeField()
 
     class Meta:
-        ordering = ('date', 'room',)
+        ordering = ('start', 'room',)
 
 
 class EndTime(models.Func):
-    template = 'LAG(date) OVER (PARTITION BY room ORDER BY date DESC)'
+    template = 'LAG(start) OVER (PARTITION BY room ORDER BY start DESC)'
 
     def __init__(self):
         super().__init__(output_field=models.DateTimeField())
 
     def get_group_by_cols(self):
         return []
+
+class Utility(models.Model):
+    title = models.CharField(max_length=200, verbose_name='Title')
+    description = models.TextField(blank=True, null=True)
+    url = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+            verbose_name = 'Utility'
+            verbose_name_plural = 'Utilities'

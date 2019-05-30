@@ -1,29 +1,64 @@
 {% if ticket.early_bird.upcoming %}
-    <button class="btn btn-primary disabled px-3 my-3 mx-auto" disabled>Not for sale yet</button>
+    <button class="tickets-button disabled" disabled>Not for sale yet</button>
 {% else %}
-    {% if tickets.cached %}
-        <button disabled class="tito-tickets-button d-none pc-display-via-js">
-            <span class="spinner-border d-inline-block spinner-border-sm" role="status"></span>
-            Please wait
-        </button>
-        <script>
-            Array.prototype.forEach.call(
-                document.querySelectorAll('.tito-tickets-button.d-none.pc-display-via-js'),
-                function(btn){
-                    btn.classList.remove("d-none");
-                }
-            );
-        </script>
-        <noscript>
-            <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}" class="tito-tickets-button">
-                Buy ticket
-            </a>
-        </noscript>
-    {% else %}
-        <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}">
-            Buy ticket
-        </tito-button>
-        {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
-    {% endif %}
+    {% if tickets.now <= tickets.last_day_regular %}
+        {% if ticket.regular.sold_out %}
+            <button class="tito-tickets-button disabled" disabled>Sold out</button>
+        {% else %}
+            {% if tickets.cached %}
+                <button disabled class="tito-tickets-button d-none pc-js-display">
+                    <span class="spinner-border d-inline-block spinner-border-sm" role="status"></span>
+                    Please wait
+                </button>
+                <script>
+                    Array.prototype.forEach.call(
+                        document.querySelectorAll('.tito-tickets-button.d-none.pc-js-display'),
+                        function(btn){
+                            btn.classList.remove("d-none");
+                        }
+                    );
+                </script>
+                <noscript>
+                    <a href="https://ti.to/pyvec/pycon-cz-2019/with/{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}" class="tito-tickets-button">
+                        Buy ticket
+                    </a>
+                </noscript>
+            {% else %}
+                <tito-button event="pyvec/pycon-cz-2019" releases="{% if not ticket.early_bird.sold_out and not ticket.early_bird.secret %}{{ ticket.early_bird.slug }}{% if ticket.early_bird.tickets_left <= 3 %},{% endif %}{% endif %}{% if ticket.early_bird.secret or ticket.early_bird.tickets_left <= 3 %}{% if not ticket.regular.sold_out %}{{ ticket.regular.slug }}{% endif %}{% endif %}">
+                    Buy ticket
+                </tito-button>
+                {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
+            {% endif %}
+        {% endif %}
+    {% else %} {# late birds #} {# todo: refactor in more DRY way #}
+        {% if ticket.late_bird.sold_out %}
+            <button class="tito-tickets-button disabled" disabled>Sold out</button>
+        {% else %}
+            {% if tickets.cached %}
+                <button disabled class="tito-tickets-button d-none pc-js-display">
+                    <span class="spinner-border d-inline-block spinner-border-sm" role="status"></span>
+                    Please wait
+                </button>
+                <script>
+                    Array.prototype.forEach.call(
+                        document.querySelectorAll('.tito-tickets-button.d-none.pc-js-display'),
+                        function(btn){
+                            btn.classList.remove("d-none");
+                        }
+                    );
+                </script>
+                <noscript>
+                    <a href="https://ti.to/pyvec/pycon-cz-2019/with/{{ ticket.late_bird.slug }}" class="tito-tickets-button">
+                        Buy ticket
+                    </a>
+                </noscript>
+            {% else %}
+                <tito-button event="pyvec/pycon-cz-2019" releases="{{ ticket.late_bird.slug }}">
+                    Buy ticket
+                </tito-button>
 
+                {% comment %}This branch is loaded via Javascript, so we don't have to deal with noscript here.{% endcomment %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
 {% endif %}

@@ -95,7 +95,7 @@
             {% endfor %}
 
             {% if more_to_come %}
-                <div class="card pc-session-list bg-primary">
+                <div class="card pc-session-list bg-primary pc-box-shadow-dark">
                     <a class="
                             card-img-overlay
                             text-white text-decoration-none
@@ -111,12 +111,11 @@
                         </div>
                     </a>
                     <div class="embed-responsive embed-responsive-1by1"></div>
-
                 </div>
             {% endif %}
 
             {% block other_sessions %}
-                <div class="card pc-session-list bg-light">
+                <div class="card pc-session-list bg-white pc-box-shadow">
                     <a
                         href="{{ other_session_url }}"
                         class="card-img-overlay d-flex flex-column flex-wrap align-items-stretch"

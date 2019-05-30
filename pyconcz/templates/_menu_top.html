@@ -20,8 +20,12 @@
 {% block link_coc %}{% endblock %}
 
 
+{% block link_board_game_night %}{% endblock %}
+
+
 {% block link_financial_aid %}
-    {% if phases.ticket_sale != 'launched' %} {# show finaid only if ticket sale isn't on #}
+    {# show finaid only if ticket sale isn't on and only if finaid is opened #}
+    {% if phases.ticket_sale != 'launched' and phases.finaid == 'launched' %}
         {{ block.super }}
     {% endif %}
 {% endblock %}
@@ -29,7 +33,8 @@
 
 {% block link_sponsorship %}
     {% if phases.talks == 'not_public' and phases.workshops == 'not_public' %}
-        {% if phases.sponsors != 'details_public' %} {# hide sponsorship link after sponsors detail are published  #}
+        {# hide sponsorship link after sponsors detail are published  #}
+        {% if phases.sponsors != 'details_public' %}
             {{ block.super }}
         {% endif %}
     {% endif %}

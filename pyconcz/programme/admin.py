@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from django.utils.translation import gettext as _
 
-from .models import Speaker, Talk, Slot, Workshop
+from .models import Speaker, Talk, Slot, Workshop, Utility
 
 
 def mk_public(modeladmin, request, queryset):
@@ -37,10 +37,10 @@ class SpeakerHasKeynoteFilter(SimpleListFilter):
 
 
 class SlotAdmin(admin.ModelAdmin):
-    list_display = ['get_description', 'date', 'room']
-    list_filter = ['room', 'date']
-    list_editable = ['room', 'date']
-    date_hierarchy = 'date'
+    list_display = ['get_description', 'start', 'room', 'end']
+    list_filter = ['room', 'start', 'end']
+    list_editable = ['room', 'start', 'end']
+    date_hierarchy = 'start'
 
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('content_object')
@@ -94,8 +94,8 @@ class TalkResource(resources.ModelResource):
 
 
 class TalkAdmin(ImportExportActionModelAdmin):
-    list_display = ['title', 'speakers', 'language', 'is_keynote', 'is_public',
-                    'is_backup', 'in_data_track']
+    list_display = ['order', 'title', 'speakers', 'language',
+                    'is_keynote', 'is_public', 'is_backup', 'in_data_track']
     list_filter = ['is_keynote', 'is_public', 'is_backup', 'in_data_track']
     search_fields = ['title']
     resource_class = TalkResource
@@ -108,14 +108,18 @@ class TalkAdmin(ImportExportActionModelAdmin):
 
 
 class WorkshopAdmin(TalkAdmin):
-    list_display = [
-        'title', 'speakers', 'language', 'difficulty', 'type', 'is_public',
-        'is_backup', 'registration', 'length', 'attendee_limit']
+    list_display = ['order', 'title', 'speakers', 'language', 'difficulty',
+                    'type', 'is_public', 'is_backup', 'registration',
+                    'length', 'attendee_limit']
     list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
+
+class UtilityAdmin(ImportExportActionModelAdmin):
+    list_display = ['id', 'title', 'description', "url"]
 
 
 admin.site.register(Speaker, SpeakerAdmin)
 admin.site.register(Talk, TalkAdmin)
 admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Slot, SlotAdmin)
+admin.site.register(Utility, UtilityAdmin)

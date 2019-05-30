@@ -19,11 +19,16 @@ class Command(BaseCommand):
 
         for one in Workshop.objects.all():
             Slot.objects.create(
-                date=timezone.make_aware(datetime.datetime(settings.WORKSHOPS_DATES[0].year,
-                                                           settings.WORKSHOPS_DATES[0].month,
-                                                           settings.WORKSHOPS_DATES[0].day,
-                                                           ),
-                                         timezone.get_current_timezone()),
+                start=timezone.make_aware(datetime.datetime(settings.WORKSHOPS_DATES[0].year,
+                                                            settings.WORKSHOPS_DATES[0].month,
+                                                            settings.WORKSHOPS_DATES[0].day,
+                                                            ),
+                                          timezone.get_current_timezone()),
+                end=timezone.make_aware(datetime.datetime(settings.WORKSHOPS_DATES[0].year,
+                                                          settings.WORKSHOPS_DATES[0].month,
+                                                          settings.WORKSHOPS_DATES[0].day,
+                                                          ),
+                                        timezone.get_current_timezone()),
                 content_object=one,
                 room=settings.WORKSHOPS_ROOMS[0][0],
             )

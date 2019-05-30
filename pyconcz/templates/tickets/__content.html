@@ -1,7 +1,7 @@
 {% load static %}
 <div class="container">
     {% if debug %}
-        <div class="bg-success p-3">
+        <div class="bg-success p-3 small">
             <pre>             now = {{ tickets.now|pprint }}</pre>
             <pre>last_day_regular = {{ tickets.last_day_regular|pprint }}</pre>
             <pre>        capacity = {{ tickets.capacity|pprint }}</pre>
@@ -11,137 +11,194 @@
     {% endif %}
 
     <h1>Tickets</h1>
-    {% if tickets.left <= 0 %}
-        <p class="lead">We’re sorry but all available tickets have been sold out.</p>
-    {% elif tickets.now < tickets.last_day_regular %}
-        <p class="lead">
-            Get your tickets before {{ tickets.last_day_regular|date:'j F' }} to get regular price!
-            {% include 'tickets/__tickets-left.html' with threshold=30 %}
-        </p>
-    {% elif tickets.now == tickets.last_day_regular %}
-        <p class="lead">
-            Today is the last chance to buy tickets for the regular price!
-            {% include 'tickets/__tickets-left.html' with threshold=20 %}
-        </p>
-    {% else %}
-        <p class="lead">
-            Good news!<br>You can still get your ticket at a&nbsp;late bird price.
-            {% include 'tickets/__tickets-left.html' with threshold=10 %}
-        </p>
+    {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
+        <div class="row">
+            <div class="col-md">
+                {% if tickets.now|date:'ymd' < tickets.last_day_regular|date:'ymd' %}
+                    <p class="lead">
+                        Regular price only until {{ tickets.last_day_regular|date:'j F' }}!
+                        <br>
+                        {% if tickets.left <= 30 %}
+                            <span class="lead font-weight-bold text-danger">
+                                Last {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} are available.
+                            </span>
+                        {% endif %}
+                    </p>
+                {% elif tickets.now|date:'ymd' == tickets.last_day_regular|date:'ymd' %}
+                    <p class="lead">
+                        Today is the last chance to buy tickets for the regular price!
+                        <br>
+                        {% if tickets.left <= 20 %}
+                            <span class="lead font-weight-bold text-danger">
+                                We have {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} available.
+                            </span>
+                        {% endif %}
+                    </p>
+                {% else %}
+                    <p class="lead">
+                        Good news!<br>You can still get your ticket at a&nbsp;late bird price.
+                        <br>
+                        {% if tickets.left <= 20 %}
+                            <span class="lead font-weight-bold text-danger">
+                                We still have {{ tickets.left }} ticket{{ tickets.left|pluralize:'s' }} left.
+                            </span>
+                        {% endif %}
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col-md">
+                {% if tickets.left > 0 %}
+                    <div class="px-3 py-2 bg-white">
+                        <p class="lead font-weight-bold my-0">You can pay the ticket with a&nbsp;credit or debit card.</p>
+                        <p class="my-0">PayPal account is&nbsp;<strong>not</strong> required to buy the&nbsp;ticket. It&nbsp;is&nbsp;used only as a&nbsp;payment gateway.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
+
 
     <h2>Included in each ticket</h2>
 
-    <div class="row">
-        <div class="col py-4 text-center font-weight-bold">
+    <div class="d-flex flex-wrap justify-content-center">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             {% if phases.talks != 'not_public' %}<a href="{% url 'talks_list' %}" class="d-block">{% endif %}
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/talks.svg' %}" alt="">
-            2&nbsp;days of&nbsp;talks
+            <div>2&nbsp;days of&nbsp;talks</div>
             {% if phases.talks != 'not_public' %}</a>{% endif %}
+            <small>Friday and Saturday <span class="text-nowrap">(10:00 – 19:00)</span></small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/party.svg' %}" alt="">
-            Afterparty
+            <div>Afterparty</div>
+            <small>Saturday from 19:15</small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/food.svg' %}" alt="">
-            Food, Coffee &amp;&nbsp;Tea
+            <div>Food, Coffee &amp;&nbsp;Tea</div>
+            <small>All days: breakfast and lunch</small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
+        <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
             {% if phases.workshops != 'not_public' %}<a href="{% url 'workshops_list' %}" class="d-block">{% endif %}
             <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/workshops.svg' %}" alt="">
-            Workshops
+            <div>Workshops</div>
             {% if phases.workshops != 'not_public' %}</a>{% endif %}
+            <small>Sunday <span class="text-nowrap">(10:00 – 17:00)</span></small>
         </div>
-        <div class="col py-4 text-center font-weight-bold">
-            {% if phases.board_game_night == 'details_public' %}<a href="{% url 'board_game_night' %}" class="d-block">{% endif %}
-            <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt="">
-            Board Game Night
-            {% if phases.board_game_night == 'details_public' %}</a>{% endif %}
-        </div>
+
+        {% if phases.board_game_night != 'not_public' %}
+            <div class="pc-min-w-md flex-grow-1 flex-shrink-1 w-20 py-4 text-center font-weight-bold">
+                {% if phases.board_game_night == 'details_public' %}<a href="{% url 'board_game_night' %}" class="d-block">{% endif %}
+                <img class="pc-ticket-icon d-block mb-2 mb-md-4 mx-auto" src="{% static 'img/icons/board-game-night.svg' %}" alt="">
+                <div>Board Game Night</div>
+                {% if phases.board_game_night == 'details_public' %}</a>{% endif %}
+                <small>Friday from 19:15</small>
+            </div>
+        {% endif %}
     </div>
 
 </div>
 
-{% if tickets.sold < tickets.capacity %}
 
-    <div class="container-fluid bg-dark my-4 py-1">
-
+{% if phases.ticket_sale != 'not_launched' and phases.ticket_sale != 'timed_out' %}
+    <div class="container-fluid mt-4 py-1 pc-bg-cover-image pc-bg-cover-image-brown" style="background-image: url({% static 'img/dov/jirka-zapalka_2017-09-17_028.min.jpg' %});">
         <h2 class="sr-only">Ticket types</h2>
+        <div class="d-flex flex-wrap justify-content-center align-content-stretch align-items-stretch pt-4">
+            {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Educational</h3>
+                        <p class="my-0">Are you a&nbsp;student, a&nbsp;teacher or have you attended PyLadies courses?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.educational %}
+                        <p class="small mt-4 mb-3">Students need to bring a&nbsp;student ID to the registration.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.educational %}
+                    </div>
+                </div>
 
-        <div class="row no-gutters justify-content-center align-content-stretch align-items-stretch py-1">
-            <div class="col my-4 pc-ticket">
-                <div class="bg-light p-3 mx-2">
-                    <h3 class="mt-0">Educational</h3>
-                    <p>Are you a&nbsp;student, a&nbsp;teacher or have you attended PyLadies courses?</p>
-                    <hr>
-                    {% include 'tickets/__pricing.html' with ticket=tickets.educational %}
-                    <p class="small">Students need to bring a&nbsp;student ID to the registration.</p>
-                    {% include 'tickets/__button.html' with ticket=tickets.educational %}
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Individual</h3>
+                        <p class="my-0">Are you paying PyCon&nbsp;CZ from your own pocket?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.individual %}
+                        <p class="small mt-4 mb-3">These tickets are for you if your company doesn’t pay for it. <br>Please respect that and buy a&nbsp;Company ticket if it does.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.individual %}
+                    </div>
                 </div>
-            </div>
-            <div class="col my-4 pc-ticket">
-                <div class="bg-light p-3 mx-2">
-                    <h3 class="mt-0">Individual</h3>
-                    <p>Are you paying PyCon&nbsp;CZ from your own pocket?</p>
-                    <hr>
-                    {% include 'tickets/__pricing.html' with ticket=tickets.individual %}
-                    <p class="small">These tickets are for you if your company doesn’t pay for it. Please respect that and buy a&nbsp;Company ticket if it does.</p>
-                    {% include 'tickets/__button.html' with ticket=tickets.individual %}
-                </div>
-            </div>
 
-            <div class="col my-4 pc-ticket">
-                <div class="bg-light p-3 mx-2">
-                    <h3 class="mt-0">Company</h3>
-                    <p>Is your company paying for the&nbsp;ticket?</p>
-                    <hr>
-                    {% include 'tickets/__pricing.html' with ticket=tickets.company %}
-                    <p class="small">Choose this ticket if your company is paying or if you are getting reimbursed. This is the right choice to support PyCon CZ, so please respect the&nbsp;rule.</p>
-                    {% include 'tickets/__button.html' with ticket=tickets.company %}
+                <div class="pc-ticket mb-3 mx-2 bg-white">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">Company</h3>
+                        <p class="my-0">Is your company paying for the&nbsp;ticket?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.company %}
+                        <p class="small mt-4 mb-3">Choose this ticket if your company is&nbsp;paying for it or if you are getting reimbursed later. Thank you for supporting PyCon&nbsp;CZ!</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.company %}
+                    </div>
                 </div>
-            </div>
 
-            <div class="col my-4 pc-ticket">
-                <div class="bg-secondary p-3 mx-2">
-                    <h3 class="mt-0">VIP</h3>
-                    <p>Do you want to have the best PyCon&nbsp;CZ experience?</p>
-                    <hr>
-                    {% include 'tickets/__pricing.html' with ticket=tickets.vip %}
-                    <p class="small">VIP ticket will get you a&nbsp;seat at the speakers’ dinner on June&nbsp;13. You will meet PyCon&nbsp;CZ speakers over great food which is included in the&nbsp;price.</p>
-                    {% include 'tickets/__button.html' with ticket=tickets.vip %}
+                <div class="pc-ticket mb-3 mx-2">
+                    <div class="pc-ticket-top p-3 p-md-4">
+                        <h3 class="mt-0">VIP</h3>
+                        <p class="my-0">Do you want to have the best PyCon&nbsp;CZ experience?</p>
+                    </div>
+                    <div class="pc-ticket-pricing px-3 px-md-4 pt-3 pt-md-4">
+                        {% include 'tickets/__pricing.html' with ticket=tickets.vip %}
+                        <p class="small mt-4 mb-3">VIP ticket will get you a&nbsp;seat at the speakers’ dinner on June&nbsp;13. You will meet PyCon&nbsp;CZ speakers over great food which is included in the&nbsp;price.</p>
+                    </div>
+                    <div class="pc-ticket-button px-3 px-md-4 pt-2 pb-4">
+                        {% include 'tickets/__button.html' with ticket=tickets.vip %}
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <p class="display-4 my-6 text-primary text-center">We’re sorry but all available tickets have been sold out.</p>
+            {% endif %}
         </div>
 
-        <p class="text-white-50 text-center mb-4 py-1">
-            We’re not VAT payers, all prices are final.
-            <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
-            <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
-            and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
-        </p>
+        {% if tickets.left > 0 and phases.ticket_sale == 'launched' %}
+            <p class="text-white-50 text-center py-2">
+                We’re not VAT payers, all prices are final.
+                <br>By buying a&nbsp;ticket you accept PyCon&nbsp;CZ’s
+                <a class="text-warning" href="{% url 'coc' %}">Code&nbsp;of&nbsp;Conduct</a>
+                and <a class="text-warning" href="{% url 'privacy_policy' %}">Privacy&nbsp;Policy</a>.
+            </p>
+        {% endif %}
 
     </div>
+{% endif %}
 
-    {% if phases.finaid == 'launched' %}
-        <div class="container text-center pb-5">
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
-                    <h2>Financial Aid</h2>
+{% if phases.finaid == 'launched' or phases.ticket_finaid == 'launched' %}
+    <div class="container text-center mt-4 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-lg-8 col-xl-6">
+                <h2>Financial Aid{% if phases.ticket_finaid == 'launched' %} for tickets{% endif %}</h2>
+                {% if phases.finaid == 'launched' %}
+                    <p class="lead">If money is the <b>only factor</b> stopping you from attending PyCon&nbsp;CZ you&nbsp;can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your&nbsp;expenses.</p>
+                {% elif phases.ticket_finaid == 'launched' %}
+                    <p>We want PyCon&nbsp;CZ accessible for everyone as possible.</p>
+                    <p>Full grants covering accommodation and/or travel costs have been awarded but we still have a&nbsp;few free tickets available thanks to&nbsp;<a href="{% url 'sponsors_list' %}">our&nbsp;sponsors</a>.</p>
                     <p>
-                        {% block finaid_info_text %}
-                            If money is the <b>only factor</b> stopping you from attending PyCon&nbsp;CZ you&nbsp;can <a href="{% url 'proposal_about' key='financial-aid' %}">apply for Financial Aid</a> to cover your&nbsp;expenses.
-                        {% endblock %}
+                        If ticket price is the only thing stopping you from attending
+                        <br><b>just <a href="mailto:info@pycon.cz?subject=Financial Aid for a ticket">email us</a> for one</b>.
                     </p>
-                </div>
+                {% endif %}
             </div>
         </div>
-    {% endif %}
-
+    </div>
 {% endif %}
 
 {% if debug %}
     <div class="bg-success p-3">
-        <pre>{{ tickets|pprint }}</pre>
+        <pre class="small">{{ tickets|pprint }}</pre>
     </div>
 {% endif %}

@@ -5,7 +5,24 @@
             top: 0;
             z-index: $zindex-sticky;
         }
+
     }
+}
+
+.pc-sticky-bottom {
+    @supports (position: sticky) {
+        position: sticky;
+        bottom: 0;
+        z-index: $zindex-sticky;
+    }
+}
+
+.pc-mw-max {
+    max-width: map-get($container-max-widths, xl);
+}
+
+.pc-min-w-md {
+    min-width: 12rem;
 }
 
 .pc-object-fit-cover {
@@ -16,6 +33,13 @@
     padding-bottom: calc(100% + #{map-get($spacers, 3)/2});
 }
 
+.pc-embed-responsive-20by21::before {
+    padding-top: 105%;
+}
+
+.pc-embed-responsive-3by4-pb-3 {
+    height: calc(100%);
+}
 
 .pc-multicol {
     @include media-breakpoint-up(md) {
@@ -61,6 +85,17 @@
     }
 }
 
+.pc-bg-cover-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-blend-mode: multiply;
+
+    &-brown {
+        background-color: rgba($pc-brown, 0.8);
+    }
+}
+
 .pc-box-shadow {
     $pc-shadow-horizontal: 4px;
     $pc-shadow-vertical: 4px;
@@ -68,6 +103,10 @@
     margin-right: $pc-shadow-horizontal;
     margin-bottom: $pc-shadow-horizontal;
     box-shadow: $pc-shadow-vertical $pc-shadow-horizontal 0 $primary;
+
+    &-dark {
+        box-shadow: $pc-shadow-vertical $pc-shadow-horizontal 0 $dark;
+    }
 }
 
 .pc-iconlink {
@@ -104,8 +143,8 @@
         }
     }
 
-    $pc-blue-icon-color: lighten(desaturate($pc-deepblue, 35%), 10%);
-    $pc-blue-icon-hover-color: lighten(desaturate($pc-blue, 35%), 10%);
+    $pc-blue-icon-color: lighten(desaturate($pc-deepblue, 15%), 10%);
+    $pc-blue-icon-hover-color: darken($pc-blue-icon-color, 15%);
 
     &-blue#{&}-twitter {
         @include icon-twitter($pc-blue-icon-color);

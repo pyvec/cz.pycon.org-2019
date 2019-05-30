@@ -17,6 +17,7 @@
             <p class="lead">We will publish more information about talks and speakers soon.</p>
         {% elif phases.workshops == 'details_public' and phases.workshops_registration != 'hidden' %}
             <p class="lead">
+                Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than talks.
                 {% if phases.workshops_registration == 'timed_out' %}
                     We’re sorry but you can’t register for workshops anymore.
                 {% elif phases.workshops_registration == 'launched' %}
