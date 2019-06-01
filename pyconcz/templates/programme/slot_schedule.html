@@ -105,7 +105,7 @@
                         </h3>
 
                         {% if slot.content_object.description %}
-                            <div class="text-white mb-2">
+                            <div class="mb-2 {% if slot.content_object.url %}text-dark{% else %}text-white{% endif %}">
                                 {{ slot.content_object.description|markdown }}
                             </div>
                         {% elif slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
