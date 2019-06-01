@@ -1,9 +1,5 @@
-from itertools import chain
-
-from django.db.models import Q
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
-from django.conf import settings
 
 from .models import Speaker, Slot, EndTime, Talk, Workshop
 
@@ -71,44 +67,24 @@ def session_detail(request, type, session_id):
     )
 
 
-def _prefetch_generic(ct):
-    if ct == 'talk':
-        lookup = {'start__lt': settings.WORKSHOPS_DATES[0]}
-    else:
-        lookup = {'start__gte': settings.WORKSHOPS_DATES[0]}
-
-    return (
-        Slot.objects.all()
-            .filter(
-            Q(
-                content_type__app_label='programme',
-                content_type__model=ct,
-            ) | ~Q(description=None),
-            **lookup
-        )
-            .prefetch_related(
-            'content_object',
-        )
-            .annotate(
-            start_end=EndTime()
-        )
-            .order_by('start', 'room')
-    )
-
-
 def schedule(request):
-    slots = chain(
-        _prefetch_generic('talk'),
-        _prefetch_generic('workshop'),
-        _prefetch_generic('utility'),
+    slots = (
+        Slot.objects.all().filter(
+            content_type__app_label='programme',
+            content_type__model__in=['talk', 'workshop', 'utility']
+        ).prefetch_related(
+            'content_object',
+        ).annotate(
+            start_end=EndTime()
+        ).order_by('start', 'room')
     )
-    domain = "/".join(request.build_absolute_uri().split("/")[:3])
+
+    domain = '/'.join(request.build_absolute_uri().split('/')[:3])
     return TemplateResponse(
         request,
         template='programme/slot_schedule.html',
         context={
             'slots': slots,
-            'ALL_ROOMS': settings.ALL_ROOMS,
             'domain': domain,
         }
     )

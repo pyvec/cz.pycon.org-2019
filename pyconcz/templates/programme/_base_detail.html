@@ -37,9 +37,11 @@
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
         </h1>
 
+        {% comment %}
         {% if phases.schedule == 'full' %}
             <p class="pc-session-date">{{ 'TODO' }}</p>
         {% endif %}
+        {% endcomment %}
 
         <div class="pc-multicol mb-3">
             <div class="mb-3">{{ session.abstract|markdown }}</div>

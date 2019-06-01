@@ -156,6 +156,10 @@ class Slot(models.Model):
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
     end = models.DateTimeField()
 
+    @property
+    def room_name(self):
+        return settings.ALL_ROOMS_DICT.get(self.room)
+
     class Meta:
         ordering = ('start', 'room',)
 

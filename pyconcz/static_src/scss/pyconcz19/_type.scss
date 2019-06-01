@@ -132,3 +132,23 @@ a:focus {
         outline-color: $pc-blue;
     }
 }
+
+.pc-text-sans-serif {
+    font-family: $font-family-sans-serif !important;
+}
+
+.pc-text-transform-none {
+    text-transform: none !important;
+}
+
+.pc-font-weight-normal-mono {
+    font-weight: $pc-font-weight-mono-regular !important;
+}
+
+.pc-font-weight-medium-mono {
+    font-weight: $pc-font-weight-mono-medium !important;
+}
+
+.pc-font-weight-bold-mono {
+    font-weight: $pc-font-weight-mono-bold !important;
+}
