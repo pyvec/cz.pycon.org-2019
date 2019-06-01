@@ -51,12 +51,12 @@
                         {% ifchanged %}
                             <div class="row">
                             <h3 class="col-12 mb-2
-                        {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                            mt-2
-                        {% else %}
-                            mt-3
-                        {% endif %}
-                    ">
+                                {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                    mt-2
+                                {% else %}
+                                    mt-3
+                                {% endif %}
+                            ">
                                 {{ slot.start|date:'H:i' }}
                                 {% if slot.content_type.model == 'workshop' %}
                                     – {{ slot.end|date:'H:i' }}
@@ -65,20 +65,17 @@
                             {% comment %}<div class="w-100 bg-success">start</div>{% endcomment %}
                         {% endifchanged %}
 
-                    <div
-                        class="mb-4
-                {% if slot.content_type.model == 'workshop' %}
-                    col-sm-6 col-lg-4
-                {% else %}
-                    col-sm
-                {% endif %}
-            ">
-
+                    <div class="mb-4 {% if slot.content_type.model == 'workshop' %}col-sm-6{% else %}col-sm{% endif %}">
                         {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
                             {% url 'session_detail' type=slot.content_type.model session_id=slot.object_id as session_detail_url %}
-                            <a
-                                class="h-100 d-block mb-3 px-3 pt-3 pb-0 text-black text-decoration-none bg-secondary pc-box-shadow"
-                                href="{{ slot.content_object.url|default:session_detail_url }}"
+                            <a class="h-100 d-block mb-3 px-3 pt-3 pb-0 text-decoration-none pc-box-shadow position-relative
+                                {% if slot.content_object.url %}
+                                    text-dark bg-white
+                                {% else %}
+                                    text-black bg-secondary
+                                {% endif %}
+                                "
+                               href="{{ slot.content_object.url|default:session_detail_url }}"
                             >
                         {% else %}
                             <div class="h-100 d-block text-primary text-decoration-none text-primary">
@@ -86,24 +83,24 @@
 
                         {% if slot.room_name != 'Foyer' %}
                             <p class="
-                        text-monospace text-uppercase pc-font-weight-medium-mono  mt-0 mb-2
-                        {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                            text-brown
-                        {% else %}
-                            text-secondary
-                        {% endif %}
-                    ">
+                                text-monospace text-uppercase pc-font-weight-medium-mono mt-0 mb-2
+                                {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                    text-brown
+                                {% else %}
+                                    text-secondary
+                                {% endif %}
+                            ">
                                 {{ slot.room_name }}
                             </p>
                         {% endif %}
 
                         <h3 class="mt-0 mb-2
-                    {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                        h5 font-weight-bold pc-text-transform-none
-                    {% else %}
-                        h5 pc-font-weight-medium-mono
-                    {% endif %}
-                ">
+                            {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                h5 font-weight-bold pc-text-transform-none
+                            {% else %}
+                                h5 pc-font-weight-medium-mono
+                            {% endif %}
+                        ">
                             {{ slot.content_object.title }}
                         </h3>
 
@@ -114,8 +111,8 @@
                         {% elif slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
                             {% for speaker in slot.content_object.speakers %}
                                 <div class="row no-gutters align-items-center">
-                                    <div class="col-3 col-xs-2 col-sm-1 col-md-1">
-                                        <img src="{{ speaker.photo.url }}" class="img-fluid pc-img-effect" alt="">
+                                    <div class="col-auto">
+                                        <img src="{{ speaker.photo.url }}" class="img-fluid pc-img-effect" style="max-width:2.5rem;" alt="">
                                     </div>
                                     <div class="col pl-2 text-brown">{{ speaker.full_name }}</div>
                                 </div>
@@ -125,14 +122,17 @@
                                     For advanced Pythonistas
                                 </p>
                             {% endif %}
-                            {% if slot.content_object.in_data_track and false %}
-                                <div class="row no-gutters">
-                                    <div class="col-1 ml-auto">
-                                        <svg class="pc-img-fluid-svg d-block" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                                            <path fill="#f80" d="M0 40V0h40v40z" />
-                                            <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
-                                        </svg>
-                                    </div>
+                            {% if slot.content_object.language == 'cs' %}
+                                <p class="mt-3 text-white h6 text-monospace pc-font-weight-medium-mono mb-0">
+                                    This {{ slot.content_type.model }} will be in Czech only
+                                </p>
+                            {% endif %}
+                            {% if slot.content_object.in_data_track %}
+                                <div class="position-absolute" style="top:0;right:0;width:2rem;">
+                                    <svg class="pc-img-fluid-svg d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                                        <path fill="#f80" d="M0 40V0h40v40z" />
+                                        <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
+                                    </svg>
                                     <div class="col sr-only">Is part of the PyData&nbsp;track</div>
                                 </div>
                             {% endif %}
@@ -193,10 +193,10 @@ description:    {{ slot.description|pprint }}
 
                     {% endfor %}
 
-                <div class="col-12">
-                    <p class="mt-5 w-100 display-4">The End</p>
+                    <div class="col-12">
+                        <p class="mt-5 w-100 display-4">The End</p>
+                    </div>
                 </div>
-            </div>
             </div>
         {% endif %}
     </div>
