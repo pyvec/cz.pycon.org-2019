@@ -87,6 +87,13 @@
                             {% endif %}
                             <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
                         </ul>
+                        {% if phases.schedule == 'full' and phases.ticket_sale == 'sold_out' %}
+                            <p>
+                                <a class="btn btn-primary btn px-5 py-2" href="{% url 'programme_schedule' %}">
+                                    Check detailed schedule
+                                </a>
+                            </p>
+                        {% endif %}
                     {% endif %}
 
                 </div>
