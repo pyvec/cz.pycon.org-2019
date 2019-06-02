@@ -56,13 +56,20 @@ def session_detail(request, type, session_id):
         session_next = MODEL_MAP.get(type).objects.filter(
             is_public=True, is_backup=False).order_by('order').first()
 
+    slot = Slot.objects.all().filter(
+        content_type__app_label='programme',
+        content_type__model=type,
+        object_id=session_id,
+    ).first()
+
     return TemplateResponse(
         request,
         template='programme/{}_detail.html'.format(type),
         context={
             'session': session,
             'session_previous': session_previous,
-            'session_next': session_next
+            'session_next': session_next,
+            'slot': slot,
         }
     )
 
