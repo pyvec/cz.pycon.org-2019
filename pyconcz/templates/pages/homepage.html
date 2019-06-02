@@ -225,6 +225,18 @@
                 {% for keynoter in keynoters %}
                     {% include 'programme/__speaker-detail.html' with type='keynoter' speaker=keynoter odd=forloop.counter|divisibleby:'2' %}
                 {% endfor %}
+
+                {% if phases.talks != 'not_public' or phases.workshops != 'not_public' %}
+                    <p class="text-center lead">
+                        Check the rest of
+                        {% if phases.talks != 'not_public' %}
+                            <a href="{% url 'talks_list' %}">talks</a>{% if phases.workshops != 'not_public' %},{% endif %}
+                        {% endif %}
+                        {% if phases.workshops != 'not_public' %}
+                            <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
+                        {% endif %}
+                    </p>
+                {% endif %}
             </div>
         </div>
     {% endif %}
