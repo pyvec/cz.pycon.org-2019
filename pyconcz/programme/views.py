@@ -58,7 +58,7 @@ def session_detail(request, type, session_id):
 
     slot = Slot.objects.all().filter(
         content_type__app_label='programme',
-        content_type__model=type,
+        content_type__model=dict(talk='talk', workshop='workshop', sprint='workshop').get(type),
         object_id=session_id,
     ).first()
 
