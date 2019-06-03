@@ -30,3 +30,7 @@ input[type="text"]::-webkit-search-results-button,
 input[type="text"]::-webkit-search-results-decoration {
     display: none;
 }
+
+.pc-ticket-container .tito-tickets-button {
+    @extend .btn-block;
+}
