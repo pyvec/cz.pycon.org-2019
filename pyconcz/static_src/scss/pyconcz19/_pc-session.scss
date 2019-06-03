@@ -14,11 +14,15 @@
     &-requirements {
         h2 {
             margin-top: map-get($spacers, 3);
+            font-size: $h3-font-size;
+        }
+
+        h3 {
+            font-size: $h4-font-size;
         }
 
         h2:first-of-type {
             margin-top: map-get($spacers, 1);
         }
     }
-
 }

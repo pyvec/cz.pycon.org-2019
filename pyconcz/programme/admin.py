@@ -110,12 +110,12 @@ class TalkAdmin(ImportExportActionModelAdmin):
 class WorkshopAdmin(TalkAdmin):
     list_display = ['order', 'title', 'speakers', 'language', 'difficulty',
                     'type', 'is_public', 'is_backup', 'registration',
-                    'length', 'attendee_limit']
+                    'length', 'attendee_limit', 'tito_id']
     list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
 
 class UtilityAdmin(ImportExportActionModelAdmin):
-    list_display = ['id', 'title', 'description', "url"]
+    list_display = ['id', 'title', 'description', 'url']
 
 
 admin.site.register(Speaker, SpeakerAdmin)

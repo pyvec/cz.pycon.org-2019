@@ -30,15 +30,15 @@
 {% block main %}
     <div class="container">
 
-        {% comment 'todo' %}{% include '_menu_programme .html' %}{% endcomment %}
-
         <h1 class="pc-h1-shrinking">
             {{ session.title }}
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        {% if phases.schedule == 'full' %}
-            <p class="pc-session-date">{{ slot.start|date:'l, d F, H:i' }} at {{ slot.room_name }}</p>
+        {% if phases.schedule == 'full' and slot %}
+            <p class="pc-session-date">
+                {{ slot.start|date:'l, d F, H:i' }} in&nbsp;{{ slot.room_name }}
+            </p>
         {% endif %}
 
         <div class="pc-multicol mb-3">
@@ -86,55 +86,29 @@
                         <div class="col">This {{ session.type }} will be in Czech only.</div>
                     </div>
                 {% endif %}
+
+                {% if session.length and 'h' in session.length %}
+                    <p>
+                        {{ session.type|capfirst }}
+                        will take
+                        {% if session.length == '1h' %}
+                            1&nbsp;hour.
+                        {% elif session.length == '2h' %}
+                            2&nbsp;hours.
+                        {% elif session.length == '3h' %}
+                            3&nbsp;hours.
+                        {% endif %}
+                    </p>
+                {% endif %}
+
+                {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
+                    <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
+                {% endif %}
             </div>
 
-            {% if session.length and 'h' in session.length %}
-                <p>
-                    {{ session.type|capfirst }}
-                    will take
-                    {% if session.length == '1h' %}
-                        1&nbsp;hour.
-                    {% elif session.length == '2h' %}
-                        2&nbsp;hours.
-                    {% elif session.length == '3h' %}
-                        3&nbsp;hours.
-                    {% endif %}
-                </p>
-            {% endif %}
-
-            {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
-                <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
-            {% endif %}
-
-            {% if session.registration %}
-                <div class="pc-session-registration">
-                    {% if phases.workshops_registration == 'timed_out' %}
-                        <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
-                    {% elif phases.workshops_registration == 'launched' %}
-                        <p class="bg-danger p-5">
-                            TODO
-                            <a class="btn btn-primary" href="#">Register for this workshop</a>
-                        </p>
-                    {% elif phases.workshops_registration != 'hidden' %}
-                        <p>
-                            {% if session.registration == 'without' %}
-                                No registration will be required to&nbsp;attend.
-                            {% elif session.registration == 'free' %}
-                                Free registration available to PyCon&nbsp;CZ ticket holders {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to&nbsp;attend.
-                            {% elif session.registration == 'paid' %}
-                                Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to&nbsp;attend.
-                            {% endif %}
-                        </p>
-                    {% endif %}
-                </div>
-            {% endif %}
-
-            {% if session.requirements and phases.workshops == 'details_complete_public' %}
-                <div class="pc-session-requirements px-4 pt-3 pb-2 bg-white d-inline-block w-100">
-                    {{ session.requirements|markdown }}
-                </div>
-            {% endif %}
         </div>
+
+        {% block workshop_info %}{% endblock %}
 
         {% for speaker in session.speakers %}
             {% include 'programme/__speaker-detail.html' with odd=forloop.counter|divisibleby:'2' %}
@@ -151,7 +125,6 @@
         </div>
         {% endif %}
         {% endcomment %}
-
     </div>
 
     <div class="pc-sticky-bottom pc-mw-max mx-auto">
@@ -166,3 +139,6 @@
     </div>
 
 {% endblock %}
+
+
+
