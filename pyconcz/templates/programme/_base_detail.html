@@ -38,7 +38,9 @@
         </h1>
 
         {% if phases.schedule == 'full' %}
-            <p class="pc-session-date">{{ slot.start|date:'l, d F, H:i' }} at {{ slot.room_name }}</p>
+            <p class="pc-session-date">
+                {{ slot.start|date:'l, d F, H:i' }}in&nbsp;{{ slot.room_name }}
+            </p>
         {% endif %}
 
         <div class="pc-multicol mb-3">
