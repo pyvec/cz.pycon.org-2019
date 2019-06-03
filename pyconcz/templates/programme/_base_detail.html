@@ -30,8 +30,6 @@
 {% block main %}
     <div class="container">
 
-        {% comment 'todo' %}{% include '_menu_programme .html' %}{% endcomment %}
-
         <h1 class="pc-h1-shrinking">
             {{ session.title }}
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
