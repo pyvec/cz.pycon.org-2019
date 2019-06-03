@@ -47,10 +47,6 @@
         column-gap: $grid-gutter-width;
     }
 
-    @include media-breakpoint-up(xl) {
-        columns: 3;
-    }
-
     p,
     ul,
     ol {
