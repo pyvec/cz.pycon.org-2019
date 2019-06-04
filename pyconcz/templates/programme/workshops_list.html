@@ -18,19 +18,23 @@
 
         {% elif phases.workshops == 'details_public' or phases.workshops == 'details_complete_public' %}
             {% if phases.workshops_registration != 'hidden' %}
-                <p class="lead">
-                    Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than talks.
-                    {% if phases.workshops_registration == 'timed_out' %}
-                        We’re sorry but you can’t register for workshops anymore.
-                    {% elif phases.workshops_registration == 'launched' %}
-                        They have limited capacity and every conference ticket holder can register for two workshops for free now!
-                        <br>See workshops’ details for more information.
-                    {% elif phases.workshops_registration == 'basic_info' or phases.workshops_registration == 'announced' %}
-                        They have limited capacity and every conference ticket holder will have
-                        a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served
-                        basis{% if phases.workshops_registration == 'announced' %} from 5 June, 18:00 CEST{% endif %}.
-                    {% endif %}
-                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="lead">
+                            Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than talks.
+                            {% if phases.workshops_registration == 'timed_out' %}
+                                <br>We’re sorry but you can’t register for workshops anymore.
+                            {% elif phases.workshops_registration == 'launched' %}
+                                <br>They have limited capacity and every conference ticket holder can register for two workshops for free now!
+                                <br>See workshops’ details for more information.
+                            {% elif phases.workshops_registration == 'basic_info' or phases.workshops_registration == 'announced' %}
+                                <br>They have limited capacity and every conference ticket holder will have
+                                a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served
+                                basis{% if phases.workshops_registration == 'announced' %} starting at <b>5&nbsp;June, 18:00&nbsp;CEST</b>{% endif %}.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
             {% endif %}
         {% endif %}
     {% else %}

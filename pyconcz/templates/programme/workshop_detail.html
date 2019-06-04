@@ -104,15 +104,19 @@
 
                         </div>
                     {% elif phases.workshops_registration != 'hidden' %}
-                        <p>
-                            {% if session.registration == 'without' %}
-                                No registration will be required to&nbsp;attend.
-                            {% elif session.registration == 'free' %}
-                                Free registration available to PyCon&nbsp;CZ ticket holders {% if phases.workshops_registration == 'announced' %}starting at&nbsp;5 June, 18:00 (CEST){% endif %} will be required to&nbsp;attend.
-                            {% elif session.registration == 'paid' %}
-                                Paid registration {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %} will be required to&nbsp;attend.
-                            {% endif %}
-                        </p>
+                        {% if session.registration == 'without' %}
+                            <p>No registration will be required to&nbsp;attend.</p>
+                        {% elif session.registration == 'free' %}
+                            <p class="font-weight-bold lead">
+                                Free registration available to PyCon&nbsp;CZ ticket holders
+                                {% if phases.workshops_registration == 'announced' %}starting at&nbsp;5&nbsp;June, 18:00&nbsp;(CEST){% endif %}
+                                will be required to&nbsp;attend.
+                            </p>
+                        {% elif session.registration == 'paid' %}
+                            <p class="font-weight-bold lead">Paid registration
+                                {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %}
+                                will be required to&nbsp;attend.</p>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             </div>
