@@ -18,6 +18,7 @@
             document.addEventListener('DOMContentLoaded', function(event){
                 var ticketIdInput = document.getElementById('pc-ticket-id');
                 var ticketInfo = document.getElementById('pc-ticket-info');
+                var ticketHelp = document.getElementById('pc-ticket-help');
                 var ticketId;
                 var ticketIdValidate = /^[A-Z0-9]{4}-[0-9]{1,2}$/;
                 var slot = '{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}';
@@ -32,7 +33,7 @@
                             event_path: 'pyvec/pycon-cz-2019',
                             releases: '{{ session.tito_id }}',
                             discount_code: 'workshops-' + slot + '-' + ticketId,
-                            label: 'Register for this workshop',
+                            label: 'Register for free',
                             container_id: 'pc-ticket-container'
                         }).build();
 
@@ -40,12 +41,14 @@
                         ticketIdInput.classList.add('is-valid');
                         ticketInfo.classList.remove('d-none');
                         ticketInfo.classList.add('d-block');
+                        ticketHelp.classList.add('d-none');
                     } else { // not a valid code
                         document.getElementById('pc-ticket-container').innerHTML = ''; // remove button
                         ticketIdInput.classList.remove('is-valid');
                         ticketIdInput.classList.add('is-invalid');
                         ticketInfo.classList.remove('d-block');
                         ticketInfo.classList.add('d-none');
+                        ticketHelp.classList.remove('d-none');
                     }
 
                 });
@@ -76,27 +79,26 @@
                         <div class="bg-dark text-white px-4 pb-1 pt-3 pc-box-shadow" id="pc-workshop-registration">
                             <form>
                                 <div class="form-group mb-2">
-                                    <h3 class="mt-1 mb-2">Get a seat at this {{ session.type }}</h3>
-                                    <label for="pc-ticket-id">Enter your conference ticket&nbsp;code</label>
+                                    <h3 class="mt-1 mb-2">Save a seat at this {{ session.type }}</h3>
+                                    <label for="pc-ticket-id">Enter your conference ticket&nbsp;code to automatically generate a&nbsp;discount code</label>
                                     <input
                                         type="text"
                                         class="form-control form-control-lg"
                                         placeholder="e.g. AB4C-1"
                                         id="pc-ticket-id"
-                                        aria-describedby="pc-code-help"
+                                        aria-describedby="pc-ticket-help"
                                         required
                                         pattern="^[a-zA-Z0-9]{4}-[0-9]{1,2}$"
                                         maxlength="7"
                                     >
-                                    <small id="pc-code-help" class="form-text text-white-50">
+                                    <small id="pc-ticket-help" class="form-text text-white-50">
                                         You can find the code in the email you’ve received after registration.
                                     </small>
                                 </div>
-                                {% comment %}<button class="btn btn-lg btn-primary">Register for this workshop</button>{% endcomment %}
 
                                 <div id="pc-ticket-container" class="pc-ticket-container mb-3"></div>
                                 <p id="pc-ticket-info" class="text-white d-none">
-                                    If&nbsp;the discount code is not valid, you’ve already used&nbsp;it to register for
+                                    If&nbsp;the generated discount code is red (not valid), it means you’ve already used&nbsp;it to register for
                                     <b>a&nbsp;{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}</b>
                                     workshop.
                                 </p>
