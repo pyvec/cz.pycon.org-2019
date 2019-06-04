@@ -105,12 +105,16 @@
                         </div>
                     {% elif phases.workshops_registration != 'hidden' %}
                         {% if session.registration == 'without' %}
-                            <p>No registration will be required to&nbsp;attend.</p>
+                            <p>No registration to&nbsp;attend will be required.</p>
                         {% elif session.registration == 'free' %}
                             <p class="font-weight-bold lead">
-                                Free registration available to PyCon&nbsp;CZ ticket holders
-                                {% if phases.workshops_registration == 'announced' %}starting at&nbsp;5&nbsp;June, 18:00&nbsp;(CEST){% endif %}
-                                will be required to&nbsp;attend.
+                                Registration for this workshops will be available here to PyCon&nbsp;CZ
+                                {% if phases.ticket_sale == 'launched' %}
+                                    <a href="{% url 'tickets' %}">ticket</a>
+                                {% else %}
+                                    ticket
+                                {% endif %}
+                                holders{% if phases.workshops_registration == 'announced' %} starting 5&nbsp;June, 18:00&nbsp;(CEST){% endif %}.
                             </p>
                         {% elif session.registration == 'paid' %}
                             <p class="font-weight-bold lead">Paid registration
