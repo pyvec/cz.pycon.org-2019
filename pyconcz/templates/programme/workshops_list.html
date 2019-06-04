@@ -19,9 +19,9 @@
         {% elif phases.workshops == 'details_public' or phases.workshops == 'details_complete_public' %}
             {% if phases.workshops_registration != 'hidden' %}
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-6">
                         <p class="lead">
-                            Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than talks.
+                            Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than&nbsp;talks.
                             {% if phases.workshops_registration == 'timed_out' %}
                                 <br>We’re sorry but you can’t register for workshops anymore.
                             {% elif phases.workshops_registration == 'launched' %}
