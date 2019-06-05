@@ -1,7 +1,11 @@
+from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
 
+import requests
+
 from .models import Speaker, Slot, EndTime, Talk, Workshop
+from django.conf import settings
 
 
 def preview(request):
@@ -36,6 +40,44 @@ def workshops_list(request):
         template='programme/workshops_list.html',
         context={'sessions': workshops, 'more_to_come': more_to_come}
     )
+
+
+def workshops_refresh_tickets(request):
+    secret_key = settings.TITO_SECRET_KEY
+    account_id = settings.TITO_ACCOUNT_NAME
+    event_id = settings.TITO_EVENT_NAME
+
+    releases_api = 'https://api.tito.io/v3/{account_id}/{event_id}/releases'.format(
+        account_id=account_id,
+        event_id=event_id)
+
+    headers = {
+        'Authorization': 'Token token={secret_key}'.format(secret_key=secret_key),
+        'Accept': 'application/json',
+    }
+
+    requests_session = requests.Session()
+    res = requests_session.get(releases_api, headers=headers)
+    res.raise_for_status()
+    releases = res.json()['releases']
+
+    output = ""
+
+    for ticket in releases:
+        if " Workshop:" in ticket["title"]:
+            workshop = Workshop.objects.get(tito_id=ticket["slug"])
+            workshop.free_tickets_count = ticket["quantity"] - ticket["tickets_count"]
+            workshop.is_sold_out = ticket["sold_out"]
+            workshop.save()
+            output += "workshop {id} - registered {registered}, all: {all_tickets}, sold out: {sold_out} ({title})<br>".format(
+                id=workshop.id,
+                title=workshop.title,
+                registered=ticket["tickets_count"],
+                all_tickets=ticket["quantity"],
+                sold_out=workshop.is_sold_out
+            )
+
+    return HttpResponse(output)
 
 
 def session_detail(request, type, session_id):
