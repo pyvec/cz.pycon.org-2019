@@ -76,35 +76,49 @@
                     {% if phases.workshops_registration == 'timed_out' %}
                         <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
                     {% elif phases.workshops_registration == 'launched' %}
-                        <div class="bg-dark text-white px-4 pb-1 pt-3 pc-box-shadow" id="pc-workshop-registration">
-                            <form>
-                                <div class="form-group mb-2">
-                                    <h3 class="mt-1 mb-2">Save a seat at this {{ session.type }}</h3>
-                                    <label for="pc-ticket-id">Enter your conference ticket&nbsp;code to automatically generate a&nbsp;discount code</label>
-                                    <input
-                                        type="text"
-                                        class="form-control form-control-lg"
-                                        placeholder="e.g. AB4C-1"
-                                        id="pc-ticket-id"
-                                        aria-describedby="pc-ticket-help"
-                                        required
-                                        pattern="^[a-zA-Z0-9]{4}-[0-9]{1,2}$"
-                                        maxlength="7"
-                                    >
-                                    <small id="pc-ticket-help" class="form-text text-white-50">
-                                        You can find the code in the email you’ve received after registration.
-                                    </small>
-                                </div>
+                        {% if session.is_sold_out %}
+                            <p class="p-3 bg-warning">
+                                We’re sorry but registrations for this workshop are all taken.
+                                <br>You can still come and see if somebody with registration doesn’t show up.
+                            </p>
+                        {% else %}
+                            <div class="bg-dark text-white px-4 pb-1 pt-3 pc-box-shadow" id="pc-workshop-registration">
+                                <form>
+                                    <div class="form-group mb-2">
+                                        <h3 class="mt-1 mb-2">
+                                            Save a seat at this {{ session.type }}
+                                            {% if session.free_tickets_count > 0 %}
+                                                ({{ session.free_tickets_count }}&nbsp;left)
+                                            {% endif %}
+                                        </h3>
 
-                                <div id="pc-ticket-container" class="pc-ticket-container mb-3"></div>
-                                <p id="pc-ticket-info" class="text-white d-none">
-                                    If&nbsp;the generated discount code is red (not valid), it means you’ve already used&nbsp;it to register for
-                                    <b>a&nbsp;{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}</b>
-                                    workshop.
-                                </p>
-                            </form>
+                                        <label for="pc-ticket-id">Enter your conference ticket&nbsp;code to automatically generate a&nbsp;discount&nbsp;code</label>
+                                        <input
+                                            type="text"
+                                            class="form-control form-control-lg"
+                                            placeholder="e.g. AB4C-1"
+                                            id="pc-ticket-id"
+                                            aria-describedby="pc-ticket-help"
+                                            required
+                                            pattern="^[a-zA-Z0-9]{4}-[0-9]{1,2}$"
+                                            maxlength="7"
+                                        >
+                                        <small id="pc-ticket-help" class="form-text text-white-50">
+                                            You can find the code in the email you’ve received after registration.
+                                        </small>
+                                    </div>
 
-                        </div>
+                                    <div id="pc-ticket-container" class="pc-ticket-container mb-3"></div>
+                                    <p id="pc-ticket-info" class="text-white d-none">
+                                        If&nbsp;the generated discount code is red (not valid), it means you’ve already used&nbsp;it to register for
+                                        <b>a&nbsp;{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}</b>
+                                        workshop.
+                                    </p>
+                                </form>
+
+                            </div>
+                        {% endif %}
+
                     {% elif phases.workshops_registration != 'hidden' %}
                         {% if session.registration == 'without' %}
                             <p>No registration to&nbsp;attend will be required.</p>
