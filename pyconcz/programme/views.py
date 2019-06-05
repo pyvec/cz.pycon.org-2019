@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 import requests
 
@@ -42,6 +43,7 @@ def workshops_list(request):
     )
 
 
+@csrf_exempt
 def workshops_refresh_tickets(request):
     secret_key = settings.TITO_SECRET_KEY
     account_id = settings.TITO_ACCOUNT_NAME
