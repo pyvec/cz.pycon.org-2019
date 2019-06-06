@@ -77,10 +77,16 @@
                         <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
                     {% elif phases.workshops_registration == 'launched' %}
                         {% if session.is_sold_out %}
-                            <p class="p-3 bg-warning">
-                                We’re sorry but registrations for this workshop are all taken.
-                                <br>You can still come and see if somebody with registration doesn’t show up.
-                            </p>
+                            <div class="p-3 bg-dark pc-box-shadow">
+                                <p class="font-weight-bold text-primary h5 mt-1">
+                                    We’re sorry but all {{ session.attendee_limit }} spots at this workshop are registered
+                                </p>
+                                <p class="mb-0 text-light">
+                                    These registrations are void 10&nbsp;minutes before each workshop starts,
+                                    so after {% if slot.start|date:'H' == '10' %}9:50{% elif slot.start|date:'H' == '14' %}13:50{% endif %}
+                                    you may take any free seat up to the workshop capacity of&nbsp;{{ session.attendee_limit }}.
+                                </p>
+                            </div>
                         {% else %}
                             <div class="bg-dark text-white px-4 pb-1 pt-3 pc-box-shadow" id="pc-workshop-registration">
                                 <form>
