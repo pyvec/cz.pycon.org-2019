@@ -91,6 +91,9 @@
                                 {% endif %}
                             ">
                                 {{ slot.room_name }}
+                                {% if slot.content_object.is_keynote %}
+                                    (and streamed to Club)
+                                {% endif %}
                             </p>
                         {% endif %}
 
@@ -193,10 +196,10 @@ description:    {{ slot.description|pprint }}
 
                     {% endfor %}
 
-                    <div class="col-12">
-                        <p class="mt-5 w-100 display-4">The End</p>
-                    </div>
+                <div class="col-12">
+                    <p class="mt-5 w-100 display-4">The End</p>
                 </div>
+            </div>
             </div>
         {% endif %}
     </div>

@@ -133,7 +133,7 @@ def schedule(request):
     domain = '/'.join(request.build_absolute_uri().split('/')[:3])
     return TemplateResponse(
         request,
-        template='programme/slot_schedule.html',
+        template='programme/schedule.html',
         context={
             'slots': slots,
             'domain': domain,
