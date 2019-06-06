@@ -82,9 +82,9 @@
                                     We’re sorry but all {{ session.attendee_limit }} spots at this workshop are registered
                                 </p>
                                 <p class="mb-0 text-light">
-                                    These registrations are void 10&nbsp;minutes before each workshop starts,
+                                    These registrations are void 10&nbsp;minutes before the workshop starts,
                                     so after {% if slot.start|date:'H' == '10' %}9:50{% elif slot.start|date:'H' == '14' %}13:50{% endif %}
-                                    you may take any free seat up to the workshop capacity of&nbsp;{{ session.attendee_limit }}.
+                                    you may take any free seat up to the workshop’s capacity of&nbsp;{{ session.attendee_limit }}.
                                 </p>
                             </div>
                         {% else %}
