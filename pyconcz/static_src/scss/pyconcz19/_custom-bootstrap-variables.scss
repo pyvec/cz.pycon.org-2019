@@ -105,7 +105,7 @@
     $secondary: $pc-beige; $secondary: $secondary !global; // $gray-600
     // $success: $green; $success: $success !global; // $green
     $info: lighten($blue, 10%); $info: $info !global; // $cyan
-     $warning: $yellow; $warning: $warning !global; // $yellow
+    $warning: $yellow; $warning: $warning !global; // $yellow
     // $danger: $red; $danger: $danger !global; // $red
     // $light: $gray-100; $light: $light !global; // $gray-100
     $dark: $gray-900; $dark: $dark !global; // $gray-800
@@ -121,7 +121,8 @@
         //        "danger": $danger,
         //        "light": $light,
         //        "dark": $dark
-        "black": $pc-black
+        "black": $pc-black,
+        "brown": $pc-brown
     ); $theme-colors: $theme-colors !global;
 
 
@@ -289,7 +290,7 @@
     $h3-font-size: $font-size-base * 1.5; $h3-font-size: $h3-font-size !global; // $font-size-base * 1.75
     $h4-font-size: $font-size-base * 1.25; $h4-font-size: $h4-font-size !global; // $font-size-base * 1.5
     $h5-font-size: $font-size-base; $h5-font-size: $h5-font-size !global; // $font-size-base * 1.25
-    // $h6-font-size: $font-size-base; $h6-font-size: $h6-font-size !global; // $font-size-base
+    $h6-font-size: $font-size-base * 0.875; $h6-font-size: $h6-font-size !global; // $font-size-base
 
     $headings-margin-bottom: $spacer; $headings-margin-bottom: $headings-margin-bottom !global; // ($spacer / 2)
     $headings-font-family: $font-family-monospace; $headings-font-family: $headings-font-family !global; // inherit

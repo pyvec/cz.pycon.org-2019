@@ -126,10 +126,12 @@ class Workshop(models.Model):
     length = models.CharField(max_length=2, choices=LENGTH, blank=True, )
     attendee_limit = models.PositiveSmallIntegerField('Atendee limit', default=False, blank=True, help_text='Maximum number of attendees allowed')
     tito_id = models.SlugField('Ticket ID in ti.to', null=True, blank=True, help_text='Tickets are called releases in API')
+    free_tickets_count = models.PositiveSmallIntegerField(default=0, help_text="Count of free tickets (from API)")
     registration = models.CharField(max_length=10, choices=REGISTRATION, default='free', blank='free')
     is_backup = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=False, blank=True)
     in_data_track = models.BooleanField('PyData Track', default=False, blank=True)
+    is_sold_out = models.BooleanField('Sold out', default=False, blank=True)
     private_note = models.TextField(default='', blank=True, help_text='DO NOT SHOW ON WEBSITE')
 
     class Meta:
@@ -155,6 +157,10 @@ class Slot(models.Model):
     description = models.CharField(max_length=100, blank=True, default='', help_text='will be markdowned')
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
     end = models.DateTimeField()
+
+    @property
+    def room_name(self):
+        return settings.ALL_ROOMS_DICT.get(self.room)
 
     class Meta:
         ordering = ('start', 'room',)

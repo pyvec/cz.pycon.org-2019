@@ -1,8 +1,151 @@
 {% extends 'programme/_base_detail.html' %}
 
+{% load formatting %}
+
 
 {% block all %}
     {% with session_preposition='with' %}
         {{ block.super }}
     {% endwith %}
+{% endblock %}
+
+
+{% block js_head %}
+    {{ block.super }}
+    {% if phases.workshops_registration == 'launched' %}
+        <script>
+            {% if debug %}TitoDevelopmentMode = true;{% endif %}
+            document.addEventListener('DOMContentLoaded', function(event){
+                var ticketIdInput = document.getElementById('pc-ticket-id');
+                var ticketInfo = document.getElementById('pc-ticket-info');
+                var ticketHelp = document.getElementById('pc-ticket-help');
+                var ticketId;
+                var ticketIdValidate = /^[A-Z0-9]{4}-[0-9]{1,2}$/;
+                var slot = '{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}';
+
+                ticketIdInput.addEventListener('input', function(){
+
+                    ticketId = ticketIdInput.value.toUpperCase();
+
+                    if (ticketIdValidate.test(ticketId)){ // a valid code
+                        // create button
+                        new TitoWidget.Button({
+                            event_path: 'pyvec/pycon-cz-2019',
+                            releases: '{{ session.tito_id }}',
+                            discount_code: 'workshops-' + slot + '-' + ticketId,
+                            label: 'Register for free',
+                            container_id: 'pc-ticket-container'
+                        }).build();
+
+                        ticketIdInput.classList.remove('is-invalid');
+                        ticketIdInput.classList.add('is-valid');
+                        ticketInfo.classList.remove('d-none');
+                        ticketInfo.classList.add('d-block');
+                        ticketHelp.classList.add('d-none');
+                    } else { // not a valid code
+                        document.getElementById('pc-ticket-container').innerHTML = ''; // remove button
+                        ticketIdInput.classList.remove('is-valid');
+                        ticketIdInput.classList.add('is-invalid');
+                        ticketInfo.classList.remove('d-block');
+                        ticketInfo.classList.add('d-none');
+                        ticketHelp.classList.remove('d-none');
+                    }
+
+                });
+            });
+        </script>
+        <script src="https://js.tito.io/v1" async></script>
+    {% endif %}
+{% endblock %}
+
+
+{% block workshop_info %}
+    <div class="row mb-5">
+        <div class="col-md">
+            {% if session.requirements and phases.workshops == 'details_complete_public' %}
+                <div class="pc-session-requirements px-4 pt-3 pb-2 mb-4 bg-white d-inline-block w-100">
+                    {{ session.requirements|markdown }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md">
+            <div class="pc-session-registration">
+                {% if session.registration == 'without' %}
+                    <p class="font-weight-bold">No registration is required to&nbsp;attend.</p>
+                {% else %}
+                    {% if phases.workshops_registration == 'timed_out' %}
+                        <p class="font-weight-bold">We’re sorry but registration is not possible anymore.</p>
+                    {% elif phases.workshops_registration == 'launched' %}
+                        {% if session.is_sold_out %}
+                            <div class="p-3 bg-dark pc-box-shadow">
+                                <p class="font-weight-bold text-primary h5 mt-1">
+                                    We’re sorry but all {{ session.attendee_limit }} spots at this workshop are registered
+                                </p>
+                                <p class="mb-0 text-light">
+                                    These registrations are void 10&nbsp;minutes before the workshop starts,
+                                    so after {% if slot.start|date:'H' == '10' %}9:50{% elif slot.start|date:'H' == '14' %}13:50{% endif %}
+                                    you may take any free seat up to the workshop’s capacity of&nbsp;{{ session.attendee_limit }}.
+                                </p>
+                            </div>
+                        {% else %}
+                            <div class="bg-dark text-white px-4 pb-1 pt-3 pc-box-shadow" id="pc-workshop-registration">
+                                <form>
+                                    <div class="form-group mb-2">
+                                        <h3 class="mt-1 mb-2">
+                                            Save a seat at this {{ session.type }}
+                                            {% if session.free_tickets_count > 0 %}
+                                                ({{ session.free_tickets_count }}&nbsp;left)
+                                            {% endif %}
+                                        </h3>
+
+                                        <label for="pc-ticket-id">Enter your conference ticket&nbsp;code to automatically generate a&nbsp;discount&nbsp;code</label>
+                                        <input
+                                            type="text"
+                                            class="form-control form-control-lg"
+                                            placeholder="e.g. AB4C-1"
+                                            id="pc-ticket-id"
+                                            aria-describedby="pc-ticket-help"
+                                            required
+                                            pattern="^[a-zA-Z0-9]{4}-[0-9]{1,2}$"
+                                            maxlength="7"
+                                        >
+                                        <small id="pc-ticket-help" class="form-text text-white-50">
+                                            You can find the code in the email you’ve received after registration.
+                                        </small>
+                                    </div>
+
+                                    <div id="pc-ticket-container" class="pc-ticket-container mb-3"></div>
+                                    <p id="pc-ticket-info" class="text-white d-none">
+                                        If&nbsp;the generated discount code is red (not valid), it means you’ve already used&nbsp;it to register for
+                                        <b>a&nbsp;{% if slot.start|date:'H' == '10' %}morning{% elif slot.start|date:'H' == '14' %}afternoon{% endif %}</b>
+                                        workshop.
+                                    </p>
+                                </form>
+
+                            </div>
+                        {% endif %}
+
+                    {% elif phases.workshops_registration != 'hidden' %}
+                        {% if session.registration == 'without' %}
+                            <p>No registration to&nbsp;attend will be required.</p>
+                        {% elif session.registration == 'free' %}
+                            <p class="font-weight-bold lead">
+                                Free registration for this workshop will be available here to PyCon&nbsp;CZ
+                                {% if phases.ticket_sale == 'launched' %}
+                                    <a href="{% url 'tickets' %}">ticket</a>
+                                {% else %}
+                                    ticket
+                                {% endif %}
+                                holders{% if phases.workshops_registration == 'announced' %} starting 5&nbsp;June, 18:00&nbsp;(CEST){% endif %}.
+                            </p>
+                        {% elif session.registration == 'paid' %}
+                            <p class="font-weight-bold lead">Paid registration
+                                {% if phases.workshops_registration == 'announced' %}at&nbsp;the beginning of&nbsp;June{% endif %}
+                                will be required to&nbsp;attend.</p>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

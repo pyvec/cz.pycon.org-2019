@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: uppercase;
     margin-top: 1.5em;
+
+    &:only-child {
+        margin-bottom: 0 !important;
+    }
 }
 
 h1, .h1 {
@@ -131,4 +135,24 @@ a:focus {
     .text-black & {
         outline-color: $pc-blue;
     }
+}
+
+.pc-text-sans-serif {
+    font-family: $font-family-sans-serif !important;
+}
+
+.pc-text-transform-none {
+    text-transform: none !important;
+}
+
+.pc-font-weight-normal-mono {
+    font-weight: $pc-font-weight-mono-regular !important;
+}
+
+.pc-font-weight-medium-mono {
+    font-weight: $pc-font-weight-mono-medium !important;
+}
+
+.pc-font-weight-bold-mono {
+    font-weight: $pc-font-weight-mono-bold !important;
 }

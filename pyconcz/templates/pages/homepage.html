@@ -87,6 +87,13 @@
                             {% endif %}
                             <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
                         </ul>
+                        {% if phases.schedule == 'full' and phases.ticket_sale == 'sold_out' %}
+                            <p>
+                                <a class="btn btn-primary btn px-5 py-2" href="{% url 'programme_schedule' %}">
+                                    Check detailed schedule
+                                </a>
+                            </p>
+                        {% endif %}
                     {% endif %}
 
                 </div>
@@ -218,6 +225,18 @@
                 {% for keynoter in keynoters %}
                     {% include 'programme/__speaker-detail.html' with type='keynoter' speaker=keynoter odd=forloop.counter|divisibleby:'2' %}
                 {% endfor %}
+
+                {% if phases.talks != 'not_public' or phases.workshops != 'not_public' %}
+                    <p class="text-center lead">
+                        Check the rest of
+                        {% if phases.talks != 'not_public' %}
+                            <a href="{% url 'talks_list' %}">talks</a>{% if phases.workshops != 'not_public' %},{% endif %}
+                        {% endif %}
+                        {% if phases.workshops != 'not_public' %}
+                            <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
+                        {% endif %}
+                    </p>
+                {% endif %}
             </div>
         </div>
     {% endif %}
