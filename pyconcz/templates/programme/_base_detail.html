@@ -111,7 +111,7 @@
         {% block workshop_info %}{% endblock %}
 
         {% for speaker in session.speakers %}
-            {% include 'programme/__speaker-detail.html' with odd=forloop.counter|divisibleby:'2' %}
+            {% include 'programme/__speaker-detail.html' with type='session_detail' odd=forloop.counter|divisibleby:'2' %}
         {% endfor %}
 
         {% comment 'todo' %}

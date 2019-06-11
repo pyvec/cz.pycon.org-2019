@@ -1,4 +1,4 @@
-{% extends '_base18.html' %}
+{% extends '_base.html' %}
 
 
 {% load static %}
@@ -7,12 +7,14 @@
 {% block meta_title %}Intermission – {{ block.super }}{% endblock %}
 
 
-{% block js_head %}<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>{% endblock %}
-
-
 {% block body %}
+    <main role="main" class="pc-intermission" id="intermission-content"></main>
+{% endblock %}
+
+
+{% block after_scripts_loaded %}
     <script>
-        $(document).ready(function () {
+        $(document).ready(function(){
             var urls = [
                 '{% url 'intermission:annoucements' %}',
                 '{% url 'intermission:slido' %}',
@@ -20,27 +22,38 @@
                 '{% url 'intermission:up_next' track=1 %}',
                 '{% url 'intermission:up_next' track=2 %}',
 
-                '{% url 'intermission:sponsors' level='gold' %}',
-                '{% url 'intermission:sponsors' level='silver' %}',
-                '{% url 'intermission:sponsors' level='bronze' %}',
+                '{% url 'intermission:sponsors' level='platinum' %}',
 
                 '{% url 'intermission:annoucements' %}',
                 '{% url 'intermission:slido' %}',
 
+                '{% url 'intermission:sponsors' level='gold' %}',
+
                 '{% url 'intermission:up_next' track=1 %}',
                 '{% url 'intermission:up_next' track=2 %}',
 
-                '{% url 'intermission:sponsors' level='media' %}',
+                '{% url 'intermission:sponsors' level='silver' %}',
+
+                '{% url 'intermission:annoucements' %}',
+                '{% url 'intermission:slido' %}',
+
+                '{% url 'intermission:sponsors' level='bronze' %}',
+
+                '{% url 'intermission:up_next' track=1 %}',
+                '{% url 'intermission:up_next' track=2 %}',
+
                 '{% url 'intermission:sponsors' level='partners' %}',
-                '{% url 'intermission:sponsors' level='connectivity' %}',
+
             ];
 
-            function cycle(delay, f, xs) {
-                var run = function (i) {
-                    setTimeout(function () {
+            function cycle(delay, f, xs){
+                var run = function(i){
+                    setTimeout(function(){
                         f(xs[i]);
-                        i += 1;
-                        if (i >= xs.length) { i = 0; }
+                        i++;
+                        if (i >= xs.length){
+                            i = 0;
+                        }
                         run(i);
                     }, delay);
                 };
@@ -48,8 +61,8 @@
                 run(1);
             }
 
-            function fetch_content(url) {
-                $.get(url, function (data) {
+            function fetch_content(url){
+                $.get(url, function(data){
                     $('#intermission-content').hide().html(data).fadeIn(300);
                 });
             }
@@ -58,7 +71,4 @@
         });
     </script>
 
-    <main role="main" class="pc-intermission">
-        <div id="intermission-content"></div>
-    </main>
 {% endblock %}

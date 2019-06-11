@@ -1,39 +1,96 @@
 .pc-intermission {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: flex;
 
-    &-picture {
-        max-height: 40vh;
-        mix-blend-mode: luminosity;
+    &-content {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-content: stretch;
+        align-items: stretch;
+
+        padding-left: map-get($spacers, 6);
+        padding-right: map-get($spacers, 6);
+        min-height: 20px;
     }
 
-    &-logo {
-        &-level-2 { // gold
-            max-width: 100%;
-            height: 22vh;
+    &-heading {
+        flex: 0 0 auto;
+    }
+
+    &-sponsors {
+        flex: 1 1 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+        align-content: space-around;
+
+        &-item {
+            flex: 1 1 100%;
+
+            &-silver {
+                flex-basis: 33%;
+            }
+
+            &-bronze {
+                flex-basis: 50%;
+            }
+
+            &-partners {
+                flex-basis: 25%;
+            }
         }
 
-        &-level-3 { // silver
-            max-width: 25%;
-            height: 18vh;
-        }
+        &-logo {
+            padding: 0 2% 5%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
 
-        &-level-4 { // bronze
-            max-width: 25%;
-            height: 16vh;
-        }
+            &-platinum {
+                $ratio: 160;
+                max-width: $ratio*8px;
+                max-height: $ratio*3px;
+            }
 
-        &-level-6 { // media
-            max-width: 33%;
-            height: 26vh;
-        }
+            &-gold {
+                $ratio: 140;
+                max-width: $ratio*8px;
+                max-height: $ratio*3px;
+            }
 
-        &-level-7 { // partners
-            max-width: 30%;
-            height: 20vh;
-        }
+            &-silver {
+                $ratio: 100;
+                max-width: $ratio*7px;
+                max-height: $ratio*3px;
+            }
 
-        &-level-9 { // connectivity
-            max-width: 100%;
-            height: 30vh;
+            &-bronze {
+                $ratio: 80;
+                max-width: $ratio*8px;
+                max-height: $ratio*3px;
+            }
+
+            &-partners {
+                $ratio: 55;
+                max-width: $ratio*14px;
+                max-height: $ratio*4px;
+                padding: 0 0 20%;
+            }
+        }
+    }
+
+    &-announcement {
+        border-bottom: 4px solid $orange;
+
+        &:last-of-type {
+            border-bottom: 0;
         }
     }
 }

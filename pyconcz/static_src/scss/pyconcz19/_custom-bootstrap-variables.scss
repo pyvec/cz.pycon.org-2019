@@ -167,7 +167,8 @@
         3: $spacer,
         4: ($spacer * 1.5),
         5: ($spacer * 2.8),
-        6: ($spacer * 5)
+        6: ($spacer * 5),
+        7: ($spacer * 14)
     ); $spacers: $spacers !global;
     // the following variable affects the `.h-*` and `.w-*` classes.
     // uncomment whole block, the following variable uses map-merge(),

@@ -1,10 +1,14 @@
-<h1>
-    Our <strong>{{ level_name }}</strong>
-    {% if level_slug != 'partners' %} sponsors{% endif %}
-</h1>
+<div class="pc-intermission-content bg-white text-dark">
+    <h1 class="pc-intermission-heading display-1 mt-6">
+        Our <strong>{{ level_name }}</strong>
+        {% if level_slug != 'partners' %}sponsor{{ sponsors|pluralize:'s' }}{% endif %}
+    </h1>
 
-<div class="d-flex justify-content-center flex-wrap">
-    {% for sponsor in sponsors %}
-        <img class="pc-intermission-logo pc-intermission-logo-level-{{ sponsor.level }}" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
-    {% endfor %}
+    <div class="pc-intermission-sponsors">
+        {% for sponsor in sponsors %}
+            <div class="pc-intermission-sponsors-item pc-intermission-sponsors-item-{{ level_name|lower }}">
+                <img class="pc-img-fluid-svg pc-intermission-sponsors-logo pc-intermission-sponsors-logo-{{ level_name|lower }}" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+            </div>
+        {% endfor %}
+    </div>
 </div>
