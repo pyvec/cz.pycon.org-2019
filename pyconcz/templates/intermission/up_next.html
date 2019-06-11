@@ -1,20 +1,24 @@
-<h1 class="h3 {% if slot.room == 1 %}{% elif slot.room == 2 %}{% endif %}">
-    Next up in
-    <strong {% if slot.room == 2 %}class=""{% endif %}>{{ slot.get_room_display }}</strong>
-    from {{ slot.date|date:'H:i' }}
-</h1>
+{% load formatting %}
 
-<h2 class="h1">
-    {{ slot.content_object.title }}
-</h2>
+<div class="pc-intermission-content">
+    <h1 class="display-1 mt-6">
+        Next up in
+        <strong {% if slot.room == 2 %}class=""{% endif %}>{{ slot.get_room_display }}</strong>
+        from {{ slot.start|date:'H:i' }}
+    </h1>
 
-<div class="d-flex justify-content-center">
-    {% for speaker in slot.content_object.speakers %}
-        <div>
-            <h3 class="h2">{{ speaker }}</h3>
-            <div class="{{ pc_gradient }}">
-                <img class="pc-intermission-picture d-block mx-auto" src="{{ speaker.photo.url }}">
-            </div>
+    {% if slot.content_object.speakers %}
+        <div style="width:45%; transform: scale(2.26);transform-origin: 0 0;">
+            {% for speaker in slot.content_object.speakers %}
+                {% include 'programme/__speaker-detail.html' with type='intermission' odd=forloop.counter|divisibleby:'2' %}
+            {% endfor %}
         </div>
-    {% endfor %}
+    {% else %}
+        <h2 class="display-1 text-primary pc-font-weight-medium-mono">
+            {{ slot.content_object.title }}
+        </h2>
+        {% if slot.content_object.is_keynote or slot.content_object.title == 'Welcome to PyCon CZ' or slot.content_object.title == 'Lightning talks' or slot.content_object.title == 'Closing ceremony' %} {# todo: refactor #}
+            <p class="display-3">also streamed to Club</p>
+        {% endif %}
+    {% endif %}
 </div>
