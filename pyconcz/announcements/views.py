@@ -1,11 +1,10 @@
-from django.shortcuts import render
 from django.template.response import TemplateResponse
 
 from pyconcz.announcements.models import Announcement
 
 
 def announcement_list(request):
-    items = Announcement.objects.all()
+    announcements = Announcement.objects.all()
     return TemplateResponse(
-        request, 'announcements/archive.html', {'items': items}
+        request, 'announcements/archive.html', {'announcements': announcements}
     )

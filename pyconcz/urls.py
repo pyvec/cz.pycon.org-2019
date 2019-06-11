@@ -14,6 +14,7 @@ prefixed_urlpatterns = [
     url(r'^announcements/', include('pyconcz.announcements.urls')),
     url(r'^sponsors/', include('pyconcz.sponsors.urls')),
     url(r'^tickets/', include('pyconcz.common.urls')),
+    url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
 
     # static pages
     url(r'^coc/$', TemplateView.as_view(template_name='pages/coc.html'), name='coc'),
@@ -24,7 +25,7 @@ prefixed_urlpatterns = [
     url(r'^workshop-leaders-info/$', TemplateView.as_view(template_name='pages/workshop_leaders_info.html'), name='workshop_leaders_info'),
     url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
 
-    # url(r'^intermission/', include('pyconcz.intermission.urls', namespace='intermission')),
+
     # static pages
     # url(r'^transparency-report/$', TemplateView.as_view(template_name='pages/transparency.html'), name='about_transparency'),
 

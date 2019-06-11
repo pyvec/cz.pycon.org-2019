@@ -11,15 +11,22 @@
             {% endif %}
     ">
 
-        <div class="
+        <div
+            class="
             pc-box-shadow
-            {% if type == 'keynoter' %}
+            {% if type == 'keynoter' or type == 'intermission' %}
                 bg-secondary text-black
             {% else %}
                 bg-dark text-white
             {% endif %}
 
-            pt-5 pb-4 pt-md-3 py-md-5 px-4
+            {% if type == 'intermission' %}
+            pt-4 pb-3
+            {% else %}
+                pt-5 pb-4
+                pt-md-3 py-md-5
+            {% endif %}
+
             {% if odd %}
                 ml-sm-3
                 pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
@@ -27,45 +34,62 @@
                 mr-sm-3
                 pr-md-4 pr-lg-5 pl-md-5 pl-lg-6
             {% endif %}
-        ">
+
+
+            "
+            {% if type == 'intermission' %}
+            style="min-height: 230px;"
+            {% endif %}
+        >
 
             <h3 class="mt-0 pc-speaker-name">{{ speaker.full_name }}</h3>
 
-            {% if type == 'keynoter' %}
+            {% if type == 'keynoter' or type == 'intermission' %}
                 {% with talk=speaker.talks.all|first %}
                     {% if talk.is_public and phases.talks != 'not_public' %}
                         <p class="pc-speaker-talk mt-n3">
-                            <a class="d-inline-block" href="{% url 'session_detail' type='talk' session_id=talk.id %}">
+                            <a
+                                {% if type == 'keynoter' %}
+                                    class="d-inline-block"
+                                {% elif type == 'intermission' %}
+                                    class="d-inline-block text-decoration-none mt-2 text-black"
+                                {% endif %}
+                                    href="{% url 'session_detail' type='talk' session_id=talk.id %}"
+                            >
                                 {{ talk.title }}
                             </a>
                         </p>
                     {% endif %}
                 {% endwith %}
+            {% endif %}
 
+            {% if type == 'keynoter' %}
                 {{ speaker.short_bio|markdown }}
-            {% else %}
+            {% elif type == 'session_detail' %}
                 {{ speaker.bio|markdown }}
             {% endif %}
 
-            {% if speaker.twitter or speaker.github %}
-                <p class="mt-4 mb-0">
-                    {% if speaker.twitter %}
-                        <a
-                            class="d-inline-block mr-4 pc-iconlink pc-iconlink-twitter {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
-                            href="https://twitter.com/{{ speaker.twitter }}"
-                        >
-                            {{ speaker.twitter }}
-                        </a>
-                    {% endif %}
-                    {% if speaker.github %}
-                        <a
-                            class="d-inline-block pc-iconlink pc-iconlink-github {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
-                            href="https://github.com/{{ speaker.github }}"
-                        >
-                            {{ speaker.github }}
-                        </a>
-                    {% endif %}
-                </p>
+            {% if type == 'keynoter' or type == 'session_detail' %}
+                {% if speaker.twitter or speaker.github %}
+                    <p class="mt-4 mb-0">
+                        {% if speaker.twitter %}
+                            <a
+                                class="d-inline-block mr-4 pc-iconlink pc-iconlink-twitter {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
+                                href="https://twitter.com/{{ speaker.twitter }}"
+                            >
+                                {{ speaker.twitter }}
+                            </a>
+                        {% endif %}
+                        {% if speaker.github %}
+                            <a
+                                class="d-inline-block pc-iconlink pc-iconlink-github {% if type == 'keynoter' %}pc-iconlink-blue{% endif %}"
+                                href="https://github.com/{{ speaker.github }}"
+                            >
+                                {{ speaker.github }}
+                            </a>
+                        {% endif %}
+                    </p>
+                {% endif %}
             {% endif %}
 
             {% if session %}{# checks if this is included in session detail #}
@@ -104,7 +128,7 @@
                                     I also lead
                                     {% for workshop in workshops %}
                                         {% if workshop.id != session.id %}
-                                        <span class="{{ extra_workshops|pluralize:',d-block' }}">
+                                            <span class="{{ extra_workshops|pluralize:',d-block' }}">
                                             a&nbsp;{{ workshop.type }}
                                             <a href="{% url 'session_detail' type=workshop.type session_id=workshop.id %}#main">{{ workshop.title }}</a>
                                         </span>
