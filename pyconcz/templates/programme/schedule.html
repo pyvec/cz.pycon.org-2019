@@ -91,13 +91,14 @@
                                 {% endif %}
                             ">
                                 {{ slot.room_name }}
-                                {% if slot.content_object.is_keynote %}
+                                {% if slot.content_object.is_keynote or slot.content_object.title == 'Welcome to PyCon CZ' or slot.content_object.title == 'Lightning talks' or slot.content_object.title == 'Closing ceremony' %} {# todo: refactor #}
                                     (and streamed to Club)
                                 {% endif %}
                             </p>
                         {% endif %}
 
-                        <h3 class="mt-0 mb-2
+                        <h3 class="
+                            mt-0 mb-2
                             {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
                                 h5 font-weight-bold pc-text-transform-none
                             {% else %}
