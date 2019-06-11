@@ -35,8 +35,8 @@ h1, .h1 {
     margin-bottom: 2*$paragraph-margin-bottom;
 }
 
-$pc-bullet-size: 0.5rem;
-$pc-bullet-distance: 0.5rem;
+$pc-bullet-size: 0.5em;
+$pc-bullet-distance: 0.5em;
 
 ol,
 ul {
@@ -66,8 +66,15 @@ ul {
             margin-left: -$pc-bullet-distance - $pc-bullet-size;
             margin-right: $pc-bullet-distance;
             position: relative;
-            top: -$pc-bullet-size/5;
             background-color: $orange;
+            top: -$pc-bullet-size/6;
+
+            .display-1 &,
+            .display-2 &,
+            .display-3 &,
+            .display-4 & {
+                top: 0;
+            }
         }
 
         .text-black &::before {
