@@ -1,19 +1,18 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Announcement(models.Model):
+    SIZES = [
+        (1, 'Large'),
+        (2, 'Medium'),
+        (3, 'Small'),
+        (4, 'Extra Small'),
+    ]
+
     message = models.TextField(help_text='Markdown flavoured')
     position = models.PositiveSmallIntegerField(default=0)
     is_public = models.BooleanField(default=False)
-    font_size = models.PositiveSmallIntegerField(
-        default=1,
-        validators=[
-            MinValueValidator(1),
-            MaxValueValidator(4),
-        ],
-        help_text='1 (largest) to 4 (smallest)'
-    )
+    font_size = models.PositiveSmallIntegerField(choices=SIZES, default=1)
 
     class Meta:
         ordering = ['position']
