@@ -1,0 +1,140 @@
+.pc-talk-frame {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%),
+    url("/2019/static/img/dov/jirka-zapalka_2017-09-17_028.full-hd.jpg"),
+    linear-gradient(0, rgba(80, 54, 34, 0.8) 0%, rgba(80, 54, 34, 0.8) 100%),
+    linear-gradient(0, #d8d8d8 0%, #d8d8d8 100%);
+    background-blend-mode: normal, multiply, normal, normal;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0;
+
+    &-video {
+        position: absolute;
+        background-color: green;
+        left: 56px;
+        top: 235px;
+
+        &-only {
+            width: 1312px;
+            height: 738px;
+        }
+
+        &-4-3 {
+            width: 944px;
+            height: 708px;
+
+            &-speaker {
+                width: 832px;
+                height: 468px;
+                left: 1032px;
+            }
+        }
+
+        &-16-9 {
+            width: 1264px;
+            height: 711px;
+
+            &-speaker {
+                width: 512px;
+                height: 288px;
+                left: 1352px;
+            }
+        }
+
+    }
+
+    &-info {
+        position: absolute;
+        width: 512px;
+
+        &-video-only {
+            top: 235px;
+            left: 1400px;
+        }
+
+        &-4-3 {
+            top: 727px;
+            left: 1032px;
+        }
+
+        &-16-9 {
+            top: 550px;
+            left: 1352px;
+        }
+    }
+
+
+    &-logo {
+
+        &-others {
+            width: 576px;
+            position: absolute;
+            top: 24px;
+            left: 24px;
+        }
+
+        &-intro {
+            width: 670px;
+            margin-top: 155px;
+            margin-bottom: 140px;
+        }
+    }
+
+    &-title,
+    &-speaker {
+        font-family: $font-family-monospace;
+        font-weight: $pc-font-weight-mono-medium;
+        text-transform: uppercase;
+
+        &-intro {
+            font-weight: $pc-font-weight-mono-bold;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &-speaker {
+        color: $primary;
+        font-size: 32px;
+
+        &-intro {
+            font-size: 64px;
+            margin-bottom: 28px;
+        }
+    }
+
+    &-title {
+        font-size: 24px;
+
+        &-intro {
+            width: 64%;
+            font-size: 48px;
+        }
+    }
+
+
+    &-text {
+        position: absolute;
+        top: 56px;
+        right: 56px;
+        text-align: right;
+
+    }
+
+    &-year {
+        color: $primary;
+        font-size: 48px;
+        font-weight: 700;
+
+    }
+
+    &-pycon {
+        color: $white;
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
