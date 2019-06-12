@@ -24,6 +24,9 @@
                             Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than&nbsp;talks.
                             {% if phases.workshops_registration == 'timed_out' %}
                                 <br>We’re sorry but you can’t register for workshops anymore.
+                            {% elif phases.workshops_registration == 'sold_out' %}
+                                <br>We’re sorry but all workshops are sold out. You can still try to come without registration 10 minutes before the workshop starts and take a&nbsp;free spot if somebody doesn’t come. There are always some no-shows.
+                                <br>You can also check later. People cancel their registrations sometimes so a ticket might become available again.
                             {% elif phases.workshops_registration == 'launched' %}
                                 <br>They have limited capacity and every conference ticket holder can register for two workshops for free now!
                                 <br>See workshops’ details for more information.
