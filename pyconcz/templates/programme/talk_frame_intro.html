@@ -1,0 +1,15 @@
+{% extends 'programme/_talk_frame_base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+    {{ block.super }}
+    <div class="text-center mx-auto">
+        <img class="pc-img-fluid-svg pc-talk-frame-logo pc-talk-frame-logo-intro" src="{% static 'img/pycon19-logo.svg' %}" alt="">
+        <div class="pc-talk-frame-speaker pc-talk-frame-speaker-intro">{{ session.speakers|join:'<br>' }}</div>
+        <div class="pc-talk-frame-title pc-talk-frame-title-intro">{{ session.title }}</div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+
+{% block meta_title %}Talk video frame{% endblock %}
+
+
+{% block body_extras %}style="overflow:hidden;"{% endblock %}
+
+
+{% block body %}
+    <div class="pc-talk-frame">
+        {% block content %}
+            <div class="pc-talk-frame-text">
+                <div class="pc-talk-frame-year">2019</div>
+                <div class="pc-talk-frame-pycon">PyCon&nbsp;CZ</div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
