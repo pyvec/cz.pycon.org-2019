@@ -69,54 +69,124 @@
                         </p>
                     {% elif phases.ticket_sale == 'launched' %}
                         <p><a class="btn btn-primary btn-lg px-5 py-2" href="{% url 'tickets' %}">Buy Ticket</a></p>
-                    {% elif phases.ticket_sale == 'sold_out' %}
+                    {% elif phases.ticket_sale == 'sold_out' and phases.streams == 'not_public' %}
                         <p class="font-weight-bold mb-4 p-3 bg-white">
                             We’re sorry but all available tickets have been sold out.
                         </p>
                     {% endif %}
 
-                    {% if phases.ticket_sale != 'timed_out' %}
-                        <ul>
-                            <li>
-                                Learn at 30+
-                                {% if phases.talks == 'not_public' %}
-                                    <b>talks</b>
-                                {% else %}
-                                    <a href="{% url 'talks_list' %}">talks</a>
+
+                    {% if phases.streams != 'not_public' %}
+                        {% with ballroom_day_1='TBD' club_day_2='TBD' ballroom_day_2='TBD' club_day_2='TBD' %}
+                            <div class="mb-5">
+                                {% if phases.streams == 'day_one_live' %}
+                                    <h2>Watch live streams</h2>
+                                    <div class="d-flex">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-info flex-grow-1 mr-3">
+                                            Live from Ballroom
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_1 }}" class="btn btn-info flex-grow-1">
+                                            Live from Club
+                                        </a>
+                                    </div>
+                                {% elif phases.streams == 'day_one_end' %}
+                                    <h2 class="mb-2">Day one is over</h2>
+                                    <p>You can still watch recorded streams</p>
+                                    <div class="d-flex">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-light flex-grow-1 mr-3">
+                                            Ballroom day&nbsp;1
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_1 }}" class="btn btn-light flex-grow-1">
+                                            Club day&nbsp;1
+                                        </a>
+                                    </div>
+                                {% elif phases.streams == 'day_two_live' %}
+                                    <h2>Watch live streams</h2>
+                                    <div class="d-flex">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_2 }}" class="btn btn-info flex-grow-1 mr-3">
+                                            Live from Ballroom
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_2 }}" class="btn btn-info flex-grow-1">
+                                            Live from Club
+                                        </a>
+                                    </div>
+                                    <p class="mt-4">You can also watch recorded streams from day&nbsp;1</p>
+                                    <div class="d-flex">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-light flex-grow-1 mr-3">
+                                            Ballroom day&nbsp;1
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_1 }}" class="btn btn-light flex-grow-1">
+                                            Club day&nbsp;1
+                                        </a>
+                                    </div>
+                                {% elif phases.streams == 'day_two_end' %}
+                                    <h2 class="mb-2">Talk days are over</h2>
+                                    <p>You can still watch recorded streams</p>
+                                    <div class="d-flex">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-light flex-grow-1 mr-3">
+                                            Ballroom day&nbsp;1
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_1 }}" class="btn btn-light flex-grow-1">
+                                            Club day&nbsp;1
+                                        </a>
+                                    </div>
+                                    <div class="d-flex mt-4">
+                                        <a href="https://www.youtube.com/watch?v={{ ballroom_day_2 }}" class="btn btn-light flex-grow-1 mr-3">
+                                            Ballroom day&nbsp;2
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v={{ club_day_2 }}" class="btn btn-light flex-grow-1">
+                                            Club day&nbsp;2
+                                        </a>
+                                    </div>
                                 {% endif %}
-                                in English during Friday and Saturday.
-                                Choose from two parallel tracks including PyData track on&nbsp;Friday! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt="">
-                            </li>
-                            <li>
-                                Dive deeper at
-                                {% if phases.workshops == 'not_public' %}
-                                    <b>workshops</b> and <b>sprints</b>
-                                {% else %}
-                                    <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
-                                {% endif %}
-                                on&nbsp;Sunday
-                            </li>
-                            {% if phases.board_game_night != 'not_public' %}
+                            </div>
+                        {% endwith %}
+
+                    {% else %}
+                        {% if phases.ticket_sale != 'timed_out' %}
+                            <ul>
                                 <li>
-                                    Have fun at
-                                    {% if phases.board_game_night == 'basic_info_public' %}
-                                        <b>board game night</b>
+                                    Learn at 30+
+                                    {% if phases.talks == 'not_public' %}
+                                        <b>talks</b>
                                     {% else %}
-                                        <a href="{% url 'board_game_night' %}">board game night</a>
+                                        <a href="{% url 'talks_list' %}">talks</a>
                                     {% endif %}
-                                    on&nbsp;Friday
+                                    in English during Friday and Saturday.
+                                    Choose from two parallel tracks including PyData track on&nbsp;Friday! <img class="pc-header-pydata" src="{% static 'img/pydata.svg' %}" alt="">
                                 </li>
+                                <li>
+                                    Dive deeper at
+                                    {% if phases.workshops == 'not_public' %}
+                                        <b>workshops</b> and <b>sprints</b>
+                                    {% else %}
+                                        <a href="{% url 'workshops_list' %}">workshops &amp; sprints</a>
+                                    {% endif %}
+                                    on&nbsp;Sunday
+                                </li>
+                                {% if phases.board_game_night != 'not_public' %}
+                                    <li>
+                                        Have fun at
+                                        {% if phases.board_game_night == 'basic_info_public' %}
+                                            <b>board game night</b>
+                                        {% else %}
+                                            <a href="{% url 'board_game_night' %}">board game night</a>
+                                        {% endif %}
+                                        on&nbsp;Friday
+                                    </li>
+                                {% endif %}
+                                <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
+                            </ul>
+                            {% if phases.schedule == 'full' and phases.ticket_sale == 'sold_out' %}
+                                <p>
+                                    <a class="btn btn-primary btn px-5 py-2" href="{% url 'programme_schedule' %}">
+                                        Check detailed schedule
+                                    </a>
+                                </p>
                             {% endif %}
-                            <li>Meet new people at the <b>afterparty</b> on&nbsp;Saturday</li>
-                        </ul>
-                        {% if phases.schedule == 'full' and phases.ticket_sale == 'sold_out' %}
-                            <p>
-                                <a class="btn btn-primary btn px-5 py-2" href="{% url 'programme_schedule' %}">
-                                    Check detailed schedule
-                                </a>
-                            </p>
                         {% endif %}
                     {% endif %}
+
 
                 </div>
             </div>
