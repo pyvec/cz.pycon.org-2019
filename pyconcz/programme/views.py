@@ -118,6 +118,16 @@ def session_detail(request, type, session_id):
     )
 
 
+def talk_frame(request, type, session_id):
+    return TemplateResponse(
+        request,
+        template='programme/talk_frame_{}.html'.format(type),
+        context={
+            'session': get_object_or_404(Talk, id=session_id),
+        }
+    )
+
+
 def schedule(request):
     slots = (
         Slot.objects.all().filter(
