@@ -54,9 +54,10 @@
 
 
                     {% if phases.ticket_sale == 'timed_out' %}
-                        <p class="display-4">
-                            Thank you all! You were awesome!
-                            <br>Let’s do it again in 2020!
+                        <p class="bg-dark p-3 text-white h3 mt-0">
+                            Thank you all!
+                            <br>You were awesome!
+                            <br>Let’s do it again in&nbsp;2020!
                         </p>
                     {% endif %}
 
@@ -108,7 +109,7 @@
                                             Live from Club
                                         </a>
                                     </div>
-                                    <p class="mt-4">You can also watch recorded streams from day&nbsp;1</p>
+                                    <p class="mt-3">You can also watch recorded streams from day&nbsp;1</p>
                                     <div class="d-flex">
                                         <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-light flex-grow-1 mr-3">
                                             Ballroom day&nbsp;1
@@ -118,7 +119,7 @@
                                         </a>
                                     </div>
                                 {% elif phases.streams == 'day_two_end' %}
-                                    <h2 class="mb-2">Talk days are over</h2>
+                                    <h2 class="mb-2 mt-0">Talk days are over</h2>
                                     <p>You can still watch recorded streams</p>
                                     <div class="d-flex">
                                         <a href="https://www.youtube.com/watch?v={{ ballroom_day_1 }}" class="btn btn-light flex-grow-1 mr-3">
@@ -128,7 +129,7 @@
                                             Club day&nbsp;1
                                         </a>
                                     </div>
-                                    <div class="d-flex mt-4">
+                                    <div class="d-flex mt-3">
                                         <a href="https://www.youtube.com/watch?v={{ ballroom_day_2 }}" class="btn btn-light flex-grow-1 mr-3">
                                             Ballroom day&nbsp;2
                                         </a>
@@ -136,6 +137,7 @@
                                             Club day&nbsp;2
                                         </a>
                                     </div>
+                                    <p class="mt-3">We will publish each talk as a&nbsp;separate video soon.</p>
                                 {% endif %}
                             </div>
                         {% endwith %}
@@ -330,12 +332,6 @@
             </div>
         </div>
     {% endif %}
-
-    {% comment %}
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/venjk_cL-Gk?rel=0" allowfullscreen></iframe>
-        </div>
-    {% endcomment %}
 
     {% if phases.sponsorship != 'not_public' %}
         <div class="bg-white text-dark" id="sponsors">

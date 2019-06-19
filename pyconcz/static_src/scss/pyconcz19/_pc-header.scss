@@ -152,19 +152,19 @@
     background-image: url("/2019/static/img/jakub-soucek-flickr-cc-by-2.jpg"), url("/2019/static/img/noise.png");
     background-blend-mode: hard-light, normal;
     background-repeat: no-repeat, repeat;
-    background-size: ($pc-header-img-size / 2), $pc-header-img-noise-size;
+    background-size: 0.7*$pc-header-img-size, $pc-header-img-noise-size;
     background-attachment: fixed;
     background-position: 0;
 
     @include media-breakpoint-up(xs) {
         padding-bottom: 1px;
         background-position: 31% -8rem;
-        background-size: 0.63*$pc-header-img-size, $pc-header-img-noise-size
+        background-size: 0.71*$pc-header-img-size, $pc-header-img-noise-size
     }
 
     @include media-breakpoint-up(sm) {
         background-position: 40% 0;
-        background-size: 0.56*$pc-header-img-size, $pc-header-img-noise-size;
+        background-size: 0.65*$pc-header-img-size, $pc-header-img-noise-size;
     }
 
     @include media-breakpoint-up(md) {
