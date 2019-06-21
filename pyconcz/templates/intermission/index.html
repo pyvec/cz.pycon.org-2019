@@ -66,27 +66,25 @@
                 }
                 var run = function(){
                     if (active) next();
-                    setTimeout(function () {
-                        run();
-                    }, delay);
+                    setTimeout(run, delay);
                  };
                 run();
 
                 function handle_keydown(event) {
-                    if (["ArrowDown", "ArrowLeft", "PageDown"].includes(event.key)) {
+                    if (['ArrowDown', 'ArrowLeft', 'PageDown'].includes(event.key)) {
                         active = false;
                         next();
                     }
-                    if (["ArrowUp", "ArrowRight", "PageUp"].includes(event.key)) {
+                    if (['ArrowUp', 'ArrowRight', 'PageUp'].includes(event.key)) {
                         active = false;
                         prev();
                     }
-                    if ([" "].includes(event.key)) {
+                    if ([' '].includes(event.key)) {
                         active = true;
                         show_current();
                     }
                 }
-                document.addEventListener("keydown", handle_keydown, false);
+                document.addEventListener('keydown', handle_keydown, false);
             }
 
             function fetch_content(url){
