@@ -13,27 +13,26 @@
 
         <div
             class="
-            pc-box-shadow
+            pc-box-shadow px-4
             {% if type == 'keynoter' or type == 'intermission' %}
                 bg-secondary text-black
             {% else %}
                 bg-dark text-white
             {% endif %}
 
-
             {% if type == 'intermission' %}
                 pt-4 pb-3
             {% else %}
                 pt-5 pb-4
-                pt-md-3 py-md-5
+                py-md-5
             {% endif %}
 
             {% if odd %}
                 ml-sm-3
-                pl-md-4 pl-lg-5 pr-md-5 pr-lg-6
+                pl-md-4 pl-lg-5 
+                pr-md-5 pr-lg-6
             {% else %}
                 mr-sm-3
-                px-4
                 pr-md-4 pr-lg-5
                 pl-md-5 pl-lg-6
             {% endif %}
