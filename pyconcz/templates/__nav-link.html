@@ -7,22 +7,23 @@
 {% endif %}
 
 {% if link %}
-    {% if request.path != '/2019/' or  link != '/2019/' or extra %} {# hide link to homepage on homepage #}
-        <a
-            class="
-                nav-link
-                {{ class }}
-                {% if request.path == link and not extra %}active{% endif %}
-            "
-            {% if request.path == link and not extra %}
-            aria-current="page"
-            {% else %}
-            href="{{ link }}{{ extra }}"
+    <a
+        class="
+            nav-link
+            {% if request.path == '/2019/' and  link == '/2019/' or extra %} {# hide link to homepage on homepage #}
+                d-none d-sm-block
             {% endif %}
-        >
-            {{ link_text }}
-        </a>
-    {% endif %}
+            {{ class }}
+            {% if request.path == link and not extra %}active{% endif %}
+        "
+        {% if request.path == link and not extra %}
+            aria-current="page"
+        {% else %}
+            href="{{ link }}{{ extra }}"
+        {% endif %}
+    >
+        {{ link_text }}
+    </a>
 {% elif debug %}
     <span class="nav-link" style="color:red;background-color:yellow;">No URL for {{ url }}:{{ type }}</span>
 {% endif %}
