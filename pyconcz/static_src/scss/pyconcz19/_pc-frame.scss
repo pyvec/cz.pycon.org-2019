@@ -18,33 +18,33 @@
     &-video {
         position: absolute;
         background-color: green;
-        left: 56px + 2px;
-        top: 235px + 2px;
+        left: 56px;
+        top: 235px;
 
         &-only {
-            width: 1312px - 4px;
-            height: 738px - 4px;
+            width: 1312px;
+            height: 738px;
         }
 
         &-4-3 {
-            width: 944px - 4px;
-            height: 708px - 4px;
+            width: 944px;
+            height: 708px;
 
             &-speaker {
-                width: 832px - 4px;
-                height: 468px - 4px;
-                left: 1032px + 2px;
+                width: 832px;
+                height: 468px;
+                left: 1032px;
             }
         }
 
         &-16-9 {
-            width: 1264px - 4px;
-            height: 711px - 4px;
+            width: 1264px;
+            height: 711px;
 
             &-speaker {
-                width: 512px - 4px;
-                height: 288px - 4px;
-                left: 1352px + 2px;
+                width: 512px;
+                height: 288px;
+                left: 1352px;
             }
         }
 
