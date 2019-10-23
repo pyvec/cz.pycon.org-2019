@@ -118,13 +118,20 @@ def session_detail(request, type, session_id):
     )
 
 
-def talk_frame(request, type, session_id):
+def talk_frame(request, frame_type, session_id):
     return TemplateResponse(
         request,
-        template='programme/talk_frame_{}.html'.format(type),
+        template='programme/talk_frame_{}.html'.format(frame_type),
         context={
             'session': get_object_or_404(Talk, id=session_id),
         }
+    )
+
+
+def other_frame(request, frame_type):
+    return TemplateResponse(
+        request,
+        template='programme/other_frame_{}.html'.format(frame_type)
     )
 
 

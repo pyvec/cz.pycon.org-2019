@@ -1,4 +1,4 @@
-{% extends 'programme/_talk_frame_base.html' %}
+{% extends 'programme/_frame_base.html' %}
 
 
 {% load static %}
@@ -6,14 +6,14 @@
 {% block content %}
     {{ block.super }}
 
-    <img class="pc-img-fluid-svg pc-talk-frame-logo pc-talk-frame-logo-others" src="{% static 'img/pycon19-logo.svg' %}" alt="">
+    <img class="pc-img-fluid-svg pc-frame-logo pc-frame-logo-others" src="{% static 'img/pycon19-logo.svg' %}" alt="">
 
-    <div class="pc-talk-frame-video pc-talk-frame-video-16-9"></div>
-    <div class="pc-talk-frame-video pc-talk-frame-video-16-9-speaker"></div>
+    <div class="pc-frame-video pc-frame-video-16-9"></div>
+    <div class="pc-frame-video pc-frame-video-16-9-speaker"></div>
 
-    <div class="pc-talk-frame-info pc-talk-frame-info-16-9">
-        <div class="pc-talk-frame-speaker">{{ session.speakers|join:'<br>' }}</div>
-        <div class="pc-talk-frame-title">{{ session.title }}</div>
+    <div class="pc-frame-info pc-frame-info-16-9">
+        <div class="pc-frame-speaker">{{ session.speakers|join:'<br>' }}</div>
+        <div class="pc-frame-title">{{ session.title }}</div>
     </div>
 {% endblock %}
 

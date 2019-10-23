@@ -1,0 +1,36 @@
+{% extends 'programme/_frame_base.html' %}
+
+
+{% load static %}
+{% load sponsors_tags %}
+
+
+{% block meta_title %}Sponsors video frame{% endblock %}
+
+
+{% block body %}
+    <div class="pc-frame bg-light d-flex align-content-center align-items-center">
+        {% get_sponsors as sponsors %}
+            {% regroup sponsors by get_level_display as sponsors_list %}
+
+            {% if sponsors %}
+                <section class="pc-sponsors pc-sponsors-frame w-100">
+                    {% for level in sponsors_list %}
+                        <div class="pc-sponsors-list">
+                            {% for sponsor in level.list %}
+                                <div class="pc-sponsors-item pc-sponsors-item-{{ level.grouper|lower }}">
+                                    {% if sponsor.logo %}
+                                        <img class="img-fluid pc-img-fluid-svg" src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}">
+                                    {% else %}
+                                        {{ sponsor.name }}
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </section>
+            {% endif %}
+
+    </div>
+{% endblock %}
+

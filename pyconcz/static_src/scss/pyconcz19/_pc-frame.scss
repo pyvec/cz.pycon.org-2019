@@ -1,16 +1,19 @@
-.pc-talk-frame {
+.pc-frame {
     width: 1920px;
     height: 1080px;
     overflow: hidden;
     position: relative;
-    background-image: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%),
-    url("/2019/static/img/dov/jirka-zapalka_2017-09-17_028.full-hd.jpg"),
-    linear-gradient(0, rgba(80, 54, 34, 0.8) 0%, rgba(80, 54, 34, 0.8) 100%),
-    linear-gradient(0, #d8d8d8 0%, #d8d8d8 100%);
-    background-blend-mode: normal, multiply, normal, normal;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 0;
+
+    &-dark {
+        background-image: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%),
+        url("/2019/static/img/dov/jirka-zapalka_2017-09-17_028.full-hd.jpg"),
+        linear-gradient(0, rgba(80, 54, 34, 0.8) 0%, rgba(80, 54, 34, 0.8) 100%),
+        linear-gradient(0, #d8d8d8 0%, #d8d8d8 100%);
+        background-blend-mode: normal, multiply, normal, normal;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 0;
+    }
 
     &-video {
         position: absolute;
@@ -82,6 +85,7 @@
             margin-top: 155px;
             margin-bottom: 140px;
         }
+
     }
 
     &-title,
@@ -137,4 +141,26 @@
         font-size: 24px;
         font-weight: 700;
     }
+
+    &-intro {
+        &-logo {
+            width: 900px;
+            margin-top: 200px;
+            margin-bottom: 130px;
+        }
+
+        &-year {
+            color: $white;
+            font-size: 2*24px;
+            font-weight: 700;
+
+        }
+
+        &-pycon {
+            color: $primary;
+            font-size: 2*48px;
+            font-weight: 700;
+        }
+    }
+
 }
