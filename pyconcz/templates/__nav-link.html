@@ -10,7 +10,7 @@
     <a
         class="
             nav-link
-            {% if request.path == '/2019/' and  link == '/2019/' or extra %} {# hide link to homepage on homepage #}
+            {% if request.path == '/2019/' and  link == '/2019/' and not extra %} {# hide link to homepage on homepage #}
                 d-none d-sm-block
             {% endif %}
             {{ class }}
