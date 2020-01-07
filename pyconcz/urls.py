@@ -42,5 +42,6 @@ urlpatterns = (
             url(r'^2019/', include(prefixed_urlpatterns)),
             url(r'^admin/', include(admin.site.urls)),
             url(r'^$', RedirectView.as_view(url='/2019/')),
+            url(r'^/coc/$', RedirectView.as_view(url='/2019/coc/')),
         ]
 )
