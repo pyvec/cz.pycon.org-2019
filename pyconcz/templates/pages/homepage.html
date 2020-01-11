@@ -2,7 +2,6 @@
 
 {% load static %}
 {% load formatting %}
-{% load sponsors_tags %}
 
 
 {% block header %}
@@ -361,7 +360,7 @@
                 </p>
 
                 {% if phases.sponsors != 'not_public' %}
-                    {% sponsors %}
+                    {% include 'sponsors/sponsors_homepage.html' %}
                 {% endif %}
             </div>
         </div>

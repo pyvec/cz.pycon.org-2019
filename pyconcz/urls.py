@@ -25,6 +25,9 @@ prefixed_urlpatterns = [
     url(r'^workshop-leaders-info/$', TemplateView.as_view(template_name='pages/workshop_leaders_info.html'), name='workshop_leaders_info'),
     url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
 
+    # redirects to external websites
+    url(r'^video/$', RedirectView.as_view(url='https://www.youtube.com/watch?v=l_AOE0DbXiU')),
+
 
     # static pages
     # url(r'^transparency-report/$', TemplateView.as_view(template_name='pages/transparency.html'), name='about_transparency'),
@@ -39,6 +42,7 @@ urlpatterns = (
         static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
         static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) +
         [
+            url(r'^coc/$', RedirectView.as_view(url='/2019/coc/')),
             url(r'^2019/', include(prefixed_urlpatterns)),
             url(r'^admin/', include(admin.site.urls)),
             url(r'^$', RedirectView.as_view(url='/2019/')),

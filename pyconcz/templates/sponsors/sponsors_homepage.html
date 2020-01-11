@@ -1,3 +1,7 @@
+{% load sponsors_tags %}
+
+{% get_sponsors as sponsors %}
+
 {% regroup sponsors by get_level_display as sponsors_list %}
 
 {% if sponsors %}

@@ -44,6 +44,10 @@
                 padding-right: 3*$spacer;
                 margin-bottom: 4*$spacer;
             }
+
+            .pc-sponsors-frame & {
+                max-width: 54rem;
+            }
         }
 
         &-gold {
@@ -55,24 +59,40 @@
                 padding-right: 2*$spacer;
                 margin-bottom: 3.5*$spacer;
             }
+
+            .pc-sponsors-frame & {
+                max-width: 33rem;
+            }
         }
 
         &-silver {
             flex-basis: 70%;
+
             @include media-breakpoint-up(xs) {
                 max-width: 15rem;
                 padding-left: $spacer;
                 padding-right: $spacer;
             }
+
+            .pc-sponsors-frame & {
+                max-width: 22rem;
+            }
+
         }
 
         &-bronze {
             flex-basis: 60%;
+
             @include media-breakpoint-up(xs) {
                 max-width: 12rem;
                 padding-left: $spacer;
                 padding-right: $spacer;
             }
+
+            .pc-sponsors-frame & {
+                max-width: 18rem;
+            }
+
         }
 
 
@@ -82,6 +102,11 @@
             max-width: 10rem;
             padding-left: 0.5*$spacer;
             padding-right: 0.5*$spacer;
+
+            .pc-sponsors-frame & {
+                max-width: 15rem;
+            }
+
         }
     }
 }
