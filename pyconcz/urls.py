@@ -25,6 +25,9 @@ prefixed_urlpatterns = [
     url(r'^workshop-leaders-info/$', TemplateView.as_view(template_name='pages/workshop_leaders_info.html'), name='workshop_leaders_info'),
     url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
 
+    # redirects to external websites
+    url(r'^video/$', RedirectView.as_view(url='https://www.youtube.com/watch?v=xk1vM6yXoXA')),
+
 
     # static pages
     # url(r'^transparency-report/$', TemplateView.as_view(template_name='pages/transparency.html'), name='about_transparency'),
