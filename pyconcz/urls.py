@@ -26,7 +26,7 @@ prefixed_urlpatterns = [
     url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
 
     # redirects to external websites
-    url(r'^video/$', RedirectView.as_view(url='https://www.youtube.com/watch?v=xk1vM6yXoXA')),
+    url(r'^video/$', RedirectView.as_view(url='https://www.youtube.com/watch?v=l_AOE0DbXiU')),
 
 
     # static pages
