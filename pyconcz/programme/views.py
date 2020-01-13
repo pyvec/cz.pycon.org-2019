@@ -71,7 +71,7 @@ def workshops_refresh_tickets(request):
             workshop.free_tickets_count = ticket["quantity"] - ticket["tickets_count"]
             workshop.is_sold_out = ticket["sold_out"]
             workshop.save()
-            output += "workshop {id} - registered {registered}, all: {all_tickets}, sold out: {sold_out} ({title})<br>\n".format(
+            output += "workshop {id} - registered {registered}, all: {all_tickets}, sold out: {sold_out} ({title})<br>".format(
                 id=workshop.id,
                 title=workshop.title,
                 registered=ticket["tickets_count"],
