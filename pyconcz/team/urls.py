@@ -4,5 +4,5 @@ from pyconcz.team.views import team_list
 
 
 urlpatterns = [
-    url('^$', team_list, name="team_list"),
+    url('^$', team_list, name='team_list'),
 ]

@@ -63,19 +63,19 @@ def workshops_refresh_tickets(request):
     res.raise_for_status()
     releases = res.json()['releases']
 
-    output = ""
+    output = ''
 
     for ticket in releases:
-        if " Workshop:" in ticket["title"]:
-            workshop = Workshop.objects.get(tito_id=ticket["slug"])
-            workshop.free_tickets_count = ticket["quantity"] - ticket["tickets_count"]
-            workshop.is_sold_out = ticket["sold_out"]
+        if ' Workshop:' in ticket['title']:
+            workshop = Workshop.objects.get(tito_id=ticket['slug'])
+            workshop.free_tickets_count = ticket['quantity'] - ticket['tickets_count']
+            workshop.is_sold_out = ticket['sold_out']
             workshop.save()
-            output += "workshop {id} - registered {registered}, all: {all_tickets}, sold out: {sold_out} ({title})<br>".format(
+            output += 'workshop {id} - registered {registered}, all: {all_tickets}, sold out: {sold_out} ({title})<br>'.format(
                 id=workshop.id,
                 title=workshop.title,
-                registered=ticket["tickets_count"],
-                all_tickets=ticket["quantity"],
+                registered=ticket['tickets_count'],
+                all_tickets=ticket['quantity'],
                 sold_out=workshop.is_sold_out
             )
 

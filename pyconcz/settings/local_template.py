@@ -3,7 +3,7 @@ from .base import *
 SECRET_KEY = ''  # fill in, please
 
 ALLOWED_HOSTS = ['cz.pycon.org',  # main site
-                 'czpyconorg-1994.rostiapp.cz',  # "beta site"
+                 'czpyconorg-1994.rostiapp.cz',  # “beta site”
                  ]
 
 DATABASES = {
@@ -19,11 +19,11 @@ DATABASES = {
 }
 
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }
 }
@@ -32,5 +32,5 @@ CACHES = {
 SLACK_WEBHOOK = ''  # Webhook URL for slack CFP notifications
 
 TITO_SECRET_KEY = ''  # Secret key to access TITO API.
-TITO_EVENT_NAME = "pycon-cz-2019"  # Name of the event TITO service
-TITO_ACCOUNT_NAME = "pyvec"  # Name of the TITO account
+TITO_EVENT_NAME = 'pycon-cz-2019'  # Name of the event TITO service
+TITO_ACCOUNT_NAME = 'pyvec'  # Name of the TITO account

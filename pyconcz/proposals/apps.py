@@ -2,8 +2,8 @@ from django.apps import AppConfig
 
 
 class ProposalsConfig(AppConfig):
-    name = "pyconcz.proposals"
-    verbose_name = "Conference Proposals"
+    name = 'pyconcz.proposals'
+    verbose_name = 'Conference Proposals'
 
     def ready(self):
         # Register proposal forms

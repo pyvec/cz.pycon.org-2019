@@ -41,7 +41,7 @@ class Phase(models.Model):
     def value_for_request(self, request):
         """Get Phase's value for the given request.
 
-        If a user is logged in (via Django Admin), the "current time"
+        If a user is logged in (via Django Admin), the “current time
         (for the purposes of Phases) can be overridden by adding a GET param
         to the URL, e.g.:
             ?override_time=2020-01-01T00:00

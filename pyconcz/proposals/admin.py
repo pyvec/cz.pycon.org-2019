@@ -16,7 +16,6 @@ from pyconcz.proposals.models import Ranking, Score, StdDev, FinancialAid, Talk,
 
 
 class ScoreForm(forms.ModelForm):
-
     class Meta:
         model = Score
         fields = ('value', 'note')
@@ -43,34 +42,41 @@ class EntryAdmin(ImportExportActionModelAdmin):
             return obj.get_ranking().scores.all()[0]
         except IndexError:
             return None
+
     score.short_description = 'Your score'
 
     def score_link(self, obj):
         info = self.model._meta.app_label, self.model._meta.model_name
         url = reverse('admin:%s_%s_add_score' % info, kwargs={'object_id': obj.id})
         return format_html('<a href="{url}">Score</a>', url=url)
+
     score_link.short_description = ''
 
     def average(self, obj):
-        return obj.average and "{:.2f}".format(obj.average) or None
+        return obj.average and '{:.2f}'.format(obj.average) or None
+
     average.admin_order_field = 'average'
 
     def stddev(self, obj):
-        return obj.stddev and "{:.2f}".format(obj.stddev) or None
+        return obj.stddev and '{:.2f}'.format(obj.stddev) or None
+
     stddev.admin_order_field = 'stddev'
 
     def scount(self, obj):
         return obj.scount or 0
+
     scount.admin_order_field = 'scount'
 
     def common_note(self, obj):
         if obj.note:
             return format_html('<span title="{}">{}&hellip;</span>',
                                obj.note, obj.note[:10])
+
     common_note.admin_order_field = 'common_note'
 
     def date_short(self, obj):
         return obj.date.strftime('%d.%m. %H:%M')
+
     date_short.admin_order_field = 'date_short'
     date_short.short_description = 'date'
     date_short.admin_order_field = 'date'
@@ -82,8 +88,8 @@ class EntryAdmin(ImportExportActionModelAdmin):
         )
         return (
             super().get_queryset(request)
-            .prefetch_related(scores)
-            .annotate(
+                .prefetch_related(scores)
+                .annotate(
                 average=Avg('rankings__scores__value'),
                 stddev=StdDev('rankings__scores__value'),
                 scount=Count('rankings__scores__value'),
@@ -125,8 +131,8 @@ class EntryAdmin(ImportExportActionModelAdmin):
         ct = ContentType.objects.get_for_model(self.model)
         existing_ids = (
             Ranking.objects
-            .filter(content_type=ct)
-            .values_list('object_id', flat=True)
+                .filter(content_type=ct)
+                .values_list('object_id', flat=True)
         )
 
         proposals = (
@@ -140,7 +146,7 @@ class EntryAdmin(ImportExportActionModelAdmin):
 
         obj_count = len(objs)
         if obj_count:
-            msg = "{} new proposals available for scoring"
+            msg = '{} new proposals available for scoring'
             messages.success(request, msg.format(obj_count))
 
         return self.redirect_to_next_unranked(request)
@@ -149,8 +155,8 @@ class EntryAdmin(ImportExportActionModelAdmin):
         obj = self.model.objects.get(id=object_id)
         score_instance = (
             obj.get_ranking().scores
-            .filter(user=request.user)
-            .first()
+                .filter(user=request.user)
+                .first()
         )
 
         if request.method.lower() == 'post':
@@ -180,11 +186,11 @@ class EntryAdmin(ImportExportActionModelAdmin):
         ct = ContentType.objects.get_for_model(self.model)
         next_obj_id = (
             Ranking.objects
-            .filter(content_type=ct)
-            .exclude(scores__user=request.user)
-            .order_by('?')
-            .values_list('object_id', flat=True)
-            .first()
+                .filter(content_type=ct)
+                .exclude(scores__user=request.user)
+                .order_by('?')
+                .values_list('object_id', flat=True)
+                .first()
         )
 
         info = self.model._meta.app_label, self.model._meta.model_name
@@ -199,7 +205,6 @@ class EntryAdmin(ImportExportActionModelAdmin):
 
 
 class TalkResource(resources.ModelResource):
-
     class Meta:
         model = Talk
         fields = export_order = (
@@ -211,7 +216,6 @@ class TalkResource(resources.ModelResource):
 
 
 class WorkshopResource(resources.ModelResource):
-
     class Meta:
         model = Workshop
         fields = export_order = (
@@ -223,7 +227,6 @@ class WorkshopResource(resources.ModelResource):
 
 
 class FinancialAidResource(resources.ModelResource):
-
     class Meta:
         model = FinancialAid
         fields = export_order = (

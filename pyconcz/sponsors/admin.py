@@ -11,7 +11,9 @@ class SponsorAdmin(admin.ModelAdmin):
     list_filter = ['published', ]
 
     def get_link(self, instance):
-        return format_html("<a href='{url}'>{url}</a>", url=instance.link_url)
+        return format_html('<a href="{url}">{url}</a>', url=instance.link_url)
+
     get_link.short_description = 'link'
+
 
 admin.site.register(Sponsor, SponsorAdmin)
