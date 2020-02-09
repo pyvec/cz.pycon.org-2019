@@ -158,6 +158,12 @@ class Slot(models.Model):
     room = models.PositiveSmallIntegerField(choices=settings.ALL_ROOMS)
     end = models.DateTimeField()
 
+    def __str__(self):
+        start = self.start.strftime('%d/%m/%y %H:%M')
+        end = self.end.strftime('%d/%m/%y %H:%M')
+        return '%s: %s FROM %s TO %s IN %s' % (
+            self.content_type, self.content_object, start, end, self.room_name)
+
     @property
     def room_name(self):
         return settings.ALL_ROOMS_DICT.get(self.room)
@@ -175,6 +181,7 @@ class EndTime(models.Func):
     def get_group_by_cols(self):
         return []
 
+
 class Utility(models.Model):
     title = models.CharField(max_length=200, verbose_name='Title')
     description = models.TextField(blank=True, null=True)
@@ -184,5 +191,5 @@ class Utility(models.Model):
         return self.title
 
     class Meta:
-            verbose_name = 'Utility'
-            verbose_name_plural = 'Utilities'
+        verbose_name = 'Utility'
+        verbose_name_plural = 'Utilities'
