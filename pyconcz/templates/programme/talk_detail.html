@@ -6,3 +6,9 @@
         {{ block.super }}
     {% endwith %}
 {% endblock %}
+
+
+{% block session_info %}
+    {{ block.super }}
+    {% include 'programme/__other_sessions.html' %}
+{% endblock %}
