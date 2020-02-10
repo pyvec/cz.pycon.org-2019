@@ -86,33 +86,46 @@ def session_detail(request, type, session_id):
     MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
     session = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True, is_backup=False)
 
+    slot = Slot.objects.filter(
+        content_type__app_label='programme',
+        content_type__model=dict(talk='talk', workshop='workshop', sprint='workshop').get(type),
+        object_id=session_id,
+    ).first()
+
     session_previous = MODEL_MAP.get(type).objects.filter(
         is_public=True, is_backup=False, order__lt=session.order).order_by('order').last()
 
-    if not session_previous:
+    if not session_previous:  # at the first session provide the last one as previous
         session_previous = MODEL_MAP.get(type).objects.filter(
             is_public=True, is_backup=False).order_by('order').last()
 
     session_next = MODEL_MAP.get(type).objects.filter(
         is_public=True, is_backup=False, order__gt=session.order).order_by('order').first()
 
-    if not session_next:
+    if not session_next:  # at the last session provide the first one as next
         session_next = MODEL_MAP.get(type).objects.filter(
             is_public=True, is_backup=False).order_by('order').first()
 
-    slot = Slot.objects.all().filter(
-        content_type__app_label='programme',
-        content_type__model=dict(talk='talk', workshop='workshop', sprint='workshop').get(type),
-        object_id=session_id,
-    ).first()
+    # the following code expects
+    # - there are no talks or workshops with
+    #   is_public=False and/or is_backup=True in the programme/slots (schedule)
+    # - conference is shorter than a month which allows simpler “is it the same day?“ comparison
 
     return TemplateResponse(
         request,
         template='programme/{}_detail.html'.format(type),
         context={
             'session': session,
-            'session_previous': session_previous,
-            'session_next': session_next,
+            'other_sessions': {
+                'previous': session_previous,
+                'next': session_next,
+                'parallel': Slot.objects.filter(
+                    start__gte=slot.start, start__lt=slot.end).exclude(room=slot.room).order_by('room', 'start'),
+                'following_parallel': Slot.objects.filter(
+                    start__gte=slot.end, start__day=slot.start.day).exclude(room=slot.room).order_by('room', 'start'),
+                'following': Slot.objects.filter(
+                    start__gte=slot.end, start__day=slot.start.day, room=slot.room).order_by('start').first(),
+            },
             'slot': slot,
         }
     )
