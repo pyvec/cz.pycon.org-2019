@@ -1,124 +1,120 @@
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-var browserSync = require('browser-sync').create();
-var del = require('del');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var csso = require('gulp-csso');
-var exec = require('child_process').exec;
-var plumber = require('gulp-plumber');
-var rename = require("gulp-rename");
+const browserSync = require('browser-sync').create();
+const del = require('del');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
+const csso = require('gulp-csso');
+const { spawn } = require('child_process');
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 
 
 /*
  * TASKS
  */
+
 // runs django dev server
-gulp.task('runserver', gulp.series(function(done){
-    exec('python manage.py runserver --settings=pyconcz.settings.local', function(err, stdout, stderr){
-        console.log(stdout);
-        console.log(stderr);
-    });
-    done();
-}));
+gulp.task('runserver', gulp.series(
+    function runDjangoDevServer(done){
+        const djangoDevServer = spawn(
+            'env/bin/python',
+            ['manage.py', 'runserver', '--settings=pyconcz.settings.local']
+        );
 
+        djangoDevServer.stdout.on('data', data => {
+            console.log('[django server] ' + data);
 
-// delete all previously generated CSS
-gulp.task('clean-css', gulp.series(function(){
-    return del(['./pyconcz/static/css/pyconcz19.*'], { force: true });
-}));
+            if (data.toString().match(/.*Quit the server with CONTROL-C.*/g)){
+                console.log('\n-------------------- django server restarted --------------------\n');
+                browserSync.notify('Python has changed, if stuck reloading, reload manually.', 10000);
+                setTimeout(browserSync.reload, 2000);
+            }
+        });
 
+        djangoDevServer.stderr.on('data', data => {
+            console.log('[django server] ' + data);
+        });
 
-// delete all previously generated images
-gulp.task('clean-img', gulp.series(function(){
-    return del(['./pyconcz/static/img/'], { force: true });
-}));
-
-
-// delete all previously generated JavaScript
-gulp.task('clean-js', gulp.series(function(){
-    return del(['./pyconcz/static/js/'], { force: true });
-}));
+        djangoDevServer.on('close', code => {
+            console.log('[django server] exited with code ' + code);
+            done(code);
+        });
+    }
+));
 
 
 // copy images
-gulp.task('copy-img', gulp.series('clean-img', function(){
-    return gulp
-        .src(['./pyconcz/static_src/img/**/*'])
-        .pipe(gulp.dest('./pyconcz/static/img/'))
-        .pipe(browserSync.stream());
-}));
+gulp.task('copy:img', gulp.series(
+    function imgCleanup(){ // delete all previously copied images
+        return del(['./pyconcz/static/img/'], { force: true });
+    },
+    function imgCopy(){
+        return gulp
+            .src(['./pyconcz/static_src/img/**/*'])
+            .pipe(gulp.dest('./pyconcz/static/img/'))
+            .pipe(browserSync.stream());
+    }
+));
 
 
 // compile CSS
-gulp.task('compile-css', gulp.series('clean-css', function(){
-    return gulp
-        .src('./pyconcz/static_src/scss/pyconcz19/pyconcz19.scss') // scss source
-        .pipe(plumber())
-        .pipe(sourcemaps.init()) // initalizes a sourcemap
-        .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
-        .pipe(postcss([
-            autoprefixer( // automatically adds vendor prefixes if needed
-                // supported browsers (from Bootstrap 4 beta: see https://github.com/twbs/bootstrap/blob/v4-dev/package.json#L136-L147)
-                //
-                // Official browser support policy:
-                // https://getbootstrap.com/docs/4.0/getting-started/browsers-devices/#supported-browsers
-                //
-                "last 1 major version",
-                ">= 1%",
-                "Chrome >= 45", // Exact version number here is kinda arbitrary
-                "Firefox >= 38",
-                // Note: Edge versions in Autoprefixer & Can I Use refer to the EdgeHTML rendering engine version,
-                // NOT the Edge app version shown in Edge's "About" screen.
-                // For example, at the time of writing, Edge 20 on an up-to-date system uses EdgeHTML 12.
-                // See also https://github.com/Fyrd/caniuse/issues/1928
-                "Edge >= 12",
-                "Explorer >= 10",
-                // Out of leniency, we prefix these 1 version further back than the official policy.
-                "iOS >= 9",
-                "Safari >= 9",
-                // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
-                "Android >= 4.4",
-                "Opera >= 30"
-            ),
-            require('postcss-flexbugs-fixes') // fixes flex bugs if possible: see https://github.com/philipwalton/flexbugs
-        ])) // add vendor prefixes, fix flexbox bugs
-        .pipe(csso()) // compresses CSS
-        .pipe(rename('pyconcz19.min.css'))
-        .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS without sourcemap
-        .pipe(rename('pyconcz19.css'))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS with sourcemap
-        .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
-}));
+gulp.task('compile:css', gulp.series(
+    function cssCleanup(){ // delete all previously generated CSS
+        return del(['./pyconcz/static/css/pyconcz19.*'], { force: true });
+    },
+    function compileCss(){
+        return gulp
+            .src('./pyconcz/static_src/scss/pyconcz19/pyconcz19.scss') // scss source
+            .pipe(plumber())
+            .pipe(sourcemaps.init()) // initalizes a sourcemap
+            .pipe(sass().on('error', sass.logError)) // compile SCSS to CSS
+            .pipe(postcss([
+                require('autoprefixer'), // automatically adds vendor prefixes if needed
+                // see browserslist in package.json for included browsers
+                // Official Bootstrap browser support policy:
+                // https://getbootstrap.com/docs/4.4/getting-started/browsers-devices/#supported-browsers
+                require('postcss-flexbugs-fixes') // fixes flex bugs if possible: see https://github.com/philipwalton/flexbugs
+            ]))
+            .pipe(csso()) // compresses CSS
+            .pipe(rename('pyconcz19.min.css'))
+            .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS without sourcemap
+            .pipe(rename('pyconcz19.css'))
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest('./pyconcz/static/css/')) // resulting CSS with sourcemap
+            .pipe(browserSync.stream()); // tell BrowserSync to inject CSS
+    }
+));
 
 
-gulp.task('build', gulp.parallel('compile-css', 'copy-img')); // build everything before deployment
-
-
-// Build files and proxy dev server on http://localhost:3000
-// Watch for changes in files and do what is neccessary
-gulp.task(
-    'develop',
-    gulp.series('build', 'runserver', function(){
+// proxy dev server on http://localhost:3838
+gulp.task('browsersync', gulp.series(
+    function startBrowsersync(){
         browserSync.init({
-            proxy: {
-                target: 'http://127.0.0.1:8000' // Django is running here
+                proxy: {
+                    target: 'http://127.0.0.1:8000' // Django is running here
+                },
+                port: 3838,
+                host: 'pycon.test',
+                open: false,
+                files: [
+                    './pyconcz/templates/**/*.html',
+                ]
             },
-            port: 3838,
-            host: 'pycon.test',
-            open: false,
-            files: [
-                './pyconcz/templates/**/*.html'
-            ]
-        });
-        gulp.watch('./pyconcz/static_src/scss/**/*.scss', gulp.series('compile-css')); // watcher for SCSS
-        gulp.watch('./pyconcz/static_src/img/**/*', gulp.series('copy-img')); // watcher for images
-    })
-);
+            function watchOtherFiles(){
+                gulp.watch('./pyconcz/static_src/scss/**/*.scss', gulp.series('compile:css')); // watcher for SCSS
+                gulp.watch('./pyconcz/static_src/img/**/*', gulp.series('copy:img')); // watcher for images
+            }
+        );
+    }
+));
 
+// build everything
+gulp.task('build', gulp.parallel('compile:css', 'copy:img'));
 
+// development
+gulp.task('develop', gulp.series('build', gulp.parallel('runserver', 'browsersync')));
 
-gulp.task('default', gulp.series('develop')); // just run gulp to start development
+// just a default task defined (you can run just `npx gulp` to start it)
+gulp.task('default', gulp.series('develop'));
