@@ -89,24 +89,23 @@ gulp.task('compile:css', gulp.series(
 
 
 // proxy dev server on http://localhost:3838
-gulp.task('browsersync', gulp.series(
+gulp.task('browsersync', gulp.parallel(
     function startBrowsersync(){
         browserSync.init({
-                proxy: {
-                    target: 'http://127.0.0.1:8000' // Django is running here
-                },
-                port: 3838,
-                host: 'pycon.test',
-                open: false,
-                files: [
-                    './pyconcz/templates/**/*.html',
-                ]
+            proxy: {
+                target: 'http://127.0.0.1:8000' // Django is running here
             },
-            function watchOtherFiles(){
-                gulp.watch('./pyconcz/static_src/scss/**/*.scss', gulp.series('compile:css')); // watcher for SCSS
-                gulp.watch('./pyconcz/static_src/img/**/*', gulp.series('copy:img')); // watcher for images
-            }
-        );
+            port: 3838,
+            host: 'pycon.test',
+            open: false,
+            files: [
+                './pyconcz/templates/**/*.html',
+            ]
+        });
+    },
+    function watchOtherFiles(){
+        gulp.watch('./pyconcz/static_src/scss/**/*.scss', gulp.series('compile:css')); // watcher for SCSS
+        gulp.watch('./pyconcz/static_src/img/**/*', gulp.series('copy:img')); // watcher for images
     }
 ));
 
