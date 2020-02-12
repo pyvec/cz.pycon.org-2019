@@ -1,0 +1,13 @@
+// Base font size
+//$rfs-base-font-size: 1.25rem;
+//$rfs-font-size-unit: rem;
+
+// Breakpoint at where font-size starts decreasing if screen width is smaller
+$rfs-breakpoint: map-get($grid-breakpoints, lg); // 1200px
+//$rfs-breakpoint-unit: px;
+
+// Resize font-size based on screen height and width
+//$rfs-two-dimensional: false;
+
+// Factor of decrease
+//$rfs-factor: 10;
