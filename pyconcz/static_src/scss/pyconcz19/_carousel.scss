@@ -60,7 +60,7 @@
     text-align: right;
     font-style: normal;
     display: block;
-    margin-top: $spacer;
+    margin-top: map-get($spacers, 2);
     font-family: $font-family-sans-serif;
 }
 
