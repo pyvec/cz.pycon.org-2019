@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 import requests
 
-from .models import Speaker, Slot, EndTime, Talk, Workshop
+from .models import Speaker, Slot, Talk, Workshop
 from django.conf import settings
 
 
@@ -155,8 +155,6 @@ def schedule(request):
             content_type__model__in=['talk', 'workshop', 'utility']
         ).prefetch_related(
             'content_object',
-        ).annotate(
-            start_end=EndTime()
         ).order_by('start', 'room')
     )
 

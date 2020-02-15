@@ -171,16 +171,6 @@ class Slot(models.Model):
         ordering = ('start', 'room',)
 
 
-class EndTime(models.Func):
-    template = 'LAG(start) OVER (PARTITION BY room ORDER BY start DESC)'
-
-    def __init__(self):
-        super().__init__(output_field=models.DateTimeField())
-
-    def get_group_by_cols(self):
-        return []
-
-
 class Utility(models.Model):
     title = models.CharField(max_length=200, verbose_name='Title')
     description = models.TextField(blank=True, null=True)
