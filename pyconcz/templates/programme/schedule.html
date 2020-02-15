@@ -23,27 +23,20 @@
                             This is a&nbsp;preliminary schedule and <strong class="text-warning">details might be changed</strong> closer to the conference.
                         </p>
                     {% endif %}
-                    {% for slot in slots %}
 
-                        {% ifchanged slot.start|date:'H:i' %}
-                            {# time slot end #}
-                            {% if not forloop.first %}
-                                {% if debug %}
-                                    <div class="w-100 bg-danger">TIME SLOT END (shown only with debug True)</div>
-                                {% endif %}
-                                </section>
-                            {% endif %}
-                        {% endifchanged %}
+                    {% regroup slots by start as slots_by_datetime %}
 
+                    {% for datetime in slots_by_datetime %}
+
+                        {# day header #}
                         {% ifchanged %}
-                            {# day header #}
-                            <h2 id="{{ slot.start|date:'l'|lower }}"
+                            <h2 id="{{ datetime.grouper|date:'l'|lower }}"
                                 class="mb-0 pt-1 pb-2 sticky-top bg-dark pc-text-sans-serif pc-text-transform-none font-weight-bold"
                             >
-                                {{ slot.start|date:'l, j F' }}
+                                {{ datetime.grouper|date:'l, j F' }}
                                 <br>
                                 <small class="mt-1 mb-0 d-block h5 text-monospace pc-font-weight-medium-mono">
-                                    {% if slot.start|date:'j'|add:0 < 16 %}
+                                    {% if datetime.grouper|date:'j'|add:0 < 16 %}
                                         Talks at <a href="{% url 'venue' %}">Hlubina</a>
                                     {% else %}
                                         Workshops at <a href="{% url 'venue' %}#workshops">VŠB-TU</a>
@@ -52,129 +45,125 @@
                             </h2>
                         {% endifchanged %}
 
-                        {% ifchanged %}
-                            {# time slot start #}
-                            <section class="row">
-                            {% if debug %}
-                                <div class="w-100 bg-success">TIME SLOT START (shown only with debug True)</div>
-                            {% endif %}
-                            <h3 class="
-                                col-12 mb-2
-                                {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                                    mt-2
-                                {% else %}
-                                    mt-3
-                                {% endif %}
-                            ">
-                                {{ slot.start|date:'H:i' }}
-                                {% if slot.content_type.model == 'workshop' %}
-                                    – {{ slot.end|date:'H:i' }}
-                                {% endif %}
-                            </h3>
-                        {% endifchanged %}
+                        {# time slot #}
+                        <section class="row">
+                            {% for slot in datetime.list %}
 
-                        {# talk, workshop or other item #}
-                        <article class="mb-4 {% if slot.content_type.model == 'workshop' %}col-sm-6{% else %}col-sm{% endif %}">
-                            <div class="
-                                h-100 position-relative
-                                {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                                    mb-3 px-3 pt-3 pb-0 pc-box-shadow
-                                    {% if slot.content_object.url %}
-                                        text-dark bg-white
-                                    {% else %}
-                                        text-black bg-secondary
-                                    {% endif %}
-                                {% else %}
-                                    text-primary
-                                {% endif %}
-                            ">
-                                {% if slot.room_name != 'Foyer' %}
-                                    <p class="
-                                        text-monospace text-uppercase pc-font-weight-medium-mono mt-0 mb-2
-                                        {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                                            text-brown
-                                        {% else %}
-                                            text-secondary
+                                {# time heading #}
+                                {% ifchanged %}
+                                    <h3 class="
+                                            col-12 mb-2
+                                            {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                                mt-2
+                                            {% else %}
+                                                mt-3
+                                            {% endif %}
+                                        ">
+                                        {{ slot.start|date:'H:i' }}
+                                        {% if slot.content_type.model == 'workshop' %}
+                                            – {{ slot.end|date:'H:i' }}
                                         {% endif %}
-                                    ">
-                                        {{ slot.room_name }}
-                                        {% if slot.content_object.is_keynote or slot.content_object.is_streamed %}
-                                            (and streamed to Club)
+                                    </h3>
+                                {% endifchanged %}
+
+                                {# talk, workshop or other item #}
+                                <article class="mb-4 {% if slot.content_type.model == 'workshop' %}col-sm-6{% else %}col-sm{% endif %}">
+                                    <div class="
+                                            h-100 position-relative
+                                            {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                                mb-3 px-3 pt-3 pb-0 pc-box-shadow
+                                                {% if slot.content_object.url %}
+                                                    text-dark bg-white
+                                                {% else %}
+                                                    text-black bg-secondary
+                                                {% endif %}
+                                            {% else %}
+                                                text-primary
+                                            {% endif %}
+                                        ">
+                                        {% if slot.room_name != 'Foyer' %}
+                                            <p class="
+                                                    text-monospace text-uppercase pc-font-weight-medium-mono mt-0 mb-2
+                                                    {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                                        text-brown
+                                                    {% else %}
+                                                        text-secondary
+                                                    {% endif %}
+                                                ">
+                                                {{ slot.room_name }}
+                                                {% if slot.content_object.is_keynote or slot.content_object.is_streamed %}
+                                                    (and streamed to Club)
+                                                {% endif %}
+                                            </p>
                                         {% endif %}
-                                    </p>
-                                {% endif %}
 
-                                <h3 class="
-                                    mt-0 mb-2 h5
-                                    {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                                        font-weight-bold pc-text-transform-none
-                                    {% else %}
-                                        pc-font-weight-medium-mono
-                                    {% endif %}
-                                ">
-                                    {% url 'session_detail' type=slot.content_type.model session_id=slot.object_id as T_session_detail_url %}
-                                    {% with T_url=slot.content_object.url|default:T_session_detail_url  %}
-                                        {% if T_url %}
-                                            <a class="stretched-link text-black text-decoration-none" href="{{ T_url }}#main">
-                                                {{ slot.content_object.title }}
-                                            </a>
-                                        {% else %}
-                                            {{ slot.content_object.title }}
-                                        {% endif %}
-                                    {% endwith %}
-                                </h3>
+                                        <h3 class="
+                                                mt-0 mb-2 h5
+                                                {% if slot.content_object.url or slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                                    font-weight-bold pc-text-transform-none
+                                                {% else %}
+                                                    pc-font-weight-medium-mono
+                                                {% endif %}
+                                            ">
+                                            {% url 'session_detail' type=slot.content_type.model session_id=slot.object_id as T_session_detail_url %}
+                                            {% with T_url=slot.content_object.url|default:T_session_detail_url %}
+                                                {% if T_url %}
+                                                    <a class="stretched-link text-black text-decoration-none" href="{{ T_url }}#main">
+                                                        {{ slot.content_object.title }}
+                                                    </a>
+                                                {% else %}
+                                                    {{ slot.content_object.title }}
+                                                {% endif %}
+                                            {% endwith %}
+                                        </h3>
 
-                                {% if slot.content_object.description %}
-                                    <div class="mb-2 {% if slot.content_object.url %}text-dark{% else %}text-white{% endif %}">
-                                        {{ slot.content_object.description|markdown }}
-                                    </div>
-                                {% endif %}
-
-                                {% if slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
-                                    {% for speaker in slot.content_object.speakers %}
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col-auto">
-                                                <img src="{{ speaker.photo.url }}" class="img-fluid pc-img-effect" style="max-width:2.5rem;" alt="">
+                                        {% if slot.content_object.description %}
+                                            <div class="mb-2 {% if slot.content_object.url %}text-dark{% else %}text-white{% endif %}">
+                                                {{ slot.content_object.description|markdown }}
                                             </div>
-                                            <div class="col pl-2 text-brown">{{ speaker.full_name }}</div>
-                                        </div>
-                                    {% endfor %}
-                                    {% if slot.content_object.difficulty == 'advanced' %}
-                                        <p class="mt-3 text-white h6 text-monospace pc-font-weight-medium-mono mb-0">
-                                            For advanced Pythonistas
-                                        </p>
-                                    {% endif %}
-                                    {% if slot.content_object.language == 'cs' %}
-                                        <p class="mt-3 text-white h6 text-monospace pc-font-weight-medium-mono mb-0">
-                                            This {{ slot.content_type.model }} will be in Czech only
-                                        </p>
-                                    {% endif %}
-                                    {% if slot.content_object.in_data_track %}
-                                        <div class="position-absolute" style="top:0;right:0;width:2rem;">
-                                            <svg class="pc-img-fluid-svg d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                                                <path fill="#f80" d="M0 40V0h40v40z" />
-                                                <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
-                                            </svg>
-                                            <div class="col sr-only">Is part of the PyData&nbsp;track</div>
-                                        </div>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
-                        </article>
+                                        {% endif %}
 
-                        {% if forloop.last %}
-                            {% if debug %}
-                                <div class="w-100 bg-danger">the final TIME SLOT END (shown only with debug True)</div>
-                            {% endif %}
-                            </section> {# the last time slot ends here #}
-
-                            <div class="row">
-                                <div class="col">
-                                    <p class="display-4">The End</p>
-                                </div>
-                            </div>
-                        {% endif %}
-{% comment %}<pre class="small p-3 bg-white">
+                                        {% if slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                            {% for speaker in slot.content_object.speakers %}
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <img src="{{ speaker.photo.url }}" class="img-fluid pc-img-effect" style="max-width:2.5rem;" alt="">
+                                                    </div>
+                                                    <div class="col pl-2 text-brown">{{ speaker.full_name }}</div>
+                                                </div>
+                                            {% endfor %}
+                                            {% if slot.content_object.difficulty == 'advanced' %}
+                                                <p class="mt-3 text-white h6 text-monospace pc-font-weight-medium-mono mb-0">
+                                                    For advanced Pythonistas
+                                                </p>
+                                            {% endif %}
+                                            {% if slot.content_object.language == 'cs' %}
+                                                <p class="mt-3 text-white h6 text-monospace pc-font-weight-medium-mono mb-0">
+                                                    This {{ slot.content_type.model }} will be in Czech only
+                                                </p>
+                                            {% endif %}
+                                            {% if slot.content_object.in_data_track %}
+                                                <div class="position-absolute" style="top:0;right:0;width:2rem;">
+                                                    <svg class="pc-img-fluid-svg d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                                                        <path fill="#f80" d="M0 40V0h40v40z" />
+                                                        <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
+                                                    </svg>
+                                                    <div class="col sr-only">Is part of the PyData&nbsp;track</div>
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </article>
+                            {% endfor %}
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% comment %}
+{% for slot in slots %}
+<pre class="small p-3 bg-white">
 slot:           {{ slot|pprint }}
 
 object_id:      {{ slot.object_id|pprint }}
@@ -217,10 +206,7 @@ content_object: <b>{{ slot.content_object|pprint }}</b>
                 attendee_limit: {{ slot.content_object.attendee_limit|pprint }}
                 registration:   {{ slot.content_object.registration|pprint }}
                 tito_id:        {{ slot.content_object.tito_id|pprint }}
-</pre>{% endcomment %}
-                    {% endfor %}
-                </div>
-            </div>
-        {% endif %}
-    </div>
+</pre>
+{% endfor %}
+{% endcomment %}
 {% endblock %}
