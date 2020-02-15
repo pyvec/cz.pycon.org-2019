@@ -160,12 +160,10 @@ def schedule(request):
         ).order_by('start', 'room')
     )
 
-    domain = '/'.join(request.build_absolute_uri().split('/')[:3])
     return TemplateResponse(
         request,
         template='programme/schedule.html',
         context={
             'slots': slots,
-            'domain': domain,
         }
     )
