@@ -34,9 +34,11 @@
                             <p>They have limited capacity and every conference ticket holder can register for two workshops for free now!</p>
                             <p>See workshops’ details for more information.</p>
                         {% elif phases.workshops_registration == 'basic_info' or phases.workshops_registration == 'announced' %}
-                            <p>They have limited capacity and every conference ticket holder will have
+                            <p>
+                                They have limited capacity and every conference ticket holder will have
                                 a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served
-                                basis{% if phases.workshops_registration == 'announced' %} starting at <b>5&nbsp;June, 18:00&nbsp;CEST</b>{% endif %}.</p>
+                                basis{% if phases.workshops_registration == 'announced' %} starting at <b>5&nbsp;June, 18:00&nbsp;CEST</b>{% endif %}.
+                            </p>
                         {% endif %}
                     </div>
                 </div>
