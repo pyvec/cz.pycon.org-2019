@@ -10,16 +10,20 @@
     <a
         class="
             nav-link
-            {% if request.path == '/2019/' and  link == '/2019/' and not extra %} {# hide link to homepage on homepage #}
-                d-none d-sm-block
+            {# links to currently shown page are different (only those without an anchor) #}
+            {% if request.path == link and not anchor %}
+                active
+                {# hide link to homepage on homepage #}
+                {% if url == 'homepage' %}
+                    d-none d-sm-block
+                {% endif %}
             {% endif %}
             {{ class }}
-            {% if request.path == link and not extra %}active{% endif %}
         "
-        {% if request.path == link and not extra %}
-            aria-current="page"
+        {% if request.path == link and not anchor %}
+        aria-current="page"
         {% else %}
-            href="{{ link }}{{ extra }}"
+        href="{{ link }}{{ anchor }}"
         {% endif %}
     >
         {{ link_text }}
