@@ -8,7 +8,18 @@
 {% endblock %}
 
 
-{% block session_info %}
+{% block secondary_info %}
+    {% if phases.schedule == 'full' and phases.workshops_registration != 'timed_out' %}
+        <div class="col-md mb-4">
+            {% include 'programme/__schedule.html' %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block first_col_class %}
     {{ block.super }}
-    {% include 'programme/__other_sessions.html' %}
+    {% if phases.schedule == 'full' and phases.workshops_registration == 'timed_out' or phases.schedule != 'full' and phases.workshops_registration != 'timed_out' %}
+        pc-multicol
+    {% endif %}
 {% endblock %}

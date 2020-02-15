@@ -35,82 +35,87 @@
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        {% if phases.schedule == 'full' and slot %}
+        {% if phases.schedule == 'full' and session_slot %}
             <p class="pc-session-date">
-                {{ slot.start|date:'l, d F, H:i' }} in&nbsp;{{ slot.room_name }}
+                {{ session_slot.start|date:'l, d F, H:i' }} in&nbsp;{{ session_slot.room_name }}
                 {% if session.is_keynote %} and streamed live to&nbsp;<b>Club</b> {% endif %}
             </p>
         {% endif %}
 
-        <div class="pc-multicol mb-3">
-            {% block session_info %}
-                <div class="mb-3">{{ session.abstract|markdown }}</div>
+        {% block info %}
+            <div class="row">
+                <div class="{% block first_col_class %}col-md mb-3{% endblock %}">
+                    {% block primary_info %}
+                        <div class="mb-3">{{ session.abstract|markdown }}</div>
 
-                <div class="pc-session-flags">
-                    <div class="row no-gutters mb-3">
-                        <div class="col-auto pr-3 pb-1">
-                            <svg class="pc-img-fluid-svg d-block" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                                <path fill="var({% if session.difficulty == 'advanced' %}--dark{% else %}--white{% endif %})" d="M0 40V0h40v40z" />
-                                <path fill="var({% if session.difficulty == 'advanced' %}--primary{% else %}--primary{% endif %})" stroke="var({% if session.difficulty == 'advanced' %}--dark{% else %}--white{% endif %})" stroke-width="1.1" d="M26.0614 8.1015L20 11.601m6.0614 4.8993L20 20m-6.0614-3.4996L20 20m0-8.399v23.797M13.9386 8.1016L20 11.601m-6.0614-3.4996L20 4.6019l6.0614 3.4996v23.797L20 35.3981l-6.0614-3.4996z" />
-                            </svg>
-                        </div>
-                        <div class="col">
-                            {% if session.difficulty == 'advanced' %}
-                                <strong>This {{ session.type }} is aimed at advanced Pythonistas.</strong>
-                                While it might be interesting for beginners we recommend them to choose another&nbsp;{{ session.type }}.
-                            {% else %}
-                                This {{ session.type }} is suitable for both beginner and advanced Pythonistas.
+                        <div class="pc-session-flags">
+                            <div class="row no-gutters mb-3">
+                                <div class="col-auto pr-3 pb-1">
+                                    <svg class="pc-img-fluid-svg d-block" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                                        <path fill="var({% if session.difficulty == 'advanced' %}--dark{% else %}--white{% endif %})" d="M0 40V0h40v40z" />
+                                        <path fill="var({% if session.difficulty == 'advanced' %}--primary{% else %}--primary{% endif %})" stroke="var({% if session.difficulty == 'advanced' %}--dark{% else %}--white{% endif %})" stroke-width="1.1" d="M26.0614 8.1015L20 11.601m6.0614 4.8993L20 20m-6.0614-3.4996L20 20m0-8.399v23.797M13.9386 8.1016L20 11.601m-6.0614-3.4996L20 4.6019l6.0614 3.4996v23.797L20 35.3981l-6.0614-3.4996z" />
+                                    </svg>
+                                </div>
+                                <div class="col">
+                                    {% if session.difficulty == 'advanced' %}
+                                        <strong>This {{ session.type }} is aimed at advanced Pythonistas.</strong>
+                                        While it might be interesting for beginners we recommend them to choose another&nbsp;{{ session.type }}.
+                                    {% else %}
+                                        This {{ session.type }} is suitable for both beginner and advanced Pythonistas.
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {% if session.in_data_track %}
+                                <div class="row no-gutters mb-3">
+                                    <div class="col-auto pr-3 pb-1">
+                                        <svg class="pc-img-fluid-svg d-block" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                                            <path fill="#f80" d="M0 40V0h40v40z" />
+                                            <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
+                                        </svg>
+                                    </div>
+                                    <div class="col">Is part of the PyData&nbsp;track</div>
+                                </div>
+                            {% endif %}
+
+                            {% if session.language == 'cs' %}
+                                <div class="row no-gutters mb-3">
+                                    <div class="col-auto pr-3 pb-1">
+                                        <svg class="pc-img-fluid-svg align-baseline" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60">
+                                            <rect width="90" height="60" fill="#d7141a"></rect>
+                                            <rect width="90" height="30" fill="#fff"></rect>
+                                            <path d="M 45,30 0,0 V 60 z" fill="#11457e"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="col">This {{ session.type }} will be in Czech only.</div>
+                                </div>
+                            {% endif %}
+
+                            {% if session.length and 'h' in session.length %}
+                                <p>
+                                    {{ session.type|capfirst }}
+                                    will take
+                                    {% if session.length == '1h' %}
+                                        1&nbsp;hour.
+                                    {% elif session.length == '2h' %}
+                                        2&nbsp;hours.
+                                    {% elif session.length == '3h' %}
+                                        3&nbsp;hours.
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+
+                            {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
+                                <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
                             {% endif %}
                         </div>
-                    </div>
-
-                    {% if session.in_data_track %}
-                        <div class="row no-gutters mb-3">
-                            <div class="col-auto pr-3 pb-1">
-                                <svg class="pc-img-fluid-svg d-block" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-                                    <path fill="#f80" d="M0 40V0h40v40z" />
-                                    <path fill="#fff" d="M20.4 20.1l6.3-3.3v6.8l-6.3 3.3m-.4-7.4l-6.4-3.3 6.4-3.3 6.4 3.3zm.4-14l6.3 3.3v6.8l-6.3-3.3zm-7.1 18.9l6.3 3.3v6.8l-6.3-3.3zm0-7.6l6.3 3.3v6.8l-6.3-3.3z" />
-                                </svg>
-                            </div>
-                            <div class="col">Is part of the PyData&nbsp;track</div>
-                        </div>
-                    {% endif %}
-
-                    {% if session.language == 'cs' %}
-                        <div class="row no-gutters mb-3">
-                            <div class="col-auto pr-3 pb-1">
-                                <svg class="pc-img-fluid-svg align-baseline" style="width:3rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60">
-                                    <rect width="90" height="60" fill="#d7141a"></rect>
-                                    <rect width="90" height="30" fill="#fff"></rect>
-                                    <path d="M 45,30 0,0 V 60 z" fill="#11457e"></path>
-                                </svg>
-                            </div>
-                            <div class="col">This {{ session.type }} will be in Czech only.</div>
-                        </div>
-                    {% endif %}
-
-                    {% if session.length and 'h' in session.length %}
-                        <p>
-                            {{ session.type|capfirst }}
-                            will take
-                            {% if session.length == '1h' %}
-                                1&nbsp;hour.
-                            {% elif session.length == '2h' %}
-                                2&nbsp;hours.
-                            {% elif session.length == '3h' %}
-                                3&nbsp;hours.
-                            {% endif %}
-                        </p>
-                    {% endif %}
-
-                    {% if phases.workshops == 'details_complete_public' and session.attendee_limit > 0 %}
-                        <p>There will be maximum of {{ session.attendee_limit }} attendees.</p>
-                    {% endif %}
+                    {% endblock %}
                 </div>
-            {% endblock %}
-        </div>
 
-        {% block workshop_info %}{% endblock %}
+                {% block secondary_info %}{% endblock %}
+            </div>
+        {% endblock %}
+
 
         {% for speaker in session.speakers %}
             {% include 'programme/__speaker-detail.html' with type='session_detail' odd=forloop.counter|divisibleby:'2' %}
@@ -129,7 +134,7 @@
         {% endcomment %}
     </div>
     {% if phases.schedule == 'full' and phases.workshops_registration == 'timed_out' or phases.schedule != 'full' and phases.workshops_registration != 'timed_out' %}
-        {# show only if __other_sessions.html is not shown #}
+        {# show only if mini schedule is not shown #}
         <div class="pc-sticky-bottom pc-mw-max mx-auto">
             <div class="pr-2 px-sm-3 pb-2 mb-2 d-flex justify-content-between">
                 <a class="btn btn-secondary px-2 px-sm-3" href="{% url 'session_detail' type=other_sessions.previous.type session_id=other_sessions.previous.id %}#main">

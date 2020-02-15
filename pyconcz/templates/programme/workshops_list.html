@@ -18,24 +18,26 @@
 
         {% elif phases.workshops == 'details_public' or phases.workshops == 'details_complete_public' %}
             {% if phases.workshops_registration != 'hidden' %}
-                <div class="row">
-                    <div class="col-lg-6">
+                <div class="row mb-3">
+                    <div class="col-md">
                         <p class="lead">
                             Workshops will take place at a <a href="{% url 'venue' %}#workshops">different venue</a> than&nbsp;talks.
-                            {% if phases.workshops_registration == 'timed_out' %}
-                                <br>We’re sorry but you can’t register for workshops anymore.
-                            {% elif phases.workshops_registration == 'sold_out' %}
-                                <br>We’re sorry but all workshops are sold out. You can still try to come without registration 10 minutes before the workshop starts and take a&nbsp;free spot if somebody doesn’t come. There are always some no-shows.
-                                <br>You can also check later. People cancel their registrations sometimes so a ticket might become available again.
-                            {% elif phases.workshops_registration == 'launched' %}
-                                <br>They have limited capacity and every conference ticket holder can register for two workshops for free now!
-                                <br>See workshops’ details for more information.
-                            {% elif phases.workshops_registration == 'basic_info' or phases.workshops_registration == 'announced' %}
-                                <br>They have limited capacity and every conference ticket holder will have
-                                a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served
-                                basis{% if phases.workshops_registration == 'announced' %} starting at <b>5&nbsp;June, 18:00&nbsp;CEST</b>{% endif %}.
-                            {% endif %}
                         </p>
+                    </div>
+                    <div class="col-md">
+                        {% if phases.workshops_registration == 'timed_out' %}
+                            <p>We’re sorry but you can’t register for workshops anymore.</p>
+                        {% elif phases.workshops_registration == 'sold_out' %}
+                            <p>We’re sorry but all workshops are sold out. You can still try to come without registration 10 minutes before the workshop starts and take a&nbsp;free spot if somebody doesn’t come. There are always some no-shows.</p>
+                            <p>You can also check later. People cancel their registrations sometimes so a ticket might become available again.</p>
+                        {% elif phases.workshops_registration == 'launched' %}
+                            <p>They have limited capacity and every conference ticket holder can register for two workshops for free now!</p>
+                            <p>See workshops’ details for more information.</p>
+                        {% elif phases.workshops_registration == 'basic_info' or phases.workshops_registration == 'announced' %}
+                            <p>They have limited capacity and every conference ticket holder will have
+                                a&nbsp;chance to register for two workshops for free on a&nbsp;first-come first-served
+                                basis{% if phases.workshops_registration == 'announced' %} starting at <b>5&nbsp;June, 18:00&nbsp;CEST</b>{% endif %}.</p>
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}

@@ -106,10 +106,31 @@ def session_detail(request, type, session_id):
         session_next = MODEL_MAP.get(type).objects.filter(
             is_public=True, is_backup=False).order_by('order').first()
 
-    # the following code expects
-    # - there are no talks or workshops with
-    #   is_public=False and/or is_backup=True in the programme/slots (schedule)
-    # - conference is shorter than a month which allows simpler “is it the same day?“ comparison
+    slots_remaining_in_day = Slot.objects.filter(
+        content_type__app_label='programme',
+        content_type__model__in=['talk', 'workshop', 'utility'],
+        start__gte=slot.start,
+        start__day=slot.start.day,
+    ).prefetch_related(
+        'content_object',
+    ).order_by('start', 'room')
+
+    # remove redundant slots
+    # note: this expects that sessions and utilities do not mix at the same time
+    previous_slot = None
+    rows_having_session = 0
+    slots = []
+
+    for slot in slots_remaining_in_day:
+        if previous_slot and previous_slot.start != slot.start:  # when new row starts
+            # did previous row have a session?
+            if str(previous_slot.content_type) in ['talk', 'workshop']:
+                rows_having_session += 1
+                # only current and one future row with sessions is needed
+                if rows_having_session >= 2:
+                    break
+        slots.append(slot)
+        previous_slot = slot
 
     return TemplateResponse(
         request,
@@ -119,14 +140,10 @@ def session_detail(request, type, session_id):
             'other_sessions': {
                 'previous': session_previous,
                 'next': session_next,
-                'parallel': Slot.objects.filter(
-                    start__gte=slot.start, start__lt=slot.end).exclude(room=slot.room).order_by('room', 'start'),
-                'following_parallel': Slot.objects.filter(
-                    start__gte=slot.end, start__day=slot.start.day).exclude(room=slot.room).order_by('room', 'start'),
-                'following': Slot.objects.filter(
-                    start__gte=slot.end, start__day=slot.start.day, room=slot.room).order_by('start').first(),
             },
-            'slot': slot,
+            'session_slot': slot,
+            'slots': slots,
+
         }
     )
 
@@ -150,7 +167,7 @@ def other_frame(request, frame_type):
 
 def schedule(request):
     slots = (
-        Slot.objects.all().filter(
+        Slot.objects.filter(
             content_type__app_label='programme',
             content_type__model__in=['talk', 'workshop', 'utility']
         ).prefetch_related(
