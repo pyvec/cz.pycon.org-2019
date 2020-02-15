@@ -128,7 +128,9 @@
                                     <div class="mb-2 {% if slot.content_object.url %}text-dark{% else %}text-white{% endif %}">
                                         {{ slot.content_object.description|markdown }}
                                     </div>
-                                {% elif slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
+                                {% endif %}
+
+                                {% if slot.content_type.model == 'talk' or slot.content_type.model == 'workshop' %}
                                     {% for speaker in slot.content_object.speakers %}
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
@@ -215,8 +217,6 @@ content_object: <b>{{ slot.content_object|pprint }}</b>
                 attendee_limit: {{ slot.content_object.attendee_limit|pprint }}
                 registration:   {{ slot.content_object.registration|pprint }}
                 tito_id:        {{ slot.content_object.tito_id|pprint }}
-
-description:    {{ slot.description|pprint }}
 </pre>{% endcomment %}
                     {% endfor %}
                 </div>
