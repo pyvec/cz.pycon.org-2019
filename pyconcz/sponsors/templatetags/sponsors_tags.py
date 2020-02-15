@@ -7,4 +7,4 @@ register = template.Library()
 
 @register.simple_tag()
 def get_sponsors():
-    return Sponsor.objects.all().filter(published=True)
+    return Sponsor.objects.filter(published=True)

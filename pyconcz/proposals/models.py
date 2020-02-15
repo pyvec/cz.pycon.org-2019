@@ -19,7 +19,7 @@ class Ranking(models.Model):
         unique_together = ('content_type', 'object_id')
 
     def get_user_score(self, user):
-        return self.scores.all().filter(user=user).first()
+        return self.scores.filter(user=user).first()
 
 
 class Score(models.Model):
