@@ -21,9 +21,9 @@
             {{ class }}
         "
         {% if request.path == link and not anchor %}
-        aria-current="page"
+            aria-current="page"
         {% else %}
-        href="{{ link }}{{ anchor }}"
+            href="{{ link }}{{ anchor }}"
         {% endif %}
     >
         {{ link_text }}
