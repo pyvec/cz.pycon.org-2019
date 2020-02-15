@@ -114,8 +114,9 @@ class WorkshopAdmin(TalkAdmin):
     list_filter = ['is_public', 'type', 'is_backup', 'registration', 'length']
     actions = [mk_public, mk_not_public]
 
+
 class UtilityAdmin(ImportExportActionModelAdmin):
-    list_display = ['id', 'title', 'description', 'url']
+    list_display = ['title', 'id', 'is_streamed', 'description', 'url']
 
 
 admin.site.register(Speaker, SpeakerAdmin)
