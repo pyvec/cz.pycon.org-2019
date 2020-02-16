@@ -86,7 +86,7 @@ def session_detail(request, type, session_id):
     MODEL_MAP = dict(talk=Talk, workshop=Workshop, sprint=Workshop)
     session = get_object_or_404(MODEL_MAP.get(type), id=session_id, is_public=True, is_backup=False)
 
-    slot = Slot.objects.filter(
+    session_slot = Slot.objects.filter(
         content_type__app_label='programme',
         content_type__model=dict(talk='talk', workshop='workshop', sprint='workshop').get(type),
         object_id=session_id,
@@ -109,8 +109,8 @@ def session_detail(request, type, session_id):
     slots_remaining_in_day = Slot.objects.filter(
         content_type__app_label='programme',
         content_type__model__in=['talk', 'workshop', 'utility'],
-        start__gte=slot.start,
-        start__day=slot.start.day,
+        start__gte=session_slot.start,
+        start__day=session_slot.start.day,
     ).prefetch_related(
         'content_object',
     ).order_by('start', 'room')
@@ -141,7 +141,7 @@ def session_detail(request, type, session_id):
                 'previous': session_previous,
                 'next': session_next,
             },
-            'session_slot': slot,
+            'session_slot': session_slot,
             'slots': slots,
 
         }
