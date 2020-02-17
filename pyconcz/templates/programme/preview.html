@@ -90,8 +90,8 @@
 
                 </div>
                 <div class="col-6 bg-dark">
-                    {% include 'programme/__preview-session.html' with sessions=speaker.talks.all %}
-                    {% include 'programme/__preview-session.html' with sessions=speaker.workshops.all %}
+                    {% include 'programme/__preview_session.html' with sessions=speaker.talks.all %}
+                    {% include 'programme/__preview_session.html' with sessions=speaker.workshops.all %}
                 </div>
             </div>
         {% endfor %}

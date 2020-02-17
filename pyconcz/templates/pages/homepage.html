@@ -314,7 +314,7 @@
             <div class="container">
                 <h2 class="h1 mt-0 mb-4">Keynote speakers</h2>
                 {% for keynoter in keynoters %}
-                    {% include 'programme/__speaker-detail.html' with type='keynoter' speaker=keynoter odd=forloop.counter|divisibleby:'2' %}
+                    {% include 'programme/__speaker_detail.html' with type='keynoter' speaker=keynoter odd=forloop.counter|divisibleby:'2' %}
                 {% endfor %}
 
                 {% if phases.talks != 'not_public' or phases.workshops != 'not_public' %}

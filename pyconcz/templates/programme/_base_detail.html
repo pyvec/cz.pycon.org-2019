@@ -124,7 +124,7 @@
 
 
         {% for speaker in session.speakers %}
-            {% include 'programme/__speaker-detail.html' with type='session_detail' odd=forloop.counter|divisibleby:'2' %}
+            {% include 'programme/__speaker_detail.html' with type='session_detail' odd=forloop.counter|divisibleby:'2' %}
         {% endfor %}
 
     </div>
