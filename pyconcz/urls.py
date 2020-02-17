@@ -18,12 +18,12 @@ prefixed_urlpatterns = [
 
     # static pages
     url(r'^coc/$', TemplateView.as_view(template_name='pages/coc.html'), name='coc'),
-    url(r'^privacy-policy/$', TemplateView.as_view(template_name='pages/privacy-policy.html'), name='privacy_policy'),
+    url(r'^privacy-policy/$', TemplateView.as_view(template_name='pages/privacy_policy.html'), name='privacy_policy'),
     url(r'^ostrava/$', TemplateView.as_view(template_name='pages/ostrava.html'), name='city'),
     url(r'^venue/$', TemplateView.as_view(template_name='pages/venue.html'), name='venue'),
     url(r'^board-game-night/$', TemplateView.as_view(template_name='pages/board_game_night.html'), name='board_game_night'),
     url(r'^workshop-leaders-info/$', TemplateView.as_view(template_name='pages/workshop_leaders_info.html'), name='workshop_leaders_info'),
-    url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern-lib.html'), name='pattern_lib'),
+    url(r'^pattern-lib/$', TemplateView.as_view(template_name='pages/pattern_lib.html'), name='pattern_lib'),
 
     # redirects to external websites
     url(r'^video/$', RedirectView.as_view(url='https://www.youtube.com/watch?v=kL2gmhs0irI')),

@@ -10,7 +10,7 @@
     {% if slot.content_object.speakers %}
         <div style="width:45%; transform: scale(2.26);transform-origin: 0 0;">
             {% for speaker in slot.content_object.speakers %}
-                {% include 'programme/__speaker-detail.html' with type='intermission' odd=forloop.counter|divisibleby:'2' %}
+                {% include 'programme/__speaker_detail.html' with type='intermission' odd=forloop.counter|divisibleby:'2' %}
             {% endfor %}
         </div>
     {% else %}
