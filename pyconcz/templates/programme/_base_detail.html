@@ -35,6 +35,12 @@
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
         </h1>
 
+        {% if session.video_id and phases.videos == 'public' %}
+            <div class="embed-responsive embed-responsive-16by9 mb-3">
+                <iframe class="embed-responsive-item" src="{{ session.video_embed_url }}?rel=0" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+
         {% if phases.schedule == 'full' and session_slot %}
             <p class="pc-session-date">
                 {{ session_slot.start|date:'l, d F, H:i' }} in&nbsp;{{ session_slot.room_name }}
@@ -121,17 +127,6 @@
             {% include 'programme/__speaker-detail.html' with type='session_detail' odd=forloop.counter|divisibleby:'2' %}
         {% endfor %}
 
-        {% comment 'todo' %}
-        {% if session.video_id %}
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="{{ session.video_embed_url }}?rel=0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-        {% endcomment %}
     </div>
     {% if phases.schedule == 'full' and phases.workshops_registration == 'timed_out' or phases.schedule != 'full' and phases.workshops_registration != 'timed_out' %}
         {# show only if mini schedule is not shown #}
@@ -148,6 +143,3 @@
     {% endif %}
 
 {% endblock %}
-
-
-
