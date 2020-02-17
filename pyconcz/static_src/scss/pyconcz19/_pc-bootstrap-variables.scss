@@ -44,15 +44,15 @@
     // Color system
 
     // $white: #fff; $white: $white !global; // #fff
-    // $gray-100: #f8f9fa; $gray-100: $gray-100 !global; // #f8f9fa
-    // $gray-200: #e9ecef; $gray-200: $gray-200 !global; // #e9ecef
-    // $gray-300: #dee2e6; $gray-300: $gray-300 !global; // #dee2e6
-    // $gray-400: #ced4da; $gray-400: $gray-400 !global; // #ced4da
-    // $gray-500: #adb5bd; $gray-500: $gray-500 !global; // #adb5bd
-    // $gray-600: #6c757d; $gray-600: $gray-600 !global; // #6c757d
-    // $gray-700: #495057; $gray-700: $gray-700 !global; // #495057
-    // $gray-800: #343a40; $gray-800: $gray-800 !global; // #343a40
     $gray-900: $pc-dark; $gray-900: $gray-900 !global; // #212529
+    $gray-100: desaturate(lighten($pc-dark, 85%),30%); $gray-100: $gray-100 !global; // #f8f9fa
+    $gray-200: desaturate(lighten($pc-dark, 84%),30%); $gray-200: $gray-200 !global; // #e9ecef
+    $gray-300: desaturate(lighten($pc-dark, 73%),30%); $gray-300: $gray-300 !global; // #dee2e6
+    $gray-400: desaturate(lighten($pc-dark, 62%),30%); $gray-400: $gray-400 !global; // #ced4da
+    $gray-500: desaturate(lighten($pc-dark, 51%),30%); $gray-500: $gray-500 !global; // #adb5bd
+    $gray-600: desaturate(lighten($pc-dark, 40%),30%); $gray-600: $gray-600 !global; // #6c757d
+    $gray-700: desaturate(lighten($pc-dark, 30%),30%); $gray-700: $gray-700 !global; // #495057
+    $gray-800: desaturate(lighten($pc-dark, 20%),30%); $gray-800: $gray-800 !global; // #343a40
     // $black: #000; $black: $black !global; // #000
 
     // uncomment whole block, the following variable uses map-merge(),
