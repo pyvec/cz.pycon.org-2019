@@ -35,10 +35,17 @@
             <small class="d-md-none">a&nbsp;{{ session.type }} {{ session_preposition }} {{ session.speakers|join:' &amp; ' }}</small>
         </h1>
 
-        {% if session.video_id and phases.videos == 'public' %}
-            <div class="embed-responsive embed-responsive-16by9 mb-3">
-                <iframe class="embed-responsive-item" src="{{ session.video_embed_url }}?rel=0" allowfullscreen></iframe>
-            </div>
+        {% if session.video_id %}
+            {% if user.is_staff or phases.videos == 'public' %}
+                {% if phases.videos != 'public' %}
+                    <div class="alert alert-warning">
+                        ℹ️ You’re seeing this video only because you’re logged in as a staff member.
+                    </div>
+                {% endif %}
+                <div class="embed-responsive embed-responsive-16by9 mb-3">
+                    <iframe class="embed-responsive-item" src="{{ session.video_embed_url }}?rel=0" allowfullscreen></iframe>
+                </div>
+            {% endif %}
         {% endif %}
 
         {% if phases.schedule == 'full' and session_slot %}
