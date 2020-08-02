@@ -19,8 +19,8 @@ const rename = require('gulp-rename');
 gulp.task('runserver', gulp.series(
     function runDjangoDevServer(done){
         const djangoDevServer = spawn(
-            'env/bin/python',
-            ['manage.py', 'runserver', '--settings=pyconcz.settings.local']
+            'python3',
+            ['manage.py', 'runserver', '0:8000']
         );
 
         djangoDevServer.stdout.on('data', data => {
