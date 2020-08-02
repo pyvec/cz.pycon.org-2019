@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+    - "8000:8000"
+    links:
+    - redis
+    - db
+    depends_on:
+    - db
+    - redis
+    environment:
+      DEBUG: 1
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASS: password
+    command: bash -c "python3 manage.py migrate && npm install && npm start"
+    volumes:
+      - ./:/app
+  redis:
+    image: redis
+  db:
+    image: postgres:12
+    volumes:
+    - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+volumes:
+  dbdata: {}

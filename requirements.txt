@@ -2,10 +2,10 @@ django~=1.11.7
 django-redis~=4.10.0
 raven~=6.3.0
 #apt install libpq-dev
-psycopg2~=2.7.3
+psycopg2
 markdown~=2.6.8
 #apt install libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev
-pillow~=3.4.1
+pillow
 pyt==0.7.26
 django-import-export~=0.5.1
 django-widget-tweaks~=1.4.1
