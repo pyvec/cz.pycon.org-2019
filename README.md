@@ -1,7 +1,7 @@
-PyConCZ 2019
-============
+PyConCZ
+=======
 
-PyCon CZ taking place in Ostrava for its fifth edition.
+PyCon CZ website
 
 Contributing
 ------------
