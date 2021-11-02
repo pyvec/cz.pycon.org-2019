@@ -78,6 +78,11 @@ is a trademark for worldwide conference activities claimed by
 <a href="href=&#39;https://www.python.org/psf-landing/&#39;">Python Software foundation</a>.</p>
 </p></div></div></footer></div><script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.12/gmaps.js"></script><script type="text/javascript" src="/2015//static/js/main.min.js"></script><script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script><noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript><script>
 
+function closeNavbar() {
+  $closer.unbind();
+  $body.toggleClass("open");
+}
+
 var $body = $('body');
 var $closer = $('.viewport, .canvas, .navbar a');
 
