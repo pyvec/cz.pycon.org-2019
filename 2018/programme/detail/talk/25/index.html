@@ -1,7 +1,7 @@
 
 
-    
-        
+
+
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -10,31 +10,31 @@
 
         <title>Shipping Containers using Dunder Methods – a talk by Claus Aichinger – PyCon CZ 2018</title>
 
-        
+
             <meta property="og:type" content="website">
             <meta property="og:site_name" content="PyCon CZ 2018">
             <meta name="twitter:site" content="@pyconcz">
             <meta property="og:url" content="https://cz.pycon.org/2018/programme/detail/talk/25/">
-            
+
     <meta property="og:title" content="PyCon CZ – Shipping Containers using Dunder Methods – a talk by Claus Aichinger">
     <meta property="og:description" content="In this talk, we delve into the world of container-related double underscore (dunder) methods which define an object’s behavior.We will discover some of the most important dunder methods along the lines of the following two use cases:
 
 How to extend a tuple to represent data? How to implement a d...">
-    
+
         <meta property="og:image" content="https://cz.pycon.org/2018/media/programme/pyconcz2018/claus-aichinger-01.jpg">
         <meta property="og:image:width" content="700">
         <meta property="og:image:height" content="980">
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:alt" content="Claus Aichinger">
 
-        
+
 
         <link href="/2018/static/css/pyconcz18.min.b36410bc5e46.css" type="text/css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i|Roboto+Mono:400,700&amp;subset=latin-ext" rel="stylesheet">
-        
 
-        
+
+
         <link rel="apple-touch-icon" sizes="180x180" href="/2018/static/img/favicon/apple-touch-icon.878bc7265d52.png">
         <link rel="icon" type="image/png" href="/2018/static/img/favicon/favicon-32x32.fd4111cf727a.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/2018/static/img/favicon/favicon-16x16.aaac3183282d.png" sizes="16x16">
@@ -44,38 +44,27 @@ How to extend a tuple to represent data? How to implement a d...">
         <meta name="msapplication-TileColor" content="#002633">
         <meta name="msapplication-config" content="/2018/static/img/favicon/browserconfig.fa1ab1bb361d.xml">
         <meta name="theme-color" content="#002633">
-        
 
-        
 
-        
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81705668-1"></script>
-            <script>
-                window.dataLayer = window.dataLayer || [];
 
-                function gtag(){
-                    dataLayer.push(arguments);
-                }
 
-                gtag('js', new Date());
 
-                gtag('config', 'UA-81705668-1');
-            </script>
-        
+            <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+            <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript>
+
     </head>
     <body>
     <div style="text-align:center!important; background-color:#f2f2f2!important; padding:1rem 0!important; border-top-style:solid!important; border-bottom-style:solid!important; border-width: 4px!important; border-color: #d52034!important;">
         <span style="color:black!important; font-size:2rem!important;">Looking for </span><a href="https://cz.pycon.org/" style="color:black!important; font-size:2rem!important; text-decoration:underline!important;">the latest PyCon&nbsp;CZ website</a><span style="color:black!important; font-size:2rem!important;">?</span>
     </div>
-    
+
     <nav role="navigation" class="navbar navbar-expand">
-        
+
 <ul class="nav w-100 justify-content-center">
-    
-        
-            
-    
+
+
+
+
 
 
 
@@ -85,24 +74,24 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link pc-nav-link-hide-active "
         >
             Home
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
-    
+
+
+
+
+
+
+
+
 
 
 
@@ -112,16 +101,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -131,16 +120,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -150,32 +139,32 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-         
 
-        
 
-        
 
-        
-    
+
+
+
+
+
+
+
+
+
 </ul>
 
     </nav>
 
-    
+
         <header>
             <div class="container mb-3 mb-xl-4">
 
@@ -193,7 +182,7 @@ How to extend a tuple to represent data? How to implement a d...">
                     <div class="
                         my-2 my-xl-3
                         col-12
-                         col-sm-5 col-lg-6 h3 d-none d-sm-block 
+                         col-sm-5 col-lg-6 h3 d-none d-sm-block
                         text-white
                     ">
                         PyCon CZ 2018 Prague<br>1-3 June
@@ -203,29 +192,29 @@ How to extend a tuple to represent data? How to implement a d...">
 
             </div>
         </header>
-    
+
 
 
     <main role="main">
-        
+
     <div class="container">
         <ul class="nav justify-content-center">
-            
+
 <ul class="nav w-100 justify-content-center">
-    
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
-    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -235,16 +224,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -254,16 +243,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -273,27 +262,27 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        
-    
+
+
+
+
+
+
+
+
+
 </ul>
 
         </ul>
@@ -304,7 +293,7 @@ How to extend a tuple to represent data? How to implement a d...">
             <small class="pc-talk-detail-note d-md-none">a talk by Claus Aichinger</small>
         </h1>
 
-        
+
             <div class="row justify-content-center">
                 <div class="col-12 mb-3">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -312,24 +301,24 @@ How to extend a tuple to represent data? How to implement a d...">
                     </div>
                 </div>
             </div>
-        
+
 
         <div class="row justify-content-center align-items-start">
-            
-                
-            
+
+
+
             <div
                 class="
                     col-12
-                    
+
                         col-md-6
-                        
+
                             col-lg-5 col-xl-4
-                        
-                    
+
+
                 ">
 
-                
+
 
                 <div class="mb-3"><p>In this talk, we delve into the world of container-related double underscore (dunder) methods which define an object’s behavior.</p>
 <p>We will discover some of the most important dunder methods along the lines of the following two use cases:</p>
@@ -339,33 +328,33 @@ How to extend a tuple to represent data? How to implement a d...">
 </ul>
 <p>In both cases we will try to quickly come up with implementations that not only serve our purpose, but also render easy-to-use containers mimicking already existing ones.</p></div>
 
-                
+
                     <p class="p-2 bg-navy text-light">
                         This talk is suitable for both beginner and advanced Pythonistas.
                     </p>
-                
 
-                
 
-                    
 
-                    
-    
-        
-                        
-                    
-    
 
-                
+
+
+
+
+
+
+
+
+
+
             </div>
 
-            
+
                 <div
                     class="
                     col-12
-                    
+
                         col-md-6 col-lg-5 col-xl-4
-                    
+
                     pc-gradient-orchidred-navy-reversed
                     py-2
                 ">
@@ -381,26 +370,26 @@ How to extend a tuple to represent data? How to implement a d...">
 <p>I enjoy programming, computing and “structuring things” as well as learning and sharing insights and opinions.</p></div>
 
                     <div class="row justify-content-between small">
-                        
+
                             <div class="col">
                                 GH:
                                 <a href="https://github.com/caichinger">
                                     caichinger
                                 </a>
                             </div>
-                        
 
-                        
+
+
                             <div class="col">
                                 TW:
                                 <a href="https://twitter.com/clausaichinger">
                                     clausaichinger
                                 </a>
                             </div>
-                        
+
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
@@ -410,12 +399,12 @@ How to extend a tuple to represent data? How to implement a d...">
     <footer class="text-center pc-footer mt-2 mt-md-3 mt-lg-5 py-5 px-3 small">
         <div class="container">
             <nav class="nav mb-4">
-                
+
 <ul class="nav w-100 justify-content-center">
-    
-        
-            
-    
+
+
+
+
 
 
 
@@ -425,20 +414,20 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link pc-nav-link-hide-active "
         >
             Home
-            
+
         </a>
     </li>
 
 
-        
 
-        
 
-        
 
-        
-            
-    
+
+
+
+
+
+
 
 
 
@@ -448,16 +437,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Prague
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -467,16 +456,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Team
-            
+
         </a>
     </li>
 
 
-        
 
-        
-    
-    
+
+
+
+
 
 
 
@@ -486,16 +475,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Talks &amp; Videos
-            
+
         </a>
     </li>
 
 
 
 
-        
-            
-    
+
+
+
 
 
 
@@ -505,16 +494,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Workshops
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -524,16 +513,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Schedule
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -543,16 +532,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Board Game Night
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -562,16 +551,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Sponsors
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -581,16 +570,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Sponsorship
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -600,16 +589,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Financial Aid
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -619,16 +608,16 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Code of Conduct
-            
+
         </a>
     </li>
 
 
-        
 
-        
-            
-    
+
+
+
+
 
 
 
@@ -638,15 +627,15 @@ How to extend a tuple to represent data? How to implement a d...">
             class="nav-link  "
         >
             Privacy Policy
-            
+
         </a>
     </li>
 
 
-        
 
-        
-    
+
+
+
 </ul>
 
             </nav>
@@ -687,5 +676,5 @@ How to extend a tuple to represent data? How to implement a d...">
     </body>
     </html>
 
-    
+
 

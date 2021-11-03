@@ -6,56 +6,45 @@ This ability can be used  for targeted genome editing, where regions of interest
 <p>In order to change DNA at the right place, scientists need to design the sequence which would match the target DNA.</p>
 <p>The designed sequence shouldn&#39;t match anywhere else in the genome. Since this is biology, things are not perfect. The sequences may match even if there are a few mismatched letters. When we identify the candidate sequences, the most computationally intensive part is to look for places in the whole genome where the candidate could at least partially match.</p>
 <p>Our tool for designing such sequences is written in Python, using Django and Berkeley DB. For one analysis, we run tens of millions queries against a database of 700 million sites in genome.</p>
-</div><div class="workshop"><h3>Testing with pytest<small> 
+</div><div class="workshop"><h3>Testing with pytest<small>
 by Michal Hořejšek</small></h3><div class="misc"><small>11:30</small><a href="https://github.com/horejsek" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/horejsek" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>You can like it or not, setUp and tearDown is not enough. Not mentioning testing apps with databases or similar dependencies. With these apps you need to somehow manage fixtures. Classic unittest library has nothing to help you with. Luckily there is much better test library called pytest. I will show you why this library is so cool and why you should use it.</p>
-</div><div class="workshop"><h3>Python, Flask and modern peripherals<small> 
+</div><div class="workshop"><h3>Python, Flask and modern peripherals<small>
 by Piotr Dyba</small></h3><div class="misc"><small>12:20</small><a href="https://github.com/pdyba" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/dybacompl" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Auto-scrolling sites, glance-following ads, and gesture friendly web pages are coming!</p>
 <p>Over the last few years three products emerged that enable interaction with computer in a new way: Myo Armband, Leap Motion Controller and EyeTribe. The Myo Armband is a device that uses the electrical activity in your muscles to wirelessly control your computer, phone, and tablet, which is especially useful when your hands are “tied” or dirty. This device will be used to navigate through the presentation. The Leap Motion Controller tracks both hands in front of the screen. From a web developer’s perspective, both devices allows us to use gestures, previously restricted to touch devices, on desktops. EyeTribe is an affordable eye-tracking device.</p>
 <p>The talk will briefly cover setting up SDKs and python wrappers, and then focus on possible uses in daily life, business and, of course, web app development. Code examples will be included. In addition, the trade-offs between processing this new type of input data in the client versus processing input on the server will be discussed.</p>
-</div><div class="workshop"><h3>Push notifications with Django<small> 
+</div><div class="workshop"><h3>Push notifications with Django<small>
 by Svetlana Margetova</small></h3><div class="misc"><small>12:20</small><a href="https://github.com/SvetlanaM" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/Mandragora258" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>How to use Django for backend for mobile  app. How to create models and rest api with django rest framework according to mobile approach. How to support mobile specific requirements in Django, such as push notifications, mobile payments, rendering data to tablets, qr codes and more.</p>
-</div><div class="workshop"><h3>Build Newbies, Ship a Better Tech Community<small> 
+</div><div class="workshop"><h3>Build Newbies, Ship a Better Tech Community<small>
 by Jessica Rose</small></h3><div class="misc"><small>14:20</small><a href="https://github.com/jessrose" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/jesslynnrose" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Not happy with the face of your local tech scene? The fastest way to shape your local community is to teach or support enthusiastic newbies. While we’ll look at some of the great mentorship and teaching programs focused on the Django and Python communities, you don’t have to limit yourself to existing programs to start helping out. We’ll look at field tested routes to support new programmers that fit a range of different commitment levels. With enough of us helping out, we can change the face of our industry, as well as our local tech communities.</p>
-</div><div class="workshop"><h3>Python talking about Python<small> 
+</div><div class="workshop"><h3>Python talking about Python<small>
 by Elyézer Rezende</small></h3><div class="misc"><small>14:20</small><a href="https://github.com/elyezer" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/elyezer" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Let&#39;s explore some of the introspection features that Python offers. As an example let&#39;s build a tool that will extract test docstrings and generate a report.</p>
 <p>In this talk you will discover or remember some features of the ast and inspect modules and use some of their features to build a working report generator of tests docstrings.</p>
-</div><div class="workshop"><h3>Magical Attributes<small> 
+</div><div class="workshop"><h3>Magical Attributes<small>
 by Radomir Dopieralski</small></h3><div class="misc"><small>15:10</small><a href="https://github.com/deshipu" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/deshipu" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Have you ever wondered about what all those &quot;<strong>something</strong>&quot; methods are for in Python and how they work exactly? Did you need to define how an operator works on your objects, or how the loops iterate over them? Have you heard that you shouldn&#39;t use destructors in Python, and wondered why? This talk will go through all the common magical attribute names, and explain, with examples, how they work and what they are useful for.</p>
 <p>Note to organizers:
 This will be an upgraded version of the talk I gave on Europython: <a href="https://www.youtube.com/watch?v=rj4mf5aNhh0">https://www.youtube.com/watch?v=rj4mf5aNhh0</a></p>
-</div><div class="workshop"><h3>Debugging a Linux distribution component<small> 
+</div><div class="workshop"><h3>Debugging a Linux distribution component<small>
 by Valentina Mukhamedzhanova</small></h3><div class="misc"><small>15:10</small><a href="https://github.com/megaumi" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/umirra" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Many crucial components of modern linux distributions are written in Python. Would you like to learn a few tricks for debugging them? </p>
 <p>Python comes bundled with a rich library of modules including a debugger and several profilers, which makes it possible to use them even in very restricted environments (for example, an operating system installer). Other tools such as pudb, available as third-party packages, provide even more comfortable experience. Finally, there is a number of powerful general-purpose low-level debugging instruments, such as strace and gdb.</p>
 <p>We&#39;ll take a close look at these handy tools and techniques for effective debugging of a Python (and not only Python) program.</p>
-</div><div class="workshop"><h3>Python for particle hunters<small> 
+</div><div class="workshop"><h3>Python for particle hunters<small>
 by Jarka Schovancová</small></h3><div class="misc"><small>16:30</small><a href="https://github.com/jschovan" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/jschovan" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Have you ever wondered how we can use Python to study phenomena on a sub-atomic scale in the coolest place in the Universe known to the mankind? Do you know you can contribute to furthering research in the fundamental physics? Take part!</p>
-</div><div class="workshop"><h3>Running Python on embedded systems<small> 
+</div><div class="workshop"><h3>Running Python on embedded systems<small>
 by Jan Čermák</small></h3><div class="misc"><small>16:30</small><a href="https://github.com/sairon" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/sairon" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Nowadays we can not only meet Python on PCs and servers but even on many other platforms, including tiny 8-bit chips. You will learn something about Python on embedded devices, ranging from lightweight implementations of Python language to full-blown CPython running on single-board computers or routers.</p>
 <p>The second part of the presentation will focus on pitfalls of cross-compilation of Python and 3rd party packages when a native compiler is not available on the target device.</p>
-</div><div class="workshop"><h3>What can developers learn from bankers<small> 
+</div><div class="workshop"><h3>What can developers learn from bankers<small>
 by Viktor Stískala</small></h3><div class="misc"><small>17:20</small><a href="https://github.com/hareevs" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/hareevs" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>Companies in the financial sector doesn&#39;t have to be boring. We strive to tear down stereotypes and bring people even easier method of payment. Cooperation with people with years of experience from the bank brought us a completely different perspective and inspiration in many ways during development.</p>
 <p>In this talk I would like to summarize what we have learned during development of the scoring system from scratch, what problems we encountered and why I think that Python plus Django was the right choice for an extensive project.</p>
 <p>You will learn how it&#39;s like to have a person from a different sector in the same team, what tools we use for parallel evaluation of a large number of scoring criteria and why it&#39;s important to maintain a high quality logs.</p>
-</div><div class="workshop"><h3>So you have an Python app and now what?<small> 
+</div><div class="workshop"><h3>So you have an Python app and now what?<small>
 by Věroš Kaplan, Pavel Grochal</small></h3><div class="misc"><small>17:20</small><a href="https://github.com/verosk" class="social github"><div class="fa fa-github"></div></a><a href="https://twitter.com/verosk" class="social twitter"><div class="fa fa-twitter"></div></a></div><p>So you have prepared a new shiny Python/Django application and you want to deploy it to the real world.</p>
 <p>Talk about miscellaneous aspects of Python applications from the Ops view. This topic includes reproducible deployment and upgrading, together with related services like Celery, etc. Don&#39;t forget relation with config-management tools like Puppet and Ansible, backup operations and possibly others not-so-fancy-but-needed ops tools.</p>
 </div></div></div><footer class="site-footer"><div class="container"><nav><ul class="nav-footer"><li class="section"><a href="/2015/#" class="nav-title">About</a><ul><li><a href="/2015/about/team.html">Team</a></li><li><a href="/2015/about/speakers.html"><strong>Speakers</strong></a></li><li><a href="/2015/about/tickets.html">Tickets</a></li><li><a href="/2015/about/pycontest.html">#PyConTest</a></li><li><a href="/2015/about/sponsorship.html">Sponsorship</a></li><li><a href="/2015/about/code-of-conduct.html"><strong>Code of Conduct</strong></a></li></ul></li><li class="section"><a href="/2015/getting-here/" class="nav-title">Getting Here</a><ul><li><a href="/2015/getting-here/#travelling">Travelling</a></li><li><a href="/2015/getting-here/#accommodation">Accommodation</a></li></ul></li><li class="section"><a href="/2015/talks/" class="nav-title">Talks</a><ul><li><a href="/2015/talks/">Schedule</a></li><li><a href="/2015/talks/#directions">Directions</a></li></ul></li><li class="section"><a href="/2015/workshops/" class="nav-title">Sprints &amp; Workshops</a><ul><li><a href="/2015/workshops/">Schedule</a></li><li><a href="/2015/workshops/#directions">Directions</a></li></ul></li></ul></nav><div class="social-links">Spread the word about <strong>PyCon CZ!</strong><ul><li><a href="https://twitter.com/pyconcz"><i class="fa fa-twitter"></i></a></li><li><a href="https://www.facebook.com/events/1624916497723396/"><i class="fa fa-facebook"></i></a></li><li><a href="http://lanyrd.com/2015/pyconcz/"><i class="fa fa-calendar-check-o"></i></a></li><li><a href="https://github.com/pyvec/cz.pycon.org-2015"><i class="fa fa-github"></i></a></li><li><a href="https://pyconcz.slack.com"><i class="fa fa-slack"></i></a></li><li><a href="mailto:info@pycon.cz"><i class="fa fa-envelope"></i></a></li></ul></div><div class="psf-trademark"><p><p><a href="href=&#39;https://www.python.org/psf/trademarks/pycon/&#39;">PyCon™</a>
 is a trademark for worldwide conference activities claimed by
 <a href="href=&#39;https://www.python.org/psf-landing/&#39;">Python Software foundation</a>.</p>
-</p></div></div></footer></div><script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.12/gmaps.js"></script><script type="text/javascript" src="/2015//static/js/main.min.js"></script><script>(function (i, s, o, g, r, a, m) {
-  i['GoogleAnalyticsObject'] = r;
-  i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-  a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0];
-  a.async = 1;
-  a.src = g;
-  m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+</p></div></div></footer></div><script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.12/gmaps.js"></script><script type="text/javascript" src="/2015//static/js/main.min.js"></script><script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script><noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade"></noscript><script>
 
-ga('create', 'UA-62652331-2', 'auto');
-ga('send', 'pageview');</script><script type="text/javascript">function closeNavbar() {
+function closeNavbar() {
   $closer.unbind();
   $body.toggleClass("open");
 }
@@ -65,7 +54,7 @@ var $closer = $('.viewport, .canvas, .navbar a');
 
 $('.navbar-toggle').click(function(ev) {
   ev.preventDefault();
-  
+
   if ($body.hasClass('open')) {
     closeNavbar();
   } else {
