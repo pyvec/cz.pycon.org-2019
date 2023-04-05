@@ -2,38 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <title>PyCon CZ 2023</title>
+    <style>
+        :root {
+            --bs-font-sans-serif: "Roboto Slab", system-ui, -apple-system, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --bs-font-monospace: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            --bs-link-color: #000000;
+            --bs-link-color-rgb: 0,0,0;
+            --bs-link-hover-color: #505050;
+            --bs-link-hover-color-rgb: 80,80,80;
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>PyCon CZ 2023</h1>
-</header>
+<div class="container py-4">
 
-<footer>
-    <!--
-    <a href="/2020/coc/">Code of Conduct</a>
-    <a href="/2020/privacy-policy/">Privacy Policy</a>
-    -->
-    <p>
-        <a href="https://cz.pycon.org/2015/">PyCon&nbsp;CZ 2015</a>
-        <a href="https://cz.pycon.org/2016/">PyCon&nbsp;CZ 2016</a>
-        <a href="https://cz.pycon.org/2017/">PyCon&nbsp;CZ 2017</a>
-        <a href="https://cz.pycon.org/2018/">PyCon&nbsp;CZ 2018</a>
-        <a href="https://cz.pycon.org/2019/">PyCon&nbsp;CZ&nbsp;2019</a>
-    </p>
-    <p>
-        <a href="https://twitter.com/pyconcz">Twitter</a>
-        <a href="https://www.facebook.com/events/1009813049380535/">Facebook</a>
-        <a href="https://www.instagram.com/pyconcz/">Instagram</a>
-        <a href="https://github.com/pyvec/cz.pycon.org-2019">GitHub</a>
-        <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">YouTube</a>
-    </p>
-    <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact&nbsp;us!</a></p>
-    <p><a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™ is a&nbsp;trademark for worldwide conference activities claimed by the&nbsp;<a href="https://www.python.org/psf-landing/">Python Software Foundation</a> and used with permission.</p>
-    <p>Site hosted by <a href="https://rosti.cz/">Roští.cz</a>. Thank you!</p>
-</footer>
+    <header class="lead">
+        <img src="pycon-logo.svg" alt="PyCon&nbsp;CZ" width="320" class="img-fluid mb-3">
+        <h1>PyCon CZ 23</h1>
+        <p>Prague, September 2023</p>
+        <p>More info soon…</p>
+        <p>
+            Do you want to be notified when more information about PyCon CZ 23 will be available?
+            <br><a href="https://eepurl.com/gOHNvP">Subscribe to our newsletter</a>
+        </p>
+    </header>
+
+    <main class="pt-3 mt-5 border-top">
+        <h2>Organized by community for community</h2>
+        <p>PyCon&nbsp;CZ is organized by volunteers from <a href="https://pyvec.org/">Czech Python community</a> for anyone interested in Python: professionals, novices, students and hobbyist Python programmers from Czechia and abroad.</p>
+        <p>Watch a&nbsp;short video from the&nbsp;PyCon&nbsp;CZ 2019 or check talks from previous years on <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">PyCon&nbsp;CZ YouTube channel</a>.</p>
+        <iframe class="embed-responsive-item" width="960" height="407" src="https://www.youtube.com/embed/kL2gmhs0irI" allowfullscreen></iframe>
+    </main>
+
+    <footer class="pt-3 mt-5 border-top small">
+        <!--
+        <a href="/2020/coc/">Code of Conduct</a>
+        <a href="/2020/privacy-policy/">Privacy Policy</a>
+        -->
+        <p>
+            <a href="https://cz.pycon.org/2015/">PyCon&nbsp;CZ 2015</a>
+            <a href="https://cz.pycon.org/2016/">PyCon&nbsp;CZ 2016</a>
+            <a href="https://cz.pycon.org/2017/">PyCon&nbsp;CZ 2017</a>
+            <a href="https://cz.pycon.org/2018/">PyCon&nbsp;CZ 2018</a>
+            <a href="https://cz.pycon.org/2019/">PyCon&nbsp;CZ&nbsp;2019</a>
+            <a href="https://cz.pycon.org/2020/">PyCon&nbsp;CZ&nbsp;2020</a>
+        </p>
+        <p>
+            <a href="https://twitter.com/pyconcz">Twitter</a>
+            <a href="https://www.facebook.com/events/1009813049380535/">Facebook</a>
+            <a href="https://www.instagram.com/pyconcz/">Instagram</a>
+            <a href="https://github.com/pyvec/cz.pycon.org-2019">GitHub</a>
+            <a href="https://www.youtube.com/channel/UCRC2Vu7p4SJxhhuRdl8rQ6g">YouTube</a>
+        </p>
+        <p>Do you have any questions? <a href="mailto:info@pycon.cz">Contact&nbsp;us!</a></p>
+        <p><a href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>™ is a&nbsp;trademark for worldwide conference activities claimed by the&nbsp;<a href="https://www.python.org/psf-landing/">Python Software Foundation</a> and used with permission.</p>
+        <p>Site hosted by <a href="https://rosti.cz/">Roští.cz</a>. Thank you!</p>
+    </footer>
+</div>
 
 </body>
 </html>

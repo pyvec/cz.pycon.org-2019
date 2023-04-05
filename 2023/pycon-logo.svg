@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="svg2" x="0" y="0" version="1.1" viewBox="0 0 612 284">
+  <defs id="defs49">
+    <pattern xlink:href="#pattern5433" id="pattern5462" patternTransform="translate(-3312 -2690.6)"/>
+    <pattern xlink:href="#bottom-8-1-0-8" id="pattern5433" patternTransform="translate(-3312 -754.6)"/>
+    <pattern id="bottom-8-1-0-8" width="83.2" height="48" patternUnits="userSpaceOnUse">
+      <path id="path4160-2-3-8-4" fill="none" stroke="#b800cc" stroke-linecap="square" stroke-width=".5" d="M83.2 48 0 0m0 48L83.2 0"/>
+    </pattern>
+    <pattern xlink:href="#top-5-4-2-1-2" id="pattern5436-3-9-8-6" patternTransform="matrix(5715 0 0 1 -3928.7 -2978.8)"/>
+    <pattern id="top-5-4-2-1-2" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path id="path4157-8-6-6-1" fill="#fff" d="M0 48 83.2 0m0 48L0 0m0 26v2.2h83.1V26H0zm0 28.9v4.3h83.1v-4.3H0zm0-5.8v4.1h83.1v-4H0zm0-5.8v3.6h83.1v-3.6H0zm0-5.8v3.2h83.1v-3.2H0zm0-5.7v2.7h83.1v-2.7H0zm0-11.6V22h83.1v-1.8H0zm0-5.7v1.2h83.1v-1.2H0zm0-5.8v.8h83.1v-.8H0zm0-6v.5h83.1v-.5H0z"/>
+    </pattern>
+    <mask id="mask5495-6-4-3-7" maskUnits="userSpaceOnUse">
+      <g id="g5497-4-9-8-1">
+        <path id="rect5501-0-2-9-9" fill="#fff" fill-opacity="1" fill-rule="evenodd" stroke="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-opacity="1" stroke-width="1" d="M-3645.9-2918.4h5322.7V160.4h-5322.7z"/>
+      </g>
+    </mask>
+  </defs>
+  <pattern id="Unnamed_Pattern_8" width="83.2" height="48" y="284" overflow="visible" patternUnits="userSpaceOnUse" viewBox=".1 -48.2 83.2 48">
+    <g id="g6"/>
+  </pattern>
+  <g id="layer3" display="inline">
+    <g id="sides" fill="#fff" fill-opacity="1" stroke="#000" stroke-opacity="1">
+      <path id="left" fill="#fff" fill-opacity="1" stroke="#000" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M88.6 42v20l17.3 10v20l17.3 10V62zm277.1 0v10h17.4ZM158 62v40l34.6 20V82zm155.9 10v20l52 30v20l34.6 20v-40zM2 92v40l86.6 50v-40zm311.8 20v30H331v-20l-17.3-10zm-69.3 20v40l17.3-10 17.3 10v20l17.3 10v-40zm207.8 20v20l17.4 10v20l17.3-10v-20zM158 182v40l52 30v-40zm346.4 0v40l34.6 20v-40zM383 212v40l52 30v-40z"/>
+      <path id="front" fill="#fff" fill-opacity="1" stroke="#000" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M123.2 62v40H158V62h-34.7zm277.2 40 17.3 10v30H435v-40h-34.6zM279 112v20l17.3 10h17.4v-30H279zm17.3 50v40h34.7v-40h-34.7zm-86.6 50v40h34.7v-40h-34.7zM435 242v40h34.7v-40H435z"/>
+      <path id="right" fill="#fff" fill-opacity="1" stroke="#000" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="m227.2 62-34.7 20v40l34.7-20V62zm242.5 20L435 102v40l34.7-20V82zM105.9 92l-17.3 10 17.3 10V92zm311.8 20-17.3 10v40l17.3-10v-40zm-294.5 10-34.6 20v40l34.6-20v-40zm242.5 20-34.6 20v40l34.6-20v-40zm-121.2 10-34.7 20 17.4 10 17.3-10v-20zm259.8 10L487 172v20l17.3 10v-40zm104 0-69.4 40v40l69.3-40v-40zm-138.6 20L435 202l17.3 10 17.4-10v-20zM279 192l-34.6 20v40l34.6-20v-40zm225.2 30-34.6 20v40l34.6-20v-40z"/>
+    </g>
+    <path id="top" fill="#fff" fill-opacity="1" stroke="none" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="m157.9 2-17.3 10v20h-34.7L88.6 42l34.6 20H158l34.6 20 34.7-20-34.7-20V22L158 2zM383 32l-17.4 10 17.4 10h-34.7l-34.6 20 86.6 50 17.3-10-17.3-10H435l34.7-20L383 32ZM54 62 2 92l86.6 50 34.6-20-34.6-20 17.3-10V72L88.6 62H54zM279 92l-34.6 20v20l52 30H331l34.6-20v-20l-52-30h-34.6zm0 20h34.7l17.3 10v20h-34.7l-17.3-10v-20zm242.5 0-69.3 40 34.7 20 17.3-10v20l34.6 20 69.3-40-34.6-20-17.3 10v-20l-34.7-20zm-329 30-34.7 20v20l52 30h34.6l34.6-20v-20l-17.3-10-34.6 20-17.4-10 34.7-20-17.3-10h-34.7zm225 30-34.5 20v20l52 30h34.6l34.6-20v-20L487 192l-34.7 20-17.3-10 34.7-20-17.4-10h-34.6z"/>
+    <path id="logo-grid" fill="none" stroke="#b333cc" stroke-linejoin="round" stroke-opacity="1" stroke-width=".5" d="m19.3 82 86.6 50M36.6 72l52 30M54 62l52 30m-86.7 10 69.3-40m-52 50L106 72m-52 50 34.7-20m-17.3 30 34.6-20m0-60 69.3-40m-52 50 69.3-40M158 62l34.6-20m-17.3 30 34.6-20m0 20-69.2-40m0-20 52 30m-86.7-10 52 30m0 120 69.3-40m-52 50 34.6-20m-17.3 30 34.7-20m-17.4 30 69.3-40m-103.9-20 34.6 20m17.4 10 34.6 20m-104-40 86.7 50m-52-70 34.7 20m17.3 10 34.6 20m-34.6-60 69.3-40m-52 50 17.3-10m52-30-17.3 10m34.6 0-17.3 10m-34.7 20-17.3 10m17.3 10 69.3-40m-86.6-30 34.7 20m17.3 10 34.6 20m-34.6 0 17.3 10m-86.6-50 17.3 10m-34.6 0 34.6 20m17.3 10 34.7 20m0-80 69.3-40m17.3 10-69.3 40m17.3 10L435 62m17.3 10-69.2 40m-52-50 69.3 40m-52-50 86.6 50m-52-50 69.3 40m-69.2 120 69.2-40m-52 50 34.7-20m-17.3 30 34.6-20M435 242l69.3-40m-104-20 34.7 20m17.3 10 34.7 20m-104-40 86.7 50m-52-70 34.6 20m17.4 10 34.6 20m0-60 52-30m0 20-52 30m17.3 10 69.3-40m-121.2 10 69.2-40m-34.6 0 86.6 50m-104-40 86.7 50m-104-40 86.7 50"/>
+    <path id="path6317" fill="#fff" fill-opacity="1" stroke="none" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="m157.9 2-17.3 10v20h-34.7L88.6 42l34.6 20H158l34.6 20 34.7-20-34.7-20V22ZM383 32l-17.4 10 17.4 10h-34.7l-34.6 20 86.6 50 17.3-10-17.3-10H435l34.7-20ZM54 62 2 92l86.6 50 34.6-20-34.6-20 17.3-10V72L88.6 62ZM279 92l-34.6 20v20l52 30H331l34.6-20v-20l-52-30Zm0 20h34.7l17.3 10v20h-34.7l-17.3-10zm242.5 0-69.3 40 34.7 20 17.3-10v20l34.6 20 69.3-40-34.6-20-17.3 10v-20zm-329 30-34.7 20v20l52 30h34.6l34.6-20v-20l-17.3-10-34.6 20-17.4-10 34.7-20-17.3-10zm225 30-34.5 20v20l52 30h34.6l34.6-20v-20L487 192l-34.7 20-17.3-10 34.7-20-17.4-10z"/>
+    <path id="path6315" fill="none" fill-opacity="1" stroke="#000" stroke-dasharray="none" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="m157.9 2-17.3 10v20h-34.7L88.6 42l34.6 20H158l34.6 20 34.7-20-34.7-20V22ZM383 32l-17.4 10 17.4 10h-34.7l-34.6 20 86.6 50 17.3-10-17.3-10H435l34.7-20ZM54 62 2 92l86.6 50 34.6-20-34.6-20 17.3-10V72L88.6 62ZM279 92l-34.6 20v20l52 30H331l34.6-20v-20l-52-30Zm0 20h34.7l17.3 10v20h-34.7l-17.3-10zm242.5 0-69.3 40 34.7 20 17.3-10v20l34.6 20 69.3-40-34.6-20-17.3 10v-20zm-329 30-34.7 20v20l52 30h34.6l34.6-20v-20l-17.3-10-34.6 20-17.4-10 34.7-20-17.3-10zm225 30-34.5 20v20l52 30h34.6l34.6-20v-20L487 192l-34.7 20-17.3-10 34.7-20-17.4-10z"/>
+  </g>
+</svg>
