@@ -1,3 +1,12 @@
+# ⚠ This repository is archived 🗄
+
+https://cz.pycon.org/2019/ and https://cz.pycon.org/2020/ are now served as a static websites.  
+Repo for these static mirrors is https://github.com/pyvec/cz.pycon.org-archive.
+
+New repository for cz.pycon.org is https://github.com/pyvec/cz.pycon.org and should remain so in the future.
+
+---
+
 PyConCZ
 =======
 
